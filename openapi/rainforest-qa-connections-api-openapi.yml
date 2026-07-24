@@ -1,0 +1,208 @@
+openapi: 3.0.0
+info:
+  title: Rainforest callback connections API
+  description: Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).
+  version: '1'
+servers:
+- url: https://app.rainforestqa.com/api
+security:
+- api_key: []
+tags:
+- name: connections
+  description: Operations about connections
+paths:
+  /1/connections:
+    get:
+      summary: List connections
+      description: List connections
+      parameters:
+      - in: query
+        name: page
+        description: Page of results to display
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - in: query
+        name: page_size
+        description: 'Number of results to return per page; maximum: 100'
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 10
+      responses:
+        '200':
+          description: List connections
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Connection'
+      tags:
+      - connections
+      operationId: get-connections
+    post:
+      summary: Creates a new connection
+      description: Create connection
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/create-connection'
+        required: true
+      responses:
+        '201':
+          description: Create connection
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Connection'
+      tags:
+      - connections
+      operationId: create-connection
+      x-rdme-order: 1
+  /1/connections/{id}:
+    get:
+      summary: Get connection
+      description: Get connection
+      parameters:
+      - in: path
+        name: id
+        description: Connection ID
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Get connection
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Connection'
+      tags:
+      - connections
+      operationId: get-connection
+    put:
+      summary: Rename connection
+      description: Rename connection
+      parameters:
+      - in: path
+        name: id
+        description: Connection ID
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/rename-connection'
+        required: true
+      responses:
+        '200':
+          description: Rename connection
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Connection'
+      tags:
+      - connections
+      operationId: rename-connection
+    delete:
+      summary: Delete connection
+      description: Delete connection
+      parameters:
+      - in: path
+        name: id
+        description: Connection ID
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Delete connection
+      tags:
+      - connections
+      operationId: delete-connection
+  /1/connections/{id}/status:
+    get:
+      summary: Get connection status
+      description: Get connection status
+      parameters:
+      - in: path
+        name: id
+        description: Connection ID
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Get connection status
+      tags:
+      - connections
+      operationId: get-connection-status
+  /1/connections/{id}/regenerate_api_token:
+    put:
+      summary: Regenerate API token
+      description: Regenerate API token
+      parameters:
+      - in: path
+        name: id
+        description: Connection ID
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Regenerate API token
+      tags:
+      - connections
+      operationId: regenerate-api-token
+components:
+  schemas:
+    Connection:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        name:
+          type: string
+        api_token:
+          type: string
+        state:
+          type: string
+        link_state:
+          type: string
+        type:
+          type: string
+          enum:
+          - rainforest
+          - user
+      description: Connection model
+    rename-connection:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Connection name
+      required:
+      - name
+      description: Rename connection
+    create-connection:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Connection name
+      required:
+      - name
+      description: Create connection
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: CLIENT_TOKEN
+      in: header

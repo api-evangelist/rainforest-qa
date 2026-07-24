@@ -1,0 +1,274 @@
+openapi: 3.0.0
+info:
+  title: Rainforest callback sites API
+  description: Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).
+  version: '1'
+servers:
+- url: https://app.rainforestqa.com/api
+security:
+- api_key: []
+tags:
+- name: sites
+  description: Operations about sites
+paths:
+  /1/sites/{site_id}:
+    put:
+      summary: Update a site
+      description: Update a site
+      parameters:
+      - in: path
+        name: site_id
+        description: A site ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/put-site'
+        required: true
+      responses:
+        '200':
+          description: Site updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Site'
+        '400':
+          description: Site could not be updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Site not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - sites
+      operationId: put-site
+      x-rdme-order: 11
+    get:
+      summary: Get a site
+      description: Get a site
+      parameters:
+      - in: path
+        name: site_id
+        description: A site ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Site retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Site'
+        '404':
+          description: Site not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - sites
+      operationId: get-site
+      x-rdme-order: 10
+    delete:
+      summary: Delete a site
+      description: Delete a site and its associated site-environments
+      parameters:
+      - in: path
+        name: site_id
+        description: A site ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Site deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Site'
+        '400':
+          description: Site could not be deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Site not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - sites
+      operationId: delete-site
+      x-rdme-order: 12
+  /1/sites:
+    get:
+      summary: List sites
+      description: List sites
+      parameters:
+      - in: query
+        name: name
+        description: Filter by name (case-insensitive)
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: page
+        description: Page of results to display
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - in: query
+        name: page_size
+        description: 'Number of results to return per page; maximum: 100'
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 10
+      responses:
+        '200':
+          description: Retrieved sites
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Site'
+      tags:
+      - sites
+      operationId: get-sites
+      x-rdme-order: 1
+    post:
+      summary: Create a new site
+      description: Create a new site - creates corresponding site-environments for each environment as well
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/post-sites'
+        required: true
+      responses:
+        '201':
+          description: Site created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Site'
+        '400':
+          description: Site could not be created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - sites
+      operationId: post-sites
+      x-rdme-order: 2
+components:
+  schemas:
+    post-sites:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the new site
+        default_url:
+          type: string
+          description: Default URL for site-environments
+        default:
+          type: boolean
+          description: Set this site as the default
+        category:
+          type: string
+          description: Set the type of url
+          enum:
+          - site
+          - ios
+          - android
+          default: site
+        ai_generation_rules:
+          type: string
+          description: Set the AI generation rules for the site
+      required:
+      - name
+      description: Create a new site - creates corresponding site-environments for each environment as well
+    put-site:
+      type: object
+      properties:
+        name:
+          type: string
+          description: New name of site
+        default:
+          type: boolean
+          description: Set this site as default
+          enum:
+          - true
+        category:
+          type: string
+          description: Set the type of url
+          enum:
+          - site
+          - ios
+          - android
+        ai_generation_rules:
+          type: string
+          description: Set the AI generation rules for the site
+      description: Update a site
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: An error message describing what went wrong
+      required:
+      - error
+      description: Error model
+    Site:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        name:
+          type: string
+        default:
+          type: boolean
+        category:
+          type: string
+          enum:
+          - site
+          - ios
+          - android
+        ai_generation_rules:
+          type: string
+        snippet_count:
+          type: integer
+          format: int32
+        test_count:
+          type: integer
+          format: int32
+      description: Site model
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: CLIENT_TOKEN
+      in: header

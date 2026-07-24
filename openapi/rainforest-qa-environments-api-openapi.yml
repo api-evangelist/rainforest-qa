@@ -1,0 +1,300 @@
+openapi: 3.0.0
+info:
+  title: Rainforest callback environments API
+  description: Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).
+  version: '1'
+servers:
+- url: https://app.rainforestqa.com/api
+security:
+- api_key: []
+tags:
+- name: environments
+  description: Operations about environments
+paths:
+  /1/environments:
+    get:
+      summary: List environments
+      description: List environments
+      parameters:
+      - in: query
+        name: name
+        description: Filter by name (case-insensitive)
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: page
+        description: Page of results to display
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - in: query
+        name: page_size
+        description: 'Number of results to return per page; maximum: 100'
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 10
+      responses:
+        '200':
+          description: Retrieved environments
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Environment'
+      tags:
+      - environments
+      operationId: get-environments
+      x-rdme-order: 1
+    post:
+      summary: Create a new environment
+      description: Create a new environment and corresponding site-environments for each site as well
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/post-environments'
+        required: true
+      responses:
+        '201':
+          description: Environment created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Environment'
+        '400':
+          description: Environment could not be created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - environments
+      operationId: post-environments
+      x-rdme-order: 2
+  /1/environments/{environment_id}:
+    get:
+      summary: Get an environment
+      description: Get an environment
+      parameters:
+      - in: path
+        name: environment_id
+        description: An environment ID
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Environment retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Environment'
+        '404':
+          description: Environment not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - environments
+      operationId: get-environment
+      x-rdme-order: 10
+    put:
+      summary: Update an environment
+      description: Update an environment
+      parameters:
+      - in: path
+        name: environment_id
+        description: An environment ID
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/put-environment'
+        required: true
+      responses:
+        '200':
+          description: Environment updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Environment'
+        '400':
+          description: Environment could not be updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Environment not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - environments
+      operationId: put-environment
+      x-rdme-order: 11
+    delete:
+      summary: Delete an environment
+      description: Delete an environment and its associated site-environments
+      parameters:
+      - in: path
+        name: environment_id
+        description: An environment ID
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Environment deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Environment'
+        '400':
+          description: Environment could not be deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Environment not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - environments
+      operationId: delete-environment
+      x-rdme-order: 12
+components:
+  schemas:
+    Environment:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        name:
+          type: boolean
+        default:
+          type: boolean
+        webhook:
+          type: string
+          format: url
+        webhook_enabled:
+          type: boolean
+        is_temporary:
+          type: boolean
+        deleted_at:
+          type: string
+          format: date-time
+          description: Only rendered if the environment is deleted
+        site_environments:
+          type: array
+          items:
+            $ref: '#/components/schemas/SiteEnvironment'
+        will_delete_after:
+          type: string
+          format: date-time
+          description: Only rendered if `is_temporary` is `true`
+      required:
+      - name
+      - default
+      - webhook
+      - webhook_enabled
+      - is_temporary
+      - site_environments
+      description: Environment model
+    put-environment:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the environment
+        default:
+          type: boolean
+          description: Set this environment as the default
+        webhook:
+          type: string
+          format: url
+          description: Default webhook for new runs
+        webhook_enabled:
+          type: boolean
+          description: Use the webhook for new runs?
+      description: Update an environment
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: An error message describing what went wrong
+      required:
+      - error
+      description: Error model
+    post-environments:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the environment
+        webhook:
+          type: string
+          format: url
+          description: Default webhook to call before starting new runs
+        webhook_enabled:
+          type: boolean
+          description: Use the webhook for new runs?
+        default:
+          type: boolean
+          description: Set this environment as the default
+        url:
+          type: string
+          format: url
+          description: Default base URL for tests run in this environment
+        is_temporary:
+          type: boolean
+          description: Should this be deleted after 72 hours of use?
+      required:
+      - name
+      description: Create a new environment and corresponding site-environments for each site as well
+    SiteEnvironment:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        site_id:
+          type: integer
+          format: int32
+        environment_id:
+          type: integer
+          format: int32
+        url:
+          type: string
+          format: url
+      required:
+      - site_id
+      - environment_id
+      - url
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: CLIENT_TOKEN
+      in: header

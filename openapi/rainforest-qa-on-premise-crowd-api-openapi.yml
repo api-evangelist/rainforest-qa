@@ -1,0 +1,139 @@
+openapi: 3.0.0
+info:
+  title: Rainforest callback on_premise_crowd API
+  description: Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).
+  version: '1'
+servers:
+- url: https://app.rainforestqa.com/api
+security:
+- api_key: []
+tags:
+- name: on_premise_crowd
+  description: Operations about on_premise_crowds
+paths:
+  /1/on_premise_crowd:
+    get:
+      summary: List On-Prem Crowd testers
+      description: List On-Prem Crowd testers
+      responses:
+        '200':
+          description: Retrieved On-Prem crowd testers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Worker'
+      tags:
+      - on_premise_crowd
+      operationId: get-on_premise_crowd_testers
+      x-rdme-order: 1
+    post:
+      summary: Create an On-Prem Crowd tester
+      description: Create an On-Prem Crowd tester
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/post-on_premise_crowd_testers'
+        required: true
+      responses:
+        '201':
+          description: Created On-Prem Crowd tester
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Worker'
+        '400':
+          description: Could not create On-Prem Crowd tester
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - on_premise_crowd
+      operationId: post-on_premise_crowd_testers
+      x-rdme-order: 2
+  /1/on_premise_crowd/{worker_id}:
+    delete:
+      summary: Delete an On-Prem Crowd tester
+      description: Delete an On-Prem Crowd tester
+      parameters:
+      - in: path
+        name: worker_id
+        description: A worker ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Deleted On-Prem Crowd tester
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Worker'
+        '404':
+          description: On-Prem Crowd tester not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - on_premise_crowd
+      operationId: delete-on_premise_crowd_tester
+      x-rdme-order: 10
+components:
+  schemas:
+    post-on_premise_crowd_testers:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+          description: Email of the tester
+        name:
+          type: string
+          description: Name of the tester
+      required:
+      - email
+      - name
+      description: Create an On-Prem Crowd tester
+    Worker:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        uuid:
+          type: string
+          format: uuid
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        pic:
+          type: string
+          format: url
+        profile_url:
+          type: string
+          format: url
+      description: Worker model
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: An error message describing what went wrong
+      required:
+      - error
+      description: Error model
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: CLIENT_TOKEN
+      in: header

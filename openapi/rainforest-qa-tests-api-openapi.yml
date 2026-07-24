@@ -1,0 +1,2461 @@
+openapi: 3.0.0
+info:
+  title: Rainforest callback tests API
+  description: Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).
+  version: '1'
+servers:
+- url: https://app.rainforestqa.com/api
+security:
+- api_key: []
+tags:
+- name: tests
+  description: Operations about tests
+paths:
+  /1/tests/{test_id}/test_versions/{test_version_id}:
+    get:
+      summary: Get a test version
+      description: Get a test version
+      parameters:
+      - in: path
+        name: test_id
+        description: A test ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: path
+        name: test_version_id
+        description: A test version ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Get a test version
+      tags:
+      - tests
+      operationId: get-test-version
+  /1/tests:
+    get:
+      summary: List tests
+      description: List tests
+      parameters:
+      - in: query
+        name: category
+        description: Only return tests with this category
+        required: false
+        schema:
+          type: string
+          enum:
+          - app
+          - site
+      - in: query
+        name: exploratory_run_id
+        description: Only return created in this exploratory run
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: priority
+        description: Only return tests with this priority
+        required: false
+        schema:
+          type: string
+          enum:
+          - P1
+          - P2
+          - P3
+          - ''
+          - not_prioritized
+      - in: query
+        name: query
+        description: Only return tests whose title contains, or ID matches, this string
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: result
+        description: Only return tests with a specific result
+        required: false
+        schema:
+          type: string
+          enum:
+          - passed
+          - failed
+          - no_result
+      - in: query
+        name: run_group_id
+        description: Only return tests in this run group; use `-1` to filter for tests not in any run groups
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: smart_folder_id
+        description: Only return tests in this saved filter
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: step_query
+        description: Only return tests whose steps match this string
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: tests
+        description: Only return tests matching this criteria. Can be comma-separated list of test ids or 'all' to return all tests
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: type
+        description: Only return tests of this type
+        required: false
+        schema:
+          type: string
+          enum:
+          - snippet
+          - test
+      - in: query
+        name: variable
+        description: Only return tests that contain given variable
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: embedded
+        description: If true, only return tests that are embedded in other tests. If false, only return tests that are not embedded in other tests.
+        required: false
+        schema:
+          type: boolean
+      - in: query
+        name: owner_id
+        description: Only return tests owned by this user; use `-1` to filter for tests without an owner
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: test_language
+        description: Only return tests with a specified language
+        required: false
+        schema:
+          type: string
+          enum:
+          - plain_english
+          - rainforest_test_language
+      - in: query
+        name: logic[][operation]
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - and
+            - or
+      - in: query
+        name: logic[][expression][tag]
+        description: The name of the tag
+        required: true
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+      - in: query
+        name: logic[][expression][inclusive]
+        description: Whether to filter for tests tagged or untagged with the given tag
+        required: true
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: boolean
+      - in: query
+        name: sort[][title]
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - asc
+            - desc
+      - in: query
+        name: sort[][id]
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - asc
+            - desc
+      - in: query
+        name: sort[][updated_at]
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - asc
+            - desc
+      - in: query
+        name: sort[][priority]
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - asc
+            - desc
+      - in: query
+        name: sort[][created_at]
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - asc
+            - desc
+      - in: query
+        name: sort[][owner]
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - asc
+            - desc
+      - in: query
+        name: sort[][last_run]
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - asc
+            - desc
+      - in: query
+        name: sort[][environment_name]
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - asc
+            - desc
+      - in: query
+        name: sort[][last_complete_run_test_completed_at]
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - asc
+            - desc
+      - in: query
+        name: sort[][last_complete_run_test_run_id]
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - asc
+            - desc
+      - in: query
+        name: sort[][notified_user_name]
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - asc
+            - desc
+      - in: query
+        name: sort[][self_healed_at]
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - asc
+            - desc
+      - in: query
+        name: sort[][status]
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - asc
+            - desc
+      - in: query
+        name: page
+        description: Page of results to display
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - in: query
+        name: page_size
+        description: 'Number of results to return per page; maximum: 100'
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 10
+      - in: query
+        name: feature_id[]
+        description: Only return tests with this/these feature(s); use `-1` to filter for tests without a feature
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+      - in: query
+        name: site_id[]
+        description: Only return tests for this/these site(s)
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+      - in: query
+        name: state[]
+        description: Only return tests that with this state
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - enabled
+            - disabled
+            - draft
+            - archived
+            - all
+            - unarchived
+      - in: query
+        name: tags[]
+        description: Only return tests having all specified tags; use `-1` to filter for untagged tests
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+      - in: query
+        name: run_id[]
+        description: Only return tests that were in this/these previous run(s)
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+      - in: query
+        name: options[]
+        description: List of extra details to display
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - elements
+            - run_tests_steps
+            - wisp
+      responses:
+        '200':
+          description: Tests retrieved
+          headers:
+            X-Total-Pages:
+              description: Total pages
+              schema:
+                type: integer
+            X-Current-Page:
+              description: Current page
+              schema:
+                type: integer
+            X-Per-Page:
+              description: The maximum number of results per page
+              schema:
+                type: integer
+            X-Total-Results:
+              description: The total number of results
+              schema:
+                type: integer
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Test'
+        '400':
+          description: Invalid filtering parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - tests
+      operationId: get-tests
+      x-rdme-order: 1
+    post:
+      summary: Create a new test
+      description: Create a new test
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/post-tests'
+        required: true
+      responses:
+        '201':
+          description: Test created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Test'
+        '400':
+          description: Test could not be created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - tests
+      operationId: post-tests
+      x-rdme-order: 2
+    put:
+      summary: Update multiple tests
+      description: Update multiple tests
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/put-tests'
+        required: true
+      responses:
+        '200':
+          description: Tests updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+        '400':
+          description: Tests could not be updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - tests
+      operationId: put-tests
+      x-rdme-order: 3
+    delete:
+      summary: Delete multiple tests
+      description: Delete multiple tests
+      parameters:
+      - in: query
+        name: category
+        description: Only delete tests with this category
+        required: false
+        schema:
+          type: string
+          enum:
+          - app
+          - site
+      - in: query
+        name: exploratory_run_id
+        description: Only delete created in this exploratory run
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: priority
+        description: Only delete tests with this priority
+        required: false
+        schema:
+          type: string
+          enum:
+          - P1
+          - P2
+          - P3
+          - ''
+          - not_prioritized
+      - in: query
+        name: query
+        description: Only delete tests whose title contains, or ID matches, this string
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: result
+        description: Only delete tests with a specific result
+        required: false
+        schema:
+          type: string
+          enum:
+          - passed
+          - failed
+          - no_result
+      - in: query
+        name: run_group_id
+        description: Only delete tests in this run group; use `-1` to filter for tests not in any run groups
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: smart_folder_id
+        description: Only delete tests in this saved filter
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: step_query
+        description: Only delete tests whose steps match this string
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: tests
+        description: Only delete tests matching this criteria. Can be comma-separated list of test ids or 'all' to delete all tests
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: type
+        description: Only delete tests of this type
+        required: false
+        schema:
+          type: string
+          enum:
+          - snippet
+          - test
+      - in: query
+        name: variable
+        description: Only delete tests that contain given variable
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: embedded
+        description: If true, only delete tests that are embedded in other tests. If false, only delete tests that are not embedded in other tests.
+        required: false
+        schema:
+          type: boolean
+      - in: query
+        name: owner_id
+        description: Only delete tests owned by this user; use `-1` to filter for tests without an owner
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: test_language
+        description: Only delete tests with a specified language
+        required: false
+        schema:
+          type: string
+          enum:
+          - plain_english
+          - rainforest_test_language
+      - in: query
+        name: async
+        description: When true perform the operation asynchronously. Use when you're experiencing timeouts. There is no way to determine if the operation was successful or when it is complete.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - in: query
+        name: feature_id[]
+        description: Only delete tests with this/these feature(s); use `-1` to filter for tests without a feature
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+      - in: query
+        name: site_id[]
+        description: Only delete tests for this/these site(s)
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+      - in: query
+        name: state[]
+        description: Only delete tests that with this state
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - enabled
+            - disabled
+            - draft
+            - archived
+            - all
+            - unarchived
+      - in: query
+        name: tags[]
+        description: Only delete tests having all specified tags; use `-1` to filter for untagged tests
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+      - in: query
+        name: run_id[]
+        description: Only delete tests that were in this/these previous run(s)
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Tests deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+        '400':
+          description: Tests could not be deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - tests
+      operationId: delete-tests
+      x-rdme-order: 4
+  /1/tests/duplicate:
+    post:
+      summary: Duplicate multiple tests
+      description: Duplicate multiple tests
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/post-tests-duplicate'
+        required: true
+      responses:
+        '200':
+          description: Tests duplicated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+        '202':
+          description: Tests scheduled to be duplicated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+        '400':
+          description: Tests could not be duplicated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - tests
+      operationId: post-tests-duplicate
+      x-rdme-order: 5
+  /1/tests/{test_id}/regenerate:
+    put:
+      summary: Regenerate a test with AI from a new prompt
+      description: Regenerate a test with AI from a new prompt
+      parameters:
+      - in: path
+        name: test_id
+        description: A test ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/put-test-regenerate'
+        required: true
+      responses:
+        '200':
+          description: Test regeneration started
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Test'
+        '400':
+          description: Test could not be regenerated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: Another AI generation is already in progress
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - tests
+      operationId: put-test-regenerate
+  /1/tests/tags:
+    post:
+      summary: Tag a group of tests
+      description: Tag a group of tests
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/post-tests-tags'
+        required: true
+      responses:
+        '201':
+          description: Tag a group of tests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tag'
+      tags:
+      - tests
+      operationId: post-tests-tags
+      x-rdme-order: 7
+    delete:
+      summary: Remove tags from a group of tests
+      description: Untag a group of tests
+      parameters:
+      - in: query
+        name: category
+        description: Only untag tests with this category
+        required: false
+        schema:
+          type: string
+          enum:
+          - app
+          - site
+      - in: query
+        name: exploratory_run_id
+        description: Only untag created in this exploratory run
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: priority
+        description: Only untag tests with this priority
+        required: false
+        schema:
+          type: string
+          enum:
+          - P1
+          - P2
+          - P3
+          - ''
+          - not_prioritized
+      - in: query
+        name: query
+        description: Only untag tests whose title contains, or ID matches, this string
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: result
+        description: Only untag tests with a specific result
+        required: false
+        schema:
+          type: string
+          enum:
+          - passed
+          - failed
+          - no_result
+      - in: query
+        name: run_group_id
+        description: Only untag tests in this run group; use `-1` to filter for tests not in any run groups
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: smart_folder_id
+        description: Only untag tests in this saved filter
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: step_query
+        description: Only untag tests whose steps match this string
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: tests
+        description: Only untag tests matching this criteria. Can be comma-separated list of test ids or 'all' to untag all tests
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: type
+        description: Only untag tests of this type
+        required: false
+        schema:
+          type: string
+          enum:
+          - snippet
+          - test
+      - in: query
+        name: variable
+        description: Only untag tests that contain given variable
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: embedded
+        description: If true, only untag tests that are embedded in other tests. If false, only untag tests that are not embedded in other tests.
+        required: false
+        schema:
+          type: boolean
+      - in: query
+        name: owner_id
+        description: Only untag tests owned by this user; use `-1` to filter for tests without an owner
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: test_language
+        description: Only untag tests with a specified language
+        required: false
+        schema:
+          type: string
+          enum:
+          - plain_english
+          - rainforest_test_language
+      - in: query
+        name: async
+        description: When true perform the operation asynchronously. Use when you're experiencing timeouts. There is no way to determine if the operation was successful or when it is complete.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - in: query
+        name: untag_with
+        description: List of tags to remove
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: feature_id[]
+        description: Only untag tests with this/these feature(s); use `-1` to filter for tests without a feature
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+      - in: query
+        name: site_id[]
+        description: Only untag tests for this/these site(s)
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+      - in: query
+        name: state[]
+        description: Only untag tests that with this state
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - enabled
+            - disabled
+            - draft
+            - archived
+            - all
+            - unarchived
+      - in: query
+        name: tags[]
+        description: Only untag tests having all specified tags; use `-1` to filter for untagged tests
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+      - in: query
+        name: run_id[]
+        description: Only untag tests that were in this/these previous run(s)
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+      responses:
+        '204':
+          description: Untag a group of tests
+      tags:
+      - tests
+      operationId: delete-tests-tags
+      x-rdme-order: 8
+  /1/tests/credit_cost:
+    get:
+      summary: List credit costs for a selection of tests
+      description: List credit costs for a selection of tests
+      parameters:
+      - in: query
+        name: category
+        description: Only return tests with this category
+        required: false
+        schema:
+          type: string
+          enum:
+          - app
+          - site
+      - in: query
+        name: exploratory_run_id
+        description: Only return created in this exploratory run
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: priority
+        description: Only return tests with this priority
+        required: false
+        schema:
+          type: string
+          enum:
+          - P1
+          - P2
+          - P3
+          - ''
+          - not_prioritized
+      - in: query
+        name: query
+        description: Only return tests whose title contains, or ID matches, this string
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: result
+        description: Only return tests with a specific result
+        required: false
+        schema:
+          type: string
+          enum:
+          - passed
+          - failed
+          - no_result
+      - in: query
+        name: run_group_id
+        description: Only return tests in this run group; use `-1` to filter for tests not in any run groups
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: smart_folder_id
+        description: Only return tests in this saved filter
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: step_query
+        description: Only return tests whose steps match this string
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: tests
+        description: Only return tests matching this criteria. Can be comma-separated list of test ids or 'all' to return all tests
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: type
+        description: Only return tests of this type
+        required: false
+        schema:
+          type: string
+          enum:
+          - snippet
+          - test
+      - in: query
+        name: variable
+        description: Only return tests that contain given variable
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: embedded
+        description: If true, only return tests that are embedded in other tests. If false, only return tests that are not embedded in other tests.
+        required: false
+        schema:
+          type: boolean
+      - in: query
+        name: owner_id
+        description: Only return tests owned by this user; use `-1` to filter for tests without an owner
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: test_language
+        description: Only return tests with a specified language
+        required: false
+        schema:
+          type: string
+          enum:
+          - plain_english
+          - rainforest_test_language
+      - in: query
+        name: feature_id[]
+        description: Only return tests with this/these feature(s); use `-1` to filter for tests without a feature
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+      - in: query
+        name: site_id[]
+        description: Only return tests for this/these site(s)
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+      - in: query
+        name: state[]
+        description: Only return tests that with this state
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - enabled
+            - disabled
+            - draft
+            - archived
+            - all
+            - unarchived
+      - in: query
+        name: tags[]
+        description: Only return tests having all specified tags; use `-1` to filter for untagged tests
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+      - in: query
+        name: run_id[]
+        description: Only return tests that were in this/these previous run(s)
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+      - in: query
+        name: browsers[]
+        description: Specify browsers to use for credit cost. Uses test's default browsers if omitted.
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: List credit costs for a selection of tests
+      tags:
+      - tests
+      operationId: get-tests-credit_cost
+      x-rdme-order: 10
+  /1/tests/{test_id}/files:
+    get:
+      summary: Get files for a test
+      description: Get files for a test
+      parameters:
+      - in: path
+        name: test_id
+        description: A test ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Get files for a test
+      tags:
+      - tests
+      operationId: get-test-files
+      x-rdme-order: 40
+    post:
+      summary: Create a new file for a test
+      description: Create a new file for a test
+      parameters:
+      - in: path
+        name: test_id
+        description: A test ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/post-test-files'
+        required: true
+      responses:
+        '201':
+          description: Create a new file for a test
+      tags:
+      - tests
+      operationId: post-test-files
+      x-rdme-order: 41
+  /1/tests/{test_id}:
+    get:
+      summary: Get a test
+      description: Get a test
+      parameters:
+      - in: path
+        name: test_id
+        description: A test ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: slim
+        description: If true, returns less data in order to reduce latency and response size
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - in: query
+        name: environment_id
+        description: Environment ID used to get initial_navigate_url
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: test_version_id
+        description: Test version ID used to get specific version details
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: test_event_id
+        description: Test event ID used to get timestamp from
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: options[]
+        description: 'Extra details to display: steps, wisp'
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - steps
+            - wisp
+      responses:
+        '200':
+          description: Get a test
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Test'
+      tags:
+      - tests
+      operationId: get-test
+      x-rdme-order: 20
+    put:
+      summary: Update a test
+      description: Update a test
+      parameters:
+      - in: path
+        name: test_id
+        description: A test ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/put-test'
+        required: true
+      responses:
+        '200':
+          description: Update a test
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Test'
+      tags:
+      - tests
+      operationId: put-test
+      x-rdme-order: 21
+    delete:
+      summary: Delete a test
+      description: Delete a test
+      parameters:
+      - in: path
+        name: test_id
+        description: A test ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '204':
+          description: Delete a test
+      tags:
+      - tests
+      operationId: delete-test
+      x-rdme-order: 22
+  /1/tests/{test_id}/comments:
+    get:
+      summary: Comment history for a test
+      description: Comment history for a test
+      parameters:
+      - in: path
+        name: test_id
+        description: A test ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: page
+        description: Page of results to display
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - in: query
+        name: page_size
+        description: 'Number of results to return per page; maximum: 100'
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 30
+      responses:
+        '200':
+          description: Comment history for a test
+      tags:
+      - tests
+      operationId: get-test-comments
+      x-rdme-order: 30
+  /1/tests/{test_id}/history:
+    get:
+      summary: Run history for a test
+      description: Run history for a test
+      parameters:
+      - in: path
+        name: test_id
+        description: A test ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: page
+        description: Page of results to display
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - in: query
+        name: page_size
+        description: 'Number of results to return per page; maximum: 100'
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 10
+      responses:
+        '200':
+          description: Run history for a test
+      tags:
+      - tests
+      operationId: get-test-history
+      x-rdme-order: 31
+  /1/tests/{test_id}/automation_history:
+    get:
+      summary: Run and generation history for a test
+      description: Run and generation history for a test
+      parameters:
+      - in: path
+        name: test_id
+        description: A test ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: page
+        description: Page of results to display
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - in: query
+        name: page_size
+        description: 'Number of results to return per page; maximum: 100'
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 10
+      responses:
+        '200':
+          description: Run and generation history for a test
+      tags:
+      - tests
+      operationId: get-test-run-and-generation-history
+      x-rdme-order: 32
+  /1/tests/{test_id}/run_group_elements:
+    get:
+      summary: Get list of run group elements directly or indirectly linked to the test
+      description: Get list of run group elements directly or indirectly linked to the test
+      parameters:
+      - in: path
+        name: test_id
+        description: A test ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Get list of run group elements directly or indirectly linked to the test
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RunGroupElement'
+      tags:
+      - tests
+      operationId: get-test-run_group_elements
+      x-rdme-order: 50
+components:
+  schemas:
+    put-test-regenerate:
+      type: object
+      properties:
+        ai_mode:
+          type: string
+          description: Set to `self-heal` to turn on self-healing for snippets
+          enum:
+          - self-heal
+        browsers:
+          type: array
+          description: List of browsers that the test runs on by default; you can find a list of possible options via the client API
+          items:
+            type: string
+        category:
+          type: string
+          description: Test category
+          enum:
+          - site
+          - app
+        connection_id:
+          type: string
+          description: Connection to route test execution through (geographic location or custom tunnel)
+        reroute_geo:
+          type: string
+          description: 'Deprecated: use connection_id instead'
+        description:
+          type: string
+          description: Test notes
+        environment_id:
+          type: integer
+          format: int32
+          description: Environment used to get initial_navigate_url (only concerns Visual Editor tests)
+        feature_id:
+          type: integer
+          format: int32
+          description: Test feature
+        login_snippet_id:
+          type: integer
+          format: int32
+          description: ID of a snippet to use for login steps at the start of AI test generation. Mutually exclusive with prompt_credentials
+        owner_id:
+          type: integer
+          format: int32
+          description: Test owner
+        priority:
+          type: string
+          description: Test priority
+          enum:
+          - P1
+          - P2
+          - P3
+          - ''
+        prompt:
+          type: string
+          description: Prompt for self-healing snippets or AI generated tests
+        prompt_credentials:
+          type: string
+          description: Login credentials for AI test generation (e.g. 'username / password'). Mutually exclusive with login_snippet_id
+        rfml_id:
+          type: string
+          description: RFML ID for this test
+        site_id:
+          type: integer
+          format: int32
+          description: Tested site
+        start_uri:
+          type: string
+          description: The path this test starts at; if present, must start with a /
+        state:
+          type: string
+          description: Test state
+          enum:
+          - enabled
+          - disabled
+          - draft
+          - archived
+        tags:
+          type: array
+          description: Test tags
+          items:
+            type: string
+        title:
+          type: string
+          description: 'Test title (maximum length: 255 characters)'
+        type:
+          type: string
+          description: The type of test to create
+          enum:
+          - snippet
+          - test
+        atc_settings:
+          type: object
+          properties:
+            delay_after:
+              type: integer
+              format: int32
+              description: Delay(seconds) in execution after every verb
+          required:
+          - delay_after
+        slim:
+          type: boolean
+          description: If true, returns less data in order to reduce latency and response size
+          default: false
+      description: Regenerate a test with AI from a new prompt
+    Tests_Lite:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+        test_id:
+          type: string
+        title:
+          type: string
+        result:
+          type: string
+        wisp:
+          type: string
+        prompt:
+          type: string
+        prompt_credentials:
+          type: string
+        ai_mode:
+          type: string
+        priority:
+          type: string
+        real_cost_to_run:
+          type: string
+        owner_id:
+          type: string
+        state:
+          type: string
+        updated_at:
+          type: string
+        deleted:
+          type: string
+        feature_id:
+          type: string
+    RunGroupElement:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        run_group_id:
+          type: integer
+          format: int32
+          description: The element's run group's ID
+        run_group_title:
+          type: string
+          description: The element's run group's title
+        type:
+          type: string
+          enum:
+          - test
+          - feature
+          - filter
+          - tag
+        element:
+          type: object
+          description: Details of the test, feature, or filter
+      description: RunGroupElement model
+    post-test-files:
+      type: object
+      properties:
+        size:
+          type: string
+          description: Size of the file
+        mime_type:
+          type: string
+          description: Mime Type of the file
+        digest:
+          type: string
+          description: MD5 digest of file
+        name:
+          type: string
+          description: Name of the file
+      required:
+      - size
+      - mime_type
+      description: Create a new file for a test
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: An error message describing what went wrong
+      required:
+      - error
+      description: Error model
+    OverriddenResult:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        note:
+          type: string
+        result:
+          type: string
+        job_group_id:
+          type: string
+        user:
+          $ref: '#/components/schemas/UserLite'
+    Ok:
+      type: object
+      properties:
+        ok:
+          type: boolean
+          description: 🆗
+      description: Ok model
+    post-tests:
+      type: object
+      properties:
+        ai_mode:
+          type: string
+          description: Set to `self-heal` to turn on self-healing for snippets
+          enum:
+          - self-heal
+        browsers:
+          type: array
+          description: List of browsers that the test runs on by default; you can find a list of possible options via the client API
+          items:
+            type: string
+        category:
+          type: string
+          description: Test category
+          enum:
+          - site
+          - app
+        connection_id:
+          type: string
+          description: Connection to route test execution through (geographic location or custom tunnel)
+        reroute_geo:
+          type: string
+          description: 'Deprecated: use connection_id instead'
+        description:
+          type: string
+          description: Test notes
+        environment_id:
+          type: integer
+          format: int32
+          description: Environment used to get initial_navigate_url (only concerns Visual Editor tests)
+        feature_id:
+          type: integer
+          format: int32
+          description: Test feature
+        login_snippet_id:
+          type: integer
+          format: int32
+          description: ID of a snippet to use for login steps at the start of AI test generation. Mutually exclusive with prompt_credentials
+        owner_id:
+          type: integer
+          format: int32
+          description: Test owner
+        priority:
+          type: string
+          description: Test priority
+          enum:
+          - P1
+          - P2
+          - P3
+          - ''
+        prompt:
+          type: string
+          description: Prompt for self-healing snippets or AI generated tests
+        prompt_credentials:
+          type: string
+          description: Login credentials for AI test generation (e.g. 'username / password'). Mutually exclusive with login_snippet_id
+        rfml_id:
+          type: string
+          description: RFML ID for this test
+        site_id:
+          type: integer
+          format: int32
+          description: Tested site
+        start_uri:
+          type: string
+          description: The path this test starts at; if present, must start with a /
+        state:
+          type: string
+          description: Test state
+          enum:
+          - enabled
+          - disabled
+          - draft
+          - archived
+          default: enabled
+        tags:
+          type: array
+          description: Test tags
+          items:
+            type: string
+        title:
+          type: string
+          description: 'Test title (maximum length: 255 characters)'
+        type:
+          type: string
+          description: The type of test to create
+          enum:
+          - snippet
+          - test
+        atc_settings:
+          type: object
+          properties:
+            delay_after:
+              type: integer
+              format: int32
+              description: Delay(seconds) in execution after every verb
+          required:
+          - delay_after
+        slim:
+          type: boolean
+          description: If true, returns less data in order to reduce latency and response size
+          default: false
+      required:
+      - title
+      - type
+      description: Create a new test
+    Tag:
+      type: object
+      properties:
+        name:
+          type: string
+        test_count:
+          type: integer
+          format: int32
+        snippet_count:
+          type: integer
+          format: int32
+      description: Tag model
+    UserLite:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        name:
+          type: string
+        email:
+          type: string
+        state:
+          type: string
+        role:
+          type: string
+    put-test:
+      type: object
+      properties:
+        ai_mode:
+          type: string
+          description: Set to `self-heal` to turn on self-healing for snippets
+          enum:
+          - self-heal
+        browsers:
+          type: array
+          description: List of browsers that the test runs on by default; you can find a list of possible options via the client API
+          items:
+            type: string
+        category:
+          type: string
+          description: Test category
+          enum:
+          - site
+          - app
+        connection_id:
+          type: string
+          description: Connection to route test execution through (geographic location or custom tunnel)
+        reroute_geo:
+          type: string
+          description: 'Deprecated: use connection_id instead'
+        description:
+          type: string
+          description: Test notes
+        environment_id:
+          type: integer
+          format: int32
+          description: Environment used to get initial_navigate_url (only concerns Visual Editor tests)
+        feature_id:
+          type: integer
+          format: int32
+          description: Test feature
+        login_snippet_id:
+          type: integer
+          format: int32
+          description: ID of a snippet to use for login steps at the start of AI test generation. Mutually exclusive with prompt_credentials
+        owner_id:
+          type: integer
+          format: int32
+          description: Test owner
+        priority:
+          type: string
+          description: Test priority
+          enum:
+          - P1
+          - P2
+          - P3
+          - ''
+        prompt:
+          type: string
+          description: Prompt for self-healing snippets or AI generated tests
+        prompt_credentials:
+          type: string
+          description: Login credentials for AI test generation (e.g. 'username / password'). Mutually exclusive with login_snippet_id
+        rfml_id:
+          type: string
+          description: RFML ID for this test
+        site_id:
+          type: integer
+          format: int32
+          description: Tested site
+        start_uri:
+          type: string
+          description: The path this test starts at; if present, must start with a /
+        state:
+          type: string
+          description: Test state
+          enum:
+          - enabled
+          - disabled
+          - draft
+          - archived
+        tags:
+          type: array
+          description: Test tags
+          items:
+            type: string
+        title:
+          type: string
+          description: 'Test title (maximum length: 255 characters)'
+        type:
+          type: string
+          description: The type of test to create
+          enum:
+          - snippet
+          - test
+        atc_settings:
+          type: object
+          properties:
+            delay_after:
+              type: integer
+              format: int32
+              description: Delay(seconds) in execution after every verb
+          required:
+          - delay_after
+        slim:
+          type: boolean
+          description: If true, returns less data in order to reduce latency and response size
+          default: false
+      description: Update a test
+    Test:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+        test_id:
+          type: string
+        title:
+          type: string
+        result:
+          type: string
+        wisp:
+          type: string
+        prompt:
+          type: string
+        prompt_credentials:
+          type: string
+        ai_mode:
+          type: string
+        state:
+          type: string
+        category:
+          type: string
+        site_id:
+          type: string
+        priority:
+          type: string
+        start_uri:
+          type: string
+        description:
+          type: string
+        browsers:
+          $ref: '#/components/schemas/RunTestBrowserStatus'
+        tags:
+          type: string
+        frontend_url:
+          type: string
+        rfml_id:
+          type: string
+        exploratory_run_id:
+          type: string
+        initial_redirect_behavior:
+          type: string
+        source:
+          type: string
+        reroute_geo:
+          type: string
+          description: 'Deprecated: please use `connection.id` instead'
+        connection:
+          $ref: '#/components/schemas/Connection'
+        atc_settings:
+          type: string
+        owner:
+          $ref: '#/components/schemas/UserLite'
+        last_updated_by:
+          $ref: '#/components/schemas/UserLite'
+        updated_at:
+          type: string
+        archived_at:
+          type: string
+        deleted:
+          type: string
+        attached_to:
+          $ref: '#/components/schemas/Tests_Lite'
+        dry_run_url:
+          type: string
+        last_run:
+          $ref: '#/components/schemas/RunSuperLite'
+        feature_id:
+          type: string
+        has_wisp:
+          type: string
+        type:
+          type: string
+        coverage_summary:
+          type: string
+        used_in_snippets_count:
+          type: string
+        used_in_tests_count:
+          type: string
+        used_in_archived_snippets_count:
+          type: string
+        used_in_archived_tests_count:
+          type: string
+        self_healed_at:
+          type: string
+        last_run_test:
+          type: object
+          properties:
+            self_healed:
+              type: string
+            rescued:
+              type: string
+        step_count:
+          type: integer
+          format: int32
+        deletable:
+          type: boolean
+        editable:
+          type: boolean
+        embedded:
+          type: boolean
+        unrewritable_reason:
+          type: string
+        test_version_id:
+          type: string
+        total_instances:
+          type: string
+        job_test_generation_id:
+          type: string
+      description: Test model
+    Connection:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        name:
+          type: string
+        api_token:
+          type: string
+        state:
+          type: string
+        link_state:
+          type: string
+        type:
+          type: string
+          enum:
+          - rainforest
+          - user
+      description: Connection model
+    RunSuperLite:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        state:
+          type: string
+    RunTestBrowserStatus:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        name:
+          type: string
+        description:
+          type: string
+        category:
+          type: string
+        result:
+          type: string
+        state:
+          type: string
+        overridden_results:
+          $ref: '#/components/schemas/OverriddenResult'
+        credit_cost:
+          type: string
+    post-tests-tags:
+      type: object
+      properties:
+        category:
+          type: string
+          description: Only tag tests with this category
+          enum:
+          - app
+          - site
+        exploratory_run_id:
+          type: integer
+          format: int32
+          description: Only tag created in this exploratory run
+        feature_id:
+          type: array
+          description: Only tag tests with this/these feature(s); use `-1` to filter for tests without a feature
+          items:
+            type: integer
+            format: int32
+        priority:
+          type: string
+          description: Only tag tests with this priority
+          enum:
+          - P1
+          - P2
+          - P3
+          - ''
+          - not_prioritized
+        query:
+          type: string
+          description: Only tag tests whose title contains, or ID matches, this string
+        result:
+          type: string
+          description: Only tag tests with a specific result
+          enum:
+          - passed
+          - failed
+          - no_result
+        run_group_id:
+          type: integer
+          format: int32
+          description: Only tag tests in this run group; use `-1` to filter for tests not in any run groups
+        site_id:
+          type: array
+          description: Only tag tests for this/these site(s)
+          items:
+            type: integer
+            format: int32
+        smart_folder_id:
+          type: integer
+          format: int32
+          description: Only tag tests in this saved filter
+        state:
+          type: array
+          description: Only tag tests that with this state
+          items:
+            type: string
+            enum:
+            - enabled
+            - disabled
+            - draft
+            - archived
+            - all
+            - unarchived
+        step_query:
+          type: string
+          description: Only tag tests whose steps match this string
+        tags:
+          type: array
+          description: Only tag tests having all specified tags; use `-1` to filter for untagged tests
+          items:
+            type: string
+        tests:
+          type: string
+          description: Only tag tests matching this criteria. Can be comma-separated list of test ids or 'all' to tag all tests
+        type:
+          type: string
+          description: Only tag tests of this type
+          enum:
+          - snippet
+          - test
+        run_id:
+          type: array
+          description: Only tag tests that were in this/these previous run(s)
+          items:
+            type: integer
+            format: int32
+        variable:
+          type: string
+          description: Only tag tests that contain given variable
+        embedded:
+          type: boolean
+          description: If true, only tag tests that are embedded in other tests. If false, only tag tests that are not embedded in other tests.
+        owner_id:
+          type: integer
+          format: int32
+          description: Only tag tests owned by this user; use `-1` to filter for tests without an owner
+        test_language:
+          type: string
+          description: Only tag tests with a specified language
+          enum:
+          - plain_english
+          - rainforest_test_language
+        async:
+          type: boolean
+          description: When true perform the operation asynchronously. Use when you're experiencing timeouts. There is no way to determine if the operation was successful or when it is complete.
+          default: false
+        tag_with:
+          type: string
+          description: List of tags to add
+      required:
+      - tag_with
+      description: Tag a group of tests
+    put-tests:
+      type: object
+      properties:
+        category:
+          type: string
+          description: Only update tests with this category
+          enum:
+          - app
+          - site
+        exploratory_run_id:
+          type: integer
+          format: int32
+          description: Only update created in this exploratory run
+        feature_id:
+          type: array
+          description: Only update tests with this/these feature(s); use `-1` to filter for tests without a feature
+          items:
+            type: integer
+            format: int32
+        priority:
+          type: string
+          description: Only update tests with this priority
+          enum:
+          - P1
+          - P2
+          - P3
+          - ''
+          - not_prioritized
+        query:
+          type: string
+          description: Only update tests whose title contains, or ID matches, this string
+        result:
+          type: string
+          description: Only update tests with a specific result
+          enum:
+          - passed
+          - failed
+          - no_result
+        run_group_id:
+          type: integer
+          format: int32
+          description: Only update tests in this run group; use `-1` to filter for tests not in any run groups
+        site_id:
+          type: array
+          description: Only update tests for this/these site(s)
+          items:
+            type: integer
+            format: int32
+        smart_folder_id:
+          type: integer
+          format: int32
+          description: Only update tests in this saved filter
+        state:
+          type: array
+          description: Only update tests that with this state
+          items:
+            type: string
+            enum:
+            - enabled
+            - disabled
+            - draft
+            - archived
+            - all
+            - unarchived
+        step_query:
+          type: string
+          description: Only update tests whose steps match this string
+        tags:
+          type: array
+          description: Only update tests having all specified tags; use `-1` to filter for untagged tests
+          items:
+            type: string
+        tests:
+          type: string
+          description: Only update tests matching this criteria. Can be comma-separated list of test ids or 'all' to update all tests
+        type:
+          type: string
+          description: Only update tests of this type
+          enum:
+          - snippet
+          - test
+        run_id:
+          type: array
+          description: Only update tests that were in this/these previous run(s)
+          items:
+            type: integer
+            format: int32
+        variable:
+          type: string
+          description: Only update tests that contain given variable
+        embedded:
+          type: boolean
+          description: If true, only update tests that are embedded in other tests. If false, only update tests that are not embedded in other tests.
+        owner_id:
+          type: integer
+          format: int32
+          description: Only update tests owned by this user; use `-1` to filter for tests without an owner
+        test_language:
+          type: string
+          description: Only update tests with a specified language
+          enum:
+          - plain_english
+          - rainforest_test_language
+        new_site_id:
+          type: integer
+          format: int32
+          description: The site to update these tests to use
+        browsers:
+          type: array
+          description: List of browsers for this test; you can find a list of possible options via the client API
+          items:
+            type: string
+        description:
+          type: string
+          description: Test notes
+        connection_id:
+          type: string
+          description: Connection to route test execution through (geographic location or custom tunnel)
+        reroute_geo:
+          type: string
+          description: 'Deprecated: use connection_id instead'
+        start_uri:
+          type: string
+          description: The path these tests should start at; must start with a /
+        new_state:
+          type: string
+          description: The state to update these tests to
+          enum:
+          - enabled
+          - disabled
+          - draft
+          - archived
+        new_tags:
+          type: array
+          description: The tags to use for these tests (any currently set tags not present will be removed)
+          items:
+            type: string
+        title:
+          type: string
+          description: 'Test titles (maximum length: 255 characters)'
+      description: Update multiple tests
+    post-tests-duplicate:
+      type: object
+      properties:
+        category:
+          type: string
+          description: Only copy tests with this category
+          enum:
+          - app
+          - site
+        exploratory_run_id:
+          type: integer
+          format: int32
+          description: Only copy created in this exploratory run
+        feature_id:
+          type: array
+          description: Only copy tests with this/these feature(s); use `-1` to filter for tests without a feature
+          items:
+            type: integer
+            format: int32
+        priority:
+          type: string
+          description: Only copy tests with this priority
+          enum:
+          - P1
+          - P2
+          - P3
+          - ''
+          - not_prioritized
+        query:
+          type: string
+          description: Only copy tests whose title contains, or ID matches, this string
+        result:
+          type: string
+          description: Only copy tests with a specific result
+          enum:
+          - passed
+          - failed
+          - no_result
+        run_group_id:
+          type: integer
+          format: int32
+          description: Only copy tests in this run group; use `-1` to filter for tests not in any run groups
+        site_id:
+          type: array
+          description: Only copy tests for this/these site(s)
+          items:
+            type: integer
+            format: int32
+        smart_folder_id:
+          type: integer
+          format: int32
+          description: Only copy tests in this saved filter
+        state:
+          type: array
+          description: Only copy tests that with this state
+          items:
+            type: string
+            enum:
+            - enabled
+            - disabled
+            - draft
+            - archived
+            - all
+            - unarchived
+        step_query:
+          type: string
+          description: Only copy tests whose steps match this string
+        tags:
+          type: array
+          description: Only copy tests having all specified tags; use `-1` to filter for untagged tests
+          items:
+            type: string
+        tests:
+          type: string
+          description: Only copy tests matching this criteria. Can be comma-separated list of test ids or 'all' to copy all tests
+        type:
+          type: string
+          description: Only copy tests of this type
+          enum:
+          - snippet
+          - test
+        run_id:
+          type: array
+          description: Only copy tests that were in this/these previous run(s)
+          items:
+            type: integer
+            format: int32
+        variable:
+          type: string
+          description: Only copy tests that contain given variable
+        embedded:
+          type: boolean
+          description: If true, only copy tests that are embedded in other tests. If false, only copy tests that are not embedded in other tests.
+        owner_id:
+          type: integer
+          format: int32
+          description: Only copy tests owned by this user; use `-1` to filter for tests without an owner
+        test_language:
+          type: string
+          description: Only copy tests with a specified language
+          enum:
+          - plain_english
+          - rainforest_test_language
+        async:
+          type: boolean
+          description: When true perform the operation asynchronously. Use when you're experiencing timeouts. There is no way to determine if the operation was successful or when it is complete.
+          default: false
+      description: Duplicate multiple tests
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: CLIENT_TOKEN
+      in: header

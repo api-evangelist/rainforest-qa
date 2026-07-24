@@ -1,0 +1,31 @@
+openapi: 3.0.0
+info:
+  title: Rainforest callback vm_stack API
+  description: Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).
+  version: '1'
+servers:
+- url: https://app.rainforestqa.com/api
+security:
+- api_key: []
+tags:
+- name: vm_stack
+  description: Operations about vm_stacks
+paths:
+  /1/vm_stack:
+    get:
+      summary: List IP addresses testers come from
+      description: List IP addresses testers come from
+      security: []
+      responses:
+        '200':
+          description: List IP addresses testers come from
+      tags:
+      - vm_stack
+      operationId: get-vm_stack
+      x-rdme-order: 1
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: CLIENT_TOKEN
+      in: header

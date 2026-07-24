@@ -1,0 +1,78 @@
+openapi: 3.0.0
+info:
+  title: Rainforest callback API
+  description: Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).
+  version: '1'
+servers:
+- url: https://app.rainforestqa.com/api
+security:
+- api_key: []
+tags:
+- name: callback
+  description: Operations about callbacks
+paths:
+  /1/callback/run/{run_id}/{callback_type}/{digest}:
+    post:
+      summary: Notify Rainforest when a run webhook callback is complete
+      description: 'Notify Rainforest when a `before_run` webhook callback is complete. See the [Using Webhooks article](https://help.rainforestqa.com/docs/using-webhooks#running-a-test-using-an-advanced-webhook) for more information.
+
+        '
+      parameters:
+      - in: path
+        name: run_id
+        description: The ID of the Run you are sending a callback for
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: callback_type
+        description: '`before_run` is currently the only type that is handled by this endpoint'
+        required: true
+        schema:
+          type: string
+          enum:
+          - initializing_run
+          - before_run
+          - after_run
+      - in: path
+        name: digest
+        description: MD5-HMAC Digest created with [Rainforest Auth](https://github.com/rainforestapp/auth)
+        required: true
+        schema:
+          type: string
+      security: []
+      responses:
+        '201':
+          description: Callback successfully handled
+        '400':
+          description: Callback already processed; Invalid `callback_type`
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Invalid digest
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - callback
+      operationId: post-callback
+      x-rdme-order: 1
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: An error message describing what went wrong
+      required:
+      - error
+      description: Error model
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: CLIENT_TOKEN
+      in: header

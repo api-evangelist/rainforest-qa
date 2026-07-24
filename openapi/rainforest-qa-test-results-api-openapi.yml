@@ -1,0 +1,491 @@
+openapi: 3.0.0
+info:
+  title: Rainforest callback test_results API
+  description: Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).
+  version: '1'
+servers:
+- url: https://app.rainforestqa.com/api
+security:
+- api_key: []
+tags:
+- name: test_results
+  description: Operations about test_results
+paths:
+  /1/test_results:
+    get:
+      summary: List test results
+      description: List test results
+      parameters:
+      - in: query
+        name: category
+        description: Only return tests with this category
+        required: false
+        schema:
+          type: string
+          enum:
+          - app
+          - site
+      - in: query
+        name: exploratory_run_id
+        description: Only return created in this exploratory run
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: priority
+        description: Only return tests with this priority
+        required: false
+        schema:
+          type: string
+          enum:
+          - P1
+          - P2
+          - P3
+          - ''
+          - not_prioritized
+      - in: query
+        name: query
+        description: Only return tests whose title contains, or ID matches, this string
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: result
+        description: Only return tests with a specific result
+        required: false
+        schema:
+          type: string
+          enum:
+          - passed
+          - failed
+          - no_result
+      - in: query
+        name: run_group_id
+        description: Only return tests in this run group; use `-1` to filter for tests not in any run groups
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: smart_folder_id
+        description: Only return tests in this saved filter
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: step_query
+        description: Only return tests whose steps match this string
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: tests
+        description: Only return tests matching this criteria. Can be comma-separated list of test ids or 'all' to return all tests
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: type
+        description: Only return tests of this type
+        required: false
+        schema:
+          type: string
+          enum:
+          - snippet
+          - test
+      - in: query
+        name: variable
+        description: Only return tests that contain given variable
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: environment_id
+        description: Only return that were run in the specified environment
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: has_comments
+        description: Only return tests with or without comments
+        required: false
+        schema:
+          type: boolean
+      - in: query
+        name: latest_only
+        description: Only the latest results for a test
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - in: query
+        name: release
+        description: Only return tests that were run in the specified release
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: page
+        description: Page of results to display
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - in: query
+        name: page_size
+        description: 'Number of results to return per page; maximum: 100'
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 10
+      - in: query
+        name: feature_id[]
+        description: Only return tests with this/these feature(s); use `-1` to filter for tests without a feature
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+      - in: query
+        name: site_id[]
+        description: Only return tests for this/these site(s)
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+      - in: query
+        name: state[]
+        description: Only return tests that with this state
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - enabled
+            - disabled
+            - draft
+            - archived
+            - all
+            - unarchived
+      - in: query
+        name: tags[]
+        description: Only return tests having all specified tags; use `-1` to filter for untagged tests
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+      - in: query
+        name: run_id[]
+        description: Only return tests that were in this/these previous run(s)
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Test results groups retrieved
+          headers:
+            X-Total-Pages:
+              description: Total pages
+              schema:
+                type: integer
+            X-Current-Page:
+              description: Current page
+              schema:
+                type: integer
+            X-Per-Page:
+              description: The maximum number of results per page
+              schema:
+                type: integer
+            X-Total-Results:
+              description: The total number of results
+              schema:
+                type: integer
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Tests_RunTestsIndex'
+      tags:
+      - test_results
+      operationId: get-test_results
+      x-rdme-order: 1
+components:
+  schemas:
+    Tests_Lite:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+        test_id:
+          type: string
+        title:
+          type: string
+        result:
+          type: string
+        wisp:
+          type: string
+        prompt:
+          type: string
+        prompt_credentials:
+          type: string
+        ai_mode:
+          type: string
+        priority:
+          type: string
+        real_cost_to_run:
+          type: string
+        owner_id:
+          type: string
+        state:
+          type: string
+        updated_at:
+          type: string
+        deleted:
+          type: string
+        feature_id:
+          type: string
+    RunStep:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        test_id:
+          type: string
+        action:
+          type: string
+        response:
+          type: string
+        rfa_action:
+          type: string
+        start_uri:
+          type: string
+        redirection:
+          type: string
+        is_conditional_step:
+          type: string
+        is_generate_steps_action:
+          type: string
+        browsers:
+          type: string
+      description: RunStep model
+    OverriddenResult:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        note:
+          type: string
+        result:
+          type: string
+        job_group_id:
+          type: string
+        user:
+          $ref: '#/components/schemas/UserLite'
+    UserLite:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        name:
+          type: string
+        email:
+          type: string
+        state:
+          type: string
+        role:
+          type: string
+    RunTestBrowserStatus:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        name:
+          type: string
+        description:
+          type: string
+        category:
+          type: string
+        result:
+          type: string
+        state:
+          type: string
+        overridden_results:
+          $ref: '#/components/schemas/OverriddenResult'
+        credit_cost:
+          type: string
+    RunTestReview:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        status:
+          type: string
+        reason:
+          type: string
+        reason_updated_at:
+          type: string
+        run_id:
+          type: string
+        run:
+          type: string
+        test_id:
+          type: string
+        resolved:
+          type: string
+        transitioned_by:
+          $ref: '#/components/schemas/UserLite'
+        notified_user:
+          $ref: '#/components/schemas/UserLite'
+        reviewer:
+          $ref: '#/components/schemas/UserLite'
+        test:
+          type: object
+          properties:
+            crowd:
+              type: string
+            execution_method:
+              type: string
+            last_run:
+              type: string
+            test_lite:
+              $ref: '#/components/schemas/Tests_Lite'
+        transitioned_at:
+          type: string
+        updated_at:
+          type: string
+    Tests_RunTestsIndex:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        test_id:
+          type: string
+        title:
+          type: string
+        run_id:
+          type: string
+        result:
+          type: string
+        wisp:
+          type: string
+        step_count:
+          type: string
+        history:
+          type: string
+        state:
+          type: string
+        category:
+          type: string
+        site_id:
+          type: string
+        priority:
+          type: string
+        start_uri:
+          type: string
+        description:
+          type: string
+        browsers:
+          $ref: '#/components/schemas/RunTestBrowserStatus'
+        tags:
+          type: string
+        frontend_url:
+          type: string
+        overridden_result_state:
+          type: string
+        viewed:
+          type: string
+        last_viewed_by:
+          $ref: '#/components/schemas/UserLite'
+        last_viewed_at:
+          type: string
+        owner:
+          $ref: '#/components/schemas/UserLite'
+        last_review:
+          $ref: '#/components/schemas/RunTestReview'
+        updated_at:
+          type: string
+        test_deleted:
+          type: string
+        steps:
+          $ref: '#/components/schemas/RunStep'
+        stats:
+          type: string
+        current_progress:
+          type: string
+        started_at:
+          type: string
+        completed_at:
+          type: string
+        run:
+          type: string
+        failed_steps:
+          type: string
+        test_version:
+          type: string
+        has_wisp:
+          type: string
+        has_rfa_results:
+          type: string
+        fallback_used:
+          type: string
+        self_healed:
+          type: string
+        total_retries:
+          type: integer
+          format: int32
+        unresolved_failures_count:
+          type: integer
+          format: int32
+      description: Tests_RunTestsIndex model
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: CLIENT_TOKEN
+      in: header

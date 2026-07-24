@@ -1,0 +1,367 @@
+openapi: 3.0.0
+info:
+  title: Rainforest callback users API
+  description: Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).
+  version: '1'
+servers:
+- url: https://app.rainforestqa.com/api
+security:
+- api_key: []
+tags:
+- name: users
+  description: Operations about users
+paths:
+  /1/users:
+    get:
+      summary: List users
+      description: List users
+      parameters:
+      - in: query
+        name: name
+        description: Filter by name (case-insensitive)
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: page
+        description: Page of results to display
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - in: query
+        name: page_size
+        description: 'Number of results to return per page; maximum: 100'
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 10
+      responses:
+        '200':
+          description: List users
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+      - users
+      operationId: get-users
+      x-rdme-order: 1
+    post:
+      summary: Invite a user to authenticated account
+      description: Invite a user to authenticated account
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/post-users'
+        required: true
+      responses:
+        '201':
+          description: Invite a user to authenticated account
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+      - users
+      operationId: post-users
+      x-rdme-order: 3
+  /1/users/all:
+    get:
+      summary: List all users with and without permissions
+      description: List all users with and without permissions
+      parameters:
+      - in: query
+        name: slim
+        description: If true, returns less data in order to reduce latency and response size
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: List all users with and without permissions
+      tags:
+      - users
+      operationId: get-users-all
+      x-rdme-order: 2
+  /1/users/permissions:
+    put:
+      summary: Update user permissisons
+      description: Update user permissisons
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/put-users-permissions'
+        required: true
+      responses:
+        '200':
+          description: Update user permissisons
+      tags:
+      - users
+      operationId: put-users-permissions
+      x-rdme-order: 4
+  /1/users/reset_password:
+    post:
+      summary: Reset the password for an email
+      description: Reset the password for an email
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/post-users-reset_password'
+        required: true
+      responses:
+        '201':
+          description: Reset the password for an email
+      tags:
+      - users
+      operationId: post-users-reset_password
+      x-rdme-order: 5
+  /1/users/{user_id}:
+    get:
+      summary: Get a user's account information
+      description: Get a user's account information
+      parameters:
+      - in: path
+        name: user_id
+        description: A user ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Get a user's account information
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+      - users
+      operationId: get-user
+      x-rdme-order: 10
+    put:
+      summary: Update a user
+      description: Update a user
+      parameters:
+      - in: path
+        name: user_id
+        description: A user ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/put-user'
+        required: true
+      responses:
+        '200':
+          description: Update a user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+      - users
+      operationId: put-user
+      x-rdme-order: 11
+    delete:
+      summary: Delete a user account
+      description: Delete a user account
+      parameters:
+      - in: path
+        name: user_id
+        description: A user ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: delete_linked
+        required: false
+        schema:
+          type: boolean
+      responses:
+        '204':
+          description: Delete a user account
+      tags:
+      - users
+      operationId: delete-user
+      x-rdme-order: 12
+  /1/users/{user_id}/regenerate_api_token:
+    put:
+      summary: Rotate a user's API token
+      description: Rotate a user's API token
+      parameters:
+      - in: path
+        name: user_id
+        description: A user ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Rotate a user's API token
+      tags:
+      - users
+      operationId: put-user-regenerate_api_token
+      x-rdme-order: 14
+  /1/users/{user_id}/omniauth/{provider}:
+    delete:
+      summary: Delete a user's Omniauth provider profile
+      description: Delete a user's Omniauth provider profile
+      parameters:
+      - in: path
+        name: user_id
+        description: A user ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: path
+        name: provider
+        description: A provider name
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Delete a user's Omniauth provider profile
+      tags:
+      - users
+      operationId: delete-user-omniauth
+      x-rdme-order: 15
+components:
+  schemas:
+    post-users-reset_password:
+      type: object
+      properties:
+        email:
+          type: string
+          description: The email where to send the credentials
+      required:
+      - email
+      description: Reset the password for an email
+    put-users-permissions:
+      type: object
+      properties:
+        users:
+          type: array
+          items:
+            type: object
+            properties:
+              email:
+                type: string
+                description: The Email of the user
+              permissions:
+                type: array
+                description: Array of client ids that this will have access to
+                items:
+                  type: integer
+                  format: int32
+            required:
+            - email
+            - permissions
+      required:
+      - users
+      description: Update user permissisons
+    put-user:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the user
+        email:
+          type: string
+          description: The email address for this user
+        password:
+          type: string
+          description: A new password for this user
+        current_password:
+          type: string
+          description: This user's current password
+        invite_token:
+          type: string
+          description: The invite token sent to the user on first invite. Must be present when setting the password for the first time.
+        role:
+          type: string
+          description: Primary account can pass ownership by setting this to 'owner'
+          enum:
+          - owner
+          - member
+      description: Update a user
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        client_analytics_id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        email:
+          type: string
+        api_token:
+          type: string
+        client_permissions:
+          type: string
+        state:
+          type: string
+        role:
+          type: string
+        settings:
+          type: string
+        profiles:
+          $ref: '#/components/schemas/Profile'
+        intercom_user_hash:
+          type: string
+        show_nps:
+          type: string
+        onboarding_progress:
+          type: string
+      description: User model
+    post-users:
+      type: object
+      properties:
+        email:
+          type: string
+          description: The user's email
+        name:
+          type: string
+          description: The name of the user
+        password:
+          type: string
+          description: The password for this user
+      required:
+      - email
+      description: Invite a user to authenticated account
+    Profile:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        provider:
+          type: string
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: CLIENT_TOKEN
+      in: header

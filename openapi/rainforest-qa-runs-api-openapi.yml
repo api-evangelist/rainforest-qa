@@ -1,0 +1,2167 @@
+openapi: 3.0.0
+info:
+  title: Rainforest callback runs API
+  description: Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).
+  version: '1'
+servers:
+- url: https://app.rainforestqa.com/api
+security:
+- api_key: []
+tags:
+- name: runs
+  description: Operations about runs
+paths:
+  /1/runs:
+    post:
+      summary: Create a new run
+      description: Create a new run
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/post-runs'
+        required: true
+      responses:
+        '201':
+          description: Run created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Run'
+        '400':
+          description: Run could not be created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - runs
+      operationId: post-runs
+      x-rdme-order: 2
+    get:
+      summary: List runs
+      description: List runs
+      parameters:
+      - in: query
+        name: created_at[gte]
+        description: Only runs created at or after this time; must be used with `created_at[lt]`
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: created_at[lt]
+        description: Only runs created before this time; must be used with `created_at[gte]`
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: execution_method
+        description: Only runs executed using this method
+        required: false
+        schema:
+          type: string
+          enum:
+          - crowd
+          - automation
+          - automation_and_crowd
+          - on_premise
+      - in: query
+        name: crowd
+        description: Only runs against this crowd
+        required: false
+        schema:
+          type: string
+          enum:
+          - default
+          - on_premise_crowd
+          - automation
+          - automation_and_crowd
+      - in: query
+        name: environment_id
+        description: Only runs against this/these environment(s)
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: mode
+        description: Only runs with this mode
+        required: false
+        schema:
+          type: string
+          enum:
+          - standard
+          - draft
+          - rerun
+      - in: query
+        name: query
+        description: Only runs that have an id that matches this query or runs that have a description which contains the query
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: release
+        description: Only runs matching this release
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: result
+        description: Only runs with this result
+        required: false
+        schema:
+          type: string
+          enum:
+          - passed
+          - failed
+          - no_result
+      - in: query
+        name: run_group_id
+        description: Only runs for this/these run group(s)
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: source
+        description: Only runs from this source
+        required: false
+        schema:
+          type: string
+          enum:
+          - api
+          - application
+          - rainforest-cli
+          - rainforest-orb
+          - rainforest-gh-action
+          - schedule
+          - unknown
+      - in: query
+        name: state
+        description: Only runs in this state
+        required: false
+        schema:
+          type: string
+          enum:
+          - queued
+          - validating
+          - downloading_app
+          - waiting_for_test_initialization
+          - analyzing_app
+          - error
+          - sending_webhook
+          - in_progress
+          - aborting
+          - aborted
+          - timed_out
+          - waiting_for_callback
+          - complete
+          - pending_investigation
+      - in: query
+        name: user_id
+        description: Only runs created by this/these user(s)
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: branch_id
+        description: Only runs created on this/these branch(es)
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: sort[][id]
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - asc
+            - desc
+      - in: query
+        name: sort[][description]
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - asc
+            - desc
+      - in: query
+        name: sort[][created_at]
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - asc
+            - desc
+      - in: query
+        name: page
+        description: Page of results to display
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - in: query
+        name: page_size
+        description: 'Number of results to return per page; maximum: 100'
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 10
+      responses:
+        '200':
+          description: Runs retrieved
+          headers:
+            X-Total-Pages:
+              description: Total pages
+              schema:
+                type: integer
+            X-Current-Page:
+              description: Current page
+              schema:
+                type: integer
+            X-Per-Page:
+              description: The maximum number of results per page
+              schema:
+                type: integer
+            X-Total-Results:
+              description: The total number of results
+              schema:
+                type: integer
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Runs_Index'
+        '400':
+          description: Could not list runs using provided parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - runs
+      operationId: get-runs
+      x-rdme-order: 1
+  /1/runs/{run_id}/tests/{test_id}:
+    get:
+      summary: Get a test from a run
+      description: Get a test from a run
+      parameters:
+      - in: path
+        name: run_id
+        description: A run ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: path
+        name: test_id
+        description: A test ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: show_rejected_jobs
+        description: Show rejected jobs or not
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: Run test retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tests_RunTestsIndex'
+        '404':
+          description: Run or test not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - runs
+      operationId: get-run-test
+      x-rdme-order: 30
+  /1/runs/historical_usage:
+    get:
+      summary: Get historical credit usage for runs
+      description: List historical credit usage for runs
+      parameters:
+      - in: query
+        name: page
+        description: Page of results to display
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - in: query
+        name: page_size
+        description: 'Number of results to return per page; maximum: 100'
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 10
+      responses:
+        '200':
+          description: Runs usage retrieved
+          headers:
+            X-Total-Pages:
+              description: Total pages
+              schema:
+                type: integer
+            X-Current-Page:
+              description: Current page
+              schema:
+                type: integer
+            X-Per-Page:
+              description: The maximum number of results per page
+              schema:
+                type: integer
+            X-Total-Results:
+              description: The total number of results
+              schema:
+                type: integer
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RunCost'
+      tags:
+      - runs
+      operationId: get-runs-historical_usage
+      x-rdme-order: 4
+  /1/runs/{run_id}:
+    get:
+      summary: Get a run
+      description: Get a run
+      parameters:
+      - in: path
+        name: run_id
+        description: A run ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: slim
+        description: If true, returns less data in order to reduce latency and response size
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: Run retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Run'
+        '404':
+          description: Run not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - runs
+      operationId: get-run
+      x-rdme-order: 10
+    put:
+      summary: Update a run
+      description: Update a run
+      parameters:
+      - in: path
+        name: run_id
+        description: A run ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/put-run'
+        required: true
+      responses:
+        '200':
+          description: Run updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Run'
+        '404':
+          description: Run not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: Run could not be updated due to a timing issue, please try again
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - runs
+      operationId: put-run
+      x-rdme-order: 11
+    delete:
+      summary: Cancel a run
+      description: Cancel a run
+      parameters:
+      - in: path
+        name: run_id
+        description: A run ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Run canceled
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Run'
+        '404':
+          description: Run not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: Run could not be canceled
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - runs
+      operationId: delete-run
+      x-rdme-order: 12
+  /1/runs/{run_id}/junit:
+    get:
+      summary: Get a run's JUnit XML
+      description: 'Get JUnit.xml for a run containting details of all tests. The format will be JUnit XML, but the content here may change over time.
+
+        '
+      parameters:
+      - in: path
+        name: run_id
+        description: A run ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Run JUnit retrieved
+        '400':
+          description: Run not complete
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Run not found
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - runs
+      operationId: get-run-junit
+      x-rdme-order: 13
+  /1/runs/{run_id}/usages:
+    get:
+      summary: List usages for a run
+      description: List usages for a run
+      parameters:
+      - in: path
+        name: run_id
+        description: A run ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Run usage retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RunUsage'
+        '404':
+          description: Run not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - runs
+      operationId: get-run-usages
+      x-rdme-order: 14
+  /1/runs/{run_id}/rerun_all:
+    post:
+      summary: Create a rerun
+      description: Rerun all tests from a previous run
+      parameters:
+      - in: path
+        name: run_id
+        description: A run ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/post-run-rerun_all'
+        required: true
+      responses:
+        '201':
+          description: Rerun created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Run'
+        '400':
+          description: Rerun could not be created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Run not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - runs
+      operationId: post-run-rerun_all
+      x-rdme-order: 15
+  /1/runs/{run_id}/rerun_failed:
+    post:
+      summary: Create a rerun
+      description: Rerun failed tests from a previous run
+      parameters:
+      - in: path
+        name: run_id
+        description: A run ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/post-run-rerun_failed'
+        required: true
+      responses:
+        '201':
+          description: Rerun created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Run'
+        '400':
+          description: Rerun could not be created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Run not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - runs
+      operationId: post-run-rerun_failed
+      x-rdme-order: 16
+  /1/runs/{run_id}/tests:
+    get:
+      summary: List tests for a run
+      description: List tests for a run
+      parameters:
+      - in: path
+        name: run_id
+        description: A run ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: category
+        description: Only return tests with this category
+        required: false
+        schema:
+          type: string
+          enum:
+          - app
+          - site
+      - in: query
+        name: exploratory_run_id
+        description: Only return created in this exploratory run
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: priority
+        description: Only return tests with this priority
+        required: false
+        schema:
+          type: string
+          enum:
+          - P1
+          - P2
+          - P3
+          - ''
+          - not_prioritized
+      - in: query
+        name: query
+        description: Only return tests whose title contains, or ID matches, this string
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: result
+        description: Only return tests with a specific result
+        required: false
+        schema:
+          type: string
+          enum:
+          - passed
+          - failed
+          - no_result
+      - in: query
+        name: run_group_id
+        description: Only return tests in this run group; use `-1` to filter for tests not in any run groups
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: smart_folder_id
+        description: Only return tests in this saved filter
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: step_query
+        description: Only return tests whose steps match this string
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: tests
+        description: Only return tests matching this criteria. Can be comma-separated list of test ids or 'all' to return all tests
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: type
+        description: Only return tests of this type
+        required: false
+        schema:
+          type: string
+          enum:
+          - snippet
+          - test
+      - in: query
+        name: variable
+        description: Only return tests that contain given variable
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: environment_id
+        description: Only return that were run in the specified environment
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: has_comments
+        description: Only return tests with or without comments
+        required: false
+        schema:
+          type: boolean
+      - in: query
+        name: latest_only
+        description: Only the latest results for a test
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - in: query
+        name: release
+        description: Only return tests that were run in the specified release
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: sort[][title]
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - asc
+            - desc
+      - in: query
+        name: sort[][priority]
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - asc
+            - desc
+      - in: query
+        name: sort[][duration]
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - asc
+            - desc
+      - in: query
+        name: sort[][result]
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - asc
+            - desc
+      - in: query
+        name: sort[][failure_status]
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - asc
+            - desc
+      - in: query
+        name: sort[][failed_snippet]
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - asc
+            - desc
+      - in: query
+        name: page
+        description: Page of results to display
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - in: query
+        name: page_size
+        description: 'Number of results to return per page; maximum: 100'
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 10
+      - in: query
+        name: slim
+        description: If true, returns less data in order to reduce latency and response size
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - in: query
+        name: feature_id[]
+        description: Only return tests with this/these feature(s); use `-1` to filter for tests without a feature
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+      - in: query
+        name: site_id[]
+        description: Only return tests for this/these site(s)
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+      - in: query
+        name: state[]
+        description: Only return tests that with this state
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - enabled
+            - disabled
+            - draft
+            - archived
+            - all
+            - unarchived
+      - in: query
+        name: tags[]
+        description: Only return tests having all specified tags; use `-1` to filter for untagged tests
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: Run tests retrieved
+          headers:
+            X-Total-Pages:
+              description: Total pages
+              schema:
+                type: integer
+            X-Current-Page:
+              description: Current page
+              schema:
+                type: integer
+            X-Per-Page:
+              description: The maximum number of results per page
+              schema:
+                type: integer
+            X-Total-Results:
+              description: The total number of results
+              schema:
+                type: integer
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Tests_RunTestsIndex'
+        '404':
+          description: Run not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - runs
+      operationId: get-run-tests
+      x-rdme-order: 20
+  /1/runs/{run_id}/tests/mark_as_viewed:
+    post:
+      summary: Mark tests as viewed
+      description: Mark test results as viewed
+      parameters:
+      - in: path
+        name: run_id
+        description: A run ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/post-run-tests-mark_as_viewed'
+        required: true
+      responses:
+        '201':
+          description: Tests marked as viewed
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Tests_RunTestsIndex'
+        '404':
+          description: Run not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - runs
+      operationId: post-run-tests-mark_as_viewed
+      x-rdme-order: 21
+  /1/runs/{run_id}/tests/{test_id}/comments:
+    get:
+      summary: List comments for a run test
+      description: List comments for a run test
+      parameters:
+      - in: path
+        name: run_id
+        description: A run ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: path
+        name: test_id
+        description: A test ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Run test comments retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TestCommentHistory'
+        '404':
+          description: Run or test not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - runs
+      operationId: get-run-test-comments
+      x-rdme-order: 32
+  /1/runs/{run_id}/steps/{step_id}:
+    get:
+      summary: Get a step from a run
+      description: Get a step from a run
+      parameters:
+      - in: path
+        name: run_id
+        description: A run ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: path
+        name: step_id
+        description: A step ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: include_feedback
+        description: Include tester feedback?
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - in: query
+        name: show_rejected_jobs
+        description: Show rejected jobs?
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - in: query
+        name: browsers[]
+        description: Only include certain browsers in the result
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: Retrieved run step
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RunStep'
+        '404':
+          description: Run or step not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - runs
+      operationId: get-run-test-step
+      x-rdme-order: 40
+components:
+  schemas:
+    RunStep:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        test_id:
+          type: string
+        action:
+          type: string
+        response:
+          type: string
+        rfa_action:
+          type: string
+        start_uri:
+          type: string
+        redirection:
+          type: string
+        is_conditional_step:
+          type: string
+        is_generate_steps_action:
+          type: string
+        browsers:
+          type: string
+      description: RunStep model
+    RunProgress:
+      type: object
+      properties:
+        percent:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+        complete:
+          type: integer
+          format: int32
+        passed:
+          type: integer
+          format: int32
+        failed:
+          type: integer
+          format: int32
+        no_result:
+          type: integer
+          format: int32
+        eta:
+          type: object
+    TestCommentHistory:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        run_id:
+          type: integer
+          format: int32
+        rf_test_id:
+          type: integer
+          format: int32
+        run_step_id:
+          type: integer
+          format: int32
+        browser_name:
+          type: string
+        worker_id:
+          type: integer
+          format: int32
+        original_step_id:
+          type: integer
+          format: int32
+        comment:
+          type: string
+        worker:
+          $ref: '#/components/schemas/Worker'
+      description: TestCommentHistory model
+    RunTestReview:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        status:
+          type: string
+        reason:
+          type: string
+        reason_updated_at:
+          type: string
+        run_id:
+          type: string
+        run:
+          type: string
+        test_id:
+          type: string
+        resolved:
+          type: string
+        transitioned_by:
+          $ref: '#/components/schemas/UserLite'
+        notified_user:
+          $ref: '#/components/schemas/UserLite'
+        reviewer:
+          $ref: '#/components/schemas/UserLite'
+        test:
+          type: object
+          properties:
+            crowd:
+              type: string
+            execution_method:
+              type: string
+            last_run:
+              type: string
+            test_lite:
+              $ref: '#/components/schemas/Tests_Lite'
+        transitioned_at:
+          type: string
+        updated_at:
+          type: string
+    Tests_Lite:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+        test_id:
+          type: string
+        title:
+          type: string
+        result:
+          type: string
+        wisp:
+          type: string
+        prompt:
+          type: string
+        prompt_credentials:
+          type: string
+        ai_mode:
+          type: string
+        priority:
+          type: string
+        real_cost_to_run:
+          type: string
+        owner_id:
+          type: string
+        state:
+          type: string
+        updated_at:
+          type: string
+        deleted:
+          type: string
+        feature_id:
+          type: string
+    Connection:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        name:
+          type: string
+        api_token:
+          type: string
+        state:
+          type: string
+        link_state:
+          type: string
+        type:
+          type: string
+          enum:
+          - rainforest
+          - user
+      description: Connection model
+    Worker:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        uuid:
+          type: string
+          format: uuid
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        pic:
+          type: string
+          format: url
+        profile_url:
+          type: string
+          format: url
+      description: Worker model
+    post-run-rerun_all:
+      type: object
+      properties:
+        test_ids:
+          type: array
+          description: Provide a list of ids to rerun only a subset of the tests in the run
+          items:
+            type: object
+            format: int32
+            properties:
+              ? ''
+              : type: array
+                description: Provide a list of ids to rerun only a subset of the tests in the run
+                items:
+                  type: integer
+                  format: int32
+        conflict:
+          type: string
+          description: How should we handle current other runs that are in progress; values are `cancel` to cancel runs in the same environment as your new run and `cancel-all` to cancel all runs
+          enum:
+          - cancel
+          - cancel-all
+      description: Rerun all tests from a previous run
+    post-runs:
+      type: object
+      properties:
+        category:
+          type: string
+          description: Only run tests with this category
+          enum:
+          - app
+          - site
+        exploratory_run_id:
+          type: integer
+          format: int32
+          description: Only run created in this exploratory run
+        feature_id:
+          type: array
+          description: Only run tests with this/these feature(s); use `-1` to filter for tests without a feature
+          items:
+            type: integer
+            format: int32
+        priority:
+          type: string
+          description: Only run tests with this priority
+          enum:
+          - P1
+          - P2
+          - P3
+          - ''
+          - not_prioritized
+        query:
+          type: string
+          description: Only run tests whose title contains, or ID matches, this string
+        result:
+          type: string
+          description: Only run tests with a specific result
+          enum:
+          - passed
+          - failed
+          - no_result
+        run_group_id:
+          type: integer
+          format: int32
+          description: Only run tests in this run group; use `-1` to filter for tests not in any run groups
+        site_id:
+          type: array
+          description: Only run tests for this/these site(s)
+          items:
+            type: integer
+            format: int32
+        smart_folder_id:
+          type: integer
+          format: int32
+          description: Only run tests in this saved filter
+        state:
+          type: array
+          description: Only run tests that with this state
+          items:
+            type: string
+            enum:
+            - enabled
+            - disabled
+            - draft
+            - archived
+            - all
+            - unarchived
+        step_query:
+          type: string
+          description: Only run tests whose steps match this string
+        tags:
+          type: array
+          description: Only run tests having all specified tags; use `-1` to filter for untagged tests
+          items:
+            type: string
+        tests:
+          type: string
+          description: Only run tests matching this criteria. Can be comma-separated list of test ids or 'all' to run all tests
+        type:
+          type: string
+          description: Only run tests of this type
+          enum:
+          - snippet
+          - test
+        run_id:
+          type: array
+          description: Only run tests that were in this/these previous run(s)
+          items:
+            type: integer
+            format: int32
+        variable:
+          type: string
+          description: Only run tests that contain given variable
+        embedded:
+          type: boolean
+          description: If true, only run tests that are embedded in other tests. If false, only run tests that are not embedded in other tests.
+        owner_id:
+          type: integer
+          format: int32
+          description: Only run tests owned by this user; use `-1` to filter for tests without an owner
+        test_language:
+          type: string
+          description: Only run tests with a specified language
+          enum:
+          - plain_english
+          - rainforest_test_language
+        browsers:
+          type: array
+          description: An array of browsers to run this against, overrides the defaults; you can find a list of possible options via the client API
+          items:
+            type: string
+        execution_method:
+          type: string
+          description: The execution method to use for this run
+          enum:
+          - crowd
+          - automation
+          - automation_and_crowd
+          - on_premise
+        crowd:
+          type: string
+          description: The crowd to use for this run
+          enum:
+          - default
+          - on_premise_crowd
+          - automation
+          - automation_and_crowd
+        description:
+          type: string
+          description: An arbitrary string to associate with the run
+        environment_id:
+          type: integer
+          format: int32
+          description: Use a specific environment for this run
+        mode:
+          type: string
+          description: Set the run mode to standard or draft
+          enum:
+          - standard
+          - draft
+          default: standard
+        release:
+          type: string
+          description: Manually entered release information about the release the run is associated with
+        connection_id:
+          type: string
+          description: Reroute tests through a specific location for this run; values are `default` to turn off, `usa` for USA, `can` for Canada, `deu` for Germany, `sgp` for Singapore, and `aus` for Australia, or the id of a connection if you have a custom connection
+        reroute_geo:
+          type: string
+          description: 'Deprecated: please use `connection.id` instead'
+        webhook:
+          type: string
+          format: url
+          description: HTTP webhook that we will POST notifications to; we expect a confirmation callback for `before_test` webhooks
+        conflict:
+          type: string
+          description: How should we handle current other runs that are in progress; values are `cancel` to cancel runs in the same environment as your new run and `cancel-all` to cancel all runs
+          enum:
+          - cancel
+          - cancel-all
+      description: Create a new run
+    post-run-rerun_failed:
+      type: object
+      properties:
+        test_ids:
+          type: array
+          description: Provide a list of ids to rerun only a subset of the failed tests in the run
+          items:
+            type: object
+            format: int32
+            properties:
+              ? ''
+              : type: array
+                description: Provide a list of ids to rerun only a subset of the failed tests in the run
+                items:
+                  type: integer
+                  format: int32
+        conflict:
+          type: string
+          description: How should we handle current other runs that are in progress; values are `cancel` to cancel runs in the same environment as your new run and `cancel-all` to cancel all runs
+          enum:
+          - cancel
+          - cancel-all
+      description: Rerun failed tests from a previous run
+    UserLite:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        name:
+          type: string
+        email:
+          type: string
+        state:
+          type: string
+        role:
+          type: string
+    put-run:
+      type: object
+      properties:
+        release:
+          type: string
+          description: Manually entered release information about the release the run is associated with.
+      description: Update a run
+    Tests_RunTestsIndex:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        test_id:
+          type: string
+        title:
+          type: string
+        run_id:
+          type: string
+        result:
+          type: string
+        wisp:
+          type: string
+        step_count:
+          type: string
+        history:
+          type: string
+        state:
+          type: string
+        category:
+          type: string
+        site_id:
+          type: string
+        priority:
+          type: string
+        start_uri:
+          type: string
+        description:
+          type: string
+        browsers:
+          $ref: '#/components/schemas/RunTestBrowserStatus'
+        tags:
+          type: string
+        frontend_url:
+          type: string
+        overridden_result_state:
+          type: string
+        viewed:
+          type: string
+        last_viewed_by:
+          $ref: '#/components/schemas/UserLite'
+        last_viewed_at:
+          type: string
+        owner:
+          $ref: '#/components/schemas/UserLite'
+        last_review:
+          $ref: '#/components/schemas/RunTestReview'
+        updated_at:
+          type: string
+        test_deleted:
+          type: string
+        steps:
+          $ref: '#/components/schemas/RunStep'
+        stats:
+          type: string
+        current_progress:
+          type: string
+        started_at:
+          type: string
+        completed_at:
+          type: string
+        run:
+          type: string
+        failed_steps:
+          type: string
+        test_version:
+          type: string
+        has_wisp:
+          type: string
+        has_rfa_results:
+          type: string
+        fallback_used:
+          type: string
+        self_healed:
+          type: string
+        total_retries:
+          type: integer
+          format: int32
+        unresolved_failures_count:
+          type: integer
+          format: int32
+      description: Tests_RunTestsIndex model
+    Profile:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        provider:
+          type: string
+    Environment:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        name:
+          type: boolean
+        default:
+          type: boolean
+        webhook:
+          type: string
+          format: url
+        webhook_enabled:
+          type: boolean
+        is_temporary:
+          type: boolean
+        deleted_at:
+          type: string
+          format: date-time
+          description: Only rendered if the environment is deleted
+        site_environments:
+          type: array
+          items:
+            $ref: '#/components/schemas/SiteEnvironment'
+        will_delete_after:
+          type: string
+          format: date-time
+          description: Only rendered if `is_temporary` is `true`
+      required:
+      - name
+      - default
+      - webhook
+      - webhook_enabled
+      - is_temporary
+      - site_environments
+      description: Environment model
+    RunBrowser:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        category:
+          type: string
+          enum:
+          - browser
+          - software
+          - tablet
+          - phone
+        state:
+          type: string
+          enum:
+          - enabled
+          - disabled
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: An error message describing what went wrong
+      required:
+      - error
+      description: Error model
+    Branch:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        name:
+          type: string
+        user:
+          $ref: '#/components/schemas/UserLite'
+    Tests_RunTestsLite:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        test_id:
+          type: string
+        title:
+          type: string
+        run_id:
+          type: string
+        result:
+          type: string
+        wisp:
+          type: string
+        history:
+          type: string
+        priority:
+          type: string
+        real_cost_to_run:
+          type: string
+        owner_id:
+          type: string
+        state:
+          type: string
+        updated_at:
+          type: string
+        unresolved_failures_count:
+          type: integer
+          format: int32
+        viewed:
+          type: string
+        has_comments:
+          type: string
+        last_viewed_by:
+          $ref: '#/components/schemas/UserLite'
+        last_viewed_at:
+          type: string
+        last_review:
+          $ref: '#/components/schemas/RunTestReview'
+        total_retries:
+          type: integer
+          format: int32
+        crowd:
+          type: string
+        execution_method:
+          type: string
+          enum:
+          - crowd
+          - automation
+          - automation_and_crowd
+          - on_premise
+        started_at:
+          type: string
+        completed_at:
+          type: string
+        comment_count:
+          type: string
+        fallback_used:
+          type: string
+        self_healed:
+          type: string
+        failed_steps:
+          type: string
+        total_steps:
+          type: string
+        test_deleted:
+          type: string
+    post-run-tests-mark_as_viewed:
+      type: object
+      properties:
+        tests:
+          type: array
+          description: An array of test ids to mark as viewed
+          items:
+            type: integer
+            format: int32
+      required:
+      - tests
+      description: Mark test results as viewed
+    RunUsage:
+      type: object
+      properties:
+        automated_execution_time:
+          type: integer
+          format: int32
+        manual_execution_time:
+          type: integer
+          format: int32
+      description: RunUsage model
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        client_analytics_id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        email:
+          type: string
+        api_token:
+          type: string
+        client_permissions:
+          type: string
+        state:
+          type: string
+        role:
+          type: string
+        settings:
+          type: string
+        profiles:
+          $ref: '#/components/schemas/Profile'
+        intercom_user_hash:
+          type: string
+        show_nps:
+          type: string
+        onboarding_progress:
+          type: string
+      description: User model
+    RunStats:
+      type: object
+      properties:
+        total_time_for_one_person:
+          type: string
+        total_time_for_rainforest:
+          type: string
+        total_rainforest_overhead:
+          type: string
+        speed_up:
+          type: string
+    SiteEnvironment:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        site_id:
+          type: integer
+          format: int32
+        environment_id:
+          type: integer
+          format: int32
+        url:
+          type: string
+          format: url
+      required:
+      - site_id
+      - environment_id
+      - url
+    Run:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        crowd:
+          type: string
+          enum:
+          - default
+          - on_premise_crowd
+          - automation
+          - automation_and_crowd
+        execution_method:
+          type: string
+          enum:
+          - crowd
+          - automation
+          - automation_and_crowd
+          - on_premise
+        environment:
+          $ref: '#/components/schemas/Environment'
+        environment_id:
+          type: integer
+          format: int32
+        state:
+          type: string
+          enum:
+          - queued
+          - validating
+          - downloading_app
+          - waiting_for_test_initialization
+          - analyzing_app
+          - error
+          - sending_webhook
+          - in_progress
+          - aborting
+          - aborted
+          - timed_out
+          - waiting_for_callback
+          - complete
+          - pending_investigation
+        mode:
+          type: string
+          enum:
+          - standard
+          - draft
+        description:
+          type: string
+        state_details:
+          type: object
+        has_webhook:
+          type: boolean
+        result:
+          type: string
+          enum:
+          - passed
+          - failed
+          - no_result
+        current_progress:
+          $ref: '#/components/schemas/RunProgress'
+        timestamps:
+          type: object
+        release:
+          type: string
+        browsers:
+          type: array
+          items:
+            $ref: '#/components/schemas/RunBrowser'
+        user:
+          $ref: '#/components/schemas/User'
+        user_id:
+          type: integer
+          format: int32
+        requested_tests:
+          type: array
+          items:
+            type: integer
+            format: int32
+        error_reason:
+          type: string
+        app_logs:
+          type: array
+          items:
+            type: string
+            format: url
+        filters:
+          type: object
+        source:
+          type: string
+          enum:
+          - api
+          - application
+          - rainforest-cli
+          - rainforest-orb
+          - rainforest-gh-action
+          - schedule
+          - unknown
+        frontend_url:
+          type: string
+          format: url
+        total_tests:
+          type: integer
+          format: int32
+        total_passed_tests:
+          type: integer
+          format: int32
+        total_failed_tests:
+          type: integer
+          format: int32
+        total_no_result_tests:
+          type: integer
+          format: int32
+        total_rescued_tests:
+          type: string
+        total_self_healed_tests:
+          type: string
+        total_failures_categorized:
+          type: integer
+          format: int32
+        total_failures_resolved:
+          type: integer
+          format: int32
+        time_taken:
+          type: number
+        reroute_geo:
+          type: string
+          description: 'Deprecated: please use `connection.id` instead'
+        connection:
+          $ref: '#/components/schemas/Connection'
+        tests:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tests_RunTestsLite'
+        stats:
+          $ref: '#/components/schemas/RunStats'
+        step_cost:
+          type: integer
+          format: int32
+        credit_cost:
+          type: integer
+          format: int32
+        branch:
+          $ref: '#/components/schemas/Branch'
+      description: Run model
+    RunCost:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        date:
+          type: string
+          format: date-time
+        title:
+          type: string
+        credits_used:
+          type: integer
+          format: int32
+      description: RunCost model
+    Runs_Index:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        crowd:
+          type: string
+          enum:
+          - default
+          - on_premise_crowd
+          - automation
+          - automation_and_crowd
+        execution_method:
+          type: string
+          enum:
+          - crowd
+          - automation
+          - automation_and_crowd
+          - on_premise
+        environment:
+          $ref: '#/components/schemas/Environment'
+        branch_id:
+          type: integer
+          format: int32
+        environment_id:
+          type: integer
+          format: int32
+        state:
+          type: string
+          enum:
+          - queued
+          - validating
+          - downloading_app
+          - waiting_for_test_initialization
+          - analyzing_app
+          - error
+          - sending_webhook
+          - in_progress
+          - aborting
+          - aborted
+          - timed_out
+          - waiting_for_callback
+          - complete
+          - pending_investigation
+        mode:
+          type: string
+          enum:
+          - standard
+          - draft
+        description:
+          type: string
+        state_details:
+          type: object
+        has_webhook:
+          type: boolean
+        result:
+          type: string
+          enum:
+          - passed
+          - failed
+          - no_result
+        current_progress:
+          $ref: '#/components/schemas/RunProgress'
+        timestamps:
+          type: object
+        release:
+          type: string
+        browsers:
+          type: array
+          items:
+            $ref: '#/components/schemas/RunBrowser'
+        user:
+          $ref: '#/components/schemas/UserLite'
+        user_id:
+          type: integer
+          format: int32
+        requested_tests:
+          type: array
+          items:
+            type: integer
+            format: int32
+        error_reason:
+          type: string
+        app_logs:
+          type: array
+          items:
+            type: string
+            format: url
+        filters:
+          type: object
+        source:
+          type: string
+          enum:
+          - api
+          - application
+          - rainforest-cli
+          - rainforest-orb
+          - rainforest-gh-action
+          - schedule
+          - unknown
+        frontend_url:
+          type: string
+          format: url
+        total_tests:
+          type: integer
+          format: int32
+        total_passed_tests:
+          type: integer
+          format: int32
+        total_failed_tests:
+          type: integer
+          format: int32
+        total_no_result_tests:
+          type: integer
+          format: int32
+        total_rescued_tests:
+          type: string
+        total_self_healed_tests:
+          type: string
+        total_failures_categorized:
+          type: integer
+          format: int32
+        total_failures_resolved:
+          type: integer
+          format: int32
+        time_taken:
+          type: number
+      description: Runs_Index model
+    RunTestBrowserStatus:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        name:
+          type: string
+        description:
+          type: string
+        category:
+          type: string
+        result:
+          type: string
+        state:
+          type: string
+        overridden_results:
+          $ref: '#/components/schemas/OverriddenResult'
+        credit_cost:
+          type: string
+    OverriddenResult:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        note:
+          type: string
+        result:
+          type: string
+        job_group_id:
+          type: string
+        user:
+          $ref: '#/components/schemas/UserLite'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: CLIENT_TOKEN
+      in: header

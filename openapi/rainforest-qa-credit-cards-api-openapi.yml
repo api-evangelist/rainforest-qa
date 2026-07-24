@@ -1,0 +1,58 @@
+openapi: 3.0.0
+info:
+  title: Rainforest callback credit_cards API
+  description: Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).
+  version: '1'
+servers:
+- url: https://app.rainforestqa.com/api
+security:
+- api_key: []
+tags:
+- name: credit_cards
+  description: Operations about credit_cards
+paths:
+  /1/credit_cards:
+    get:
+      summary: List credit cards
+      description: List credit cards
+      responses:
+        '200':
+          description: Retrieved credit cards
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreditCards'
+      tags:
+      - credit_cards
+      operationId: get-credit_cards
+      x-rdme-order: 1
+components:
+  schemas:
+    CreditCard:
+      type: object
+      properties:
+        card_id:
+          type: string
+        last4:
+          type: string
+        type:
+          type: string
+        exp_month:
+          type: string
+        exp_year:
+          type: string
+    CreditCards:
+      type: object
+      properties:
+        default_card:
+          type: string
+        credit_cards:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreditCard'
+      description: CreditCards model
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: CLIENT_TOKEN
+      in: header

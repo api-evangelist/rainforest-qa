@@ -1,0 +1,749 @@
+openapi: 3.0.0
+info:
+  title: Rainforest callback generators API
+  description: Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).
+  version: '1'
+servers:
+- url: https://app.rainforestqa.com/api
+security:
+- api_key: []
+tags:
+- name: generators
+  description: Operations about generators
+paths:
+  /1/generators:
+    get:
+      summary: List generators
+      description: List generators
+      parameters:
+      - in: query
+        name: generator_type
+        description: Only return generators of this type
+        required: false
+        schema:
+          type: string
+          enum:
+          - builtin
+          - custom
+          - tabular
+      - in: query
+        name: name
+        description: Filter by name (case-insensitive)
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: page
+        description: Page of results to display
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - in: query
+        name: page_size
+        description: 'Number of results to return per page; maximum: 100'
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 10
+      - in: query
+        name: slim
+        description: If true, returns less data in order to reduce latency and response size
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: Generators retrieved
+          headers:
+            X-Total-Pages:
+              description: Total pages
+              schema:
+                type: integer
+            X-Current-Page:
+              description: Current page
+              schema:
+                type: integer
+            X-Per-Page:
+              description: The maximum number of results per page
+              schema:
+                type: integer
+            X-Total-Results:
+              description: The total number of results
+              schema:
+                type: integer
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Generator'
+      tags:
+      - generators
+      operationId: get-generators
+      x-rdme-order: 1
+    post:
+      summary: Create a new generator
+      description: Create a new generator
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/post-generators'
+        required: true
+      responses:
+        '201':
+          description: Generator created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Generator'
+        '400':
+          description: Generator could not be created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - generators
+      operationId: post-generators
+      x-rdme-order: 2
+  /1/generators/{generator_id}:
+    get:
+      summary: Get a generator
+      description: Get a generator
+      parameters:
+      - in: path
+        name: generator_id
+        description: A generator ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: slim
+        description: If true, returns less data in order to reduce latency and response size
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: Generator retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Generator'
+        '404':
+          description: Generator not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - generators
+      operationId: get-generator
+      x-rdme-order: 10
+    put:
+      summary: Update a generator
+      description: Update a generator
+      parameters:
+      - in: path
+        name: generator_id
+        description: A generator ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/put-generator'
+        required: true
+      responses:
+        '200':
+          description: Generator updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Generator'
+        '400':
+          description: Generator could not be updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Generator not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - generators
+      operationId: put-generator
+      x-rdme-order: 11
+    delete:
+      summary: Delete a generator
+      description: Delete a generator
+      parameters:
+      - in: path
+        name: generator_id
+        description: A generator ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: slim
+        description: If true, returns less data in order to reduce latency and response size
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: Generator deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Generator'
+        '400':
+          description: Generator could not be deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Generator not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - generators
+      operationId: delete-generator
+      x-rdme-order: 12
+  /1/generators/{generator_id}/rows:
+    get:
+      summary: List generator rows
+      description: List generator rows
+      parameters:
+      - in: path
+        name: generator_id
+        description: A generator ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: header
+        name: Accept
+        description: What format data to receive
+        required: false
+        schema:
+          type: string
+          enum:
+          - application/json
+          - text/csv
+      - in: query
+        name: page
+        description: Page of results to display
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - in: query
+        name: page_size
+        description: 'Number of results to return per page; maximum: 100'
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 10
+      responses:
+        '200':
+          description: Retrieved generator rows (JSON format)
+          headers:
+            X-Total-Pages:
+              description: Total pages
+              schema:
+                type: integer
+            X-Current-Page:
+              description: Current page
+              schema:
+                type: integer
+            X-Per-Page:
+              description: The maximum number of results per page
+              schema:
+                type: integer
+            X-Total-Results:
+              description: The total number of results
+              schema:
+                type: integer
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GeneratorRow'
+            text/csv:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GeneratorRow'
+        '202':
+          description: CSV currently being generated, please try again.
+        '302':
+          description: Redirecting to CSV file
+        '400':
+          description: CSV could not be generated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Generator not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - generators
+      operationId: get-generator-rows
+      x-rdme-order: 20
+    post:
+      summary: Create a new generator row
+      description: Create a new generator row
+      parameters:
+      - in: path
+        name: generator_id
+        description: A generator ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/post-generator-rows'
+        required: true
+      responses:
+        '201':
+          description: Generator Row created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeneratorRow'
+        '400':
+          description: Generator Row could not be created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Generator not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - generators
+      operationId: post-generator-rows
+      x-rdme-order: 21
+  /1/generators/{generator_id}/rows/batch:
+    post:
+      summary: Create multiple generator rows
+      description: Create multiple generator rows
+      parameters:
+      - in: path
+        name: generator_id
+        description: A generator ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/post-generator-rows-batch'
+        required: true
+      responses:
+        '201':
+          description: Generator Rows created
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GeneratorRow'
+        '400':
+          description: Generator Rows could not be created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Generator not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - generators
+      operationId: post-generator-rows-batch
+      x-rdme-order: 22
+  /1/generators/{generator_id}/rows/{row_id}:
+    get:
+      summary: Get a generator row
+      description: Get a generator row
+      parameters:
+      - in: path
+        name: generator_id
+        description: A generator ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: path
+        name: row_id
+        description: A row ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Generator Row retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeneratorRow'
+        '404':
+          description: Generator or Generator Row not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - generators
+      operationId: get-generator-row
+      x-rdme-order: 30
+    put:
+      summary: Update a generator row
+      description: Update a generator row
+      parameters:
+      - in: path
+        name: generator_id
+        description: A generator ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: path
+        name: row_id
+        description: A row ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/put-generator-row'
+        required: true
+      responses:
+        '200':
+          description: Generator Row updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeneratorRow'
+        '400':
+          description: Could not update Generator Row
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Generator or Generator Row not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - generators
+      operationId: put-generator-row
+      x-rdme-order: 31
+    delete:
+      summary: Delete a generator row
+      description: Delete a generator row
+      parameters:
+      - in: path
+        name: generator_id
+        description: A generator ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: path
+        name: row_id
+        description: A row ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Generator Row deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ok'
+        '400':
+          description: Could not delete Generator Row
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Generator or Generator Row not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - generators
+      operationId: delete-generator-row
+      x-rdme-order: 32
+components:
+  schemas:
+    post-generators:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of generator
+        description:
+          type: string
+          description: Description of generator
+        generator_type:
+          type: string
+          description: Generator type
+          enum:
+          - custom
+          - tabular
+          default: tabular
+        data:
+          type: array
+          description: Array of generator row data objects
+          items:
+            type: object
+            additionalProperties: true
+        columns:
+          type: array
+          description: Array of column names
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                description: Column name
+            required:
+            - name
+        reusable:
+          type: boolean
+          description: Whether this generator is to be reusable across tests within a run (only applies for tabular generators)
+          default: false
+        single_use:
+          type: boolean
+          description: Whether this generator's rows will be removed after a single use (only applies for tabular generators)
+          default: false
+        slim:
+          type: boolean
+          description: If true, returns less data in order to reduce latency and response size
+          default: false
+      required:
+      - name
+      - description
+      description: Create a new generator
+    post-generator-rows-batch:
+      type: object
+      properties:
+        data:
+          type: array
+          description: An array of Generator Row data objects. Keys are column IDs.
+          items:
+            type: object
+            additionalProperties: true
+      required:
+      - data
+      description: Create multiple generator rows
+    put-generator:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of generator
+        description:
+          type: string
+          description: Description of generator
+        generator_type:
+          type: string
+          description: Generator type
+          enum:
+          - custom
+          - tabular
+        data:
+          type: array
+          description: Array of generator row data objects
+          items:
+            type: object
+            additionalProperties: true
+        columns:
+          type: array
+          description: Array of column names
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                description: Column name
+            required:
+            - name
+        reusable:
+          type: boolean
+          description: Whether this generator is to be reusable across tests within a run (only applies for tabular generators)
+        single_use:
+          type: boolean
+          description: Whether this generator's rows will be removed after a single use (only applies for tabular generators)
+        slim:
+          type: boolean
+          description: If true, returns less data in order to reduce latency and response size
+          default: false
+      description: Update a generator
+    Generator:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        name:
+          type: string
+          description: Name of generator
+        description:
+          type: string
+          description: Description of generator
+        generator_type:
+          type: string
+          enum:
+          - builtin
+          - custom
+          - tabular
+        single_use:
+          type: boolean
+          description: Whether this generator's rows are deleted after a single use or not
+        reusable:
+          type: boolean
+          description: Whether this generator is reusable within a run or not
+        columns:
+          $ref: '#/components/schemas/GeneratorColumn'
+        data:
+          type: array
+          items:
+            type: object
+          description: 'Array of JSON objects representing rows of data: keys represent column names, values represent the generator values'
+        row_count:
+          type: integer
+          format: int32
+        related_tests_count:
+          type: integer
+          format: int32
+        related_archived_tests_count:
+          type: integer
+          format: int32
+        related_snippets_count:
+          type: integer
+          format: int32
+        related_archived_snippets_count:
+          type: integer
+          format: int32
+      description: Generator model
+    Ok:
+      type: object
+      properties:
+        ok:
+          type: boolean
+          description: 🆗
+      description: Ok model
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: An error message describing what went wrong
+      required:
+      - error
+      description: Error model
+    GeneratorRow:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          description: The Generator Row ID
+        data:
+          type: object
+          description: A hash of values. Keys are Generator Column IDs.
+      description: GeneratorRow model
+    put-generator-row:
+      type: object
+      properties:
+        data:
+          type: object
+          description: A Generator Row data object. Keys are column IDs.
+          additionalProperties: true
+      required:
+      - data
+      description: Update a generator row
+    GeneratorColumn:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        name:
+          type: string
+    post-generator-rows:
+      type: object
+      properties:
+        data:
+          type: object
+          description: A Generator Row data object. Keys are column IDs.
+          additionalProperties: true
+      required:
+      - data
+      description: Create a new generator row
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: CLIENT_TOKEN
+      in: header

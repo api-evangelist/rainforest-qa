@@ -1,0 +1,130 @@
+openapi: 3.0.0
+info:
+  title: Rainforest callback tags API
+  description: Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).
+  version: '1'
+servers:
+- url: https://app.rainforestqa.com/api
+security:
+- api_key: []
+tags:
+- name: tags
+  description: Operations about tags
+paths:
+  /1/tags:
+    get:
+      summary: List tags
+      description: List tags
+      parameters:
+      - in: query
+        name: page
+        description: Page of results to display
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - in: query
+        name: page_size
+        description: 'Number of results to return per page; maximum: 100'
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 10
+      - in: query
+        name: name
+        description: Filter by name (case-insensitive)
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Tags retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Tag'
+      tags:
+      - tags
+      operationId: get-tags
+      x-rdme-order: 1
+  /1/tags/{name}:
+    put:
+      summary: Rename a tag
+      description: Rename a tag
+      parameters:
+      - in: path
+        name: name
+        description: Tag name
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/put-tag'
+        required: true
+      responses:
+        '200':
+          description: Tag renamed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tag'
+      tags:
+      - tags
+      operationId: put-tag
+      x-rdme-order: 10
+    delete:
+      summary: Delete a tag
+      description: Remove a tag from all tests
+      parameters:
+      - in: path
+        name: name
+        description: Tag name
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Tag deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tag'
+      tags:
+      - tags
+      operationId: delete-tag
+      x-rdme-order: 11
+components:
+  schemas:
+    Tag:
+      type: object
+      properties:
+        name:
+          type: string
+        test_count:
+          type: integer
+          format: int32
+        snippet_count:
+          type: integer
+          format: int32
+      description: Tag model
+    put-tag:
+      type: object
+      properties:
+        new_name:
+          type: string
+          description: The new tag name
+      required:
+      - new_name
+      description: Rename a tag
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: CLIENT_TOKEN
+      in: header

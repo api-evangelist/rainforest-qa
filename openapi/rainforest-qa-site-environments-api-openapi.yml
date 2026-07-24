@@ -1,0 +1,505 @@
+openapi: 3.0.0
+info:
+  title: Rainforest callback site_environments API
+  description: Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).
+  version: '1'
+servers:
+- url: https://app.rainforestqa.com/api
+security:
+- api_key: []
+tags:
+- name: site_environments
+  description: Operations about site_environments
+paths:
+  /1/site_environments:
+    get:
+      summary: List sites and environments
+      description: List sites and environments
+      parameters:
+      - in: query
+        name: include_site_test_count
+        description: Includes test count for each site if set to true
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - in: query
+        name: slim
+        description: If true, returns less data in order to reduce latency and response size
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: Sites and environments retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SiteEnvironments_Index'
+      tags:
+      - site_environments
+      operationId: get-site_environments
+      x-rdme-order: 1
+  /1/site_environments/{site_environment_id}:
+    put:
+      summary: Update a site-environment
+      description: Update a site-environment
+      parameters:
+      - in: path
+        name: site_environment_id
+        description: A site environment ID
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/put-site-environment'
+        required: true
+      responses:
+        '200':
+          description: Site-environment updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SmartFolder'
+        '400':
+          description: Could not update site-environment
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Site-environment not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - site_environments
+      operationId: put-site-environment
+      x-rdme-order: 11
+components:
+  schemas:
+    SmartFolder:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        title:
+          type: string
+        type:
+          type: string
+          enum:
+          - filter
+          - tag
+        logic:
+          type: array
+          items:
+            type: object
+          example:
+          - expression:
+              tag: foo
+              inclusive: true
+          - operation: and
+          - expression:
+              tag: bar
+              inclusive: false
+          - operation: or
+          - expression:
+              tag: baz
+              inclusive: true
+        filters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Filter'
+          example:
+          - owner_id: 117
+          - priority: P1
+        test_count:
+          type: integer
+          format: int32
+        tests:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tests_Index'
+        updated_at:
+          type: string
+          format: date-time
+      required:
+      - title
+      - type
+      - logic
+      - filters
+      - updated_at
+      description: SmartFolder model
+    Tests_Index:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+        test_id:
+          type: string
+        title:
+          type: string
+        result:
+          type: string
+        wisp:
+          type: string
+        prompt:
+          type: string
+        prompt_credentials:
+          type: string
+        ai_mode:
+          type: string
+        state:
+          type: string
+        category:
+          type: string
+        site_id:
+          type: string
+        priority:
+          type: string
+        start_uri:
+          type: string
+        description:
+          type: string
+        browsers:
+          $ref: '#/components/schemas/RunTestBrowserStatus'
+        tags:
+          type: string
+        frontend_url:
+          type: string
+        rfml_id:
+          type: string
+        exploratory_run_id:
+          type: string
+        initial_redirect_behavior:
+          type: string
+        source:
+          type: string
+        reroute_geo:
+          type: string
+          description: 'Deprecated: please use `connection.id` instead'
+        connection:
+          $ref: '#/components/schemas/Connection'
+        atc_settings:
+          type: string
+        owner:
+          $ref: '#/components/schemas/UserLite'
+        last_updated_by:
+          $ref: '#/components/schemas/UserLite'
+        updated_at:
+          type: string
+        archived_at:
+          type: string
+        deleted:
+          type: string
+        attached_to:
+          $ref: '#/components/schemas/Tests_Lite'
+        dry_run_url:
+          type: string
+        last_run:
+          $ref: '#/components/schemas/RunSuperLite'
+        feature_id:
+          type: string
+        has_wisp:
+          type: string
+        type:
+          type: string
+        coverage_summary:
+          type: string
+        used_in_snippets_count:
+          type: string
+        used_in_tests_count:
+          type: string
+        used_in_archived_snippets_count:
+          type: string
+        used_in_archived_tests_count:
+          type: string
+        self_healed_at:
+          type: string
+        last_run_test:
+          type: object
+          properties:
+            self_healed:
+              type: string
+            rescued:
+              type: string
+    SiteEnvironments_Index:
+      type: object
+      properties:
+        environments:
+          type: array
+          items:
+            type: string
+        sites:
+          type: array
+          items:
+            $ref: '#/components/schemas/Site'
+        site_environments:
+          type: array
+          items:
+            $ref: '#/components/schemas/SiteEnvironment'
+      description: SiteEnvironments_Index model
+    Filter:
+      type: object
+      properties:
+        query:
+          type: string
+        step_query:
+          type: string
+        owner_id:
+          type: integer
+          format: int32
+        result:
+          type: string
+          enum:
+          - passed
+          - failed
+        feature_id:
+          type: integer
+          format: int32
+        run_group_id:
+          type: integer
+          format: int32
+        priority:
+          type: string
+          enum:
+          - P1
+          - P2
+          - P3
+          - not_prioritized
+        embedded:
+          type: boolean
+        state:
+          type: string
+          enum:
+          - enabled
+          - disabled
+          - draft
+        site_id:
+          type: integer
+          format: int32
+        category:
+          type: string
+          enum:
+          - site
+          - app
+        variable:
+          type: string
+        exploratory_run_id:
+          type: integer
+          format: int32
+        test_language:
+          type: string
+          enum:
+          - plain_english
+          - rainforest_test_language
+        has_comments:
+          type: boolean
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: An error message describing what went wrong
+      required:
+      - error
+      description: Error model
+    OverriddenResult:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        note:
+          type: string
+        result:
+          type: string
+        job_group_id:
+          type: string
+        user:
+          $ref: '#/components/schemas/UserLite'
+    UserLite:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        name:
+          type: string
+        email:
+          type: string
+        state:
+          type: string
+        role:
+          type: string
+    put-site-environment:
+      type: object
+      properties:
+        url:
+          type: string
+          description: New URL of the site in this environment
+      description: Update a site-environment
+    Site:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        name:
+          type: string
+        default:
+          type: boolean
+        category:
+          type: string
+          enum:
+          - site
+          - ios
+          - android
+        ai_generation_rules:
+          type: string
+        snippet_count:
+          type: integer
+          format: int32
+        test_count:
+          type: integer
+          format: int32
+      description: Site model
+    Connection:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        name:
+          type: string
+        api_token:
+          type: string
+        state:
+          type: string
+        link_state:
+          type: string
+        type:
+          type: string
+          enum:
+          - rainforest
+          - user
+      description: Connection model
+    RunSuperLite:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        state:
+          type: string
+    RunTestBrowserStatus:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        name:
+          type: string
+        description:
+          type: string
+        category:
+          type: string
+        result:
+          type: string
+        state:
+          type: string
+        overridden_results:
+          $ref: '#/components/schemas/OverriddenResult'
+        credit_cost:
+          type: string
+    Tests_Lite:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+        test_id:
+          type: string
+        title:
+          type: string
+        result:
+          type: string
+        wisp:
+          type: string
+        prompt:
+          type: string
+        prompt_credentials:
+          type: string
+        ai_mode:
+          type: string
+        priority:
+          type: string
+        real_cost_to_run:
+          type: string
+        owner_id:
+          type: string
+        state:
+          type: string
+        updated_at:
+          type: string
+        deleted:
+          type: string
+        feature_id:
+          type: string
+    SiteEnvironment:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        site_id:
+          type: integer
+          format: int32
+        environment_id:
+          type: integer
+          format: int32
+        url:
+          type: string
+          format: url
+      required:
+      - site_id
+      - environment_id
+      - url
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: CLIENT_TOKEN
+      in: header
