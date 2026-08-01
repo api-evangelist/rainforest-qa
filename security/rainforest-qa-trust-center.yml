@@ -1,0 +1,13 @@
+generated: '2026-07-20'
+method: searched
+probe: true
+source: https://www.rainforestqa.com/security
+url: https://www.rainforestqa.com/security
+certifications:
+- SOC 2
+- HIPAA
+evidence:
+- source: https://www.rainforestqa.com/security
+  keywords:
+  - soc 2
+  - hipaa

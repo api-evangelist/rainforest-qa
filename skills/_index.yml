@@ -1,0 +1,12 @@
+generated: '2026-07-20'
+method: generated
+source: openapi/rainforest-qa-openapi-original.yml
+skills:
+  - file: rainforest-qa-run-tests.md
+    name: Run Rainforest tests and collect results
+    api: openapi/rainforest-qa-openapi-original.yml
+    operations: [post-runs, get-run, get-run-junit, post-run-rerun_failed, delete-run]
+  - file: rainforest-qa-manage-environments.md
+    name: Manage Rainforest environments before a run
+    api: openapi/rainforest-qa-openapi-original.yml
+    operations: [get-environments, post-environments, get-tests, post-runs]

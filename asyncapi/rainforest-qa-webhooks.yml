@@ -1,0 +1,23 @@
+generated: '2026-07-20'
+method: searched
+spec_type: Webhooks
+source: https://help.rainforestqa.com/docs/using-webhooks
+description: >-
+  Rainforest sends run lifecycle callbacks (webhooks) to a URL configured per
+  environment on the Sites and Environments settings page. Each request carries
+  an HMAC digest for verification, generated with the Rainforest authorization gem.
+transport: http-post
+verification:
+  method: hmac
+  field: digest
+  library: Rainforest authorization gem
+configuration: Sites and Environments settings page (per environment webhook URL)
+events:
+  - type: initializing_run
+    description: Sent at the very start, before run initialization and validation. Expects an immediate 200 acknowledgment.
+  - type: before_run
+    description: Sent when a test is about to start. Expects an immediate 202 acknowledgment; enables advanced (blocking) environment setup before the run proceeds.
+  - type: after_run
+    description: Sent when a run completes.
+payload_shape: '{"callback_type": "before_run", "options": {"run_id": "12345"}, "digest": "ADIGESTSTRING"}'
+callback_completion_endpoint: /1/callback/run/{run_id}/{callback_type}/{digest}

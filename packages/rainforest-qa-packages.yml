@@ -1,0 +1,37 @@
+generated: '2026-07-20'
+method: searched
+source: rubygems.org + github.com/rainforestapp
+note: >-
+  Rainforest ships a first-party CLI (Go binary, also a Ruby gem) and a
+  maintained Ruby API bindings gem. No npm/PyPI first-party client was found.
+packages:
+  - language: go
+    registry: github-releases
+    name: rainforest-cli
+    url: https://github.com/rainforestapp/rainforest-cli
+    install: brew install rainforestapp/public/rainforest-cli
+    kind: cli
+    official: true
+    latest: v3.8.0
+  - language: ruby
+    registry: rubygems
+    name: rainforest-cli
+    url: https://rubygems.org/gems/rainforest-cli
+    install: gem install rainforest-cli
+    kind: cli
+    official: true
+    latest: 1.12.6
+    downloads: 247572
+  - language: ruby
+    registry: rubygems
+    name: rainforest
+    url: https://rubygems.org/gems/rainforest
+    install: gem install rainforest
+    kind: sdk
+    official: true
+    latest: 2.1.0
+    note: Ruby API bindings (rainforestapp/rainforest-ruby); marked unmaintained upstream.
+distribution:
+  docker: gcr.io/rf-public-images/rainforest-cli
+  homebrew: rainforestapp/public/rainforest-cli
+  chocolatey: rainforest-cli

@@ -1,0 +1,565 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/rainforest-qa-openapi-original.yml
+note: Entities and relationships derived from OpenAPI component schemas and *_id /
+  *_ids reference fields.
+entity_count: 89
+entities:
+- Branch
+- BrowserCreditCost
+- BrowserWithDefault
+- Client
+- Connection
+- CreditCard
+- CreditCards
+- Environment
+- Error
+- Feature
+- Filter
+- Generator
+- GeneratorColumn
+- GeneratorRow
+- Ok
+- OverriddenResult
+- Profile
+- Run
+- RunBrowser
+- RunCost
+- RunGroup
+- RunGroupElement
+- RunLite
+- RunProgress
+- RunStats
+- RunStep
+- RunSuperLite
+- RunTestBrowserStatus
+- RunTestReview
+- RunUsage
+- Runs_Index
+- Schedule
+- ScheduleRule
+- Site
+- SiteEnvironment
+- SiteEnvironments_Index
+- SmartFolder
+- Tag
+- Test
+- TestCommentHistory
+- Tests_Index
+- Tests_Lite
+- Tests_RunTestsIndex
+- Tests_RunTestsLite
+- User
+- UserLite
+- Worker
+- create-connection
+- post-clients-select
+- post-environments
+- post-feature-tests
+- post-features
+- post-folders
+- post-generator-rows
+- post-generator-rows-batch
+- post-generators
+- post-on_premise_crowd_testers
+- post-run-rerun_all
+- post-run-rerun_failed
+- post-run-tests-mark_as_viewed
+- post-run_group-elements
+- post-run_group-elements-batch
+- post-run_group-runs
+- post-run_groups
+- post-runs
+- post-sites
+- post-test-files
+- post-tests
+- post-tests-duplicate
+- post-tests-tags
+- post-users
+- post-users-reset_password
+- put-clients
+- put-environment
+- put-feature
+- put-folder
+- put-generator
+- put-generator-row
+- put-run
+- put-run_group
+- put-site
+- put-site-environment
+- put-tag
+- put-test
+- put-test-regenerate
+- put-tests
+- put-user
+- put-users-permissions
+- rename-connection
+relationships:
+- from: Client
+  to: client
+  kind: belongs_to
+  via: client_id
+- from: Client
+  to: default_environment
+  kind: belongs_to
+  via: default_environment_id
+- from: Client
+  to: default_site
+  kind: belongs_to
+  via: default_site_id
+- from: SiteEnvironment
+  to: site
+  kind: belongs_to
+  via: site_id
+- from: SiteEnvironment
+  to: environment
+  kind: belongs_to
+  via: environment_id
+- from: BrowserCreditCost
+  to: browser
+  kind: belongs_to
+  via: browser_id
+- from: post-clients-select
+  to: client
+  kind: belongs_to
+  via: client_id
+- from: CreditCard
+  to: card
+  kind: belongs_to
+  via: card_id
+- from: post-feature-tests
+  to: exploratory_run
+  kind: belongs_to
+  via: exploratory_run_id
+- from: post-feature-tests
+  to: feature
+  kind: belongs_to
+  via: feature_id
+- from: post-feature-tests
+  to: run_group
+  kind: belongs_to
+  via: run_group_id
+- from: post-feature-tests
+  to: site
+  kind: belongs_to
+  via: site_id
+- from: post-feature-tests
+  to: smart_folder
+  kind: belongs_to
+  via: smart_folder_id
+- from: post-feature-tests
+  to: run
+  kind: belongs_to
+  via: run_id
+- from: post-feature-tests
+  to: owner
+  kind: belongs_to
+  via: owner_id
+- from: OverriddenResult
+  to: job_group
+  kind: belongs_to
+  via: job_group_id
+- from: Tests_Lite
+  to: test
+  kind: belongs_to
+  via: test_id
+- from: Tests_Lite
+  to: owner
+  kind: belongs_to
+  via: owner_id
+- from: Tests_Lite
+  to: feature
+  kind: belongs_to
+  via: feature_id
+- from: Filter
+  to: owner
+  kind: belongs_to
+  via: owner_id
+- from: Filter
+  to: feature
+  kind: belongs_to
+  via: feature_id
+- from: Filter
+  to: run_group
+  kind: belongs_to
+  via: run_group_id
+- from: Filter
+  to: site
+  kind: belongs_to
+  via: site_id
+- from: Filter
+  to: exploratory_run
+  kind: belongs_to
+  via: exploratory_run_id
+- from: Tests_Index
+  to: test
+  kind: belongs_to
+  via: test_id
+- from: Tests_Index
+  to: site
+  kind: belongs_to
+  via: site_id
+- from: Tests_Index
+  to: rfml
+  kind: belongs_to
+  via: rfml_id
+- from: Tests_Index
+  to: exploratory_run
+  kind: belongs_to
+  via: exploratory_run_id
+- from: Tests_Index
+  to: feature
+  kind: belongs_to
+  via: feature_id
+- from: post-runs
+  to: exploratory_run
+  kind: belongs_to
+  via: exploratory_run_id
+- from: post-runs
+  to: feature
+  kind: belongs_to
+  via: feature_id
+- from: post-runs
+  to: run_group
+  kind: belongs_to
+  via: run_group_id
+- from: post-runs
+  to: site
+  kind: belongs_to
+  via: site_id
+- from: post-runs
+  to: smart_folder
+  kind: belongs_to
+  via: smart_folder_id
+- from: post-runs
+  to: run
+  kind: belongs_to
+  via: run_id
+- from: post-runs
+  to: owner
+  kind: belongs_to
+  via: owner_id
+- from: post-runs
+  to: environment
+  kind: belongs_to
+  via: environment_id
+- from: post-runs
+  to: connection
+  kind: belongs_to
+  via: connection_id
+- from: Run
+  to: environment
+  kind: belongs_to
+  via: environment_id
+- from: Run
+  to: user
+  kind: belongs_to
+  via: user_id
+- from: User
+  to: client_analytics
+  kind: belongs_to
+  via: client_analytics_id
+- from: Tests_RunTestsLite
+  to: test
+  kind: belongs_to
+  via: test_id
+- from: Tests_RunTestsLite
+  to: run
+  kind: belongs_to
+  via: run_id
+- from: Tests_RunTestsLite
+  to: owner
+  kind: belongs_to
+  via: owner_id
+- from: RunTestReview
+  to: run
+  kind: belongs_to
+  via: run_id
+- from: RunTestReview
+  to: test
+  kind: belongs_to
+  via: test_id
+- from: Runs_Index
+  to: branch
+  kind: belongs_to
+  via: branch_id
+- from: Runs_Index
+  to: environment
+  kind: belongs_to
+  via: environment_id
+- from: Runs_Index
+  to: user
+  kind: belongs_to
+  via: user_id
+- from: Tests_RunTestsIndex
+  to: test
+  kind: belongs_to
+  via: test_id
+- from: Tests_RunTestsIndex
+  to: run
+  kind: belongs_to
+  via: run_id
+- from: Tests_RunTestsIndex
+  to: site
+  kind: belongs_to
+  via: site_id
+- from: RunStep
+  to: test
+  kind: belongs_to
+  via: test_id
+- from: post-run-rerun_all
+  to: test
+  kind: has_many
+  via: test_ids
+- from: post-run-rerun_failed
+  to: test
+  kind: has_many
+  via: test_ids
+- from: TestCommentHistory
+  to: run
+  kind: belongs_to
+  via: run_id
+- from: TestCommentHistory
+  to: rf_test
+  kind: belongs_to
+  via: rf_test_id
+- from: TestCommentHistory
+  to: run_step
+  kind: belongs_to
+  via: run_step_id
+- from: TestCommentHistory
+  to: worker
+  kind: belongs_to
+  via: worker_id
+- from: TestCommentHistory
+  to: original_step
+  kind: belongs_to
+  via: original_step_id
+- from: post-run_groups
+  to: environment
+  kind: belongs_to
+  via: environment_id
+- from: put-run_group
+  to: environment
+  kind: belongs_to
+  via: environment_id
+- from: post-run_group-runs
+  to: environment
+  kind: belongs_to
+  via: environment_id
+- from: post-run_group-runs
+  to: connection
+  kind: belongs_to
+  via: connection_id
+- from: RunGroupElement
+  to: run_group
+  kind: belongs_to
+  via: run_group_id
+- from: post-run_group-elements
+  to: element
+  kind: belongs_to
+  via: element_id
+- from: Test
+  to: test
+  kind: belongs_to
+  via: test_id
+- from: Test
+  to: site
+  kind: belongs_to
+  via: site_id
+- from: Test
+  to: rfml
+  kind: belongs_to
+  via: rfml_id
+- from: Test
+  to: exploratory_run
+  kind: belongs_to
+  via: exploratory_run_id
+- from: Test
+  to: feature
+  kind: belongs_to
+  via: feature_id
+- from: Test
+  to: test_version
+  kind: belongs_to
+  via: test_version_id
+- from: Test
+  to: job_test_generation
+  kind: belongs_to
+  via: job_test_generation_id
+- from: post-tests
+  to: connection
+  kind: belongs_to
+  via: connection_id
+- from: post-tests
+  to: environment
+  kind: belongs_to
+  via: environment_id
+- from: post-tests
+  to: feature
+  kind: belongs_to
+  via: feature_id
+- from: post-tests
+  to: login_snippet
+  kind: belongs_to
+  via: login_snippet_id
+- from: post-tests
+  to: owner
+  kind: belongs_to
+  via: owner_id
+- from: post-tests
+  to: rfml
+  kind: belongs_to
+  via: rfml_id
+- from: post-tests
+  to: site
+  kind: belongs_to
+  via: site_id
+- from: put-tests
+  to: exploratory_run
+  kind: belongs_to
+  via: exploratory_run_id
+- from: put-tests
+  to: feature
+  kind: belongs_to
+  via: feature_id
+- from: put-tests
+  to: run_group
+  kind: belongs_to
+  via: run_group_id
+- from: put-tests
+  to: site
+  kind: belongs_to
+  via: site_id
+- from: put-tests
+  to: smart_folder
+  kind: belongs_to
+  via: smart_folder_id
+- from: put-tests
+  to: run
+  kind: belongs_to
+  via: run_id
+- from: put-tests
+  to: owner
+  kind: belongs_to
+  via: owner_id
+- from: put-tests
+  to: new_site
+  kind: belongs_to
+  via: new_site_id
+- from: put-tests
+  to: connection
+  kind: belongs_to
+  via: connection_id
+- from: post-tests-duplicate
+  to: exploratory_run
+  kind: belongs_to
+  via: exploratory_run_id
+- from: post-tests-duplicate
+  to: feature
+  kind: belongs_to
+  via: feature_id
+- from: post-tests-duplicate
+  to: run_group
+  kind: belongs_to
+  via: run_group_id
+- from: post-tests-duplicate
+  to: site
+  kind: belongs_to
+  via: site_id
+- from: post-tests-duplicate
+  to: smart_folder
+  kind: belongs_to
+  via: smart_folder_id
+- from: post-tests-duplicate
+  to: run
+  kind: belongs_to
+  via: run_id
+- from: post-tests-duplicate
+  to: owner
+  kind: belongs_to
+  via: owner_id
+- from: put-test-regenerate
+  to: connection
+  kind: belongs_to
+  via: connection_id
+- from: put-test-regenerate
+  to: environment
+  kind: belongs_to
+  via: environment_id
+- from: put-test-regenerate
+  to: feature
+  kind: belongs_to
+  via: feature_id
+- from: put-test-regenerate
+  to: login_snippet
+  kind: belongs_to
+  via: login_snippet_id
+- from: put-test-regenerate
+  to: owner
+  kind: belongs_to
+  via: owner_id
+- from: put-test-regenerate
+  to: rfml
+  kind: belongs_to
+  via: rfml_id
+- from: put-test-regenerate
+  to: site
+  kind: belongs_to
+  via: site_id
+- from: post-tests-tags
+  to: exploratory_run
+  kind: belongs_to
+  via: exploratory_run_id
+- from: post-tests-tags
+  to: feature
+  kind: belongs_to
+  via: feature_id
+- from: post-tests-tags
+  to: run_group
+  kind: belongs_to
+  via: run_group_id
+- from: post-tests-tags
+  to: site
+  kind: belongs_to
+  via: site_id
+- from: post-tests-tags
+  to: smart_folder
+  kind: belongs_to
+  via: smart_folder_id
+- from: post-tests-tags
+  to: run
+  kind: belongs_to
+  via: run_id
+- from: post-tests-tags
+  to: owner
+  kind: belongs_to
+  via: owner_id
+- from: put-test
+  to: connection
+  kind: belongs_to
+  via: connection_id
+- from: put-test
+  to: environment
+  kind: belongs_to
+  via: environment_id
+- from: put-test
+  to: feature
+  kind: belongs_to
+  via: feature_id
+- from: put-test
+  to: login_snippet
+  kind: belongs_to
+  via: login_snippet_id
+- from: put-test
+  to: owner
+  kind: belongs_to
+  via: owner_id
+- from: put-test
+  to: rfml
+  kind: belongs_to
+  via: rfml_id
+- from: put-test
+  to: site
+  kind: belongs_to
+  via: site_id

@@ -1,0 +1,171 @@
+# Rainforest QA Documentation
+
+> Rainforest QA Help Center - One platform for both crowdsourced manual and automated software testing. Everything your team needs in one place.
+
+## Guides
+- [AI-Powered Test Creation](https://help.rainforestqa.com/docs/ai-powered-test-creation.md)
+- [AI Test Generation](https://help.rainforestqa.com/docs/ai-test-generation-generate-a-full-draft-test-from-a-single-prompt.md): Generate a full draft test from a single prompt
+- [Tips for Writing Effective AI Prompts](https://help.rainforestqa.com/docs/tips-for-writing-effective-ai-prompts.md)
+- [Generating Self-Healing Tests](https://help.rainforestqa.com/docs/how-to-generate-self-healing-tests.md): Guide on how to generate Rainforest tests that self-heal.
+- [Self-healing best practices and FAQs](https://help.rainforestqa.com/docs/self-heal-best-practices.md): Learn about the best practices and frequently asked questions related to generating self-healing tests.
+- [Using Branching to Approve Self-healing Test Updates](https://help.rainforestqa.com/docs/using-branching-to-approve-self-healing-test-updates.md)
+- [Using AI Actions](https://help.rainforestqa.com/docs/using-ai-actions.md): Learn how to use AI actions when creating tests.
+- [How to use AI Assertions](https://help.rainforestqa.com/docs/how-to-use-ai-assertions.md): Learn how to use AI assertions to confirm whether or not some text is visible on the screen.
+- [How to use AI Search](https://help.rainforestqa.com/docs/how-to-use-ai-search.md): Learn how to use the AI Search action.
+- [Creating a Test with the Visual Editor](https://help.rainforestqa.com/docs/creating-a-test-with-the-visual-editor.md): Learn how using the Visual Editor enables technical and nontechnical teammates to own testing.
+- [How to Match UI Elements Using Multiple Methods](https://help.rainforestqa.com/docs/how-to-match-ui-elements-on-multiple-levels.md)
+- [How to Mask an Area of a Screenshot](https://help.rainforestqa.com/docs/how-to-mask-out-a-dynamic-area-of-a-screenshot.md): Learn how to mask dynamic areas covered by your automation tests.
+- [Download files to the Rainforest VM](https://help.rainforestqa.com/docs/download-files-to-the-rainforest-vm.md)
+- [Using Reusable Snippets ](https://help.rainforestqa.com/docs/reusable-snippets-in-the-visual-editor.md)
+- [Using Conditional Blocks](https://help.rainforestqa.com/docs/conditional-blocks.md)
+- [Using DOM Matching](https://help.rainforestqa.com/docs/using-dom-matching.md)
+- [Visual Editor Test Actions Glossary](https://help.rainforestqa.com/docs/visual-editor-test-actions-glossary.md): Learn all the ways to interact with an app using your keyboard and mouse.
+- [Best Practices](https://help.rainforestqa.com/docs/visual-editor-test-best-practices.md): Learn best practices for creating and executing Visual Editor tests.
+- [FAQ](https://help.rainforestqa.com/docs/visual-editor-test-faq.md): Frequently asked questions about Visual Editor tests.
+- [Test Data & Special Testing Scenarios](https://help.rainforestqa.com/docs/editing-and-refining-tests.md)
+- [Built-In Data](https://help.rainforestqa.com/docs/built-in-data.md): Learn how to generate random data for standard fields such as name, address, and email.
+- [Dynamic Data](https://help.rainforestqa.com/docs/dynamic-data.md): Learn how to add information to your test steps that changes from run to run.
+- [Conditional/Environmental Test Data](https://help.rainforestqa.com/docs/conditional-environmental-test-data.md): Learn how environment-specific test data can make your tests more dynamic.
+- [Using Test Emails](https://help.rainforestqa.com/docs/using-test-emails.md): Learn how to use and review the Rainforest QA email system.
+- [Storing generated values as temporary test data](https://help.rainforestqa.com/docs/storing-values-generated-during-a-test-run-as-temporary-test-data.md): Learn how to store values generated during a test run as temporary test data (i.e. variables)
+- [Using JavaScript Actions](https://help.rainforestqa.com/docs/using-javascript-actions.md)
+- [Using Code-based Actions](https://help.rainforestqa.com/docs/using-code-based-actions.md)
+- [Unique Testing Scenarios with the Virtual Machine](https://help.rainforestqa.com/docs/unique-testing-scenarios-with-the-virtual-machine.md): Learn about different capabilities of our vitrual machines.
+- [Testing 2-Factor Authentication](https://help.rainforestqa.com/docs/testing-2-factor-authentication.md): Learn how to pass a verification code in your test.
+- [Testing Chrome Extentions & Desktop App Installation](https://help.rainforestqa.com/docs/testing-chrome-extentions-desktop-app-installation.md): Learn how to write instructions for downloading and installing applications.
+- [Monitoring Activity from the Dashboard](https://help.rainforestqa.com/docs/dashboard.md): Learn how to monitor recent test activity and view high-level QA analytics from the Rainforest dashboard.
+- [How to Debug Automation Results](https://help.rainforestqa.com/docs/how-to-debug-automation-results.md): Learn how to troubleshoot your tests using Automation results.
+- [How to Categorize Failures](https://help.rainforestqa.com/docs/how-to-categorize-failures.md): Learn how to use failure categories to provide more meaningful data to your team.
+- [How to Send Test Failures to Jira](https://help.rainforestqa.com/docs/how-to-send-test-failures-to-jira.md): Learn how to create Jira tickets from Visual Editor test failures.
+- [Working with Results in a Team](https://help.rainforestqa.com/docs/working-with-results-in-a-team.md): Learn how team members can work together to manage results in large test suites.
+- [FAQ](https://help.rainforestqa.com/docs/automation-results-faq.md): Frequently asked questions about Automation Service results.
+- [AI Test Planner](https://help.rainforestqa.com/docs/ai-test-planner.md): Discover how Rainforest's AI Test Planner uses intelligent app crawling to explore your application and generate comprehensive test coverage recommendations automatically.
+- [Understanding Test Clusters](https://help.rainforestqa.com/docs/understanding-test-clusters.md): Get a high-level view of your test coverage with AI-generated clusters that group similar tests together.
+- [Which IP Addresses Do Rainforest Tests Come From?](https://help.rainforestqa.com/docs/which-ip-addresses-do-rainforest-tests-come-from.md): Learn how to whitelist Rainforest’s IP addresses to allow tests to access your site.
+- [Supported Web Browsers](https://help.rainforestqa.com/docs/supported-platforms.md): Learn which platforms and devices our virtual machines support.
+- [Using Test History and Restoring Past Versions](https://help.rainforestqa.com/docs/using-test-history-and-restoring-past-versions.md): How to use test history and restore previous test versions
+- [Using the Activity Log](https://help.rainforestqa.com/docs/using-the-activity-log.md): See who has created, edited, archived, disabled, or deleted tests or snippets in Rainforest.
+- [Using Rainforest with the Model Context Protocol (MCP)](https://help.rainforestqa.com/docs/using-rainforest-with-the-model-context-protocol-mcp.md)
+- [Microsoft Teams](https://help.rainforestqa.com/docs/microsoft-teams-notifications.md): Learn how to use Microsoft Teams to receive Rainforest run results notifications.
+- [Using Rainforest Direct Connect](https://help.rainforestqa.com/docs/using-rainforest-direct-connect.md): Rainforest Direct Connect is a secure network solution that allows the Rainforest test execution platform to access to your internal test environments.
+- [Human Powered Testing](https://help.rainforestqa.com/docs/human-powered-testing.md)
+- [Using Exploratory Testing](https://help.rainforestqa.com/docs/using-exploratory-testing.md): Learn how Rainforest Exploratory can help uncover previously undiscovered bugs.
+- [How to Create an Exploratory Run](https://help.rainforestqa.com/docs/how-to-create-an-exploratory-run.md): Learn what information is required for an exploratory run.
+- [Exploratory Run Results](https://help.rainforestqa.com/docs/exploratory-run-results.md): Learn how to review the reports that were created during the run.
+- [Best Practices](https://help.rainforestqa.com/docs/exploratory-testing-best-practices.md): Learn best practices for exploratory testing.
+- [FAQ](https://help.rainforestqa.com/docs/exploratory-testing-faq.md): Frequently asked questions about exploratory testing.
+
+## API Reference
+- [List connections](https://help.rainforestqa.com/reference/get-connections.md): List connections
+- [Creates a new connection](https://help.rainforestqa.com/reference/create-connection.md): Create connection
+- [Get connection](https://help.rainforestqa.com/reference/get-connection.md): Get connection
+- [Rename connection](https://help.rainforestqa.com/reference/rename-connection.md): Rename connection
+- [Delete connection](https://help.rainforestqa.com/reference/delete-connection.md): Delete connection
+- [Get connection status](https://help.rainforestqa.com/reference/get-connection-status.md): Get connection status
+- [Regenerate API token](https://help.rainforestqa.com/reference/regenerate-api-token.md): Regenerate API token
+- [Notify Rainforest when a run webhook callback is complete](https://help.rainforestqa.com/reference/post-callback.md): Notify Rainforest when a `before_run` webhook callback is complete. See the [Using Webhooks article](https://help.rainforestqa.com/docs/using-webhooks#running-a-test-using-an-advanced-webhook) for more information.
+- [Fetch your account details](https://help.rainforestqa.com/reference/get-clients.md): Fetch your account details
+- [Update account information](https://help.rainforestqa.com/reference/put-clients.md): Update account information
+- [Fetch usage stats](https://help.rainforestqa.com/reference/get-client-stats.md): Fetch usage stats
+- [Select different client](https://help.rainforestqa.com/reference/post-clients-select.md): Select different client
+- [List credit cards](https://help.rainforestqa.com/reference/get-credit_cards.md): List credit cards
+- [List environments](https://help.rainforestqa.com/reference/get-environments.md): List environments
+- [Create a new environment](https://help.rainforestqa.com/reference/post-environments.md): Create a new environment and corresponding site-environments for each site as well
+- [Get an environment](https://help.rainforestqa.com/reference/get-environment.md): Get an environment
+- [Update an environment](https://help.rainforestqa.com/reference/put-environment.md): Update an environment
+- [Delete an environment](https://help.rainforestqa.com/reference/delete-environment.md): Delete an environment and its associated site-environments
+- [List features](https://help.rainforestqa.com/reference/get-features.md): List features
+- [Create a new feature](https://help.rainforestqa.com/reference/post-features.md): Create a new feature
+- [Get a feature](https://help.rainforestqa.com/reference/get-feature.md): Get a feature
+- [Update a feature](https://help.rainforestqa.com/reference/put-feature.md): Update a feature
+- [Delete a feature](https://help.rainforestqa.com/reference/delete-feature.md): Delete a feature
+- [Add tests to a feature](https://help.rainforestqa.com/reference/post-feature-tests.md): Add tests to a feature
+- [Remove tests from a feature](https://help.rainforestqa.com/reference/delete-feature-tests.md): Remove tests from a feature
+- [List folders](https://help.rainforestqa.com/reference/get-folders.md): List folders
+- [Create a new folder](https://help.rainforestqa.com/reference/post-folders.md): Create a new folder
+- [Get a folder](https://help.rainforestqa.com/reference/get-folder.md): Get folder details including a paginated list of tests
+- [Update a folder](https://help.rainforestqa.com/reference/put-folder.md): Update a folder
+- [Delete a folder](https://help.rainforestqa.com/reference/delete-folder.md): Delete a folder
+- [List generators](https://help.rainforestqa.com/reference/get-generators.md): List generators
+- [Create a new generator](https://help.rainforestqa.com/reference/post-generators.md): Create a new generator
+- [Get a generator](https://help.rainforestqa.com/reference/get-generator.md): Get a generator
+- [List generator rows](https://help.rainforestqa.com/reference/get-generator-rows.md): List generator rows
+- [Update a generator](https://help.rainforestqa.com/reference/put-generator.md): Update a generator
+- [Delete a generator](https://help.rainforestqa.com/reference/delete-generator.md): Delete a generator
+- [Create a new generator row](https://help.rainforestqa.com/reference/post-generator-rows.md): Create a new generator row
+- [Create multiple generator rows](https://help.rainforestqa.com/reference/post-generator-rows-batch.md): Create multiple generator rows
+- [Get a generator row](https://help.rainforestqa.com/reference/get-generator-row.md): Get a generator row
+- [Update a generator row](https://help.rainforestqa.com/reference/put-generator-row.md): Update a generator row
+- [Delete a generator row](https://help.rainforestqa.com/reference/delete-generator-row.md): Delete a generator row
+- [List On-Prem Crowd testers](https://help.rainforestqa.com/reference/get-on_premise_crowd_testers.md): List On-Prem Crowd testers
+- [Create an On-Prem Crowd tester](https://help.rainforestqa.com/reference/post-on_premise_crowd_testers.md): Create an On-Prem Crowd tester
+- [Delete an On-Prem Crowd tester](https://help.rainforestqa.com/reference/delete-on_premise_crowd_tester.md): Delete an On-Prem Crowd tester
+- [Create a new run](https://help.rainforestqa.com/reference/post-runs.md): Create a new run
+- [List runs](https://help.rainforestqa.com/reference/get-runs.md): List runs
+- [Get a test from a run](https://help.rainforestqa.com/reference/get-run-test.md): Get a test from a run
+- [Get historical credit usage for runs](https://help.rainforestqa.com/reference/get-runs-historical_usage.md): List historical credit usage for runs
+- [Get a run](https://help.rainforestqa.com/reference/get-run.md): Get a run
+- [Update a run](https://help.rainforestqa.com/reference/put-run.md): Update a run
+- [Cancel a run](https://help.rainforestqa.com/reference/delete-run.md): Cancel a run
+- [Get a run's JUnit XML](https://help.rainforestqa.com/reference/get-run-junit.md): Get JUnit.xml for a run containting details of all tests. The format will be JUnit XML, but the content here may change over time.
+- [List usages for a run](https://help.rainforestqa.com/reference/get-run-usages.md): List usages for a run
+- [Create a rerun](https://help.rainforestqa.com/reference/post-run-rerun_all.md): Rerun all tests from a previous run
+- [Create a rerun](https://help.rainforestqa.com/reference/post-run-rerun_failed.md): Rerun failed tests from a previous run
+- [List tests for a run](https://help.rainforestqa.com/reference/get-run-tests.md): List tests for a run
+- [Mark tests as viewed](https://help.rainforestqa.com/reference/post-run-tests-mark_as_viewed.md): Mark test results as viewed
+- [List comments for a run test](https://help.rainforestqa.com/reference/get-run-test-comments.md): List comments for a run test
+- [Get a step from a run](https://help.rainforestqa.com/reference/get-run-test-step.md): Get a step from a run
+- [List run groups](https://help.rainforestqa.com/reference/get-run_groups.md): List run groups
+- [Create a new run group](https://help.rainforestqa.com/reference/post-run_groups.md): Create a new run group
+- [Add multiple elements to a run group](https://help.rainforestqa.com/reference/post-run_group-elements-batch.md): Add multiple elements to a run group
+- [Get a run group](https://help.rainforestqa.com/reference/get-run_group.md): Get a run group
+- [Update a run group](https://help.rainforestqa.com/reference/put-run_group.md): Update a run group
+- [Delete a run group](https://help.rainforestqa.com/reference/delete-run_group.md): Delete a run group
+- [Get runs for a run group](https://help.rainforestqa.com/reference/get-run_group-runs.md): Get runs for a run group
+- [Create a new run group run](https://help.rainforestqa.com/reference/post-run_group-runs.md): Create a new run group run
+- [Get run group elements](https://help.rainforestqa.com/reference/get-run_group-elements.md): Get run group elements
+- [Add an element to a run group](https://help.rainforestqa.com/reference/post-run_group-elements.md): Add an element to a run group
+- [Remove multiple elements from a run group](https://help.rainforestqa.com/reference/delete-run_group-elements-batch.md): Remove multiple elements from a run group
+- [Get an element from a run group](https://help.rainforestqa.com/reference/get-run_group-element.md): Get an element from a run group
+- [Remove an element from a run group](https://help.rainforestqa.com/reference/delete-run_group-element.md): Remove an element from a run group
+- [Update a site](https://help.rainforestqa.com/reference/put-site.md): Update a site
+- [List sites](https://help.rainforestqa.com/reference/get-sites.md): List sites
+- [Create a new site](https://help.rainforestqa.com/reference/post-sites.md): Create a new site - creates corresponding site-environments for each environment as well
+- [Get a site](https://help.rainforestqa.com/reference/get-site.md): Get a site
+- [Delete a site](https://help.rainforestqa.com/reference/delete-site.md): Delete a site and its associated site-environments
+- [List sites and environments](https://help.rainforestqa.com/reference/get-site_environments.md): List sites and environments
+- [Update a site-environment](https://help.rainforestqa.com/reference/put-site-environment.md): Update a site-environment
+- [List tags](https://help.rainforestqa.com/reference/get-tags.md): List tags
+- [Rename a tag](https://help.rainforestqa.com/reference/put-tag.md): Rename a tag
+- [Delete a tag](https://help.rainforestqa.com/reference/delete-tag.md): Remove a tag from all tests
+- [Get a test version](https://help.rainforestqa.com/reference/get-test-version.md): Get a test version
+- [List tests](https://help.rainforestqa.com/reference/get-tests.md): List tests
+- [Create a new test](https://help.rainforestqa.com/reference/post-tests.md): Create a new test
+- [Update multiple tests](https://help.rainforestqa.com/reference/put-tests.md): Update multiple tests
+- [Delete multiple tests](https://help.rainforestqa.com/reference/delete-tests.md): Delete multiple tests
+- [Duplicate multiple tests](https://help.rainforestqa.com/reference/post-tests-duplicate.md): Duplicate multiple tests
+- [Regenerate a test with AI from a new prompt](https://help.rainforestqa.com/reference/put-test-regenerate.md): Regenerate a test with AI from a new prompt
+- [Tag a group of tests](https://help.rainforestqa.com/reference/post-tests-tags.md): Tag a group of tests
+- [Remove tags from a group of tests](https://help.rainforestqa.com/reference/delete-tests-tags.md): Untag a group of tests
+- [List credit costs for a selection of tests](https://help.rainforestqa.com/reference/get-tests-credit_cost.md): List credit costs for a selection of tests
+- [Get files for a test](https://help.rainforestqa.com/reference/get-test-files.md): Get files for a test
+- [Get a test](https://help.rainforestqa.com/reference/get-test.md): Get a test
+- [Update a test](https://help.rainforestqa.com/reference/put-test.md): Update a test
+- [Delete a test](https://help.rainforestqa.com/reference/delete-test.md): Delete a test
+- [Comment history for a test](https://help.rainforestqa.com/reference/get-test-comments.md): Comment history for a test
+- [Run history for a test](https://help.rainforestqa.com/reference/get-test-history.md): Run history for a test
+- [Run and generation history for a test](https://help.rainforestqa.com/reference/get-test-run-and-generation-history.md): Run and generation history for a test
+- [Create a new file for a test](https://help.rainforestqa.com/reference/post-test-files.md): Create a new file for a test
+- [Get list of run group elements directly or indirectly linked to the test](https://help.rainforestqa.com/reference/get-test-run_group_elements.md): Get list of run group elements directly or indirectly linked to the test
+- [List test results](https://help.rainforestqa.com/reference/get-test_results.md): List test results
+- [List users](https://help.rainforestqa.com/reference/get-users.md): List users
+- [List all users with and without permissions](https://help.rainforestqa.com/reference/get-users-all.md): List all users with and without permissions
+- [Invite a user to authenticated account](https://help.rainforestqa.com/reference/post-users.md): Invite a user to authenticated account
+- [Update user permissisons](https://help.rainforestqa.com/reference/put-users-permissions.md): Update user permissisons
+- [Reset the password for an email](https://help.rainforestqa.com/reference/post-users-reset_password.md): Reset the password for an email
+- [Get a user's account information](https://help.rainforestqa.com/reference/get-user.md): Get a user's account information
+- [Update a user](https://help.rainforestqa.com/reference/put-user.md): Update a user
+- [Delete a user account](https://help.rainforestqa.com/reference/delete-user.md): Delete a user account
+- [Rotate a user's API token](https://help.rainforestqa.com/reference/put-user-regenerate_api_token.md): Rotate a user's API token
+- [Delete a user's Omniauth provider profile](https://help.rainforestqa.com/reference/delete-user-omniauth.md): Delete a user's Omniauth provider profile
+- [List IP addresses testers come from](https://help.rainforestqa.com/reference/get-vm_stack.md): List IP addresses testers come from

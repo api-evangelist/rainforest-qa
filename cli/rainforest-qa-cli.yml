@@ -1,0 +1,27 @@
+generated: '2026-07-20'
+method: searched
+source: https://github.com/rainforestapp/rainforest-cli
+name: rainforest-cli
+description: Command line interface to Rainforest, the easiest way to integrate Rainforest with deploy scripts and CI servers.
+latest: v3.8.0
+language: go
+repo: https://github.com/rainforestapp/rainforest-cli
+install:
+  homebrew: brew install rainforestapp/public/rainforest-cli
+  chocolatey: choco install rainforest-cli
+  docker: docker pull gcr.io/rf-public-images/rainforest-cli
+  binary: https://github.com/rainforestapp/rainforest-cli/releases
+authentication:
+  env: RAINFOREST_API_TOKEN
+  flag: "--token"
+  token_source: https://app.rainforestqa.com/settings/integrations
+auto_update: true
+commands:
+  test_execution: [run, rerun]
+  test_management: [new, validate, upload, download, rm]
+  ai_generation: [generate]
+  account: [sites, environments, folders, platforms, features, run-groups]
+  reporting: [report]
+  data: [csv-upload]
+  branch: [branch]
+  mobile: [mobile-upload]

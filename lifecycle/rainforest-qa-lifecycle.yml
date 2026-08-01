@@ -1,0 +1,15 @@
+generated: '2026-07-20'
+method: searched
+source: https://help.rainforestqa.com/ + https://status.rainforestqa.com/ + https://changelog.rainforestqa.com/
+versioning:
+  scheme: uri-path
+  current: "1"
+  detail: API paths are prefixed with /1/ (e.g. /1/runs) under base https://app.rainforestqa.com/api
+  docs: https://help.rainforestqa.com/reference
+status_page: https://status.rainforestqa.com/
+changelog: https://changelog.rainforestqa.com/
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No formal published deprecation policy or RFC 8594 Sunset/Deprecation header support was found.
+deprecated_operations: []

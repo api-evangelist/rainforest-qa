@@ -1,0 +1,37 @@
+generated: '2026-07-20'
+method: searched
+source: https://help.rainforestqa.com/reference + openapi/rainforest-qa-openapi-original.yml
+authentication:
+  style: api-key-header
+  header: CLIENT_TOKEN
+  docs: https://help.rainforestqa.com/reference/authentication
+  detail: All authenticated endpoints require a CLIENT_TOKEN header containing your API key, created on the Integrations settings page.
+pagination:
+  style: page-number
+  params: [page, page_size]
+  detail: List endpoints use page-number pagination via page and page_size query parameters.
+idempotency:
+  supported: false
+  note: No Idempotency-Key header/parameter is documented in the API reference or present in the OpenAPI.
+error_envelope:
+  media_type: application/json
+  shape: '{"error": "message describing what went wrong"}'
+  schema: '#/components/schemas/Error'
+  rfc9457: false
+versioning:
+  style: uri-path
+  current: "1"
+rate_limiting:
+  documented: false
+  note: No rate-limit policy or rate-limit response headers are documented in the reference.
+request_tracing:
+  documented: false
+webhooks:
+  supported: true
+  callback_types: [initializing_run, before_run, after_run]
+  verification: HMAC digest (via Rainforest authorization gem)
+  docs: https://help.rainforestqa.com/docs/using-webhooks
+cross_links:
+  errors: errors/rainforest-qa-problem-types.yml
+  lifecycle: lifecycle/rainforest-qa-lifecycle.yml
+  authentication: authentication/rainforest-qa-authentication.yml

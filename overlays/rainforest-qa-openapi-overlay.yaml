@@ -1,0 +1,17 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Rainforest API
+  version: 1.0.0
+extends: openapi/rainforest-qa-openapi-original.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-enriched: '2026-07-20'
+      x-authentication: apiKey header CLIENT_TOKEN
+      x-webhooks: run callbacks (initializing_run/before_run/after_run), HMAC-signed
+      x-pagination: page-number (page, page_size)
+      x-status-page: https://status.rainforestqa.com/
+      x-changelog: https://changelog.rainforestqa.com/
+  - target: $.servers
+    update:
+      description: Rainforest API base; all paths are prefixed with /1/.

@@ -1,0 +1,14 @@
+generated: '2026-07-20'
+method: searched
+source: https://changelog.rainforestqa.com/
+scheme: product-changelog
+url: https://changelog.rainforestqa.com/
+scope: Product changelog (web app + platform); the REST API itself is versioned at /1/ and does not publish a separate dated API changelog.
+cli_releases:
+  repo: https://github.com/rainforestapp/rainforest-cli/releases
+  latest: v3.8.0
+  latest_date: '2026-02-19'
+entries: []
+note: >-
+  Rainforest publishes a hosted product changelog at changelog.rainforestqa.com; individual
+  dated entries were not harvested verbatim. The CLI keeps a dated GitHub Releases feed.

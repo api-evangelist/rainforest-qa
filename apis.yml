@@ -1,8 +1,27 @@
 aid: rainforest-qa
 name: Rainforest QA
-description: Rainforest QA is a company surfaced as a portfolio company of a16z, bessemer-venture-partners,
-  initialized-capital and added to the API Evangelist network as a stub for enrichment. This profile is
-  a lead awaiting the enrichment pipeline.
+description: >-
+  Rainforest QA is a no-code software testing platform that combines AI-powered
+  test creation, crowdsourced manual QA, and automated browser testing in one
+  place. Its REST API and command-line interface let teams create and manage
+  tests, environments, sites and folders, trigger and rerun test runs, and pull
+  JUnit results directly from CI/CD pipelines. Run-lifecycle webhooks
+  (initializing_run, before_run, after_run) with HMAC-signed callbacks support
+  advanced deploy-gated integrations. Authentication is via a CLIENT_TOKEN API
+  key header.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://files.readme.io/b4c4a73843894a94128b97dfacf7cd0936025ad438ac2bcff381bdfcae2125ec-VariationPrimary_AspectFull_ColorWhite2x.png
 url: https://raw.githubusercontent.com/api-evangelist/rainforest-qa/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -14,15 +33,410 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
-- Company
-apis: []
+- Testing
+- QA
+- Test Automation
+- Software Testing
+- CI/CD
+- Quality Assurance
+- Crowdsourced Testing
+- No-Code
+- Developer Tools
+apis:
+- aid: rainforest-qa:rainforest-qa-callback-api
+  name: Rainforest QA callback API
+  description: Operations about callbacks
+  humanURL: https://help.rainforestqa.com/reference
+  baseURL: https://app.rainforestqa.com/api
+  tags:
+  - callback
+  properties:
+  - type: OpenAPI
+    url: openapi/rainforest-qa-callback-api-openapi.yml
+  - type: Authentication
+    url: authentication/rainforest-qa-authentication.yml
+  - type: ErrorCatalog
+    url: errors/rainforest-qa-problem-types.yml
+  - type: DataModel
+    url: data-model/rainforest-qa-data-model.yml
+  - type: Conventions
+    url: conventions/rainforest-qa-conventions.yml
+- aid: rainforest-qa:rainforest-qa-clients-api
+  name: Rainforest QA clients API
+  description: Operations about clients
+  humanURL: https://help.rainforestqa.com/reference
+  baseURL: https://app.rainforestqa.com/api
+  tags:
+  - clients
+  properties:
+  - type: OpenAPI
+    url: openapi/rainforest-qa-clients-api-openapi.yml
+  - type: Authentication
+    url: authentication/rainforest-qa-authentication.yml
+  - type: ErrorCatalog
+    url: errors/rainforest-qa-problem-types.yml
+  - type: DataModel
+    url: data-model/rainforest-qa-data-model.yml
+  - type: Conventions
+    url: conventions/rainforest-qa-conventions.yml
+- aid: rainforest-qa:rainforest-qa-connections-api
+  name: Rainforest QA connections API
+  description: Operations about connections
+  humanURL: https://help.rainforestqa.com/reference
+  baseURL: https://app.rainforestqa.com/api
+  tags:
+  - connections
+  properties:
+  - type: OpenAPI
+    url: openapi/rainforest-qa-connections-api-openapi.yml
+  - type: Authentication
+    url: authentication/rainforest-qa-authentication.yml
+  - type: ErrorCatalog
+    url: errors/rainforest-qa-problem-types.yml
+  - type: DataModel
+    url: data-model/rainforest-qa-data-model.yml
+  - type: Conventions
+    url: conventions/rainforest-qa-conventions.yml
+- aid: rainforest-qa:rainforest-qa-credit-cards-api
+  name: Rainforest QA credit_cards API
+  description: Operations about credit_cards
+  humanURL: https://help.rainforestqa.com/reference
+  baseURL: https://app.rainforestqa.com/api
+  tags:
+  - credit_cards
+  properties:
+  - type: OpenAPI
+    url: openapi/rainforest-qa-credit-cards-api-openapi.yml
+  - type: Authentication
+    url: authentication/rainforest-qa-authentication.yml
+  - type: ErrorCatalog
+    url: errors/rainforest-qa-problem-types.yml
+  - type: DataModel
+    url: data-model/rainforest-qa-data-model.yml
+  - type: Conventions
+    url: conventions/rainforest-qa-conventions.yml
+- aid: rainforest-qa:rainforest-qa-environments-api
+  name: Rainforest QA environments API
+  description: Operations about environments
+  humanURL: https://help.rainforestqa.com/reference
+  baseURL: https://app.rainforestqa.com/api
+  tags:
+  - environments
+  properties:
+  - type: OpenAPI
+    url: openapi/rainforest-qa-environments-api-openapi.yml
+  - type: Authentication
+    url: authentication/rainforest-qa-authentication.yml
+  - type: ErrorCatalog
+    url: errors/rainforest-qa-problem-types.yml
+  - type: DataModel
+    url: data-model/rainforest-qa-data-model.yml
+  - type: Conventions
+    url: conventions/rainforest-qa-conventions.yml
+- aid: rainforest-qa:rainforest-qa-features-api
+  name: Rainforest QA features API
+  description: Operations about features
+  humanURL: https://help.rainforestqa.com/reference
+  baseURL: https://app.rainforestqa.com/api
+  tags:
+  - features
+  properties:
+  - type: OpenAPI
+    url: openapi/rainforest-qa-features-api-openapi.yml
+  - type: Authentication
+    url: authentication/rainforest-qa-authentication.yml
+  - type: ErrorCatalog
+    url: errors/rainforest-qa-problem-types.yml
+  - type: DataModel
+    url: data-model/rainforest-qa-data-model.yml
+  - type: Conventions
+    url: conventions/rainforest-qa-conventions.yml
+- aid: rainforest-qa:rainforest-qa-folders-api
+  name: Rainforest QA folders API
+  description: Operations about folders
+  humanURL: https://help.rainforestqa.com/reference
+  baseURL: https://app.rainforestqa.com/api
+  tags:
+  - folders
+  properties:
+  - type: OpenAPI
+    url: openapi/rainforest-qa-folders-api-openapi.yml
+  - type: Authentication
+    url: authentication/rainforest-qa-authentication.yml
+  - type: ErrorCatalog
+    url: errors/rainforest-qa-problem-types.yml
+  - type: DataModel
+    url: data-model/rainforest-qa-data-model.yml
+  - type: Conventions
+    url: conventions/rainforest-qa-conventions.yml
+- aid: rainforest-qa:rainforest-qa-generators-api
+  name: Rainforest QA generators API
+  description: Operations about generators
+  humanURL: https://help.rainforestqa.com/reference
+  baseURL: https://app.rainforestqa.com/api
+  tags:
+  - generators
+  properties:
+  - type: OpenAPI
+    url: openapi/rainforest-qa-generators-api-openapi.yml
+  - type: Authentication
+    url: authentication/rainforest-qa-authentication.yml
+  - type: ErrorCatalog
+    url: errors/rainforest-qa-problem-types.yml
+  - type: DataModel
+    url: data-model/rainforest-qa-data-model.yml
+  - type: Conventions
+    url: conventions/rainforest-qa-conventions.yml
+- aid: rainforest-qa:rainforest-qa-on-premise-crowd-api
+  name: Rainforest QA on_premise_crowd API
+  description: Operations about on_premise_crowds
+  humanURL: https://help.rainforestqa.com/reference
+  baseURL: https://app.rainforestqa.com/api
+  tags:
+  - on_premise_crowd
+  properties:
+  - type: OpenAPI
+    url: openapi/rainforest-qa-on-premise-crowd-api-openapi.yml
+  - type: Authentication
+    url: authentication/rainforest-qa-authentication.yml
+  - type: ErrorCatalog
+    url: errors/rainforest-qa-problem-types.yml
+  - type: DataModel
+    url: data-model/rainforest-qa-data-model.yml
+  - type: Conventions
+    url: conventions/rainforest-qa-conventions.yml
+- aid: rainforest-qa:rainforest-qa-run-groups-api
+  name: Rainforest QA run_groups API
+  description: Operations about run_groups
+  humanURL: https://help.rainforestqa.com/reference
+  baseURL: https://app.rainforestqa.com/api
+  tags:
+  - run_groups
+  properties:
+  - type: OpenAPI
+    url: openapi/rainforest-qa-run-groups-api-openapi.yml
+  - type: Authentication
+    url: authentication/rainforest-qa-authentication.yml
+  - type: ErrorCatalog
+    url: errors/rainforest-qa-problem-types.yml
+  - type: DataModel
+    url: data-model/rainforest-qa-data-model.yml
+  - type: Conventions
+    url: conventions/rainforest-qa-conventions.yml
+- aid: rainforest-qa:rainforest-qa-runs-api
+  name: Rainforest QA runs API
+  description: Operations about runs
+  humanURL: https://help.rainforestqa.com/reference
+  baseURL: https://app.rainforestqa.com/api
+  tags:
+  - runs
+  properties:
+  - type: OpenAPI
+    url: openapi/rainforest-qa-runs-api-openapi.yml
+  - type: Authentication
+    url: authentication/rainforest-qa-authentication.yml
+  - type: ErrorCatalog
+    url: errors/rainforest-qa-problem-types.yml
+  - type: DataModel
+    url: data-model/rainforest-qa-data-model.yml
+  - type: Conventions
+    url: conventions/rainforest-qa-conventions.yml
+- aid: rainforest-qa:rainforest-qa-site-environments-api
+  name: Rainforest QA site_environments API
+  description: Operations about site_environments
+  humanURL: https://help.rainforestqa.com/reference
+  baseURL: https://app.rainforestqa.com/api
+  tags:
+  - site_environments
+  properties:
+  - type: OpenAPI
+    url: openapi/rainforest-qa-site-environments-api-openapi.yml
+  - type: Authentication
+    url: authentication/rainforest-qa-authentication.yml
+  - type: ErrorCatalog
+    url: errors/rainforest-qa-problem-types.yml
+  - type: DataModel
+    url: data-model/rainforest-qa-data-model.yml
+  - type: Conventions
+    url: conventions/rainforest-qa-conventions.yml
+- aid: rainforest-qa:rainforest-qa-sites-api
+  name: Rainforest QA sites API
+  description: Operations about sites
+  humanURL: https://help.rainforestqa.com/reference
+  baseURL: https://app.rainforestqa.com/api
+  tags:
+  - sites
+  properties:
+  - type: OpenAPI
+    url: openapi/rainforest-qa-sites-api-openapi.yml
+  - type: Authentication
+    url: authentication/rainforest-qa-authentication.yml
+  - type: ErrorCatalog
+    url: errors/rainforest-qa-problem-types.yml
+  - type: DataModel
+    url: data-model/rainforest-qa-data-model.yml
+  - type: Conventions
+    url: conventions/rainforest-qa-conventions.yml
+- aid: rainforest-qa:rainforest-qa-tags-api
+  name: Rainforest QA tags API
+  description: Operations about tags
+  humanURL: https://help.rainforestqa.com/reference
+  baseURL: https://app.rainforestqa.com/api
+  tags:
+  - tags
+  properties:
+  - type: OpenAPI
+    url: openapi/rainforest-qa-tags-api-openapi.yml
+  - type: Authentication
+    url: authentication/rainforest-qa-authentication.yml
+  - type: ErrorCatalog
+    url: errors/rainforest-qa-problem-types.yml
+  - type: DataModel
+    url: data-model/rainforest-qa-data-model.yml
+  - type: Conventions
+    url: conventions/rainforest-qa-conventions.yml
+- aid: rainforest-qa:rainforest-qa-test-results-api
+  name: Rainforest QA test_results API
+  description: Operations about test_results
+  humanURL: https://help.rainforestqa.com/reference
+  baseURL: https://app.rainforestqa.com/api
+  tags:
+  - test_results
+  properties:
+  - type: OpenAPI
+    url: openapi/rainforest-qa-test-results-api-openapi.yml
+  - type: Authentication
+    url: authentication/rainforest-qa-authentication.yml
+  - type: ErrorCatalog
+    url: errors/rainforest-qa-problem-types.yml
+  - type: DataModel
+    url: data-model/rainforest-qa-data-model.yml
+  - type: Conventions
+    url: conventions/rainforest-qa-conventions.yml
+- aid: rainforest-qa:rainforest-qa-tests-api
+  name: Rainforest QA tests API
+  description: Operations about tests
+  humanURL: https://help.rainforestqa.com/reference
+  baseURL: https://app.rainforestqa.com/api
+  tags:
+  - tests
+  properties:
+  - type: OpenAPI
+    url: openapi/rainforest-qa-tests-api-openapi.yml
+  - type: Authentication
+    url: authentication/rainforest-qa-authentication.yml
+  - type: ErrorCatalog
+    url: errors/rainforest-qa-problem-types.yml
+  - type: DataModel
+    url: data-model/rainforest-qa-data-model.yml
+  - type: Conventions
+    url: conventions/rainforest-qa-conventions.yml
+- aid: rainforest-qa:rainforest-qa-users-api
+  name: Rainforest QA users API
+  description: Operations about users
+  humanURL: https://help.rainforestqa.com/reference
+  baseURL: https://app.rainforestqa.com/api
+  tags:
+  - users
+  properties:
+  - type: OpenAPI
+    url: openapi/rainforest-qa-users-api-openapi.yml
+  - type: Authentication
+    url: authentication/rainforest-qa-authentication.yml
+  - type: ErrorCatalog
+    url: errors/rainforest-qa-problem-types.yml
+  - type: DataModel
+    url: data-model/rainforest-qa-data-model.yml
+  - type: Conventions
+    url: conventions/rainforest-qa-conventions.yml
+- aid: rainforest-qa:rainforest-qa-vm-stack-api
+  name: Rainforest QA vm_stack API
+  description: Operations about vm_stacks
+  humanURL: https://help.rainforestqa.com/reference
+  baseURL: https://app.rainforestqa.com/api
+  tags:
+  - vm_stack
+  properties:
+  - type: OpenAPI
+    url: openapi/rainforest-qa-vm-stack-api-openapi.yml
+  - type: Authentication
+    url: authentication/rainforest-qa-authentication.yml
+  - type: ErrorCatalog
+    url: errors/rainforest-qa-problem-types.yml
+  - type: DataModel
+    url: data-model/rainforest-qa-data-model.yml
+  - type: Conventions
+    url: conventions/rainforest-qa-conventions.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DeveloperPortal
+  url: https://app.rainforestqa.com/
+- type: Documentation
+  url: https://help.rainforestqa.com/
+- type: APIReference
+  url: https://help.rainforestqa.com/reference
+- type: GettingStarted
+  url: https://help.rainforestqa.com/docs/the-rainforest-api
+- type: Support
+  url: https://help.rainforestqa.com/
+- type: Blog
+  url: https://www.rainforestqa.com/blog/
+- type: GitHubOrganization
+  url: https://github.com/rainforestapp
+- type: Pricing
+  url: https://www.rainforestqa.com/pricing
+- type: Login
+  url: https://app.rainforestqa.com/auth/login
+- type: TermsOfService
+  url: https://www.rainforestqa.com/terms-of-service
+- type: PrivacyPolicy
+  url: https://www.rainforestqa.com/privacy
+- type: StatusPage
+  url: https://status.rainforestqa.com/
+- type: ChangeLog
+  url: https://changelog.rainforestqa.com/
+- type: CLI
+  url: cli/rainforest-qa-cli.yml
+- type: Packages
+  url: packages/rainforest-qa-packages.yml
+- type: SDKs
+  url: packages/rainforest-qa-packages.yml
+- type: MCPServer
+  url: mcp/rainforest-qa-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Webhooks
+  url: asyncapi/rainforest-qa-webhooks.yml
+- type: Lifecycle
+  url: lifecycle/rainforest-qa-lifecycle.yml
+- type: ChangeLog
+  url: changelog/rainforest-qa-changelog.yml
+- type: Conformance
+  url: conformance/rainforest-qa-conformance.yml
+- type: Compliance
+  url: https://www.rainforestqa.com/security
+- type: LLMsTxt
+  url: llms/rainforest-qa-llms.txt
+- type: WellKnown
+  url: well-known/rainforest-qa-well-known.yml
+- type: AgenticAccess
+  url: agentic-access/rainforest-qa-agentic-access.yml
+- type: TrustCenter
+  url: security/rainforest-qa-trust-center.yml
+- type: DomainSecurity
+  url: security/rainforest-qa-domain-security.yml
+- type: Authentication
+  url: authentication/rainforest-qa-authentication.yml
 - type: Website
   url: https://www.rainforestqa.com/
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 20
+  pass: local-v1

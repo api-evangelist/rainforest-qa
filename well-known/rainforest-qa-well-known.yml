@@ -1,0 +1,12 @@
+generated: '2026-07-20'
+method: searched
+note: >-
+  Probed /.well-known/ on app.rainforestqa.com, www.rainforestqa.com and
+  help.rainforestqa.com. app.rainforestqa.com returns HTTP 200 for every path
+  but serves the SPA HTML shell (not real discovery documents); the other hosts
+  return 404. No genuine well-known discovery documents were found.
+hosts_probed:
+  - https://app.rainforestqa.com
+  - https://www.rainforestqa.com
+  - https://help.rainforestqa.com
+documents: []

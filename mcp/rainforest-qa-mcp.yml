@@ -1,0 +1,352 @@
+generated: '2026-07-20'
+method: derived
+status: candidate
+source: openapi/rainforest-qa-openapi-original.yml
+note: No official hosted Rainforest MCP server was found. This is a candidate tool
+  list derived one-per-operation from the Rainforest OpenAPI; not published by the
+  provider.
+server:
+  name: rainforest-qa
+  transport: http
+tool_count: 113
+tools:
+- name: get_connections
+  description: List connections
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-connections
+- name: create_connection
+  description: Creates a new connection
+  source_operation: openapi/rainforest-qa-openapi-original.yml#create-connection
+- name: get_connection
+  description: Get connection
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-connection
+- name: rename_connection
+  description: Rename connection
+  source_operation: openapi/rainforest-qa-openapi-original.yml#rename-connection
+- name: delete_connection
+  description: Delete connection
+  source_operation: openapi/rainforest-qa-openapi-original.yml#delete-connection
+- name: get_connection_status
+  description: Get connection status
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-connection-status
+- name: regenerate_api_token
+  description: Regenerate API token
+  source_operation: openapi/rainforest-qa-openapi-original.yml#regenerate-api-token
+- name: post_callback
+  description: Notify Rainforest when a run webhook callback is complete
+  source_operation: openapi/rainforest-qa-openapi-original.yml#post-callback
+- name: get_clients
+  description: Fetch your account details
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-clients
+- name: put_clients
+  description: Update account information
+  source_operation: openapi/rainforest-qa-openapi-original.yml#put-clients
+- name: get_client_stats
+  description: Fetch usage stats
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-client-stats
+- name: post_clients_select
+  description: Select different client
+  source_operation: openapi/rainforest-qa-openapi-original.yml#post-clients-select
+- name: get_credit_cards
+  description: List credit cards
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-credit_cards
+- name: get_environments
+  description: List environments
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-environments
+- name: post_environments
+  description: Create a new environment
+  source_operation: openapi/rainforest-qa-openapi-original.yml#post-environments
+- name: get_environment
+  description: Get an environment
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-environment
+- name: put_environment
+  description: Update an environment
+  source_operation: openapi/rainforest-qa-openapi-original.yml#put-environment
+- name: delete_environment
+  description: Delete an environment
+  source_operation: openapi/rainforest-qa-openapi-original.yml#delete-environment
+- name: get_features
+  description: List features
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-features
+- name: post_features
+  description: Create a new feature
+  source_operation: openapi/rainforest-qa-openapi-original.yml#post-features
+- name: get_feature
+  description: Get a feature
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-feature
+- name: put_feature
+  description: Update a feature
+  source_operation: openapi/rainforest-qa-openapi-original.yml#put-feature
+- name: delete_feature
+  description: Delete a feature
+  source_operation: openapi/rainforest-qa-openapi-original.yml#delete-feature
+- name: post_feature_tests
+  description: Add tests to a feature
+  source_operation: openapi/rainforest-qa-openapi-original.yml#post-feature-tests
+- name: delete_feature_tests
+  description: Remove tests from a feature
+  source_operation: openapi/rainforest-qa-openapi-original.yml#delete-feature-tests
+- name: get_folders
+  description: List folders
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-folders
+- name: post_folders
+  description: Create a new folder
+  source_operation: openapi/rainforest-qa-openapi-original.yml#post-folders
+- name: get_folder
+  description: Get a folder
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-folder
+- name: put_folder
+  description: Update a folder
+  source_operation: openapi/rainforest-qa-openapi-original.yml#put-folder
+- name: delete_folder
+  description: Delete a folder
+  source_operation: openapi/rainforest-qa-openapi-original.yml#delete-folder
+- name: get_generators
+  description: List generators
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-generators
+- name: post_generators
+  description: Create a new generator
+  source_operation: openapi/rainforest-qa-openapi-original.yml#post-generators
+- name: get_generator
+  description: Get a generator
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-generator
+- name: put_generator
+  description: Update a generator
+  source_operation: openapi/rainforest-qa-openapi-original.yml#put-generator
+- name: delete_generator
+  description: Delete a generator
+  source_operation: openapi/rainforest-qa-openapi-original.yml#delete-generator
+- name: get_generator_rows
+  description: List generator rows
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-generator-rows
+- name: post_generator_rows
+  description: Create a new generator row
+  source_operation: openapi/rainforest-qa-openapi-original.yml#post-generator-rows
+- name: post_generator_rows_batch
+  description: Create multiple generator rows
+  source_operation: openapi/rainforest-qa-openapi-original.yml#post-generator-rows-batch
+- name: get_generator_row
+  description: Get a generator row
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-generator-row
+- name: put_generator_row
+  description: Update a generator row
+  source_operation: openapi/rainforest-qa-openapi-original.yml#put-generator-row
+- name: delete_generator_row
+  description: Delete a generator row
+  source_operation: openapi/rainforest-qa-openapi-original.yml#delete-generator-row
+- name: get_on_premise_crowd_testers
+  description: List On-Prem Crowd testers
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-on_premise_crowd_testers
+- name: post_on_premise_crowd_testers
+  description: Create an On-Prem Crowd tester
+  source_operation: openapi/rainforest-qa-openapi-original.yml#post-on_premise_crowd_testers
+- name: delete_on_premise_crowd_tester
+  description: Delete an On-Prem Crowd tester
+  source_operation: openapi/rainforest-qa-openapi-original.yml#delete-on_premise_crowd_tester
+- name: post_runs
+  description: Create a new run
+  source_operation: openapi/rainforest-qa-openapi-original.yml#post-runs
+- name: get_runs
+  description: List runs
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-runs
+- name: get_run_test
+  description: Get a test from a run
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-run-test
+- name: get_runs_historical_usage
+  description: Get historical credit usage for runs
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-runs-historical_usage
+- name: get_run
+  description: Get a run
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-run
+- name: put_run
+  description: Update a run
+  source_operation: openapi/rainforest-qa-openapi-original.yml#put-run
+- name: delete_run
+  description: Cancel a run
+  source_operation: openapi/rainforest-qa-openapi-original.yml#delete-run
+- name: get_run_junit
+  description: Get a run's JUnit XML
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-run-junit
+- name: get_run_usages
+  description: List usages for a run
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-run-usages
+- name: post_run_rerun_all
+  description: Create a rerun
+  source_operation: openapi/rainforest-qa-openapi-original.yml#post-run-rerun_all
+- name: post_run_rerun_failed
+  description: Create a rerun
+  source_operation: openapi/rainforest-qa-openapi-original.yml#post-run-rerun_failed
+- name: get_run_tests
+  description: List tests for a run
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-run-tests
+- name: post_run_tests_mark_as_viewed
+  description: Mark tests as viewed
+  source_operation: openapi/rainforest-qa-openapi-original.yml#post-run-tests-mark_as_viewed
+- name: get_run_test_comments
+  description: List comments for a run test
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-run-test-comments
+- name: get_run_test_step
+  description: Get a step from a run
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-run-test-step
+- name: get_run_groups
+  description: List run groups
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-run_groups
+- name: post_run_groups
+  description: Create a new run group
+  source_operation: openapi/rainforest-qa-openapi-original.yml#post-run_groups
+- name: post_run_group_elements_batch
+  description: Add multiple elements to a run group
+  source_operation: openapi/rainforest-qa-openapi-original.yml#post-run_group-elements-batch
+- name: delete_run_group_elements_batch
+  description: Remove multiple elements from a run group
+  source_operation: openapi/rainforest-qa-openapi-original.yml#delete-run_group-elements-batch
+- name: get_run_group
+  description: Get a run group
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-run_group
+- name: put_run_group
+  description: Update a run group
+  source_operation: openapi/rainforest-qa-openapi-original.yml#put-run_group
+- name: delete_run_group
+  description: Delete a run group
+  source_operation: openapi/rainforest-qa-openapi-original.yml#delete-run_group
+- name: get_run_group_runs
+  description: Get runs for a run group
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-run_group-runs
+- name: post_run_group_runs
+  description: Create a new run group run
+  source_operation: openapi/rainforest-qa-openapi-original.yml#post-run_group-runs
+- name: get_run_group_elements
+  description: Get run group elements
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-run_group-elements
+- name: post_run_group_elements
+  description: Add an element to a run group
+  source_operation: openapi/rainforest-qa-openapi-original.yml#post-run_group-elements
+- name: get_run_group_element
+  description: Get an element from a run group
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-run_group-element
+- name: delete_run_group_element
+  description: Remove an element from a run group
+  source_operation: openapi/rainforest-qa-openapi-original.yml#delete-run_group-element
+- name: put_site
+  description: Update a site
+  source_operation: openapi/rainforest-qa-openapi-original.yml#put-site
+- name: get_site
+  description: Get a site
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-site
+- name: delete_site
+  description: Delete a site
+  source_operation: openapi/rainforest-qa-openapi-original.yml#delete-site
+- name: get_sites
+  description: List sites
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-sites
+- name: post_sites
+  description: Create a new site
+  source_operation: openapi/rainforest-qa-openapi-original.yml#post-sites
+- name: get_site_environments
+  description: List sites and environments
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-site_environments
+- name: put_site_environment
+  description: Update a site-environment
+  source_operation: openapi/rainforest-qa-openapi-original.yml#put-site-environment
+- name: get_tags
+  description: List tags
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-tags
+- name: put_tag
+  description: Rename a tag
+  source_operation: openapi/rainforest-qa-openapi-original.yml#put-tag
+- name: delete_tag
+  description: Delete a tag
+  source_operation: openapi/rainforest-qa-openapi-original.yml#delete-tag
+- name: get_test_version
+  description: Get a test version
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-test-version
+- name: get_tests
+  description: List tests
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-tests
+- name: post_tests
+  description: Create a new test
+  source_operation: openapi/rainforest-qa-openapi-original.yml#post-tests
+- name: put_tests
+  description: Update multiple tests
+  source_operation: openapi/rainforest-qa-openapi-original.yml#put-tests
+- name: delete_tests
+  description: Delete multiple tests
+  source_operation: openapi/rainforest-qa-openapi-original.yml#delete-tests
+- name: post_tests_duplicate
+  description: Duplicate multiple tests
+  source_operation: openapi/rainforest-qa-openapi-original.yml#post-tests-duplicate
+- name: put_test_regenerate
+  description: Regenerate a test with AI from a new prompt
+  source_operation: openapi/rainforest-qa-openapi-original.yml#put-test-regenerate
+- name: post_tests_tags
+  description: Tag a group of tests
+  source_operation: openapi/rainforest-qa-openapi-original.yml#post-tests-tags
+- name: delete_tests_tags
+  description: Remove tags from a group of tests
+  source_operation: openapi/rainforest-qa-openapi-original.yml#delete-tests-tags
+- name: get_tests_credit_cost
+  description: List credit costs for a selection of tests
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-tests-credit_cost
+- name: get_test_files
+  description: Get files for a test
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-test-files
+- name: post_test_files
+  description: Create a new file for a test
+  source_operation: openapi/rainforest-qa-openapi-original.yml#post-test-files
+- name: get_test
+  description: Get a test
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-test
+- name: put_test
+  description: Update a test
+  source_operation: openapi/rainforest-qa-openapi-original.yml#put-test
+- name: delete_test
+  description: Delete a test
+  source_operation: openapi/rainforest-qa-openapi-original.yml#delete-test
+- name: get_test_comments
+  description: Comment history for a test
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-test-comments
+- name: get_test_history
+  description: Run history for a test
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-test-history
+- name: get_test_run_and_generation_history
+  description: Run and generation history for a test
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-test-run-and-generation-history
+- name: get_test_run_group_elements
+  description: Get list of run group elements directly or indirectly linked to the
+    test
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-test-run_group_elements
+- name: get_test_results
+  description: List test results
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-test_results
+- name: get_users
+  description: List users
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-users
+- name: post_users
+  description: Invite a user to authenticated account
+  source_operation: openapi/rainforest-qa-openapi-original.yml#post-users
+- name: get_users_all
+  description: List all users with and without permissions
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-users-all
+- name: put_users_permissions
+  description: Update user permissisons
+  source_operation: openapi/rainforest-qa-openapi-original.yml#put-users-permissions
+- name: post_users_reset_password
+  description: Reset the password for an email
+  source_operation: openapi/rainforest-qa-openapi-original.yml#post-users-reset_password
+- name: get_user
+  description: Get a user's account information
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-user
+- name: put_user
+  description: Update a user
+  source_operation: openapi/rainforest-qa-openapi-original.yml#put-user
+- name: delete_user
+  description: Delete a user account
+  source_operation: openapi/rainforest-qa-openapi-original.yml#delete-user
+- name: put_user_regenerate_api_token
+  description: Rotate a user's API token
+  source_operation: openapi/rainforest-qa-openapi-original.yml#put-user-regenerate_api_token
+- name: delete_user_omniauth
+  description: Delete a user's Omniauth provider profile
+  source_operation: openapi/rainforest-qa-openapi-original.yml#delete-user-omniauth
+- name: get_vm_stack
+  description: List IP addresses testers come from
+  source_operation: openapi/rainforest-qa-openapi-original.yml#get-vm_stack

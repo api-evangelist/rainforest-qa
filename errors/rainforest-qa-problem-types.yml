@@ -1,0 +1,44 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/rainforest-qa-openapi-original.yml
+format: custom-json
+envelope:
+  media_type: application/json
+  schema: '#/components/schemas/Error'
+  shape: '{"error": "message describing what went wrong"}'
+note: 'Rainforest returns a simple JSON error envelope {"error": string}; it does
+  not use RFC 9457 application/problem+json.'
+problems:
+- status: 400
+  title: Bad Request
+  sample_messages:
+  - CSV could not be generated
+  - Callback already processed; Invalid `callback_type`
+  - Can't add snippets to a Feature
+  - Cannot switch to the current client
+  - Could not create On-Prem Crowd tester
+  - Could not create folder
+  operation_count: 39
+- status: 401
+  title: Unauthorized
+  sample_messages:
+  - Cannot switch to a client you do not have access to
+  - Invalid digest
+  operation_count: 2
+- status: 404
+  title: Not Found
+  sample_messages:
+  - Environment not found
+  - Feature not found
+  - Folder not found
+  - Generator not found
+  - Generator or Generator Row not found
+  - On-Prem Crowd tester not found
+  operation_count: 46
+- status: 409
+  title: Conflict
+  sample_messages:
+  - Another AI generation is already in progress
+  - Run could not be canceled
+  - Run could not be updated due to a timing issue, please try again
+  operation_count: 3
