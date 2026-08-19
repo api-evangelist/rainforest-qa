@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rainforest callback site_environments API",
+    "version": "1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "CLIENT_TOKEN",
+      "value": "{{CLIENT_TOKEN}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "site_environments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List sites and environments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.rainforestqa.com/api/1/site_environments",
+            "params": [
+              {
+                "name": "include_site_test_count",
+                "value": "",
+                "type": "query",
+                "description": "Includes test count for each site if set to true"
+              },
+              {
+                "name": "slim",
+                "value": "",
+                "type": "query",
+                "description": "If true, returns less data in order to reduce latency and response size"
+              }
+            ]
+          },
+          "docs": "List sites and environments"
+        },
+        {
+          "info": {
+            "name": "Update a site-environment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.rainforestqa.com/api/1/site_environments/:site_environment_id",
+            "params": [
+              {
+                "name": "site_environment_id",
+                "value": "",
+                "type": "path",
+                "description": "A site environment ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a site-environment"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

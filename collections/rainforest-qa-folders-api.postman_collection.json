@@ -1,0 +1,936 @@
+{
+  "item": [
+    {
+      "id": "5c5d1a98-2be2-4f69-b978-e452d05d4bf6",
+      "name": "folders",
+      "description": {
+        "content": "Operations about folders",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f48cb5eb-54e1-4a8e-9d40-a80b9165d26c",
+          "name": "List folders",
+          "request": {
+            "name": "List folders",
+            "description": {
+              "content": "List folders",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "folders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page of results to display"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "10",
+                  "description": "Number of results to return per page; maximum: 100"
+                },
+                {
+                  "disabled": false,
+                  "key": "title",
+                  "value": "<string>",
+                  "description": "Filter by title (case-insensitive)"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Filter by type"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "938995ee-2518-4ee9-9a23-dedf8106431f",
+              "name": "Folders retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "folders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "10"
+                    },
+                    {
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Total pages",
+                  "key": "X-Total-Pages",
+                  "value": "5328"
+                },
+                {
+                  "disabled": false,
+                  "description": "Current page",
+                  "key": "X-Current-Page",
+                  "value": "5328"
+                },
+                {
+                  "disabled": false,
+                  "description": "The maximum number of results per page",
+                  "key": "X-Per-Page",
+                  "value": "5328"
+                },
+                {
+                  "disabled": false,
+                  "description": "The total number of results",
+                  "key": "X-Total-Results",
+                  "value": "5328"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"title\": \"string\",\n    \"type\": \"filter\",\n    \"logic\": [\n      {\n        \"expression\": {\n          \"tag\": \"foo\",\n          \"inclusive\": true\n        }\n      },\n      {\n        \"operation\": \"and\"\n      },\n      {\n        \"expression\": {\n          \"tag\": \"bar\",\n          \"inclusive\": false\n        }\n      },\n      {\n        \"operation\": \"or\"\n      },\n      {\n        \"expression\": {\n          \"tag\": \"baz\",\n          \"inclusive\": true\n        }\n      }\n    ],\n    \"filters\": [\n      {\n        \"owner_id\": 117\n      },\n      {\n        \"priority\": \"P1\"\n      }\n    ],\n    \"updated_at\": \"2010-02-22T01:22:45.222Z\",\n    \"id\": 2760,\n    \"created_at\": \"2026-06-14T05:26:29.914Z\",\n    \"test_count\": 4732,\n    \"tests\": [\n      {\n        \"id\": \"string\",\n        \"created_at\": \"string\",\n        \"test_id\": \"string\",\n        \"title\": \"string\",\n        \"result\": \"string\",\n        \"wisp\": \"string\",\n        \"prompt\": \"string\",\n        \"prompt_credentials\": \"string\",\n        \"ai_mode\": \"string\",\n        \"state\": \"string\",\n        \"category\": \"string\",\n        \"site_id\": \"string\",\n        \"priority\": \"string\",\n        \"start_uri\": \"string\",\n        \"description\": \"string\",\n        \"browsers\": {\n          \"id\": 7734,\n          \"created_at\": \"1966-04-08T07:27:13.082Z\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"category\": \"string\",\n          \"result\": \"string\",\n          \"state\": \"string\",\n          \"overridden_results\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"note\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"result\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"job_group_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"user\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"credit_cost\": \"string\"\n        },\n        \"tags\": \"string\",\n        \"frontend_url\": \"string\",\n        \"rfml_id\": \"string\",\n        \"exploratory_run_id\": \"string\",\n        \"initial_redirect_behavior\": \"string\",\n        \"source\": \"string\",\n        \"reroute_geo\": \"string\",\n        \"connection\": {\n          \"id\": \"string\",\n          \"created_at\": \"2010-10-17T17:15:06.075Z\",\n          \"name\": \"string\",\n          \"api_token\": \"string\",\n          \"state\": \"string\",\n          \"link_state\": \"string\",\n          \"type\": \"user\"\n        },\n        \"atc_settings\": \"string\",\n        \"owner\": {\n          \"id\": \"string\",\n          \"created_at\": \"1997-01-31T17:25:16.743Z\",\n          \"name\": \"string\",\n          \"email\": \"string\",\n          \"state\": \"string\",\n          \"role\": \"string\"\n        },\n        \"last_updated_by\": {\n          \"id\": \"string\",\n          \"created_at\": \"1995-07-08T11:16:41.047Z\",\n          \"name\": \"string\",\n          \"email\": \"string\",\n          \"state\": \"string\",\n          \"role\": \"string\"\n        },\n        \"updated_at\": \"string\",\n        \"archived_at\": \"string\",\n        \"deleted\": \"string\",\n        \"attached_to\": {\n          \"id\": \"string\",\n          \"created_at\": \"string\",\n          \"test_id\": \"string\",\n          \"title\": \"string\",\n          \"result\": \"string\",\n          \"wisp\": \"string\",\n          \"prompt\": \"string\",\n          \"prompt_credentials\": \"string\",\n          \"ai_mode\": \"string\",\n          \"priority\": \"string\",\n          \"real_cost_to_run\": \"string\",\n          \"owner_id\": \"string\",\n          \"state\": \"string\",\n          \"updated_at\": \"string\",\n          \"deleted\": \"string\",\n          \"feature_id\": \"string\"\n        },\n        \"dry_run_url\": \"string\",\n        \"last_run\": {\n          \"id\": 1168,\n          \"created_at\": \"1968-05-26T14:14:35.966Z\",\n          \"state\": \"string\"\n        },\n        \"feature_id\": \"string\",\n        \"has_wisp\": \"string\",\n        \"type\": \"string\",\n        \"coverage_summary\": \"string\",\n        \"used_in_snippets_count\": \"string\",\n        \"used_in_tests_count\": \"string\",\n        \"used_in_archived_snippets_count\": \"string\",\n        \"used_in_archived_tests_count\": \"string\",\n        \"self_healed_at\": \"string\",\n        \"last_run_test\": {\n          \"self_healed\": \"string\",\n          \"rescued\": \"string\"\n        }\n      },\n      {\n        \"id\": \"string\",\n        \"created_at\": \"string\",\n        \"test_id\": \"string\",\n        \"title\": \"string\",\n        \"result\": \"string\",\n        \"wisp\": \"string\",\n        \"prompt\": \"string\",\n        \"prompt_credentials\": \"string\",\n        \"ai_mode\": \"string\",\n        \"state\": \"string\",\n        \"category\": \"string\",\n        \"site_id\": \"string\",\n        \"priority\": \"string\",\n        \"start_uri\": \"string\",\n        \"description\": \"string\",\n        \"browsers\": {\n          \"id\": 4230,\n          \"created_at\": \"2024-04-13T01:25:41.212Z\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"category\": \"string\",\n          \"result\": \"string\",\n          \"state\": \"string\",\n          \"overridden_results\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"note\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"result\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"job_group_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"user\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"credit_cost\": \"string\"\n        },\n        \"tags\": \"string\",\n        \"frontend_url\": \"string\",\n        \"rfml_id\": \"string\",\n        \"exploratory_run_id\": \"string\",\n        \"initial_redirect_behavior\": \"string\",\n        \"source\": \"string\",\n        \"reroute_geo\": \"string\",\n        \"connection\": {\n          \"id\": \"string\",\n          \"created_at\": \"1997-02-12T02:28:51.313Z\",\n          \"name\": \"string\",\n          \"api_token\": \"string\",\n          \"state\": \"string\",\n          \"link_state\": \"string\",\n          \"type\": \"user\"\n        },\n        \"atc_settings\": \"string\",\n        \"owner\": {\n          \"id\": \"string\",\n          \"created_at\": \"2005-06-15T22:25:30.476Z\",\n          \"name\": \"string\",\n          \"email\": \"string\",\n          \"state\": \"string\",\n          \"role\": \"string\"\n        },\n        \"last_updated_by\": {\n          \"id\": \"string\",\n          \"created_at\": \"2013-11-19T04:48:49.206Z\",\n          \"name\": \"string\",\n          \"email\": \"string\",\n          \"state\": \"string\",\n          \"role\": \"string\"\n        },\n        \"updated_at\": \"string\",\n        \"archived_at\": \"string\",\n        \"deleted\": \"string\",\n        \"attached_to\": {\n          \"id\": \"string\",\n          \"created_at\": \"string\",\n          \"test_id\": \"string\",\n          \"title\": \"string\",\n          \"result\": \"string\",\n          \"wisp\": \"string\",\n          \"prompt\": \"string\",\n          \"prompt_credentials\": \"string\",\n          \"ai_mode\": \"string\",\n          \"priority\": \"string\",\n          \"real_cost_to_run\": \"string\",\n          \"owner_id\": \"string\",\n          \"state\": \"string\",\n          \"updated_at\": \"string\",\n          \"deleted\": \"string\",\n          \"feature_id\": \"string\"\n        },\n        \"dry_run_url\": \"string\",\n        \"last_run\": {\n          \"id\": 9035,\n          \"created_at\": \"2021-04-19T17:24:47.476Z\",\n          \"state\": \"string\"\n        },\n        \"feature_id\": \"string\",\n        \"has_wisp\": \"string\",\n        \"type\": \"string\",\n        \"coverage_summary\": \"string\",\n        \"used_in_snippets_count\": \"string\",\n        \"used_in_tests_count\": \"string\",\n        \"used_in_archived_snippets_count\": \"string\",\n        \"used_in_archived_tests_count\": \"string\",\n        \"self_healed_at\": \"string\",\n        \"last_run_test\": {\n          \"self_healed\": \"string\",\n          \"rescued\": \"string\"\n        }\n      }\n    ]\n  },\n  {\n    \"title\": \"string\",\n    \"type\": \"tag\",\n    \"logic\": [\n      {\n        \"expression\": {\n          \"tag\": \"foo\",\n          \"inclusive\": true\n        }\n      },\n      {\n        \"operation\": \"and\"\n      },\n      {\n        \"expression\": {\n          \"tag\": \"bar\",\n          \"inclusive\": false\n        }\n      },\n      {\n        \"operation\": \"or\"\n      },\n      {\n        \"expression\": {\n          \"tag\": \"baz\",\n          \"inclusive\": true\n        }\n      }\n    ],\n    \"filters\": [\n      {\n        \"owner_id\": 117\n      },\n      {\n        \"priority\": \"P1\"\n      }\n    ],\n    \"updated_at\": \"1985-03-10T01:28:09.957Z\",\n    \"id\": 5011,\n    \"created_at\": \"1970-01-20T04:01:13.334Z\",\n    \"test_count\": 9793,\n    \"tests\": [\n      {\n        \"id\": \"string\",\n        \"created_at\": \"string\",\n        \"test_id\": \"string\",\n        \"title\": \"string\",\n        \"result\": \"string\",\n        \"wisp\": \"string\",\n        \"prompt\": \"string\",\n        \"prompt_credentials\": \"string\",\n        \"ai_mode\": \"string\",\n        \"state\": \"string\",\n        \"category\": \"string\",\n        \"site_id\": \"string\",\n        \"priority\": \"string\",\n        \"start_uri\": \"string\",\n        \"description\": \"string\",\n        \"browsers\": {\n          \"id\": 6986,\n          \"created_at\": \"1979-07-07T17:27:18.975Z\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"category\": \"string\",\n          \"result\": \"string\",\n          \"state\": \"string\",\n          \"overridden_results\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"note\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"result\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"job_group_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"user\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"credit_cost\": \"string\"\n        },\n        \"tags\": \"string\",\n        \"frontend_url\": \"string\",\n        \"rfml_id\": \"string\",\n        \"exploratory_run_id\": \"string\",\n        \"initial_redirect_behavior\": \"string\",\n        \"source\": \"string\",\n        \"reroute_geo\": \"string\",\n        \"connection\": {\n          \"id\": \"string\",\n          \"created_at\": \"1992-10-22T17:18:07.053Z\",\n          \"name\": \"string\",\n          \"api_token\": \"string\",\n          \"state\": \"string\",\n          \"link_state\": \"string\",\n          \"type\": \"user\"\n        },\n        \"atc_settings\": \"string\",\n        \"owner\": {\n          \"id\": \"string\",\n          \"created_at\": \"1987-05-19T08:24:05.220Z\",\n          \"name\": \"string\",\n          \"email\": \"string\",\n          \"state\": \"string\",\n          \"role\": \"string\"\n        },\n        \"last_updated_by\": {\n          \"id\": \"string\",\n          \"created_at\": \"2008-11-16T14:15:49.368Z\",\n          \"name\": \"string\",\n          \"email\": \"string\",\n          \"state\": \"string\",\n          \"role\": \"string\"\n        },\n        \"updated_at\": \"string\",\n        \"archived_at\": \"string\",\n        \"deleted\": \"string\",\n        \"attached_to\": {\n          \"id\": \"string\",\n          \"created_at\": \"string\",\n          \"test_id\": \"string\",\n          \"title\": \"string\",\n          \"result\": \"string\",\n          \"wisp\": \"string\",\n          \"prompt\": \"string\",\n          \"prompt_credentials\": \"string\",\n          \"ai_mode\": \"string\",\n          \"priority\": \"string\",\n          \"real_cost_to_run\": \"string\",\n          \"owner_id\": \"string\",\n          \"state\": \"string\",\n          \"updated_at\": \"string\",\n          \"deleted\": \"string\",\n          \"feature_id\": \"string\"\n        },\n        \"dry_run_url\": \"string\",\n        \"last_run\": {\n          \"id\": 9787,\n          \"created_at\": \"2002-07-18T19:06:31.923Z\",\n          \"state\": \"string\"\n        },\n        \"feature_id\": \"string\",\n        \"has_wisp\": \"string\",\n        \"type\": \"string\",\n        \"coverage_summary\": \"string\",\n        \"used_in_snippets_count\": \"string\",\n        \"used_in_tests_count\": \"string\",\n        \"used_in_archived_snippets_count\": \"string\",\n        \"used_in_archived_tests_count\": \"string\",\n        \"self_healed_at\": \"string\",\n        \"last_run_test\": {\n          \"self_healed\": \"string\",\n          \"rescued\": \"string\"\n        }\n      },\n      {\n        \"id\": \"string\",\n        \"created_at\": \"string\",\n        \"test_id\": \"string\",\n        \"title\": \"string\",\n        \"result\": \"string\",\n        \"wisp\": \"string\",\n        \"prompt\": \"string\",\n        \"prompt_credentials\": \"string\",\n        \"ai_mode\": \"string\",\n        \"state\": \"string\",\n        \"category\": \"string\",\n        \"site_id\": \"string\",\n        \"priority\": \"string\",\n        \"start_uri\": \"string\",\n        \"description\": \"string\",\n        \"browsers\": {\n          \"id\": 3303,\n          \"created_at\": \"1993-01-23T13:21:28.487Z\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"category\": \"string\",\n          \"result\": \"string\",\n          \"state\": \"string\",\n          \"overridden_results\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"note\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"result\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"job_group_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"user\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"credit_cost\": \"string\"\n        },\n        \"tags\": \"string\",\n        \"frontend_url\": \"string\",\n        \"rfml_id\": \"string\",\n        \"exploratory_run_id\": \"string\",\n        \"initial_redirect_behavior\": \"string\",\n        \"source\": \"string\",\n        \"reroute_geo\": \"string\",\n        \"connection\": {\n          \"id\": \"string\",\n          \"created_at\": \"1997-02-07T11:15:48.567Z\",\n          \"name\": \"string\",\n          \"api_token\": \"string\",\n          \"state\": \"string\",\n          \"link_state\": \"string\",\n          \"type\": \"user\"\n        },\n        \"atc_settings\": \"string\",\n        \"owner\": {\n          \"id\": \"string\",\n          \"created_at\": \"1989-02-07T03:31:23.915Z\",\n          \"name\": \"string\",\n          \"email\": \"string\",\n          \"state\": \"string\",\n          \"role\": \"string\"\n        },\n        \"last_updated_by\": {\n          \"id\": \"string\",\n          \"created_at\": \"1997-11-29T01:23:23.496Z\",\n          \"name\": \"string\",\n          \"email\": \"string\",\n          \"state\": \"string\",\n          \"role\": \"string\"\n        },\n        \"updated_at\": \"string\",\n        \"archived_at\": \"string\",\n        \"deleted\": \"string\",\n        \"attached_to\": {\n          \"id\": \"string\",\n          \"created_at\": \"string\",\n          \"test_id\": \"string\",\n          \"title\": \"string\",\n          \"result\": \"string\",\n          \"wisp\": \"string\",\n          \"prompt\": \"string\",\n          \"prompt_credentials\": \"string\",\n          \"ai_mode\": \"string\",\n          \"priority\": \"string\",\n          \"real_cost_to_run\": \"string\",\n          \"owner_id\": \"string\",\n          \"state\": \"string\",\n          \"updated_at\": \"string\",\n          \"deleted\": \"string\",\n          \"feature_id\": \"string\"\n        },\n        \"dry_run_url\": \"string\",\n        \"last_run\": {\n          \"id\": 7282,\n          \"created_at\": \"1970-03-05T16:13:19.322Z\",\n          \"state\": \"string\"\n        },\n        \"feature_id\": \"string\",\n        \"has_wisp\": \"string\",\n        \"type\": \"string\",\n        \"coverage_summary\": \"string\",\n        \"used_in_snippets_count\": \"string\",\n        \"used_in_tests_count\": \"string\",\n        \"used_in_archived_snippets_count\": \"string\",\n        \"used_in_archived_tests_count\": \"string\",\n        \"self_healed_at\": \"string\",\n        \"last_run_test\": {\n          \"self_healed\": \"string\",\n          \"rescued\": \"string\"\n        }\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cf456d40-20a6-4897-8c36-9b395d7ed45f",
+          "name": "Create a new folder",
+          "request": {
+            "name": "Create a new folder",
+            "description": {
+              "content": "Create a new folder",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "folders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"without_tests\": \"<boolean>\",\n  \"logic\": [\n    {\n      \"operation\": \"<string>\",\n      \"expression\": {\n        \"tag\": \"<string>\",\n        \"inclusive\": \"<boolean>\"\n      }\n    },\n    {\n      \"operation\": \"<string>\",\n      \"expression\": {\n        \"tag\": \"<string>\",\n        \"inclusive\": \"<boolean>\"\n      }\n    }\n  ],\n  \"filters\": [\n    {\n      \"category\": \"<string>\",\n      \"exploratory_run_id\": \"<integer>\",\n      \"feature_id\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"priority\": \"<string>\",\n      \"query\": \"<string>\",\n      \"result\": \"<string>\",\n      \"run_group_id\": \"<integer>\",\n      \"site_id\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"state\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"step_query\": \"<string>\",\n      \"tests\": \"<string>\",\n      \"type\": \"<string>\",\n      \"run_id\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"variable\": \"<string>\",\n      \"embedded\": \"<boolean>\",\n      \"owner_id\": \"<integer>\",\n      \"test_language\": \"<string>\",\n      \"has_comments\": \"<string>\"\n    },\n    {\n      \"category\": \"<string>\",\n      \"exploratory_run_id\": \"<integer>\",\n      \"feature_id\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"priority\": \"<string>\",\n      \"query\": \"<string>\",\n      \"result\": \"<string>\",\n      \"run_group_id\": \"<integer>\",\n      \"site_id\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"state\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"step_query\": \"<string>\",\n      \"tests\": \"<string>\",\n      \"type\": \"<string>\",\n      \"run_id\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"variable\": \"<string>\",\n      \"embedded\": \"<boolean>\",\n      \"owner_id\": \"<integer>\",\n      \"test_language\": \"<string>\",\n      \"has_comments\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fcf6fe39-3f73-429c-80a4-5280f163ca41",
+              "name": "Folder created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "folders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"without_tests\": \"<boolean>\",\n  \"logic\": [\n    {\n      \"expression\": {\n        \"tag\": \"foo\",\n        \"inclusive\": true\n      }\n    },\n    {\n      \"operation\": \"and\"\n    },\n    {\n      \"expression\": {\n        \"tag\": \"bar\",\n        \"inclusive\": false\n      }\n    },\n    {\n      \"operation\": \"or\"\n    },\n    {\n      \"expression\": {\n        \"tag\": \"baz\",\n        \"inclusive\": true\n      }\n    }\n  ],\n  \"filters\": [\n    {\n      \"owner_id\": 117\n    },\n    {\n      \"priority\": \"P1\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"title\": \"string\",\n  \"type\": \"filter\",\n  \"logic\": [\n    {\n      \"expression\": {\n        \"tag\": \"foo\",\n        \"inclusive\": true\n      }\n    },\n    {\n      \"operation\": \"and\"\n    },\n    {\n      \"expression\": {\n        \"tag\": \"bar\",\n        \"inclusive\": false\n      }\n    },\n    {\n      \"operation\": \"or\"\n    },\n    {\n      \"expression\": {\n        \"tag\": \"baz\",\n        \"inclusive\": true\n      }\n    }\n  ],\n  \"filters\": [\n    {\n      \"owner_id\": 117\n    },\n    {\n      \"priority\": \"P1\"\n    }\n  ],\n  \"updated_at\": \"1980-04-05T05:46:26.681Z\",\n  \"id\": 7662,\n  \"created_at\": \"2011-04-11T11:41:19.837Z\",\n  \"test_count\": 4332,\n  \"tests\": [\n    {\n      \"id\": \"string\",\n      \"created_at\": \"string\",\n      \"test_id\": \"string\",\n      \"title\": \"string\",\n      \"result\": \"string\",\n      \"wisp\": \"string\",\n      \"prompt\": \"string\",\n      \"prompt_credentials\": \"string\",\n      \"ai_mode\": \"string\",\n      \"state\": \"string\",\n      \"category\": \"string\",\n      \"site_id\": \"string\",\n      \"priority\": \"string\",\n      \"start_uri\": \"string\",\n      \"description\": \"string\",\n      \"browsers\": {\n        \"id\": 6574,\n        \"created_at\": \"1963-11-03T00:26:33.449Z\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"category\": \"string\",\n        \"result\": \"string\",\n        \"state\": \"string\",\n        \"overridden_results\": {\n          \"id\": \"string\",\n          \"created_at\": \"1982-03-15T04:56:06.987Z\",\n          \"note\": \"string\",\n          \"result\": \"string\",\n          \"job_group_id\": \"string\",\n          \"user\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"state\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"role\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"credit_cost\": \"string\"\n      },\n      \"tags\": \"string\",\n      \"frontend_url\": \"string\",\n      \"rfml_id\": \"string\",\n      \"exploratory_run_id\": \"string\",\n      \"initial_redirect_behavior\": \"string\",\n      \"source\": \"string\",\n      \"reroute_geo\": \"string\",\n      \"connection\": {\n        \"id\": \"string\",\n        \"created_at\": \"1999-12-30T03:50:41.288Z\",\n        \"name\": \"string\",\n        \"api_token\": \"string\",\n        \"state\": \"string\",\n        \"link_state\": \"string\",\n        \"type\": \"rainforest\"\n      },\n      \"atc_settings\": \"string\",\n      \"owner\": {\n        \"id\": \"string\",\n        \"created_at\": \"1961-04-27T03:36:42.483Z\",\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"state\": \"string\",\n        \"role\": \"string\"\n      },\n      \"last_updated_by\": {\n        \"id\": \"string\",\n        \"created_at\": \"1983-11-22T15:27:27.256Z\",\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"state\": \"string\",\n        \"role\": \"string\"\n      },\n      \"updated_at\": \"string\",\n      \"archived_at\": \"string\",\n      \"deleted\": \"string\",\n      \"attached_to\": {\n        \"id\": \"string\",\n        \"created_at\": \"string\",\n        \"test_id\": \"string\",\n        \"title\": \"string\",\n        \"result\": \"string\",\n        \"wisp\": \"string\",\n        \"prompt\": \"string\",\n        \"prompt_credentials\": \"string\",\n        \"ai_mode\": \"string\",\n        \"priority\": \"string\",\n        \"real_cost_to_run\": \"string\",\n        \"owner_id\": \"string\",\n        \"state\": \"string\",\n        \"updated_at\": \"string\",\n        \"deleted\": \"string\",\n        \"feature_id\": \"string\"\n      },\n      \"dry_run_url\": \"string\",\n      \"last_run\": {\n        \"id\": 1832,\n        \"created_at\": \"1952-10-20T07:43:51.245Z\",\n        \"state\": \"string\"\n      },\n      \"feature_id\": \"string\",\n      \"has_wisp\": \"string\",\n      \"type\": \"string\",\n      \"coverage_summary\": \"string\",\n      \"used_in_snippets_count\": \"string\",\n      \"used_in_tests_count\": \"string\",\n      \"used_in_archived_snippets_count\": \"string\",\n      \"used_in_archived_tests_count\": \"string\",\n      \"self_healed_at\": \"string\",\n      \"last_run_test\": {\n        \"self_healed\": \"string\",\n        \"rescued\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"created_at\": \"string\",\n      \"test_id\": \"string\",\n      \"title\": \"string\",\n      \"result\": \"string\",\n      \"wisp\": \"string\",\n      \"prompt\": \"string\",\n      \"prompt_credentials\": \"string\",\n      \"ai_mode\": \"string\",\n      \"state\": \"string\",\n      \"category\": \"string\",\n      \"site_id\": \"string\",\n      \"priority\": \"string\",\n      \"start_uri\": \"string\",\n      \"description\": \"string\",\n      \"browsers\": {\n        \"id\": 8347,\n        \"created_at\": \"1963-01-01T20:24:03.866Z\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"category\": \"string\",\n        \"result\": \"string\",\n        \"state\": \"string\",\n        \"overridden_results\": {\n          \"id\": \"string\",\n          \"created_at\": \"1993-12-02T09:09:40.752Z\",\n          \"note\": \"string\",\n          \"result\": \"string\",\n          \"job_group_id\": \"string\",\n          \"user\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"state\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"role\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"credit_cost\": \"string\"\n      },\n      \"tags\": \"string\",\n      \"frontend_url\": \"string\",\n      \"rfml_id\": \"string\",\n      \"exploratory_run_id\": \"string\",\n      \"initial_redirect_behavior\": \"string\",\n      \"source\": \"string\",\n      \"reroute_geo\": \"string\",\n      \"connection\": {\n        \"id\": \"string\",\n        \"created_at\": \"1989-02-21T21:11:09.524Z\",\n        \"name\": \"string\",\n        \"api_token\": \"string\",\n        \"state\": \"string\",\n        \"link_state\": \"string\",\n        \"type\": \"user\"\n      },\n      \"atc_settings\": \"string\",\n      \"owner\": {\n        \"id\": \"string\",\n        \"created_at\": \"1955-02-11T02:06:42.488Z\",\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"state\": \"string\",\n        \"role\": \"string\"\n      },\n      \"last_updated_by\": {\n        \"id\": \"string\",\n        \"created_at\": \"1947-10-30T00:10:37.918Z\",\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"state\": \"string\",\n        \"role\": \"string\"\n      },\n      \"updated_at\": \"string\",\n      \"archived_at\": \"string\",\n      \"deleted\": \"string\",\n      \"attached_to\": {\n        \"id\": \"string\",\n        \"created_at\": \"string\",\n        \"test_id\": \"string\",\n        \"title\": \"string\",\n        \"result\": \"string\",\n        \"wisp\": \"string\",\n        \"prompt\": \"string\",\n        \"prompt_credentials\": \"string\",\n        \"ai_mode\": \"string\",\n        \"priority\": \"string\",\n        \"real_cost_to_run\": \"string\",\n        \"owner_id\": \"string\",\n        \"state\": \"string\",\n        \"updated_at\": \"string\",\n        \"deleted\": \"string\",\n        \"feature_id\": \"string\"\n      },\n      \"dry_run_url\": \"string\",\n      \"last_run\": {\n        \"id\": 6308,\n        \"created_at\": \"1997-11-28T20:49:47.174Z\",\n        \"state\": \"string\"\n      },\n      \"feature_id\": \"string\",\n      \"has_wisp\": \"string\",\n      \"type\": \"string\",\n      \"coverage_summary\": \"string\",\n      \"used_in_snippets_count\": \"string\",\n      \"used_in_tests_count\": \"string\",\n      \"used_in_archived_snippets_count\": \"string\",\n      \"used_in_archived_tests_count\": \"string\",\n      \"self_healed_at\": \"string\",\n      \"last_run_test\": {\n        \"self_healed\": \"string\",\n        \"rescued\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "718b684a-eb51-4a7d-b41c-d0c17be39cd5",
+              "name": "Could not create folder",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "folders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"without_tests\": \"<boolean>\",\n  \"logic\": [\n    {\n      \"expression\": {\n        \"tag\": \"foo\",\n        \"inclusive\": true\n      }\n    },\n    {\n      \"operation\": \"and\"\n    },\n    {\n      \"expression\": {\n        \"tag\": \"bar\",\n        \"inclusive\": false\n      }\n    },\n    {\n      \"operation\": \"or\"\n    },\n    {\n      \"expression\": {\n        \"tag\": \"baz\",\n        \"inclusive\": true\n      }\n    }\n  ],\n  \"filters\": [\n    {\n      \"owner_id\": 117\n    },\n    {\n      \"priority\": \"P1\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ab2a7eee-438f-4814-982a-65f0a6675ab4",
+          "name": "Get a folder",
+          "request": {
+            "name": "Get a folder",
+            "description": {
+              "content": "Get folder details including a paginated list of tests",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "folders",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "without_tests",
+                  "value": "<boolean>",
+                  "description": "Return folder data without tests and test_count"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page of results to display"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "10",
+                  "description": "Number of results to return per page; maximum: 100"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9b505fe5-21b6-4c0e-99fb-ee1090cb70bd",
+              "name": "Folder retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "folders",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "without_tests",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"title\": \"string\",\n  \"type\": \"filter\",\n  \"logic\": [\n    {\n      \"expression\": {\n        \"tag\": \"foo\",\n        \"inclusive\": true\n      }\n    },\n    {\n      \"operation\": \"and\"\n    },\n    {\n      \"expression\": {\n        \"tag\": \"bar\",\n        \"inclusive\": false\n      }\n    },\n    {\n      \"operation\": \"or\"\n    },\n    {\n      \"expression\": {\n        \"tag\": \"baz\",\n        \"inclusive\": true\n      }\n    }\n  ],\n  \"filters\": [\n    {\n      \"owner_id\": 117\n    },\n    {\n      \"priority\": \"P1\"\n    }\n  ],\n  \"updated_at\": \"1980-04-05T05:46:26.681Z\",\n  \"id\": 7662,\n  \"created_at\": \"2011-04-11T11:41:19.837Z\",\n  \"test_count\": 4332,\n  \"tests\": [\n    {\n      \"id\": \"string\",\n      \"created_at\": \"string\",\n      \"test_id\": \"string\",\n      \"title\": \"string\",\n      \"result\": \"string\",\n      \"wisp\": \"string\",\n      \"prompt\": \"string\",\n      \"prompt_credentials\": \"string\",\n      \"ai_mode\": \"string\",\n      \"state\": \"string\",\n      \"category\": \"string\",\n      \"site_id\": \"string\",\n      \"priority\": \"string\",\n      \"start_uri\": \"string\",\n      \"description\": \"string\",\n      \"browsers\": {\n        \"id\": 6574,\n        \"created_at\": \"1963-11-03T00:26:33.449Z\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"category\": \"string\",\n        \"result\": \"string\",\n        \"state\": \"string\",\n        \"overridden_results\": {\n          \"id\": \"string\",\n          \"created_at\": \"1982-03-15T04:56:06.987Z\",\n          \"note\": \"string\",\n          \"result\": \"string\",\n          \"job_group_id\": \"string\",\n          \"user\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"state\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"role\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"credit_cost\": \"string\"\n      },\n      \"tags\": \"string\",\n      \"frontend_url\": \"string\",\n      \"rfml_id\": \"string\",\n      \"exploratory_run_id\": \"string\",\n      \"initial_redirect_behavior\": \"string\",\n      \"source\": \"string\",\n      \"reroute_geo\": \"string\",\n      \"connection\": {\n        \"id\": \"string\",\n        \"created_at\": \"1999-12-30T03:50:41.288Z\",\n        \"name\": \"string\",\n        \"api_token\": \"string\",\n        \"state\": \"string\",\n        \"link_state\": \"string\",\n        \"type\": \"rainforest\"\n      },\n      \"atc_settings\": \"string\",\n      \"owner\": {\n        \"id\": \"string\",\n        \"created_at\": \"1961-04-27T03:36:42.483Z\",\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"state\": \"string\",\n        \"role\": \"string\"\n      },\n      \"last_updated_by\": {\n        \"id\": \"string\",\n        \"created_at\": \"1983-11-22T15:27:27.256Z\",\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"state\": \"string\",\n        \"role\": \"string\"\n      },\n      \"updated_at\": \"string\",\n      \"archived_at\": \"string\",\n      \"deleted\": \"string\",\n      \"attached_to\": {\n        \"id\": \"string\",\n        \"created_at\": \"string\",\n        \"test_id\": \"string\",\n        \"title\": \"string\",\n        \"result\": \"string\",\n        \"wisp\": \"string\",\n        \"prompt\": \"string\",\n        \"prompt_credentials\": \"string\",\n        \"ai_mode\": \"string\",\n        \"priority\": \"string\",\n        \"real_cost_to_run\": \"string\",\n        \"owner_id\": \"string\",\n        \"state\": \"string\",\n        \"updated_at\": \"string\",\n        \"deleted\": \"string\",\n        \"feature_id\": \"string\"\n      },\n      \"dry_run_url\": \"string\",\n      \"last_run\": {\n        \"id\": 1832,\n        \"created_at\": \"1952-10-20T07:43:51.245Z\",\n        \"state\": \"string\"\n      },\n      \"feature_id\": \"string\",\n      \"has_wisp\": \"string\",\n      \"type\": \"string\",\n      \"coverage_summary\": \"string\",\n      \"used_in_snippets_count\": \"string\",\n      \"used_in_tests_count\": \"string\",\n      \"used_in_archived_snippets_count\": \"string\",\n      \"used_in_archived_tests_count\": \"string\",\n      \"self_healed_at\": \"string\",\n      \"last_run_test\": {\n        \"self_healed\": \"string\",\n        \"rescued\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"created_at\": \"string\",\n      \"test_id\": \"string\",\n      \"title\": \"string\",\n      \"result\": \"string\",\n      \"wisp\": \"string\",\n      \"prompt\": \"string\",\n      \"prompt_credentials\": \"string\",\n      \"ai_mode\": \"string\",\n      \"state\": \"string\",\n      \"category\": \"string\",\n      \"site_id\": \"string\",\n      \"priority\": \"string\",\n      \"start_uri\": \"string\",\n      \"description\": \"string\",\n      \"browsers\": {\n        \"id\": 8347,\n        \"created_at\": \"1963-01-01T20:24:03.866Z\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"category\": \"string\",\n        \"result\": \"string\",\n        \"state\": \"string\",\n        \"overridden_results\": {\n          \"id\": \"string\",\n          \"created_at\": \"1993-12-02T09:09:40.752Z\",\n          \"note\": \"string\",\n          \"result\": \"string\",\n          \"job_group_id\": \"string\",\n          \"user\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"state\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"role\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"credit_cost\": \"string\"\n      },\n      \"tags\": \"string\",\n      \"frontend_url\": \"string\",\n      \"rfml_id\": \"string\",\n      \"exploratory_run_id\": \"string\",\n      \"initial_redirect_behavior\": \"string\",\n      \"source\": \"string\",\n      \"reroute_geo\": \"string\",\n      \"connection\": {\n        \"id\": \"string\",\n        \"created_at\": \"1989-02-21T21:11:09.524Z\",\n        \"name\": \"string\",\n        \"api_token\": \"string\",\n        \"state\": \"string\",\n        \"link_state\": \"string\",\n        \"type\": \"user\"\n      },\n      \"atc_settings\": \"string\",\n      \"owner\": {\n        \"id\": \"string\",\n        \"created_at\": \"1955-02-11T02:06:42.488Z\",\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"state\": \"string\",\n        \"role\": \"string\"\n      },\n      \"last_updated_by\": {\n        \"id\": \"string\",\n        \"created_at\": \"1947-10-30T00:10:37.918Z\",\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"state\": \"string\",\n        \"role\": \"string\"\n      },\n      \"updated_at\": \"string\",\n      \"archived_at\": \"string\",\n      \"deleted\": \"string\",\n      \"attached_to\": {\n        \"id\": \"string\",\n        \"created_at\": \"string\",\n        \"test_id\": \"string\",\n        \"title\": \"string\",\n        \"result\": \"string\",\n        \"wisp\": \"string\",\n        \"prompt\": \"string\",\n        \"prompt_credentials\": \"string\",\n        \"ai_mode\": \"string\",\n        \"priority\": \"string\",\n        \"real_cost_to_run\": \"string\",\n        \"owner_id\": \"string\",\n        \"state\": \"string\",\n        \"updated_at\": \"string\",\n        \"deleted\": \"string\",\n        \"feature_id\": \"string\"\n      },\n      \"dry_run_url\": \"string\",\n      \"last_run\": {\n        \"id\": 6308,\n        \"created_at\": \"1997-11-28T20:49:47.174Z\",\n        \"state\": \"string\"\n      },\n      \"feature_id\": \"string\",\n      \"has_wisp\": \"string\",\n      \"type\": \"string\",\n      \"coverage_summary\": \"string\",\n      \"used_in_snippets_count\": \"string\",\n      \"used_in_tests_count\": \"string\",\n      \"used_in_archived_snippets_count\": \"string\",\n      \"used_in_archived_tests_count\": \"string\",\n      \"self_healed_at\": \"string\",\n      \"last_run_test\": {\n        \"self_healed\": \"string\",\n        \"rescued\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "25bcf7a7-e359-426d-a870-bddf2fe8a11a",
+              "name": "Folder not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "folders",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "without_tests",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "adeda6d5-b65a-4a1d-9a17-eb241cc95eb9",
+          "name": "Update a folder",
+          "request": {
+            "name": "Update a folder",
+            "description": {
+              "content": "Update a folder",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "folders",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"without_tests\": \"<boolean>\",\n  \"title\": \"<string>\",\n  \"logic\": [\n    {\n      \"operation\": \"<string>\",\n      \"expression\": {\n        \"tag\": \"<string>\",\n        \"inclusive\": \"<boolean>\"\n      }\n    },\n    {\n      \"operation\": \"<string>\",\n      \"expression\": {\n        \"tag\": \"<string>\",\n        \"inclusive\": \"<boolean>\"\n      }\n    }\n  ],\n  \"filters\": [\n    {\n      \"category\": \"<string>\",\n      \"exploratory_run_id\": \"<integer>\",\n      \"feature_id\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"priority\": \"<string>\",\n      \"query\": \"<string>\",\n      \"result\": \"<string>\",\n      \"run_group_id\": \"<integer>\",\n      \"site_id\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"state\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"step_query\": \"<string>\",\n      \"tests\": \"<string>\",\n      \"type\": \"<string>\",\n      \"run_id\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"variable\": \"<string>\",\n      \"embedded\": \"<boolean>\",\n      \"owner_id\": \"<integer>\",\n      \"test_language\": \"<string>\",\n      \"has_comments\": \"<string>\"\n    },\n    {\n      \"category\": \"<string>\",\n      \"exploratory_run_id\": \"<integer>\",\n      \"feature_id\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"priority\": \"<string>\",\n      \"query\": \"<string>\",\n      \"result\": \"<string>\",\n      \"run_group_id\": \"<integer>\",\n      \"site_id\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"state\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"step_query\": \"<string>\",\n      \"tests\": \"<string>\",\n      \"type\": \"<string>\",\n      \"run_id\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"variable\": \"<string>\",\n      \"embedded\": \"<boolean>\",\n      \"owner_id\": \"<integer>\",\n      \"test_language\": \"<string>\",\n      \"has_comments\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1e034547-fff3-4265-bde4-c0a326bafda4",
+              "name": "Folder updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "folders",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"without_tests\": \"<boolean>\",\n  \"title\": \"<string>\",\n  \"logic\": [\n    {\n      \"expression\": {\n        \"tag\": \"foo\",\n        \"inclusive\": true\n      }\n    },\n    {\n      \"operation\": \"and\"\n    },\n    {\n      \"expression\": {\n        \"tag\": \"bar\",\n        \"inclusive\": false\n      }\n    },\n    {\n      \"operation\": \"or\"\n    },\n    {\n      \"expression\": {\n        \"tag\": \"baz\",\n        \"inclusive\": true\n      }\n    }\n  ],\n  \"filters\": [\n    {\n      \"owner_id\": 117\n    },\n    {\n      \"priority\": \"P1\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"title\": \"string\",\n  \"type\": \"filter\",\n  \"logic\": [\n    {\n      \"expression\": {\n        \"tag\": \"foo\",\n        \"inclusive\": true\n      }\n    },\n    {\n      \"operation\": \"and\"\n    },\n    {\n      \"expression\": {\n        \"tag\": \"bar\",\n        \"inclusive\": false\n      }\n    },\n    {\n      \"operation\": \"or\"\n    },\n    {\n      \"expression\": {\n        \"tag\": \"baz\",\n        \"inclusive\": true\n      }\n    }\n  ],\n  \"filters\": [\n    {\n      \"owner_id\": 117\n    },\n    {\n      \"priority\": \"P1\"\n    }\n  ],\n  \"updated_at\": \"1980-04-05T05:46:26.681Z\",\n  \"id\": 7662,\n  \"created_at\": \"2011-04-11T11:41:19.837Z\",\n  \"test_count\": 4332,\n  \"tests\": [\n    {\n      \"id\": \"string\",\n      \"created_at\": \"string\",\n      \"test_id\": \"string\",\n      \"title\": \"string\",\n      \"result\": \"string\",\n      \"wisp\": \"string\",\n      \"prompt\": \"string\",\n      \"prompt_credentials\": \"string\",\n      \"ai_mode\": \"string\",\n      \"state\": \"string\",\n      \"category\": \"string\",\n      \"site_id\": \"string\",\n      \"priority\": \"string\",\n      \"start_uri\": \"string\",\n      \"description\": \"string\",\n      \"browsers\": {\n        \"id\": 6574,\n        \"created_at\": \"1963-11-03T00:26:33.449Z\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"category\": \"string\",\n        \"result\": \"string\",\n        \"state\": \"string\",\n        \"overridden_results\": {\n          \"id\": \"string\",\n          \"created_at\": \"1982-03-15T04:56:06.987Z\",\n          \"note\": \"string\",\n          \"result\": \"string\",\n          \"job_group_id\": \"string\",\n          \"user\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"state\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"role\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"credit_cost\": \"string\"\n      },\n      \"tags\": \"string\",\n      \"frontend_url\": \"string\",\n      \"rfml_id\": \"string\",\n      \"exploratory_run_id\": \"string\",\n      \"initial_redirect_behavior\": \"string\",\n      \"source\": \"string\",\n      \"reroute_geo\": \"string\",\n      \"connection\": {\n        \"id\": \"string\",\n        \"created_at\": \"1999-12-30T03:50:41.288Z\",\n        \"name\": \"string\",\n        \"api_token\": \"string\",\n        \"state\": \"string\",\n        \"link_state\": \"string\",\n        \"type\": \"rainforest\"\n      },\n      \"atc_settings\": \"string\",\n      \"owner\": {\n        \"id\": \"string\",\n        \"created_at\": \"1961-04-27T03:36:42.483Z\",\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"state\": \"string\",\n        \"role\": \"string\"\n      },\n      \"last_updated_by\": {\n        \"id\": \"string\",\n        \"created_at\": \"1983-11-22T15:27:27.256Z\",\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"state\": \"string\",\n        \"role\": \"string\"\n      },\n      \"updated_at\": \"string\",\n      \"archived_at\": \"string\",\n      \"deleted\": \"string\",\n      \"attached_to\": {\n        \"id\": \"string\",\n        \"created_at\": \"string\",\n        \"test_id\": \"string\",\n        \"title\": \"string\",\n        \"result\": \"string\",\n        \"wisp\": \"string\",\n        \"prompt\": \"string\",\n        \"prompt_credentials\": \"string\",\n        \"ai_mode\": \"string\",\n        \"priority\": \"string\",\n        \"real_cost_to_run\": \"string\",\n        \"owner_id\": \"string\",\n        \"state\": \"string\",\n        \"updated_at\": \"string\",\n        \"deleted\": \"string\",\n        \"feature_id\": \"string\"\n      },\n      \"dry_run_url\": \"string\",\n      \"last_run\": {\n        \"id\": 1832,\n        \"created_at\": \"1952-10-20T07:43:51.245Z\",\n        \"state\": \"string\"\n      },\n      \"feature_id\": \"string\",\n      \"has_wisp\": \"string\",\n      \"type\": \"string\",\n      \"coverage_summary\": \"string\",\n      \"used_in_snippets_count\": \"string\",\n      \"used_in_tests_count\": \"string\",\n      \"used_in_archived_snippets_count\": \"string\",\n      \"used_in_archived_tests_count\": \"string\",\n      \"self_healed_at\": \"string\",\n      \"last_run_test\": {\n        \"self_healed\": \"string\",\n        \"rescued\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"created_at\": \"string\",\n      \"test_id\": \"string\",\n      \"title\": \"string\",\n      \"result\": \"string\",\n      \"wisp\": \"string\",\n      \"prompt\": \"string\",\n      \"prompt_credentials\": \"string\",\n      \"ai_mode\": \"string\",\n      \"state\": \"string\",\n      \"category\": \"string\",\n      \"site_id\": \"string\",\n      \"priority\": \"string\",\n      \"start_uri\": \"string\",\n      \"description\": \"string\",\n      \"browsers\": {\n        \"id\": 8347,\n        \"created_at\": \"1963-01-01T20:24:03.866Z\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"category\": \"string\",\n        \"result\": \"string\",\n        \"state\": \"string\",\n        \"overridden_results\": {\n          \"id\": \"string\",\n          \"created_at\": \"1993-12-02T09:09:40.752Z\",\n          \"note\": \"string\",\n          \"result\": \"string\",\n          \"job_group_id\": \"string\",\n          \"user\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"state\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"role\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"credit_cost\": \"string\"\n      },\n      \"tags\": \"string\",\n      \"frontend_url\": \"string\",\n      \"rfml_id\": \"string\",\n      \"exploratory_run_id\": \"string\",\n      \"initial_redirect_behavior\": \"string\",\n      \"source\": \"string\",\n      \"reroute_geo\": \"string\",\n      \"connection\": {\n        \"id\": \"string\",\n        \"created_at\": \"1989-02-21T21:11:09.524Z\",\n        \"name\": \"string\",\n        \"api_token\": \"string\",\n        \"state\": \"string\",\n        \"link_state\": \"string\",\n        \"type\": \"user\"\n      },\n      \"atc_settings\": \"string\",\n      \"owner\": {\n        \"id\": \"string\",\n        \"created_at\": \"1955-02-11T02:06:42.488Z\",\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"state\": \"string\",\n        \"role\": \"string\"\n      },\n      \"last_updated_by\": {\n        \"id\": \"string\",\n        \"created_at\": \"1947-10-30T00:10:37.918Z\",\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"state\": \"string\",\n        \"role\": \"string\"\n      },\n      \"updated_at\": \"string\",\n      \"archived_at\": \"string\",\n      \"deleted\": \"string\",\n      \"attached_to\": {\n        \"id\": \"string\",\n        \"created_at\": \"string\",\n        \"test_id\": \"string\",\n        \"title\": \"string\",\n        \"result\": \"string\",\n        \"wisp\": \"string\",\n        \"prompt\": \"string\",\n        \"prompt_credentials\": \"string\",\n        \"ai_mode\": \"string\",\n        \"priority\": \"string\",\n        \"real_cost_to_run\": \"string\",\n        \"owner_id\": \"string\",\n        \"state\": \"string\",\n        \"updated_at\": \"string\",\n        \"deleted\": \"string\",\n        \"feature_id\": \"string\"\n      },\n      \"dry_run_url\": \"string\",\n      \"last_run\": {\n        \"id\": 6308,\n        \"created_at\": \"1997-11-28T20:49:47.174Z\",\n        \"state\": \"string\"\n      },\n      \"feature_id\": \"string\",\n      \"has_wisp\": \"string\",\n      \"type\": \"string\",\n      \"coverage_summary\": \"string\",\n      \"used_in_snippets_count\": \"string\",\n      \"used_in_tests_count\": \"string\",\n      \"used_in_archived_snippets_count\": \"string\",\n      \"used_in_archived_tests_count\": \"string\",\n      \"self_healed_at\": \"string\",\n      \"last_run_test\": {\n        \"self_healed\": \"string\",\n        \"rescued\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "29b66f56-39da-422b-aac0-619f9b7de62d",
+              "name": "Could not update folder",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "folders",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"without_tests\": \"<boolean>\",\n  \"title\": \"<string>\",\n  \"logic\": [\n    {\n      \"expression\": {\n        \"tag\": \"foo\",\n        \"inclusive\": true\n      }\n    },\n    {\n      \"operation\": \"and\"\n    },\n    {\n      \"expression\": {\n        \"tag\": \"bar\",\n        \"inclusive\": false\n      }\n    },\n    {\n      \"operation\": \"or\"\n    },\n    {\n      \"expression\": {\n        \"tag\": \"baz\",\n        \"inclusive\": true\n      }\n    }\n  ],\n  \"filters\": [\n    {\n      \"owner_id\": 117\n    },\n    {\n      \"priority\": \"P1\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5acd052d-5608-4a3a-a85c-9427667cf1d0",
+              "name": "Folder not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "folders",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"without_tests\": \"<boolean>\",\n  \"title\": \"<string>\",\n  \"logic\": [\n    {\n      \"expression\": {\n        \"tag\": \"foo\",\n        \"inclusive\": true\n      }\n    },\n    {\n      \"operation\": \"and\"\n    },\n    {\n      \"expression\": {\n        \"tag\": \"bar\",\n        \"inclusive\": false\n      }\n    },\n    {\n      \"operation\": \"or\"\n    },\n    {\n      \"expression\": {\n        \"tag\": \"baz\",\n        \"inclusive\": true\n      }\n    }\n  ],\n  \"filters\": [\n    {\n      \"owner_id\": 117\n    },\n    {\n      \"priority\": \"P1\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2b09e529-72f2-476b-8830-0d2f0d67686b",
+          "name": "Delete a folder",
+          "request": {
+            "name": "Delete a folder",
+            "description": {
+              "content": "Delete a folder",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "folders",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "204a0d60-1d78-41ca-82d8-d0e7ae792d05",
+              "name": "Folder deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "folders",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"title\": \"string\",\n  \"type\": \"filter\",\n  \"logic\": [\n    {\n      \"expression\": {\n        \"tag\": \"foo\",\n        \"inclusive\": true\n      }\n    },\n    {\n      \"operation\": \"and\"\n    },\n    {\n      \"expression\": {\n        \"tag\": \"bar\",\n        \"inclusive\": false\n      }\n    },\n    {\n      \"operation\": \"or\"\n    },\n    {\n      \"expression\": {\n        \"tag\": \"baz\",\n        \"inclusive\": true\n      }\n    }\n  ],\n  \"filters\": [\n    {\n      \"owner_id\": 117\n    },\n    {\n      \"priority\": \"P1\"\n    }\n  ],\n  \"updated_at\": \"1980-04-05T05:46:26.681Z\",\n  \"id\": 7662,\n  \"created_at\": \"2011-04-11T11:41:19.837Z\",\n  \"test_count\": 4332,\n  \"tests\": [\n    {\n      \"id\": \"string\",\n      \"created_at\": \"string\",\n      \"test_id\": \"string\",\n      \"title\": \"string\",\n      \"result\": \"string\",\n      \"wisp\": \"string\",\n      \"prompt\": \"string\",\n      \"prompt_credentials\": \"string\",\n      \"ai_mode\": \"string\",\n      \"state\": \"string\",\n      \"category\": \"string\",\n      \"site_id\": \"string\",\n      \"priority\": \"string\",\n      \"start_uri\": \"string\",\n      \"description\": \"string\",\n      \"browsers\": {\n        \"id\": 6574,\n        \"created_at\": \"1963-11-03T00:26:33.449Z\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"category\": \"string\",\n        \"result\": \"string\",\n        \"state\": \"string\",\n        \"overridden_results\": {\n          \"id\": \"string\",\n          \"created_at\": \"1982-03-15T04:56:06.987Z\",\n          \"note\": \"string\",\n          \"result\": \"string\",\n          \"job_group_id\": \"string\",\n          \"user\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"state\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"role\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"credit_cost\": \"string\"\n      },\n      \"tags\": \"string\",\n      \"frontend_url\": \"string\",\n      \"rfml_id\": \"string\",\n      \"exploratory_run_id\": \"string\",\n      \"initial_redirect_behavior\": \"string\",\n      \"source\": \"string\",\n      \"reroute_geo\": \"string\",\n      \"connection\": {\n        \"id\": \"string\",\n        \"created_at\": \"1999-12-30T03:50:41.288Z\",\n        \"name\": \"string\",\n        \"api_token\": \"string\",\n        \"state\": \"string\",\n        \"link_state\": \"string\",\n        \"type\": \"rainforest\"\n      },\n      \"atc_settings\": \"string\",\n      \"owner\": {\n        \"id\": \"string\",\n        \"created_at\": \"1961-04-27T03:36:42.483Z\",\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"state\": \"string\",\n        \"role\": \"string\"\n      },\n      \"last_updated_by\": {\n        \"id\": \"string\",\n        \"created_at\": \"1983-11-22T15:27:27.256Z\",\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"state\": \"string\",\n        \"role\": \"string\"\n      },\n      \"updated_at\": \"string\",\n      \"archived_at\": \"string\",\n      \"deleted\": \"string\",\n      \"attached_to\": {\n        \"id\": \"string\",\n        \"created_at\": \"string\",\n        \"test_id\": \"string\",\n        \"title\": \"string\",\n        \"result\": \"string\",\n        \"wisp\": \"string\",\n        \"prompt\": \"string\",\n        \"prompt_credentials\": \"string\",\n        \"ai_mode\": \"string\",\n        \"priority\": \"string\",\n        \"real_cost_to_run\": \"string\",\n        \"owner_id\": \"string\",\n        \"state\": \"string\",\n        \"updated_at\": \"string\",\n        \"deleted\": \"string\",\n        \"feature_id\": \"string\"\n      },\n      \"dry_run_url\": \"string\",\n      \"last_run\": {\n        \"id\": 1832,\n        \"created_at\": \"1952-10-20T07:43:51.245Z\",\n        \"state\": \"string\"\n      },\n      \"feature_id\": \"string\",\n      \"has_wisp\": \"string\",\n      \"type\": \"string\",\n      \"coverage_summary\": \"string\",\n      \"used_in_snippets_count\": \"string\",\n      \"used_in_tests_count\": \"string\",\n      \"used_in_archived_snippets_count\": \"string\",\n      \"used_in_archived_tests_count\": \"string\",\n      \"self_healed_at\": \"string\",\n      \"last_run_test\": {\n        \"self_healed\": \"string\",\n        \"rescued\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"created_at\": \"string\",\n      \"test_id\": \"string\",\n      \"title\": \"string\",\n      \"result\": \"string\",\n      \"wisp\": \"string\",\n      \"prompt\": \"string\",\n      \"prompt_credentials\": \"string\",\n      \"ai_mode\": \"string\",\n      \"state\": \"string\",\n      \"category\": \"string\",\n      \"site_id\": \"string\",\n      \"priority\": \"string\",\n      \"start_uri\": \"string\",\n      \"description\": \"string\",\n      \"browsers\": {\n        \"id\": 8347,\n        \"created_at\": \"1963-01-01T20:24:03.866Z\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"category\": \"string\",\n        \"result\": \"string\",\n        \"state\": \"string\",\n        \"overridden_results\": {\n          \"id\": \"string\",\n          \"created_at\": \"1993-12-02T09:09:40.752Z\",\n          \"note\": \"string\",\n          \"result\": \"string\",\n          \"job_group_id\": \"string\",\n          \"user\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"state\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"role\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"credit_cost\": \"string\"\n      },\n      \"tags\": \"string\",\n      \"frontend_url\": \"string\",\n      \"rfml_id\": \"string\",\n      \"exploratory_run_id\": \"string\",\n      \"initial_redirect_behavior\": \"string\",\n      \"source\": \"string\",\n      \"reroute_geo\": \"string\",\n      \"connection\": {\n        \"id\": \"string\",\n        \"created_at\": \"1989-02-21T21:11:09.524Z\",\n        \"name\": \"string\",\n        \"api_token\": \"string\",\n        \"state\": \"string\",\n        \"link_state\": \"string\",\n        \"type\": \"user\"\n      },\n      \"atc_settings\": \"string\",\n      \"owner\": {\n        \"id\": \"string\",\n        \"created_at\": \"1955-02-11T02:06:42.488Z\",\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"state\": \"string\",\n        \"role\": \"string\"\n      },\n      \"last_updated_by\": {\n        \"id\": \"string\",\n        \"created_at\": \"1947-10-30T00:10:37.918Z\",\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"state\": \"string\",\n        \"role\": \"string\"\n      },\n      \"updated_at\": \"string\",\n      \"archived_at\": \"string\",\n      \"deleted\": \"string\",\n      \"attached_to\": {\n        \"id\": \"string\",\n        \"created_at\": \"string\",\n        \"test_id\": \"string\",\n        \"title\": \"string\",\n        \"result\": \"string\",\n        \"wisp\": \"string\",\n        \"prompt\": \"string\",\n        \"prompt_credentials\": \"string\",\n        \"ai_mode\": \"string\",\n        \"priority\": \"string\",\n        \"real_cost_to_run\": \"string\",\n        \"owner_id\": \"string\",\n        \"state\": \"string\",\n        \"updated_at\": \"string\",\n        \"deleted\": \"string\",\n        \"feature_id\": \"string\"\n      },\n      \"dry_run_url\": \"string\",\n      \"last_run\": {\n        \"id\": 6308,\n        \"created_at\": \"1997-11-28T20:49:47.174Z\",\n        \"state\": \"string\"\n      },\n      \"feature_id\": \"string\",\n      \"has_wisp\": \"string\",\n      \"type\": \"string\",\n      \"coverage_summary\": \"string\",\n      \"used_in_snippets_count\": \"string\",\n      \"used_in_tests_count\": \"string\",\n      \"used_in_archived_snippets_count\": \"string\",\n      \"used_in_archived_tests_count\": \"string\",\n      \"self_healed_at\": \"string\",\n      \"last_run_test\": {\n        \"self_healed\": \"string\",\n        \"rescued\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aad24862-fa4f-46bf-ba95-c98be15cf4da",
+              "name": "Folder not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "folders",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.rainforestqa.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "CLIENT_TOKEN"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "fc311cb0-f8b0-42f2-a58a-9da0a59fa35b",
+    "name": "Rainforest callback folders API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).",
+      "type": "text/plain"
+    }
+  }
+}

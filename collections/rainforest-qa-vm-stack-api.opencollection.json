@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rainforest callback vm_stack API",
+    "version": "1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "CLIENT_TOKEN",
+      "value": "{{CLIENT_TOKEN}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "vm_stack",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List IP addresses testers come from",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.rainforestqa.com/api/1/vm_stack"
+          },
+          "docs": "List IP addresses testers come from"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

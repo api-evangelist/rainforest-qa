@@ -2,9 +2,8 @@ generated: '2026-07-20'
 method: derived
 status: candidate
 source: openapi/rainforest-qa-openapi-original.yml
-note: No official hosted Rainforest MCP server was found. This is a candidate tool
-  list derived one-per-operation from the Rainforest OpenAPI; not published by the
-  provider.
+note: No official hosted Rainforest MCP server was found. This is a candidate tool list derived one-per-operation
+  from the Rainforest OpenAPI; not published by the provider.
 server:
   name: rainforest-qa
   transport: http
@@ -311,8 +310,7 @@ tools:
   description: Run and generation history for a test
   source_operation: openapi/rainforest-qa-openapi-original.yml#get-test-run-and-generation-history
 - name: get_test_run_group_elements
-  description: Get list of run group elements directly or indirectly linked to the
-    test
+  description: Get list of run group elements directly or indirectly linked to the test
   source_operation: openapi/rainforest-qa-openapi-original.yml#get-test-run_group_elements
 - name: get_test_results
   description: List test results
@@ -350,3 +348,9 @@ tools:
 - name: get_vm_stack
   description: List IP addresses testers come from
   source_operation: openapi/rainforest-qa-openapi-original.yml#get-vm_stack
+deployment:
+  mode: none
+  verified: derived
+  tools: 113
+  checked: '2026-08-12'
+  source: catalog MCP census

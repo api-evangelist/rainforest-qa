@@ -1,0 +1,1011 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rainforest callback tests API",
+    "version": "1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "CLIENT_TOKEN",
+      "value": "{{CLIENT_TOKEN}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "tests",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a test version",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.rainforestqa.com/api/1/tests/:test_id/test_versions/:test_version_id",
+            "params": [
+              {
+                "name": "test_id",
+                "value": "",
+                "type": "path",
+                "description": "A test ID"
+              },
+              {
+                "name": "test_version_id",
+                "value": "",
+                "type": "path",
+                "description": "A test version ID"
+              }
+            ]
+          },
+          "docs": "Get a test version"
+        },
+        {
+          "info": {
+            "name": "List tests",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.rainforestqa.com/api/1/tests",
+            "params": [
+              {
+                "name": "category",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests with this category"
+              },
+              {
+                "name": "exploratory_run_id",
+                "value": "",
+                "type": "query",
+                "description": "Only return created in this exploratory run"
+              },
+              {
+                "name": "priority",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests with this priority"
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests whose title contains, or ID matches, this string"
+              },
+              {
+                "name": "result",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests with a specific result"
+              },
+              {
+                "name": "run_group_id",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests in this run group; use `-1` to filter for tests not in any run groups"
+              },
+              {
+                "name": "smart_folder_id",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests in this saved filter"
+              },
+              {
+                "name": "step_query",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests whose steps match this string"
+              },
+              {
+                "name": "tests",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests matching this criteria. Can be comma-separated list of test ids or 'all' to return all tests"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests of this type"
+              },
+              {
+                "name": "variable",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests that contain given variable"
+              },
+              {
+                "name": "embedded",
+                "value": "",
+                "type": "query",
+                "description": "If true, only return tests that are embedded in other tests. If false, only return tests that are not embedded in other tests."
+              },
+              {
+                "name": "owner_id",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests owned by this user; use `-1` to filter for tests without an owner"
+              },
+              {
+                "name": "test_language",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests with a specified language"
+              },
+              {
+                "name": "logic[][operation]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "logic[][expression][tag]",
+                "value": "",
+                "type": "query",
+                "description": "The name of the tag"
+              },
+              {
+                "name": "logic[][expression][inclusive]",
+                "value": "",
+                "type": "query",
+                "description": "Whether to filter for tests tagged or untagged with the given tag"
+              },
+              {
+                "name": "sort[][title]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort[][id]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort[][updated_at]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort[][priority]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort[][created_at]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort[][owner]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort[][last_run]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort[][environment_name]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort[][last_complete_run_test_completed_at]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort[][last_complete_run_test_run_id]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort[][notified_user_name]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort[][self_healed_at]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort[][status]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page of results to display"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page; maximum: 100"
+              },
+              {
+                "name": "feature_id[]",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests with this/these feature(s); use `-1` to filter for tests without a feature"
+              },
+              {
+                "name": "site_id[]",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests for this/these site(s)"
+              },
+              {
+                "name": "state[]",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests that with this state"
+              },
+              {
+                "name": "tags[]",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests having all specified tags; use `-1` to filter for untagged tests"
+              },
+              {
+                "name": "run_id[]",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests that were in this/these previous run(s)"
+              },
+              {
+                "name": "options[]",
+                "value": "",
+                "type": "query",
+                "description": "List of extra details to display"
+              }
+            ]
+          },
+          "docs": "List tests"
+        },
+        {
+          "info": {
+            "name": "Create a new test",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.rainforestqa.com/api/1/tests",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new test"
+        },
+        {
+          "info": {
+            "name": "Update multiple tests",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.rainforestqa.com/api/1/tests",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update multiple tests"
+        },
+        {
+          "info": {
+            "name": "Delete multiple tests",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.rainforestqa.com/api/1/tests",
+            "params": [
+              {
+                "name": "category",
+                "value": "",
+                "type": "query",
+                "description": "Only delete tests with this category"
+              },
+              {
+                "name": "exploratory_run_id",
+                "value": "",
+                "type": "query",
+                "description": "Only delete created in this exploratory run"
+              },
+              {
+                "name": "priority",
+                "value": "",
+                "type": "query",
+                "description": "Only delete tests with this priority"
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Only delete tests whose title contains, or ID matches, this string"
+              },
+              {
+                "name": "result",
+                "value": "",
+                "type": "query",
+                "description": "Only delete tests with a specific result"
+              },
+              {
+                "name": "run_group_id",
+                "value": "",
+                "type": "query",
+                "description": "Only delete tests in this run group; use `-1` to filter for tests not in any run groups"
+              },
+              {
+                "name": "smart_folder_id",
+                "value": "",
+                "type": "query",
+                "description": "Only delete tests in this saved filter"
+              },
+              {
+                "name": "step_query",
+                "value": "",
+                "type": "query",
+                "description": "Only delete tests whose steps match this string"
+              },
+              {
+                "name": "tests",
+                "value": "",
+                "type": "query",
+                "description": "Only delete tests matching this criteria. Can be comma-separated list of test ids or 'all' to delete all tests"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Only delete tests of this type"
+              },
+              {
+                "name": "variable",
+                "value": "",
+                "type": "query",
+                "description": "Only delete tests that contain given variable"
+              },
+              {
+                "name": "embedded",
+                "value": "",
+                "type": "query",
+                "description": "If true, only delete tests that are embedded in other tests. If false, only delete tests that are not embedded in other tests."
+              },
+              {
+                "name": "owner_id",
+                "value": "",
+                "type": "query",
+                "description": "Only delete tests owned by this user; use `-1` to filter for tests without an owner"
+              },
+              {
+                "name": "test_language",
+                "value": "",
+                "type": "query",
+                "description": "Only delete tests with a specified language"
+              },
+              {
+                "name": "async",
+                "value": "",
+                "type": "query",
+                "description": "When true perform the operation asynchronously. Use when you're experiencing timeouts. There is no way to determine if the operation was successful or when it is complete."
+              },
+              {
+                "name": "feature_id[]",
+                "value": "",
+                "type": "query",
+                "description": "Only delete tests with this/these feature(s); use `-1` to filter for tests without a feature"
+              },
+              {
+                "name": "site_id[]",
+                "value": "",
+                "type": "query",
+                "description": "Only delete tests for this/these site(s)"
+              },
+              {
+                "name": "state[]",
+                "value": "",
+                "type": "query",
+                "description": "Only delete tests that with this state"
+              },
+              {
+                "name": "tags[]",
+                "value": "",
+                "type": "query",
+                "description": "Only delete tests having all specified tags; use `-1` to filter for untagged tests"
+              },
+              {
+                "name": "run_id[]",
+                "value": "",
+                "type": "query",
+                "description": "Only delete tests that were in this/these previous run(s)"
+              }
+            ]
+          },
+          "docs": "Delete multiple tests"
+        },
+        {
+          "info": {
+            "name": "Duplicate multiple tests",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.rainforestqa.com/api/1/tests/duplicate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Duplicate multiple tests"
+        },
+        {
+          "info": {
+            "name": "Regenerate a test with AI from a new prompt",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.rainforestqa.com/api/1/tests/:test_id/regenerate",
+            "params": [
+              {
+                "name": "test_id",
+                "value": "",
+                "type": "path",
+                "description": "A test ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Regenerate a test with AI from a new prompt"
+        },
+        {
+          "info": {
+            "name": "Tag a group of tests",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.rainforestqa.com/api/1/tests/tags",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Tag a group of tests"
+        },
+        {
+          "info": {
+            "name": "Remove tags from a group of tests",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.rainforestqa.com/api/1/tests/tags",
+            "params": [
+              {
+                "name": "category",
+                "value": "",
+                "type": "query",
+                "description": "Only untag tests with this category"
+              },
+              {
+                "name": "exploratory_run_id",
+                "value": "",
+                "type": "query",
+                "description": "Only untag created in this exploratory run"
+              },
+              {
+                "name": "priority",
+                "value": "",
+                "type": "query",
+                "description": "Only untag tests with this priority"
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Only untag tests whose title contains, or ID matches, this string"
+              },
+              {
+                "name": "result",
+                "value": "",
+                "type": "query",
+                "description": "Only untag tests with a specific result"
+              },
+              {
+                "name": "run_group_id",
+                "value": "",
+                "type": "query",
+                "description": "Only untag tests in this run group; use `-1` to filter for tests not in any run groups"
+              },
+              {
+                "name": "smart_folder_id",
+                "value": "",
+                "type": "query",
+                "description": "Only untag tests in this saved filter"
+              },
+              {
+                "name": "step_query",
+                "value": "",
+                "type": "query",
+                "description": "Only untag tests whose steps match this string"
+              },
+              {
+                "name": "tests",
+                "value": "",
+                "type": "query",
+                "description": "Only untag tests matching this criteria. Can be comma-separated list of test ids or 'all' to untag all tests"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Only untag tests of this type"
+              },
+              {
+                "name": "variable",
+                "value": "",
+                "type": "query",
+                "description": "Only untag tests that contain given variable"
+              },
+              {
+                "name": "embedded",
+                "value": "",
+                "type": "query",
+                "description": "If true, only untag tests that are embedded in other tests. If false, only untag tests that are not embedded in other tests."
+              },
+              {
+                "name": "owner_id",
+                "value": "",
+                "type": "query",
+                "description": "Only untag tests owned by this user; use `-1` to filter for tests without an owner"
+              },
+              {
+                "name": "test_language",
+                "value": "",
+                "type": "query",
+                "description": "Only untag tests with a specified language"
+              },
+              {
+                "name": "async",
+                "value": "",
+                "type": "query",
+                "description": "When true perform the operation asynchronously. Use when you're experiencing timeouts. There is no way to determine if the operation was successful or when it is complete."
+              },
+              {
+                "name": "untag_with",
+                "value": "",
+                "type": "query",
+                "description": "List of tags to remove"
+              },
+              {
+                "name": "feature_id[]",
+                "value": "",
+                "type": "query",
+                "description": "Only untag tests with this/these feature(s); use `-1` to filter for tests without a feature"
+              },
+              {
+                "name": "site_id[]",
+                "value": "",
+                "type": "query",
+                "description": "Only untag tests for this/these site(s)"
+              },
+              {
+                "name": "state[]",
+                "value": "",
+                "type": "query",
+                "description": "Only untag tests that with this state"
+              },
+              {
+                "name": "tags[]",
+                "value": "",
+                "type": "query",
+                "description": "Only untag tests having all specified tags; use `-1` to filter for untagged tests"
+              },
+              {
+                "name": "run_id[]",
+                "value": "",
+                "type": "query",
+                "description": "Only untag tests that were in this/these previous run(s)"
+              }
+            ]
+          },
+          "docs": "Untag a group of tests"
+        },
+        {
+          "info": {
+            "name": "List credit costs for a selection of tests",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.rainforestqa.com/api/1/tests/credit_cost",
+            "params": [
+              {
+                "name": "category",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests with this category"
+              },
+              {
+                "name": "exploratory_run_id",
+                "value": "",
+                "type": "query",
+                "description": "Only return created in this exploratory run"
+              },
+              {
+                "name": "priority",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests with this priority"
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests whose title contains, or ID matches, this string"
+              },
+              {
+                "name": "result",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests with a specific result"
+              },
+              {
+                "name": "run_group_id",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests in this run group; use `-1` to filter for tests not in any run groups"
+              },
+              {
+                "name": "smart_folder_id",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests in this saved filter"
+              },
+              {
+                "name": "step_query",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests whose steps match this string"
+              },
+              {
+                "name": "tests",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests matching this criteria. Can be comma-separated list of test ids or 'all' to return all tests"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests of this type"
+              },
+              {
+                "name": "variable",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests that contain given variable"
+              },
+              {
+                "name": "embedded",
+                "value": "",
+                "type": "query",
+                "description": "If true, only return tests that are embedded in other tests. If false, only return tests that are not embedded in other tests."
+              },
+              {
+                "name": "owner_id",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests owned by this user; use `-1` to filter for tests without an owner"
+              },
+              {
+                "name": "test_language",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests with a specified language"
+              },
+              {
+                "name": "feature_id[]",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests with this/these feature(s); use `-1` to filter for tests without a feature"
+              },
+              {
+                "name": "site_id[]",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests for this/these site(s)"
+              },
+              {
+                "name": "state[]",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests that with this state"
+              },
+              {
+                "name": "tags[]",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests having all specified tags; use `-1` to filter for untagged tests"
+              },
+              {
+                "name": "run_id[]",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests that were in this/these previous run(s)"
+              },
+              {
+                "name": "browsers[]",
+                "value": "",
+                "type": "query",
+                "description": "Specify browsers to use for credit cost. Uses test's default browsers if omitted."
+              }
+            ]
+          },
+          "docs": "List credit costs for a selection of tests"
+        },
+        {
+          "info": {
+            "name": "Get files for a test",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.rainforestqa.com/api/1/tests/:test_id/files",
+            "params": [
+              {
+                "name": "test_id",
+                "value": "",
+                "type": "path",
+                "description": "A test ID"
+              }
+            ]
+          },
+          "docs": "Get files for a test"
+        },
+        {
+          "info": {
+            "name": "Create a new file for a test",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.rainforestqa.com/api/1/tests/:test_id/files",
+            "params": [
+              {
+                "name": "test_id",
+                "value": "",
+                "type": "path",
+                "description": "A test ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new file for a test"
+        },
+        {
+          "info": {
+            "name": "Get a test",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.rainforestqa.com/api/1/tests/:test_id",
+            "params": [
+              {
+                "name": "test_id",
+                "value": "",
+                "type": "path",
+                "description": "A test ID"
+              },
+              {
+                "name": "slim",
+                "value": "",
+                "type": "query",
+                "description": "If true, returns less data in order to reduce latency and response size"
+              },
+              {
+                "name": "environment_id",
+                "value": "",
+                "type": "query",
+                "description": "Environment ID used to get initial_navigate_url"
+              },
+              {
+                "name": "test_version_id",
+                "value": "",
+                "type": "query",
+                "description": "Test version ID used to get specific version details"
+              },
+              {
+                "name": "test_event_id",
+                "value": "",
+                "type": "query",
+                "description": "Test event ID used to get timestamp from"
+              },
+              {
+                "name": "options[]",
+                "value": "",
+                "type": "query",
+                "description": "Extra details to display: steps, wisp"
+              }
+            ]
+          },
+          "docs": "Get a test"
+        },
+        {
+          "info": {
+            "name": "Update a test",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.rainforestqa.com/api/1/tests/:test_id",
+            "params": [
+              {
+                "name": "test_id",
+                "value": "",
+                "type": "path",
+                "description": "A test ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a test"
+        },
+        {
+          "info": {
+            "name": "Delete a test",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.rainforestqa.com/api/1/tests/:test_id",
+            "params": [
+              {
+                "name": "test_id",
+                "value": "",
+                "type": "path",
+                "description": "A test ID"
+              }
+            ]
+          },
+          "docs": "Delete a test"
+        },
+        {
+          "info": {
+            "name": "Comment history for a test",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.rainforestqa.com/api/1/tests/:test_id/comments",
+            "params": [
+              {
+                "name": "test_id",
+                "value": "",
+                "type": "path",
+                "description": "A test ID"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page of results to display"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page; maximum: 100"
+              }
+            ]
+          },
+          "docs": "Comment history for a test"
+        },
+        {
+          "info": {
+            "name": "Run history for a test",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.rainforestqa.com/api/1/tests/:test_id/history",
+            "params": [
+              {
+                "name": "test_id",
+                "value": "",
+                "type": "path",
+                "description": "A test ID"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page of results to display"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page; maximum: 100"
+              }
+            ]
+          },
+          "docs": "Run history for a test"
+        },
+        {
+          "info": {
+            "name": "Run and generation history for a test",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.rainforestqa.com/api/1/tests/:test_id/automation_history",
+            "params": [
+              {
+                "name": "test_id",
+                "value": "",
+                "type": "path",
+                "description": "A test ID"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page of results to display"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page; maximum: 100"
+              }
+            ]
+          },
+          "docs": "Run and generation history for a test"
+        },
+        {
+          "info": {
+            "name": "Get list of run group elements directly or indirectly linked to the test",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.rainforestqa.com/api/1/tests/:test_id/run_group_elements",
+            "params": [
+              {
+                "name": "test_id",
+                "value": "",
+                "type": "path",
+                "description": "A test ID"
+              }
+            ]
+          },
+          "docs": "Get list of run group elements directly or indirectly linked to the test"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

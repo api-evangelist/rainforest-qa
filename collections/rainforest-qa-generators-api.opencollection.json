@@ -1,0 +1,319 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rainforest callback generators API",
+    "version": "1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "CLIENT_TOKEN",
+      "value": "{{CLIENT_TOKEN}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "generators",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List generators",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.rainforestqa.com/api/1/generators",
+            "params": [
+              {
+                "name": "generator_type",
+                "value": "",
+                "type": "query",
+                "description": "Only return generators of this type"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Filter by name (case-insensitive)"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page of results to display"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page; maximum: 100"
+              },
+              {
+                "name": "slim",
+                "value": "",
+                "type": "query",
+                "description": "If true, returns less data in order to reduce latency and response size"
+              }
+            ]
+          },
+          "docs": "List generators"
+        },
+        {
+          "info": {
+            "name": "Create a new generator",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.rainforestqa.com/api/1/generators",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new generator"
+        },
+        {
+          "info": {
+            "name": "Get a generator",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.rainforestqa.com/api/1/generators/:generator_id",
+            "params": [
+              {
+                "name": "generator_id",
+                "value": "",
+                "type": "path",
+                "description": "A generator ID"
+              },
+              {
+                "name": "slim",
+                "value": "",
+                "type": "query",
+                "description": "If true, returns less data in order to reduce latency and response size"
+              }
+            ]
+          },
+          "docs": "Get a generator"
+        },
+        {
+          "info": {
+            "name": "Update a generator",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.rainforestqa.com/api/1/generators/:generator_id",
+            "params": [
+              {
+                "name": "generator_id",
+                "value": "",
+                "type": "path",
+                "description": "A generator ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a generator"
+        },
+        {
+          "info": {
+            "name": "Delete a generator",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.rainforestqa.com/api/1/generators/:generator_id",
+            "params": [
+              {
+                "name": "generator_id",
+                "value": "",
+                "type": "path",
+                "description": "A generator ID"
+              },
+              {
+                "name": "slim",
+                "value": "",
+                "type": "query",
+                "description": "If true, returns less data in order to reduce latency and response size"
+              }
+            ]
+          },
+          "docs": "Delete a generator"
+        },
+        {
+          "info": {
+            "name": "List generator rows",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.rainforestqa.com/api/1/generators/:generator_id/rows",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "generator_id",
+                "value": "",
+                "type": "path",
+                "description": "A generator ID"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page of results to display"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page; maximum: 100"
+              }
+            ]
+          },
+          "docs": "List generator rows"
+        },
+        {
+          "info": {
+            "name": "Create a new generator row",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.rainforestqa.com/api/1/generators/:generator_id/rows",
+            "params": [
+              {
+                "name": "generator_id",
+                "value": "",
+                "type": "path",
+                "description": "A generator ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new generator row"
+        },
+        {
+          "info": {
+            "name": "Create multiple generator rows",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.rainforestqa.com/api/1/generators/:generator_id/rows/batch",
+            "params": [
+              {
+                "name": "generator_id",
+                "value": "",
+                "type": "path",
+                "description": "A generator ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create multiple generator rows"
+        },
+        {
+          "info": {
+            "name": "Get a generator row",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.rainforestqa.com/api/1/generators/:generator_id/rows/:row_id",
+            "params": [
+              {
+                "name": "generator_id",
+                "value": "",
+                "type": "path",
+                "description": "A generator ID"
+              },
+              {
+                "name": "row_id",
+                "value": "",
+                "type": "path",
+                "description": "A row ID"
+              }
+            ]
+          },
+          "docs": "Get a generator row"
+        },
+        {
+          "info": {
+            "name": "Update a generator row",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.rainforestqa.com/api/1/generators/:generator_id/rows/:row_id",
+            "params": [
+              {
+                "name": "generator_id",
+                "value": "",
+                "type": "path",
+                "description": "A generator ID"
+              },
+              {
+                "name": "row_id",
+                "value": "",
+                "type": "path",
+                "description": "A row ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a generator row"
+        },
+        {
+          "info": {
+            "name": "Delete a generator row",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.rainforestqa.com/api/1/generators/:generator_id/rows/:row_id",
+            "params": [
+              {
+                "name": "generator_id",
+                "value": "",
+                "type": "path",
+                "description": "A generator ID"
+              },
+              {
+                "name": "row_id",
+                "value": "",
+                "type": "path",
+                "description": "A row ID"
+              }
+            ]
+          },
+          "docs": "Delete a generator row"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

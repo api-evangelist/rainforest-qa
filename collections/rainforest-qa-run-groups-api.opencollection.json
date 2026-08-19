@@ -1,0 +1,365 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rainforest callback run_groups API",
+    "version": "1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "CLIENT_TOKEN",
+      "value": "{{CLIENT_TOKEN}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "run_groups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List run groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.rainforestqa.com/api/1/run_groups",
+            "params": [
+              {
+                "name": "title",
+                "value": "",
+                "type": "query",
+                "description": "Filter by title (case-insensitive)"
+              },
+              {
+                "name": "sort[][title]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page of results to display"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page; maximum: 100"
+              }
+            ]
+          },
+          "docs": "List run groups"
+        },
+        {
+          "info": {
+            "name": "Create a new run group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.rainforestqa.com/api/1/run_groups",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new run group"
+        },
+        {
+          "info": {
+            "name": "Add multiple elements to a run group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.rainforestqa.com/api/1/run_groups/:id/elements/batch",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add multiple elements to a run group"
+        },
+        {
+          "info": {
+            "name": "Remove multiple elements from a run group",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.rainforestqa.com/api/1/run_groups/:id/elements/batch",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "elements[][type]",
+                "value": "",
+                "type": "query",
+                "description": "The element's type"
+              },
+              {
+                "name": "elements[][element_id]",
+                "value": "",
+                "type": "query",
+                "description": "The feature, filter, or test's id"
+              },
+              {
+                "name": "elements[][name]",
+                "value": "",
+                "type": "query",
+                "description": "The tag's name"
+              }
+            ]
+          },
+          "docs": "Remove multiple elements from a run group"
+        },
+        {
+          "info": {
+            "name": "Get a run group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.rainforestqa.com/api/1/run_groups/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a run group"
+        },
+        {
+          "info": {
+            "name": "Update a run group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.rainforestqa.com/api/1/run_groups/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a run group"
+        },
+        {
+          "info": {
+            "name": "Delete a run group",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.rainforestqa.com/api/1/run_groups/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a run group"
+        },
+        {
+          "info": {
+            "name": "Get runs for a run group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.rainforestqa.com/api/1/run_groups/:id/runs",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page of results to display"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page; maximum: 100"
+              }
+            ]
+          },
+          "docs": "Get runs for a run group"
+        },
+        {
+          "info": {
+            "name": "Create a new run group run",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.rainforestqa.com/api/1/run_groups/:id/runs",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new run group run"
+        },
+        {
+          "info": {
+            "name": "Get run group elements",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.rainforestqa.com/api/1/run_groups/:id/elements",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sort[][title]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort[][created_at]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort[][updated_at]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort[][priority]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page of results to display"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page; maximum: 100"
+              }
+            ]
+          },
+          "docs": "Get run group elements"
+        },
+        {
+          "info": {
+            "name": "Add an element to a run group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.rainforestqa.com/api/1/run_groups/:id/elements",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add an element to a run group"
+        },
+        {
+          "info": {
+            "name": "Get an element from a run group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.rainforestqa.com/api/1/run_groups/:id/elements/:element_id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "element_id",
+                "value": "",
+                "type": "path",
+                "description": "The element ID"
+              }
+            ]
+          },
+          "docs": "Get an element from a run group"
+        },
+        {
+          "info": {
+            "name": "Remove an element from a run group",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.rainforestqa.com/api/1/run_groups/:id/elements/:element_id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "element_id",
+                "value": "",
+                "type": "path",
+                "description": "The element ID"
+              }
+            ]
+          },
+          "docs": "Remove an element from a run group"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

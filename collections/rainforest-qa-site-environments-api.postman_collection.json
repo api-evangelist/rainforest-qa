@@ -1,0 +1,392 @@
+{
+  "item": [
+    {
+      "id": "8e4086d3-3526-472d-aa71-895125770852",
+      "name": "site_environments",
+      "description": {
+        "content": "Operations about site_environments",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "60d51f45-d00f-40a5-8f7c-ba4a204ee9db",
+          "name": "List sites and environments",
+          "request": {
+            "name": "List sites and environments",
+            "description": {
+              "content": "List sites and environments",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "site_environments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "include_site_test_count",
+                  "value": "false",
+                  "description": "Includes test count for each site if set to true"
+                },
+                {
+                  "disabled": false,
+                  "key": "slim",
+                  "value": "false",
+                  "description": "If true, returns less data in order to reduce latency and response size"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1207cfcd-00c2-480d-86ad-ae9f60e23091",
+              "name": "Sites and environments retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "site_environments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include_site_test_count",
+                      "value": "false"
+                    },
+                    {
+                      "key": "slim",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"environments\": [\n      \"string\",\n      \"string\"\n    ],\n    \"sites\": [\n      {\n        \"id\": 3628,\n        \"created_at\": \"2000-05-07T09:44:08.949Z\",\n        \"name\": \"string\",\n        \"default\": true,\n        \"category\": \"ios\",\n        \"ai_generation_rules\": \"string\",\n        \"snippet_count\": 426,\n        \"test_count\": 2967\n      },\n      {\n        \"id\": 5058,\n        \"created_at\": \"1977-02-03T02:06:33.029Z\",\n        \"name\": \"string\",\n        \"default\": true,\n        \"category\": \"site\",\n        \"ai_generation_rules\": \"string\",\n        \"snippet_count\": 6374,\n        \"test_count\": 985\n      }\n    ],\n    \"site_environments\": [\n      {\n        \"site_id\": 2279,\n        \"environment_id\": 2628,\n        \"url\": \"string\",\n        \"id\": 7954,\n        \"created_at\": \"1951-08-22T14:28:57.566Z\"\n      },\n      {\n        \"site_id\": 4147,\n        \"environment_id\": 3624,\n        \"url\": \"string\",\n        \"id\": 5741,\n        \"created_at\": \"2005-04-16T16:32:39.063Z\"\n      }\n    ]\n  },\n  {\n    \"environments\": [\n      \"string\",\n      \"string\"\n    ],\n    \"sites\": [\n      {\n        \"id\": 7820,\n        \"created_at\": \"1977-06-24T10:02:50.111Z\",\n        \"name\": \"string\",\n        \"default\": false,\n        \"category\": \"android\",\n        \"ai_generation_rules\": \"string\",\n        \"snippet_count\": 1811,\n        \"test_count\": 355\n      },\n      {\n        \"id\": 9064,\n        \"created_at\": \"2014-01-10T14:37:03.433Z\",\n        \"name\": \"string\",\n        \"default\": true,\n        \"category\": \"site\",\n        \"ai_generation_rules\": \"string\",\n        \"snippet_count\": 8152,\n        \"test_count\": 3563\n      }\n    ],\n    \"site_environments\": [\n      {\n        \"site_id\": 397,\n        \"environment_id\": 1715,\n        \"url\": \"string\",\n        \"id\": 2910,\n        \"created_at\": \"1985-10-31T15:17:35.795Z\"\n      },\n      {\n        \"site_id\": 5086,\n        \"environment_id\": 8768,\n        \"url\": \"string\",\n        \"id\": 9482,\n        \"created_at\": \"2000-12-13T16:58:01.196Z\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ca52a19e-d8a5-4ce2-9020-ab64625d96b3",
+          "name": "Update a site-environment",
+          "request": {
+            "name": "Update a site-environment",
+            "description": {
+              "content": "Update a site-environment",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "site_environments",
+                ":site_environment_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "site_environment_id",
+                  "description": "(Required) A site environment ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4c5e803c-18fd-4670-82ee-0982d312d3a4",
+              "name": "Site-environment updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "site_environments",
+                    ":site_environment_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "site_environment_id",
+                      "description": "(Required) A site environment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"title\": \"string\",\n  \"type\": \"filter\",\n  \"logic\": [\n    {\n      \"expression\": {\n        \"tag\": \"foo\",\n        \"inclusive\": true\n      }\n    },\n    {\n      \"operation\": \"and\"\n    },\n    {\n      \"expression\": {\n        \"tag\": \"bar\",\n        \"inclusive\": false\n      }\n    },\n    {\n      \"operation\": \"or\"\n    },\n    {\n      \"expression\": {\n        \"tag\": \"baz\",\n        \"inclusive\": true\n      }\n    }\n  ],\n  \"filters\": [\n    {\n      \"owner_id\": 117\n    },\n    {\n      \"priority\": \"P1\"\n    }\n  ],\n  \"updated_at\": \"1991-03-26T07:54:56.626Z\",\n  \"id\": 7885,\n  \"created_at\": \"2006-08-15T13:16:38.335Z\",\n  \"test_count\": 2282,\n  \"tests\": [\n    {\n      \"id\": \"string\",\n      \"created_at\": \"string\",\n      \"test_id\": \"string\",\n      \"title\": \"string\",\n      \"result\": \"string\",\n      \"wisp\": \"string\",\n      \"prompt\": \"string\",\n      \"prompt_credentials\": \"string\",\n      \"ai_mode\": \"string\",\n      \"state\": \"string\",\n      \"category\": \"string\",\n      \"site_id\": \"string\",\n      \"priority\": \"string\",\n      \"start_uri\": \"string\",\n      \"description\": \"string\",\n      \"browsers\": {\n        \"id\": 758,\n        \"created_at\": \"1965-07-17T11:14:49.099Z\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"category\": \"string\",\n        \"result\": \"string\",\n        \"state\": \"string\",\n        \"overridden_results\": {\n          \"id\": \"string\",\n          \"created_at\": \"1967-09-12T06:24:17.078Z\",\n          \"note\": \"string\",\n          \"result\": \"string\",\n          \"job_group_id\": \"string\",\n          \"user\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"state\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"role\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"credit_cost\": \"string\"\n      },\n      \"tags\": \"string\",\n      \"frontend_url\": \"string\",\n      \"rfml_id\": \"string\",\n      \"exploratory_run_id\": \"string\",\n      \"initial_redirect_behavior\": \"string\",\n      \"source\": \"string\",\n      \"reroute_geo\": \"string\",\n      \"connection\": {\n        \"id\": \"string\",\n        \"created_at\": \"2017-01-02T01:38:37.055Z\",\n        \"name\": \"string\",\n        \"api_token\": \"string\",\n        \"state\": \"string\",\n        \"link_state\": \"string\",\n        \"type\": \"rainforest\"\n      },\n      \"atc_settings\": \"string\",\n      \"owner\": {\n        \"id\": \"string\",\n        \"created_at\": \"1964-06-27T14:25:33.110Z\",\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"state\": \"string\",\n        \"role\": \"string\"\n      },\n      \"last_updated_by\": {\n        \"id\": \"string\",\n        \"created_at\": \"1995-10-31T09:19:28.761Z\",\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"state\": \"string\",\n        \"role\": \"string\"\n      },\n      \"updated_at\": \"string\",\n      \"archived_at\": \"string\",\n      \"deleted\": \"string\",\n      \"attached_to\": {\n        \"id\": \"string\",\n        \"created_at\": \"string\",\n        \"test_id\": \"string\",\n        \"title\": \"string\",\n        \"result\": \"string\",\n        \"wisp\": \"string\",\n        \"prompt\": \"string\",\n        \"prompt_credentials\": \"string\",\n        \"ai_mode\": \"string\",\n        \"priority\": \"string\",\n        \"real_cost_to_run\": \"string\",\n        \"owner_id\": \"string\",\n        \"state\": \"string\",\n        \"updated_at\": \"string\",\n        \"deleted\": \"string\",\n        \"feature_id\": \"string\"\n      },\n      \"dry_run_url\": \"string\",\n      \"last_run\": {\n        \"id\": 3440,\n        \"created_at\": \"1989-07-31T18:39:20.223Z\",\n        \"state\": \"string\"\n      },\n      \"feature_id\": \"string\",\n      \"has_wisp\": \"string\",\n      \"type\": \"string\",\n      \"coverage_summary\": \"string\",\n      \"used_in_snippets_count\": \"string\",\n      \"used_in_tests_count\": \"string\",\n      \"used_in_archived_snippets_count\": \"string\",\n      \"used_in_archived_tests_count\": \"string\",\n      \"self_healed_at\": \"string\",\n      \"last_run_test\": {\n        \"self_healed\": \"string\",\n        \"rescued\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"created_at\": \"string\",\n      \"test_id\": \"string\",\n      \"title\": \"string\",\n      \"result\": \"string\",\n      \"wisp\": \"string\",\n      \"prompt\": \"string\",\n      \"prompt_credentials\": \"string\",\n      \"ai_mode\": \"string\",\n      \"state\": \"string\",\n      \"category\": \"string\",\n      \"site_id\": \"string\",\n      \"priority\": \"string\",\n      \"start_uri\": \"string\",\n      \"description\": \"string\",\n      \"browsers\": {\n        \"id\": 8344,\n        \"created_at\": \"1986-04-27T10:10:16.446Z\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"category\": \"string\",\n        \"result\": \"string\",\n        \"state\": \"string\",\n        \"overridden_results\": {\n          \"id\": \"string\",\n          \"created_at\": \"2004-11-13T21:11:50.668Z\",\n          \"note\": \"string\",\n          \"result\": \"string\",\n          \"job_group_id\": \"string\",\n          \"user\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"state\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"role\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"credit_cost\": \"string\"\n      },\n      \"tags\": \"string\",\n      \"frontend_url\": \"string\",\n      \"rfml_id\": \"string\",\n      \"exploratory_run_id\": \"string\",\n      \"initial_redirect_behavior\": \"string\",\n      \"source\": \"string\",\n      \"reroute_geo\": \"string\",\n      \"connection\": {\n        \"id\": \"string\",\n        \"created_at\": \"1972-04-26T01:58:53.005Z\",\n        \"name\": \"string\",\n        \"api_token\": \"string\",\n        \"state\": \"string\",\n        \"link_state\": \"string\",\n        \"type\": \"rainforest\"\n      },\n      \"atc_settings\": \"string\",\n      \"owner\": {\n        \"id\": \"string\",\n        \"created_at\": \"1991-05-09T02:05:09.400Z\",\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"state\": \"string\",\n        \"role\": \"string\"\n      },\n      \"last_updated_by\": {\n        \"id\": \"string\",\n        \"created_at\": \"2025-11-12T14:00:05.879Z\",\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"state\": \"string\",\n        \"role\": \"string\"\n      },\n      \"updated_at\": \"string\",\n      \"archived_at\": \"string\",\n      \"deleted\": \"string\",\n      \"attached_to\": {\n        \"id\": \"string\",\n        \"created_at\": \"string\",\n        \"test_id\": \"string\",\n        \"title\": \"string\",\n        \"result\": \"string\",\n        \"wisp\": \"string\",\n        \"prompt\": \"string\",\n        \"prompt_credentials\": \"string\",\n        \"ai_mode\": \"string\",\n        \"priority\": \"string\",\n        \"real_cost_to_run\": \"string\",\n        \"owner_id\": \"string\",\n        \"state\": \"string\",\n        \"updated_at\": \"string\",\n        \"deleted\": \"string\",\n        \"feature_id\": \"string\"\n      },\n      \"dry_run_url\": \"string\",\n      \"last_run\": {\n        \"id\": 4486,\n        \"created_at\": \"1997-07-17T08:02:44.628Z\",\n        \"state\": \"string\"\n      },\n      \"feature_id\": \"string\",\n      \"has_wisp\": \"string\",\n      \"type\": \"string\",\n      \"coverage_summary\": \"string\",\n      \"used_in_snippets_count\": \"string\",\n      \"used_in_tests_count\": \"string\",\n      \"used_in_archived_snippets_count\": \"string\",\n      \"used_in_archived_tests_count\": \"string\",\n      \"self_healed_at\": \"string\",\n      \"last_run_test\": {\n        \"self_healed\": \"string\",\n        \"rescued\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cf5127a6-c586-42df-be7e-ffff75bd3f65",
+              "name": "Could not update site-environment",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "site_environments",
+                    ":site_environment_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "site_environment_id",
+                      "description": "(Required) A site environment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "13d90019-89fe-46ef-ab45-6d1b5c1c7396",
+              "name": "Site-environment not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "site_environments",
+                    ":site_environment_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "site_environment_id",
+                      "description": "(Required) A site environment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.rainforestqa.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "CLIENT_TOKEN"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a937c125-18fe-4f1d-935c-37baca1ca0c8",
+    "name": "Rainforest callback site_environments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).",
+      "type": "text/plain"
+    }
+  }
+}

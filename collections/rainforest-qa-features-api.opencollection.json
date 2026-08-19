@@ -1,0 +1,294 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rainforest callback features API",
+    "version": "1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "CLIENT_TOKEN",
+      "value": "{{CLIENT_TOKEN}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "features",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List features",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.rainforestqa.com/api/1/features",
+            "params": [
+              {
+                "name": "title",
+                "value": "",
+                "type": "query",
+                "description": "Filter by title (case-insensitive)"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page of results to display"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page; maximum: 100"
+              },
+              {
+                "name": "sort[][title]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort[][updated_at]",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List features"
+        },
+        {
+          "info": {
+            "name": "Create a new feature",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.rainforestqa.com/api/1/features",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new feature"
+        },
+        {
+          "info": {
+            "name": "Get a feature",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.rainforestqa.com/api/1/features/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a feature"
+        },
+        {
+          "info": {
+            "name": "Update a feature",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.rainforestqa.com/api/1/features/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a feature"
+        },
+        {
+          "info": {
+            "name": "Delete a feature",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.rainforestqa.com/api/1/features/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a feature"
+        },
+        {
+          "info": {
+            "name": "Add tests to a feature",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.rainforestqa.com/api/1/features/:id/tests",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add tests to a feature"
+        },
+        {
+          "info": {
+            "name": "Remove tests from a feature",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.rainforestqa.com/api/1/features/:id/tests",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "category",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests with this category"
+              },
+              {
+                "name": "exploratory_run_id",
+                "value": "",
+                "type": "query",
+                "description": "Only return created in this exploratory run"
+              },
+              {
+                "name": "priority",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests with this priority"
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests whose title contains, or ID matches, this string"
+              },
+              {
+                "name": "result",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests with a specific result"
+              },
+              {
+                "name": "run_group_id",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests in this run group; use `-1` to filter for tests not in any run groups"
+              },
+              {
+                "name": "smart_folder_id",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests in this saved filter"
+              },
+              {
+                "name": "step_query",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests whose steps match this string"
+              },
+              {
+                "name": "tests",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests matching this criteria. Can be comma-separated list of test ids or 'all' to return all tests"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests of this type"
+              },
+              {
+                "name": "variable",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests that contain given variable"
+              },
+              {
+                "name": "embedded",
+                "value": "",
+                "type": "query",
+                "description": "If true, only return tests that are embedded in other tests. If false, only return tests that are not embedded in other tests."
+              },
+              {
+                "name": "owner_id",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests owned by this user; use `-1` to filter for tests without an owner"
+              },
+              {
+                "name": "test_language",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests with a specified language"
+              },
+              {
+                "name": "feature_id[]",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests with this/these feature(s); use `-1` to filter for tests without a feature"
+              },
+              {
+                "name": "site_id[]",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests for this/these site(s)"
+              },
+              {
+                "name": "state[]",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests that with this state"
+              },
+              {
+                "name": "tags[]",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests having all specified tags; use `-1` to filter for untagged tests"
+              },
+              {
+                "name": "run_id[]",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests that were in this/these previous run(s)"
+              }
+            ]
+          },
+          "docs": "Remove tests from a feature"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

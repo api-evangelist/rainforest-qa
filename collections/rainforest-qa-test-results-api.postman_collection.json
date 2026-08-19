@@ -1,0 +1,375 @@
+{
+  "item": [
+    {
+      "id": "3fc3c238-5863-4cac-bf5f-21d64df56bde",
+      "name": "test_results",
+      "description": {
+        "content": "Operations about test_results",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3de00a13-3d59-42ee-aac0-1236ef50744c",
+          "name": "List test results",
+          "request": {
+            "name": "List test results",
+            "description": {
+              "content": "List test results",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "test_results"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "category",
+                  "value": "<string>",
+                  "description": "Only return tests with this category"
+                },
+                {
+                  "disabled": false,
+                  "key": "exploratory_run_id",
+                  "value": "<integer>",
+                  "description": "Only return created in this exploratory run"
+                },
+                {
+                  "disabled": false,
+                  "key": "priority",
+                  "value": "<string>",
+                  "description": "Only return tests with this priority"
+                },
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "Only return tests whose title contains, or ID matches, this string"
+                },
+                {
+                  "disabled": false,
+                  "key": "result",
+                  "value": "<string>",
+                  "description": "Only return tests with a specific result"
+                },
+                {
+                  "disabled": false,
+                  "key": "run_group_id",
+                  "value": "<integer>",
+                  "description": "Only return tests in this run group; use `-1` to filter for tests not in any run groups"
+                },
+                {
+                  "disabled": false,
+                  "key": "smart_folder_id",
+                  "value": "<integer>",
+                  "description": "Only return tests in this saved filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "step_query",
+                  "value": "<string>",
+                  "description": "Only return tests whose steps match this string"
+                },
+                {
+                  "disabled": false,
+                  "key": "tests",
+                  "value": "<string>",
+                  "description": "Only return tests matching this criteria. Can be comma-separated list of test ids or 'all' to return all tests"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Only return tests of this type"
+                },
+                {
+                  "disabled": false,
+                  "key": "variable",
+                  "value": "<string>",
+                  "description": "Only return tests that contain given variable"
+                },
+                {
+                  "disabled": false,
+                  "key": "environment_id",
+                  "value": "<integer>",
+                  "description": "Only return that were run in the specified environment"
+                },
+                {
+                  "disabled": false,
+                  "key": "has_comments",
+                  "value": "<boolean>",
+                  "description": "Only return tests with or without comments"
+                },
+                {
+                  "disabled": false,
+                  "key": "latest_only",
+                  "value": "false",
+                  "description": "Only the latest results for a test"
+                },
+                {
+                  "disabled": false,
+                  "key": "release",
+                  "value": "<string>",
+                  "description": "Only return tests that were run in the specified release"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page of results to display"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "10",
+                  "description": "Number of results to return per page; maximum: 100"
+                },
+                {
+                  "disabled": false,
+                  "key": "feature_id[]",
+                  "value": "<integer>,<integer>",
+                  "description": "Only return tests with this/these feature(s); use `-1` to filter for tests without a feature"
+                },
+                {
+                  "disabled": false,
+                  "key": "site_id[]",
+                  "value": "<integer>,<integer>",
+                  "description": "Only return tests for this/these site(s)"
+                },
+                {
+                  "disabled": false,
+                  "key": "state[]",
+                  "value": "<string>,<string>",
+                  "description": "Only return tests that with this state"
+                },
+                {
+                  "disabled": false,
+                  "key": "tags[]",
+                  "value": "<string>,<string>",
+                  "description": "Only return tests having all specified tags; use `-1` to filter for untagged tests"
+                },
+                {
+                  "disabled": false,
+                  "key": "run_id[]",
+                  "value": "<integer>,<integer>",
+                  "description": "Only return tests that were in this/these previous run(s)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4a56c4f4-1761-4418-9199-c94d657b55f8",
+              "name": "Test results groups retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "test_results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "exploratory_run_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "priority",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "result",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "run_group_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "smart_folder_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "step_query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tests",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "variable",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "environment_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "has_comments",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "latest_only",
+                      "value": "false"
+                    },
+                    {
+                      "key": "release",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "10"
+                    },
+                    {
+                      "key": "feature_id[]",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "site_id[]",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "state[]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "tags[]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "run_id[]",
+                      "value": "<integer>,<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Total pages",
+                  "key": "X-Total-Pages",
+                  "value": "9260"
+                },
+                {
+                  "disabled": false,
+                  "description": "Current page",
+                  "key": "X-Current-Page",
+                  "value": "9260"
+                },
+                {
+                  "disabled": false,
+                  "description": "The maximum number of results per page",
+                  "key": "X-Per-Page",
+                  "value": "9260"
+                },
+                {
+                  "disabled": false,
+                  "description": "The total number of results",
+                  "key": "X-Total-Results",
+                  "value": "9260"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"created_at\": \"1949-03-24T15:36:47.061Z\",\n    \"test_id\": \"string\",\n    \"title\": \"string\",\n    \"run_id\": \"string\",\n    \"result\": \"string\",\n    \"wisp\": \"string\",\n    \"step_count\": \"string\",\n    \"history\": \"string\",\n    \"state\": \"string\",\n    \"category\": \"string\",\n    \"site_id\": \"string\",\n    \"priority\": \"string\",\n    \"start_uri\": \"string\",\n    \"description\": \"string\",\n    \"browsers\": {\n      \"id\": 291,\n      \"created_at\": \"2006-02-04T23:00:22.443Z\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"category\": \"string\",\n      \"result\": \"string\",\n      \"state\": \"string\",\n      \"overridden_results\": {\n        \"id\": \"string\",\n        \"created_at\": \"2021-04-25T02:04:20.097Z\",\n        \"note\": \"string\",\n        \"result\": \"string\",\n        \"job_group_id\": \"string\",\n        \"user\": {\n          \"id\": \"string\",\n          \"created_at\": \"1986-05-22T03:20:41.235Z\",\n          \"name\": \"string\",\n          \"email\": \"string\",\n          \"state\": \"string\",\n          \"role\": \"string\"\n        }\n      },\n      \"credit_cost\": \"string\"\n    },\n    \"tags\": \"string\",\n    \"frontend_url\": \"string\",\n    \"overridden_result_state\": \"string\",\n    \"viewed\": \"string\",\n    \"last_viewed_by\": {\n      \"id\": \"string\",\n      \"created_at\": \"1975-05-13T00:00:20.097Z\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"state\": \"string\",\n      \"role\": \"string\"\n    },\n    \"last_viewed_at\": \"string\",\n    \"owner\": {\n      \"id\": \"string\",\n      \"created_at\": \"2017-06-15T22:44:46.701Z\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"state\": \"string\",\n      \"role\": \"string\"\n    },\n    \"last_review\": {\n      \"id\": 385,\n      \"created_at\": \"1975-07-19T21:55:39.592Z\",\n      \"status\": \"string\",\n      \"reason\": \"string\",\n      \"reason_updated_at\": \"string\",\n      \"run_id\": \"string\",\n      \"run\": \"string\",\n      \"test_id\": \"string\",\n      \"resolved\": \"string\",\n      \"transitioned_by\": {\n        \"id\": \"string\",\n        \"created_at\": \"1964-04-20T05:00:41.363Z\",\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"state\": \"string\",\n        \"role\": \"string\"\n      },\n      \"notified_user\": {\n        \"id\": \"string\",\n        \"created_at\": \"2007-02-15T22:05:08.835Z\",\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"state\": \"string\",\n        \"role\": \"string\"\n      },\n      \"reviewer\": {\n        \"id\": \"string\",\n        \"created_at\": \"1962-10-20T17:35:08.796Z\",\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"state\": \"string\",\n        \"role\": \"string\"\n      },\n      \"test\": {\n        \"crowd\": \"string\",\n        \"execution_method\": \"string\",\n        \"last_run\": \"string\",\n        \"test_lite\": {\n          \"id\": \"string\",\n          \"created_at\": \"string\",\n          \"test_id\": \"string\",\n          \"title\": \"string\",\n          \"result\": \"string\",\n          \"wisp\": \"string\",\n          \"prompt\": \"string\",\n          \"prompt_credentials\": \"string\",\n          \"ai_mode\": \"string\",\n          \"priority\": \"string\",\n          \"real_cost_to_run\": \"string\",\n          \"owner_id\": \"string\",\n          \"state\": \"string\",\n          \"updated_at\": \"string\",\n          \"deleted\": \"string\",\n          \"feature_id\": \"string\"\n        }\n      },\n      \"transitioned_at\": \"string\",\n      \"updated_at\": \"string\"\n    },\n    \"updated_at\": \"string\",\n    \"test_deleted\": \"string\",\n    \"steps\": {\n      \"id\": 8281,\n      \"created_at\": \"1954-05-27T22:36:17.676Z\",\n      \"test_id\": \"string\",\n      \"action\": \"string\",\n      \"response\": \"string\",\n      \"rfa_action\": \"string\",\n      \"start_uri\": \"string\",\n      \"redirection\": \"string\",\n      \"is_conditional_step\": \"string\",\n      \"is_generate_steps_action\": \"string\",\n      \"browsers\": \"string\"\n    },\n    \"stats\": \"string\",\n    \"current_progress\": \"string\",\n    \"started_at\": \"string\",\n    \"completed_at\": \"string\",\n    \"run\": \"string\",\n    \"failed_steps\": \"string\",\n    \"test_version\": \"string\",\n    \"has_wisp\": \"string\",\n    \"has_rfa_results\": \"string\",\n    \"fallback_used\": \"string\",\n    \"self_healed\": \"string\",\n    \"total_retries\": 9382,\n    \"unresolved_failures_count\": 6668\n  },\n  {\n    \"id\": \"string\",\n    \"created_at\": \"1947-07-08T16:29:34.348Z\",\n    \"test_id\": \"string\",\n    \"title\": \"string\",\n    \"run_id\": \"string\",\n    \"result\": \"string\",\n    \"wisp\": \"string\",\n    \"step_count\": \"string\",\n    \"history\": \"string\",\n    \"state\": \"string\",\n    \"category\": \"string\",\n    \"site_id\": \"string\",\n    \"priority\": \"string\",\n    \"start_uri\": \"string\",\n    \"description\": \"string\",\n    \"browsers\": {\n      \"id\": 8343,\n      \"created_at\": \"2005-01-24T02:24:43.913Z\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"category\": \"string\",\n      \"result\": \"string\",\n      \"state\": \"string\",\n      \"overridden_results\": {\n        \"id\": \"string\",\n        \"created_at\": \"2022-06-15T09:59:01.980Z\",\n        \"note\": \"string\",\n        \"result\": \"string\",\n        \"job_group_id\": \"string\",\n        \"user\": {\n          \"id\": \"string\",\n          \"created_at\": \"1979-03-09T04:39:19.384Z\",\n          \"name\": \"string\",\n          \"email\": \"string\",\n          \"state\": \"string\",\n          \"role\": \"string\"\n        }\n      },\n      \"credit_cost\": \"string\"\n    },\n    \"tags\": \"string\",\n    \"frontend_url\": \"string\",\n    \"overridden_result_state\": \"string\",\n    \"viewed\": \"string\",\n    \"last_viewed_by\": {\n      \"id\": \"string\",\n      \"created_at\": \"1957-03-12T07:35:45.581Z\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"state\": \"string\",\n      \"role\": \"string\"\n    },\n    \"last_viewed_at\": \"string\",\n    \"owner\": {\n      \"id\": \"string\",\n      \"created_at\": \"1983-12-14T01:24:53.144Z\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"state\": \"string\",\n      \"role\": \"string\"\n    },\n    \"last_review\": {\n      \"id\": 9451,\n      \"created_at\": \"1972-04-29T14:39:47.448Z\",\n      \"status\": \"string\",\n      \"reason\": \"string\",\n      \"reason_updated_at\": \"string\",\n      \"run_id\": \"string\",\n      \"run\": \"string\",\n      \"test_id\": \"string\",\n      \"resolved\": \"string\",\n      \"transitioned_by\": {\n        \"id\": \"string\",\n        \"created_at\": \"1952-09-21T08:44:51.809Z\",\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"state\": \"string\",\n        \"role\": \"string\"\n      },\n      \"notified_user\": {\n        \"id\": \"string\",\n        \"created_at\": \"2004-02-29T11:15:08.979Z\",\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"state\": \"string\",\n        \"role\": \"string\"\n      },\n      \"reviewer\": {\n        \"id\": \"string\",\n        \"created_at\": \"2022-04-27T16:21:34.687Z\",\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"state\": \"string\",\n        \"role\": \"string\"\n      },\n      \"test\": {\n        \"crowd\": \"string\",\n        \"execution_method\": \"string\",\n        \"last_run\": \"string\",\n        \"test_lite\": {\n          \"id\": \"string\",\n          \"created_at\": \"string\",\n          \"test_id\": \"string\",\n          \"title\": \"string\",\n          \"result\": \"string\",\n          \"wisp\": \"string\",\n          \"prompt\": \"string\",\n          \"prompt_credentials\": \"string\",\n          \"ai_mode\": \"string\",\n          \"priority\": \"string\",\n          \"real_cost_to_run\": \"string\",\n          \"owner_id\": \"string\",\n          \"state\": \"string\",\n          \"updated_at\": \"string\",\n          \"deleted\": \"string\",\n          \"feature_id\": \"string\"\n        }\n      },\n      \"transitioned_at\": \"string\",\n      \"updated_at\": \"string\"\n    },\n    \"updated_at\": \"string\",\n    \"test_deleted\": \"string\",\n    \"steps\": {\n      \"id\": 8320,\n      \"created_at\": \"1962-10-31T01:24:42.262Z\",\n      \"test_id\": \"string\",\n      \"action\": \"string\",\n      \"response\": \"string\",\n      \"rfa_action\": \"string\",\n      \"start_uri\": \"string\",\n      \"redirection\": \"string\",\n      \"is_conditional_step\": \"string\",\n      \"is_generate_steps_action\": \"string\",\n      \"browsers\": \"string\"\n    },\n    \"stats\": \"string\",\n    \"current_progress\": \"string\",\n    \"started_at\": \"string\",\n    \"completed_at\": \"string\",\n    \"run\": \"string\",\n    \"failed_steps\": \"string\",\n    \"test_version\": \"string\",\n    \"has_wisp\": \"string\",\n    \"has_rfa_results\": \"string\",\n    \"fallback_used\": \"string\",\n    \"self_healed\": \"string\",\n    \"total_retries\": 3950,\n    \"unresolved_failures_count\": 4867\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.rainforestqa.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "CLIENT_TOKEN"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6d95f9b6-ede2-45ae-aee3-16f2d78b4e35",
+    "name": "Rainforest callback test_results API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).",
+      "type": "text/plain"
+    }
+  }
+}

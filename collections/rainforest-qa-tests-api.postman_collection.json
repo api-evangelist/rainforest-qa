@@ -1,0 +1,3648 @@
+{
+  "item": [
+    {
+      "id": "b60f4bb9-ea34-4a78-a6d0-8514f08b3773",
+      "name": "tests",
+      "description": {
+        "content": "Operations about tests",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "078c9505-befc-4c4f-84ec-88c80281b618",
+          "name": "Get a test version",
+          "request": {
+            "name": "Get a test version",
+            "description": {
+              "content": "Get a test version",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "tests",
+                ":test_id",
+                "test_versions",
+                ":test_version_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "test_id",
+                  "description": "(Required) A test ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "test_version_id",
+                  "description": "(Required) A test version ID"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fb8cd0a1-a1ab-4ae0-97b0-04472b467af5",
+              "name": "Get a test version",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "tests",
+                    ":test_id",
+                    "test_versions",
+                    ":test_version_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "test_id",
+                      "description": "(Required) A test ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "test_version_id",
+                      "description": "(Required) A test version ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0b1a62d5-399f-4d16-a669-b90f14c80b83",
+          "name": "List tests",
+          "request": {
+            "name": "List tests",
+            "description": {
+              "content": "List tests",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "tests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "category",
+                  "value": "<string>",
+                  "description": "Only return tests with this category"
+                },
+                {
+                  "disabled": false,
+                  "key": "exploratory_run_id",
+                  "value": "<integer>",
+                  "description": "Only return created in this exploratory run"
+                },
+                {
+                  "disabled": false,
+                  "key": "priority",
+                  "value": "<string>",
+                  "description": "Only return tests with this priority"
+                },
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "Only return tests whose title contains, or ID matches, this string"
+                },
+                {
+                  "disabled": false,
+                  "key": "result",
+                  "value": "<string>",
+                  "description": "Only return tests with a specific result"
+                },
+                {
+                  "disabled": false,
+                  "key": "run_group_id",
+                  "value": "<integer>",
+                  "description": "Only return tests in this run group; use `-1` to filter for tests not in any run groups"
+                },
+                {
+                  "disabled": false,
+                  "key": "smart_folder_id",
+                  "value": "<integer>",
+                  "description": "Only return tests in this saved filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "step_query",
+                  "value": "<string>",
+                  "description": "Only return tests whose steps match this string"
+                },
+                {
+                  "disabled": false,
+                  "key": "tests",
+                  "value": "<string>",
+                  "description": "Only return tests matching this criteria. Can be comma-separated list of test ids or 'all' to return all tests"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Only return tests of this type"
+                },
+                {
+                  "disabled": false,
+                  "key": "variable",
+                  "value": "<string>",
+                  "description": "Only return tests that contain given variable"
+                },
+                {
+                  "disabled": false,
+                  "key": "embedded",
+                  "value": "<boolean>",
+                  "description": "If true, only return tests that are embedded in other tests. If false, only return tests that are not embedded in other tests."
+                },
+                {
+                  "disabled": false,
+                  "key": "owner_id",
+                  "value": "<integer>",
+                  "description": "Only return tests owned by this user; use `-1` to filter for tests without an owner"
+                },
+                {
+                  "disabled": false,
+                  "key": "test_language",
+                  "value": "<string>",
+                  "description": "Only return tests with a specified language"
+                },
+                {
+                  "disabled": false,
+                  "key": "logic[][operation]",
+                  "value": "<string>,<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "logic[][expression][tag]",
+                  "value": "<string>,<string>",
+                  "description": "(Required) The name of the tag"
+                },
+                {
+                  "disabled": false,
+                  "key": "logic[][expression][inclusive]",
+                  "value": "<boolean>,<boolean>",
+                  "description": "(Required) Whether to filter for tests tagged or untagged with the given tag"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort[][title]",
+                  "value": "<string>,<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort[][id]",
+                  "value": "<string>,<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort[][updated_at]",
+                  "value": "<string>,<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort[][priority]",
+                  "value": "<string>,<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort[][created_at]",
+                  "value": "<string>,<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort[][owner]",
+                  "value": "<string>,<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort[][last_run]",
+                  "value": "<string>,<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort[][environment_name]",
+                  "value": "<string>,<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort[][last_complete_run_test_completed_at]",
+                  "value": "<string>,<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort[][last_complete_run_test_run_id]",
+                  "value": "<string>,<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort[][notified_user_name]",
+                  "value": "<string>,<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort[][self_healed_at]",
+                  "value": "<string>,<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort[][status]",
+                  "value": "<string>,<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page of results to display"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "10",
+                  "description": "Number of results to return per page; maximum: 100"
+                },
+                {
+                  "disabled": false,
+                  "key": "feature_id[]",
+                  "value": "<integer>,<integer>",
+                  "description": "Only return tests with this/these feature(s); use `-1` to filter for tests without a feature"
+                },
+                {
+                  "disabled": false,
+                  "key": "site_id[]",
+                  "value": "<integer>,<integer>",
+                  "description": "Only return tests for this/these site(s)"
+                },
+                {
+                  "disabled": false,
+                  "key": "state[]",
+                  "value": "<string>,<string>",
+                  "description": "Only return tests that with this state"
+                },
+                {
+                  "disabled": false,
+                  "key": "tags[]",
+                  "value": "<string>,<string>",
+                  "description": "Only return tests having all specified tags; use `-1` to filter for untagged tests"
+                },
+                {
+                  "disabled": false,
+                  "key": "run_id[]",
+                  "value": "<integer>,<integer>",
+                  "description": "Only return tests that were in this/these previous run(s)"
+                },
+                {
+                  "disabled": false,
+                  "key": "options[]",
+                  "value": "<string>,<string>",
+                  "description": "List of extra details to display"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "342fee62-4df3-495d-8904-1c079c9589b9",
+              "name": "Tests retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "tests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "exploratory_run_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "priority",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "result",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "run_group_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "smart_folder_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "step_query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tests",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "variable",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "embedded",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "owner_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "test_language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "logic[][operation]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "logic[][expression][tag]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "logic[][expression][inclusive]",
+                      "value": "<boolean>,<boolean>"
+                    },
+                    {
+                      "key": "sort[][title]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "sort[][id]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "sort[][updated_at]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "sort[][priority]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "sort[][created_at]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "sort[][owner]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "sort[][last_run]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "sort[][environment_name]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "sort[][last_complete_run_test_completed_at]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "sort[][last_complete_run_test_run_id]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "sort[][notified_user_name]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "sort[][self_healed_at]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "sort[][status]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "10"
+                    },
+                    {
+                      "key": "feature_id[]",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "site_id[]",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "state[]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "tags[]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "run_id[]",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "options[]",
+                      "value": "<string>,<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Total pages",
+                  "key": "X-Total-Pages",
+                  "value": "8784"
+                },
+                {
+                  "disabled": false,
+                  "description": "Current page",
+                  "key": "X-Current-Page",
+                  "value": "8784"
+                },
+                {
+                  "disabled": false,
+                  "description": "The maximum number of results per page",
+                  "key": "X-Per-Page",
+                  "value": "8784"
+                },
+                {
+                  "disabled": false,
+                  "description": "The total number of results",
+                  "key": "X-Total-Results",
+                  "value": "8784"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"created_at\": \"string\",\n    \"test_id\": \"string\",\n    \"title\": \"string\",\n    \"result\": \"string\",\n    \"wisp\": \"string\",\n    \"prompt\": \"string\",\n    \"prompt_credentials\": \"string\",\n    \"ai_mode\": \"string\",\n    \"state\": \"string\",\n    \"category\": \"string\",\n    \"site_id\": \"string\",\n    \"priority\": \"string\",\n    \"start_uri\": \"string\",\n    \"description\": \"string\",\n    \"browsers\": {\n      \"id\": 2433,\n      \"created_at\": \"1970-10-05T14:41:52.125Z\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"category\": \"string\",\n      \"result\": \"string\",\n      \"state\": \"string\",\n      \"overridden_results\": {\n        \"id\": \"string\",\n        \"created_at\": \"1997-06-28T14:11:05.768Z\",\n        \"note\": \"string\",\n        \"result\": \"string\",\n        \"job_group_id\": \"string\",\n        \"user\": {\n          \"id\": \"string\",\n          \"created_at\": \"1968-09-22T20:59:32.935Z\",\n          \"name\": \"string\",\n          \"email\": \"string\",\n          \"state\": \"string\",\n          \"role\": \"string\"\n        }\n      },\n      \"credit_cost\": \"string\"\n    },\n    \"tags\": \"string\",\n    \"frontend_url\": \"string\",\n    \"rfml_id\": \"string\",\n    \"exploratory_run_id\": \"string\",\n    \"initial_redirect_behavior\": \"string\",\n    \"source\": \"string\",\n    \"reroute_geo\": \"string\",\n    \"connection\": {\n      \"id\": \"string\",\n      \"created_at\": \"2001-08-30T00:44:33.054Z\",\n      \"name\": \"string\",\n      \"api_token\": \"string\",\n      \"state\": \"string\",\n      \"link_state\": \"string\",\n      \"type\": \"user\"\n    },\n    \"atc_settings\": \"string\",\n    \"owner\": {\n      \"id\": \"string\",\n      \"created_at\": \"2021-07-30T03:15:15.892Z\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"state\": \"string\",\n      \"role\": \"string\"\n    },\n    \"last_updated_by\": {\n      \"id\": \"string\",\n      \"created_at\": \"1957-03-02T23:27:07.640Z\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"state\": \"string\",\n      \"role\": \"string\"\n    },\n    \"updated_at\": \"string\",\n    \"archived_at\": \"string\",\n    \"deleted\": \"string\",\n    \"attached_to\": {\n      \"id\": \"string\",\n      \"created_at\": \"string\",\n      \"test_id\": \"string\",\n      \"title\": \"string\",\n      \"result\": \"string\",\n      \"wisp\": \"string\",\n      \"prompt\": \"string\",\n      \"prompt_credentials\": \"string\",\n      \"ai_mode\": \"string\",\n      \"priority\": \"string\",\n      \"real_cost_to_run\": \"string\",\n      \"owner_id\": \"string\",\n      \"state\": \"string\",\n      \"updated_at\": \"string\",\n      \"deleted\": \"string\",\n      \"feature_id\": \"string\"\n    },\n    \"dry_run_url\": \"string\",\n    \"last_run\": {\n      \"id\": 3142,\n      \"created_at\": \"1976-08-20T17:14:38.605Z\",\n      \"state\": \"string\"\n    },\n    \"feature_id\": \"string\",\n    \"has_wisp\": \"string\",\n    \"type\": \"string\",\n    \"coverage_summary\": \"string\",\n    \"used_in_snippets_count\": \"string\",\n    \"used_in_tests_count\": \"string\",\n    \"used_in_archived_snippets_count\": \"string\",\n    \"used_in_archived_tests_count\": \"string\",\n    \"self_healed_at\": \"string\",\n    \"last_run_test\": {\n      \"self_healed\": \"string\",\n      \"rescued\": \"string\"\n    },\n    \"step_count\": 1818,\n    \"deletable\": false,\n    \"editable\": false,\n    \"embedded\": false,\n    \"unrewritable_reason\": \"string\",\n    \"test_version_id\": \"string\",\n    \"total_instances\": \"string\",\n    \"job_test_generation_id\": \"string\"\n  },\n  {\n    \"id\": \"string\",\n    \"created_at\": \"string\",\n    \"test_id\": \"string\",\n    \"title\": \"string\",\n    \"result\": \"string\",\n    \"wisp\": \"string\",\n    \"prompt\": \"string\",\n    \"prompt_credentials\": \"string\",\n    \"ai_mode\": \"string\",\n    \"state\": \"string\",\n    \"category\": \"string\",\n    \"site_id\": \"string\",\n    \"priority\": \"string\",\n    \"start_uri\": \"string\",\n    \"description\": \"string\",\n    \"browsers\": {\n      \"id\": 7598,\n      \"created_at\": \"2013-03-09T00:44:38.045Z\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"category\": \"string\",\n      \"result\": \"string\",\n      \"state\": \"string\",\n      \"overridden_results\": {\n        \"id\": \"string\",\n        \"created_at\": \"1975-09-06T16:01:59.091Z\",\n        \"note\": \"string\",\n        \"result\": \"string\",\n        \"job_group_id\": \"string\",\n        \"user\": {\n          \"id\": \"string\",\n          \"created_at\": \"1973-04-14T07:21:28.380Z\",\n          \"name\": \"string\",\n          \"email\": \"string\",\n          \"state\": \"string\",\n          \"role\": \"string\"\n        }\n      },\n      \"credit_cost\": \"string\"\n    },\n    \"tags\": \"string\",\n    \"frontend_url\": \"string\",\n    \"rfml_id\": \"string\",\n    \"exploratory_run_id\": \"string\",\n    \"initial_redirect_behavior\": \"string\",\n    \"source\": \"string\",\n    \"reroute_geo\": \"string\",\n    \"connection\": {\n      \"id\": \"string\",\n      \"created_at\": \"1973-06-08T07:26:20.502Z\",\n      \"name\": \"string\",\n      \"api_token\": \"string\",\n      \"state\": \"string\",\n      \"link_state\": \"string\",\n      \"type\": \"rainforest\"\n    },\n    \"atc_settings\": \"string\",\n    \"owner\": {\n      \"id\": \"string\",\n      \"created_at\": \"2015-11-13T03:23:13.310Z\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"state\": \"string\",\n      \"role\": \"string\"\n    },\n    \"last_updated_by\": {\n      \"id\": \"string\",\n      \"created_at\": \"1980-10-24T14:16:23.080Z\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"state\": \"string\",\n      \"role\": \"string\"\n    },\n    \"updated_at\": \"string\",\n    \"archived_at\": \"string\",\n    \"deleted\": \"string\",\n    \"attached_to\": {\n      \"id\": \"string\",\n      \"created_at\": \"string\",\n      \"test_id\": \"string\",\n      \"title\": \"string\",\n      \"result\": \"string\",\n      \"wisp\": \"string\",\n      \"prompt\": \"string\",\n      \"prompt_credentials\": \"string\",\n      \"ai_mode\": \"string\",\n      \"priority\": \"string\",\n      \"real_cost_to_run\": \"string\",\n      \"owner_id\": \"string\",\n      \"state\": \"string\",\n      \"updated_at\": \"string\",\n      \"deleted\": \"string\",\n      \"feature_id\": \"string\"\n    },\n    \"dry_run_url\": \"string\",\n    \"last_run\": {\n      \"id\": 117,\n      \"created_at\": \"1968-01-20T01:02:15.648Z\",\n      \"state\": \"string\"\n    },\n    \"feature_id\": \"string\",\n    \"has_wisp\": \"string\",\n    \"type\": \"string\",\n    \"coverage_summary\": \"string\",\n    \"used_in_snippets_count\": \"string\",\n    \"used_in_tests_count\": \"string\",\n    \"used_in_archived_snippets_count\": \"string\",\n    \"used_in_archived_tests_count\": \"string\",\n    \"self_healed_at\": \"string\",\n    \"last_run_test\": {\n      \"self_healed\": \"string\",\n      \"rescued\": \"string\"\n    },\n    \"step_count\": 4417,\n    \"deletable\": false,\n    \"editable\": false,\n    \"embedded\": false,\n    \"unrewritable_reason\": \"string\",\n    \"test_version_id\": \"string\",\n    \"total_instances\": \"string\",\n    \"job_test_generation_id\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "04dd4c8a-a1fc-4279-952c-5f2af0277246",
+              "name": "Invalid filtering parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "tests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "exploratory_run_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "priority",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "result",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "run_group_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "smart_folder_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "step_query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tests",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "variable",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "embedded",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "owner_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "test_language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "logic[][operation]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "logic[][expression][tag]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "logic[][expression][inclusive]",
+                      "value": "<boolean>,<boolean>"
+                    },
+                    {
+                      "key": "sort[][title]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "sort[][id]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "sort[][updated_at]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "sort[][priority]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "sort[][created_at]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "sort[][owner]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "sort[][last_run]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "sort[][environment_name]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "sort[][last_complete_run_test_completed_at]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "sort[][last_complete_run_test_run_id]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "sort[][notified_user_name]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "sort[][self_healed_at]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "sort[][status]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "10"
+                    },
+                    {
+                      "key": "feature_id[]",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "site_id[]",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "state[]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "tags[]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "run_id[]",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "options[]",
+                      "value": "<string>,<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fa08196f-0b56-4073-8aef-d04e5ff44a2e",
+          "name": "Create a new test",
+          "request": {
+            "name": "Create a new test",
+            "description": {
+              "content": "Create a new test",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "tests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"ai_mode\": \"<string>\",\n  \"browsers\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"category\": \"<string>\",\n  \"connection_id\": \"<string>\",\n  \"reroute_geo\": \"<string>\",\n  \"description\": \"<string>\",\n  \"environment_id\": \"<integer>\",\n  \"feature_id\": \"<integer>\",\n  \"login_snippet_id\": \"<integer>\",\n  \"owner_id\": \"<integer>\",\n  \"priority\": \"<string>\",\n  \"prompt\": \"<string>\",\n  \"prompt_credentials\": \"<string>\",\n  \"rfml_id\": \"<string>\",\n  \"site_id\": \"<integer>\",\n  \"start_uri\": \"<string>\",\n  \"state\": \"enabled\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"atc_settings\": {\n    \"delay_after\": \"<integer>\"\n  },\n  \"slim\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "50a58e0d-b0dc-4a20-a9df-328d210f3b7d",
+              "name": "Test created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "tests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"ai_mode\": \"<string>\",\n  \"browsers\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"category\": \"<string>\",\n  \"connection_id\": \"<string>\",\n  \"reroute_geo\": \"<string>\",\n  \"description\": \"<string>\",\n  \"environment_id\": \"<integer>\",\n  \"feature_id\": \"<integer>\",\n  \"login_snippet_id\": \"<integer>\",\n  \"owner_id\": \"<integer>\",\n  \"priority\": \"<string>\",\n  \"prompt\": \"<string>\",\n  \"prompt_credentials\": \"<string>\",\n  \"rfml_id\": \"<string>\",\n  \"site_id\": \"<integer>\",\n  \"start_uri\": \"<string>\",\n  \"state\": \"enabled\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"atc_settings\": {\n    \"delay_after\": \"<integer>\"\n  },\n  \"slim\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"created_at\": \"string\",\n  \"test_id\": \"string\",\n  \"title\": \"string\",\n  \"result\": \"string\",\n  \"wisp\": \"string\",\n  \"prompt\": \"string\",\n  \"prompt_credentials\": \"string\",\n  \"ai_mode\": \"string\",\n  \"state\": \"string\",\n  \"category\": \"string\",\n  \"site_id\": \"string\",\n  \"priority\": \"string\",\n  \"start_uri\": \"string\",\n  \"description\": \"string\",\n  \"browsers\": {\n    \"id\": 8396,\n    \"created_at\": \"1989-08-17T06:00:54.426Z\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"category\": \"string\",\n    \"result\": \"string\",\n    \"state\": \"string\",\n    \"overridden_results\": {\n      \"id\": \"string\",\n      \"created_at\": \"2008-05-11T07:52:30.641Z\",\n      \"note\": \"string\",\n      \"result\": \"string\",\n      \"job_group_id\": \"string\",\n      \"user\": {\n        \"id\": \"string\",\n        \"created_at\": \"1951-02-22T03:58:36.923Z\",\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"state\": \"string\",\n        \"role\": \"string\"\n      }\n    },\n    \"credit_cost\": \"string\"\n  },\n  \"tags\": \"string\",\n  \"frontend_url\": \"string\",\n  \"rfml_id\": \"string\",\n  \"exploratory_run_id\": \"string\",\n  \"initial_redirect_behavior\": \"string\",\n  \"source\": \"string\",\n  \"reroute_geo\": \"string\",\n  \"connection\": {\n    \"id\": \"string\",\n    \"created_at\": \"1963-02-18T02:41:40.804Z\",\n    \"name\": \"string\",\n    \"api_token\": \"string\",\n    \"state\": \"string\",\n    \"link_state\": \"string\",\n    \"type\": \"rainforest\"\n  },\n  \"atc_settings\": \"string\",\n  \"owner\": {\n    \"id\": \"string\",\n    \"created_at\": \"1973-07-16T17:25:23.943Z\",\n    \"name\": \"string\",\n    \"email\": \"string\",\n    \"state\": \"string\",\n    \"role\": \"string\"\n  },\n  \"last_updated_by\": {\n    \"id\": \"string\",\n    \"created_at\": \"1977-12-06T22:38:37.736Z\",\n    \"name\": \"string\",\n    \"email\": \"string\",\n    \"state\": \"string\",\n    \"role\": \"string\"\n  },\n  \"updated_at\": \"string\",\n  \"archived_at\": \"string\",\n  \"deleted\": \"string\",\n  \"attached_to\": {\n    \"id\": \"string\",\n    \"created_at\": \"string\",\n    \"test_id\": \"string\",\n    \"title\": \"string\",\n    \"result\": \"string\",\n    \"wisp\": \"string\",\n    \"prompt\": \"string\",\n    \"prompt_credentials\": \"string\",\n    \"ai_mode\": \"string\",\n    \"priority\": \"string\",\n    \"real_cost_to_run\": \"string\",\n    \"owner_id\": \"string\",\n    \"state\": \"string\",\n    \"updated_at\": \"string\",\n    \"deleted\": \"string\",\n    \"feature_id\": \"string\"\n  },\n  \"dry_run_url\": \"string\",\n  \"last_run\": {\n    \"id\": 409,\n    \"created_at\": \"2012-02-15T10:13:41.576Z\",\n    \"state\": \"string\"\n  },\n  \"feature_id\": \"string\",\n  \"has_wisp\": \"string\",\n  \"type\": \"string\",\n  \"coverage_summary\": \"string\",\n  \"used_in_snippets_count\": \"string\",\n  \"used_in_tests_count\": \"string\",\n  \"used_in_archived_snippets_count\": \"string\",\n  \"used_in_archived_tests_count\": \"string\",\n  \"self_healed_at\": \"string\",\n  \"last_run_test\": {\n    \"self_healed\": \"string\",\n    \"rescued\": \"string\"\n  },\n  \"step_count\": 8135,\n  \"deletable\": true,\n  \"editable\": true,\n  \"embedded\": true,\n  \"unrewritable_reason\": \"string\",\n  \"test_version_id\": \"string\",\n  \"total_instances\": \"string\",\n  \"job_test_generation_id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fe2aaa38-a77e-4537-ae4e-5cb3dd046a67",
+              "name": "Test could not be created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "tests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"ai_mode\": \"<string>\",\n  \"browsers\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"category\": \"<string>\",\n  \"connection_id\": \"<string>\",\n  \"reroute_geo\": \"<string>\",\n  \"description\": \"<string>\",\n  \"environment_id\": \"<integer>\",\n  \"feature_id\": \"<integer>\",\n  \"login_snippet_id\": \"<integer>\",\n  \"owner_id\": \"<integer>\",\n  \"priority\": \"<string>\",\n  \"prompt\": \"<string>\",\n  \"prompt_credentials\": \"<string>\",\n  \"rfml_id\": \"<string>\",\n  \"site_id\": \"<integer>\",\n  \"start_uri\": \"<string>\",\n  \"state\": \"enabled\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"atc_settings\": {\n    \"delay_after\": \"<integer>\"\n  },\n  \"slim\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9acbfab4-3e30-41a5-b884-12f302664b7e",
+          "name": "Update multiple tests",
+          "request": {
+            "name": "Update multiple tests",
+            "description": {
+              "content": "Update multiple tests",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "tests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category\": \"<string>\",\n  \"exploratory_run_id\": \"<integer>\",\n  \"feature_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"priority\": \"<string>\",\n  \"query\": \"<string>\",\n  \"result\": \"<string>\",\n  \"run_group_id\": \"<integer>\",\n  \"site_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"smart_folder_id\": \"<integer>\",\n  \"state\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"step_query\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tests\": \"<string>\",\n  \"type\": \"<string>\",\n  \"run_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"variable\": \"<string>\",\n  \"embedded\": \"<boolean>\",\n  \"owner_id\": \"<integer>\",\n  \"test_language\": \"<string>\",\n  \"new_site_id\": \"<integer>\",\n  \"browsers\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"connection_id\": \"<string>\",\n  \"reroute_geo\": \"<string>\",\n  \"start_uri\": \"<string>\",\n  \"new_state\": \"<string>\",\n  \"new_tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "623dc1c9-4204-47cf-9678-fc881f57720e",
+              "name": "Tests updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "tests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"<string>\",\n  \"exploratory_run_id\": \"<integer>\",\n  \"feature_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"priority\": \"<string>\",\n  \"query\": \"<string>\",\n  \"result\": \"<string>\",\n  \"run_group_id\": \"<integer>\",\n  \"site_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"smart_folder_id\": \"<integer>\",\n  \"state\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"step_query\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tests\": \"<string>\",\n  \"type\": \"<string>\",\n  \"run_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"variable\": \"<string>\",\n  \"embedded\": \"<boolean>\",\n  \"owner_id\": \"<integer>\",\n  \"test_language\": \"<string>\",\n  \"new_site_id\": \"<integer>\",\n  \"browsers\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"connection_id\": \"<string>\",\n  \"reroute_geo\": \"<string>\",\n  \"start_uri\": \"<string>\",\n  \"new_state\": \"<string>\",\n  \"new_tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "edf65ecc-0fdd-4c18-88cc-d4b72e6b4b11",
+              "name": "Tests could not be updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "tests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"<string>\",\n  \"exploratory_run_id\": \"<integer>\",\n  \"feature_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"priority\": \"<string>\",\n  \"query\": \"<string>\",\n  \"result\": \"<string>\",\n  \"run_group_id\": \"<integer>\",\n  \"site_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"smart_folder_id\": \"<integer>\",\n  \"state\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"step_query\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tests\": \"<string>\",\n  \"type\": \"<string>\",\n  \"run_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"variable\": \"<string>\",\n  \"embedded\": \"<boolean>\",\n  \"owner_id\": \"<integer>\",\n  \"test_language\": \"<string>\",\n  \"new_site_id\": \"<integer>\",\n  \"browsers\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"connection_id\": \"<string>\",\n  \"reroute_geo\": \"<string>\",\n  \"start_uri\": \"<string>\",\n  \"new_state\": \"<string>\",\n  \"new_tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a776b583-711e-4f81-98da-846c1224a5fd",
+          "name": "Delete multiple tests",
+          "request": {
+            "name": "Delete multiple tests",
+            "description": {
+              "content": "Delete multiple tests",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "tests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "category",
+                  "value": "<string>",
+                  "description": "Only delete tests with this category"
+                },
+                {
+                  "disabled": false,
+                  "key": "exploratory_run_id",
+                  "value": "<integer>",
+                  "description": "Only delete created in this exploratory run"
+                },
+                {
+                  "disabled": false,
+                  "key": "priority",
+                  "value": "<string>",
+                  "description": "Only delete tests with this priority"
+                },
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "Only delete tests whose title contains, or ID matches, this string"
+                },
+                {
+                  "disabled": false,
+                  "key": "result",
+                  "value": "<string>",
+                  "description": "Only delete tests with a specific result"
+                },
+                {
+                  "disabled": false,
+                  "key": "run_group_id",
+                  "value": "<integer>",
+                  "description": "Only delete tests in this run group; use `-1` to filter for tests not in any run groups"
+                },
+                {
+                  "disabled": false,
+                  "key": "smart_folder_id",
+                  "value": "<integer>",
+                  "description": "Only delete tests in this saved filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "step_query",
+                  "value": "<string>",
+                  "description": "Only delete tests whose steps match this string"
+                },
+                {
+                  "disabled": false,
+                  "key": "tests",
+                  "value": "<string>",
+                  "description": "Only delete tests matching this criteria. Can be comma-separated list of test ids or 'all' to delete all tests"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Only delete tests of this type"
+                },
+                {
+                  "disabled": false,
+                  "key": "variable",
+                  "value": "<string>",
+                  "description": "Only delete tests that contain given variable"
+                },
+                {
+                  "disabled": false,
+                  "key": "embedded",
+                  "value": "<boolean>",
+                  "description": "If true, only delete tests that are embedded in other tests. If false, only delete tests that are not embedded in other tests."
+                },
+                {
+                  "disabled": false,
+                  "key": "owner_id",
+                  "value": "<integer>",
+                  "description": "Only delete tests owned by this user; use `-1` to filter for tests without an owner"
+                },
+                {
+                  "disabled": false,
+                  "key": "test_language",
+                  "value": "<string>",
+                  "description": "Only delete tests with a specified language"
+                },
+                {
+                  "disabled": false,
+                  "key": "async",
+                  "value": "false",
+                  "description": "When true perform the operation asynchronously. Use when you're experiencing timeouts. There is no way to determine if the operation was successful or when it is complete."
+                },
+                {
+                  "disabled": false,
+                  "key": "feature_id[]",
+                  "value": "<integer>,<integer>",
+                  "description": "Only delete tests with this/these feature(s); use `-1` to filter for tests without a feature"
+                },
+                {
+                  "disabled": false,
+                  "key": "site_id[]",
+                  "value": "<integer>,<integer>",
+                  "description": "Only delete tests for this/these site(s)"
+                },
+                {
+                  "disabled": false,
+                  "key": "state[]",
+                  "value": "<string>,<string>",
+                  "description": "Only delete tests that with this state"
+                },
+                {
+                  "disabled": false,
+                  "key": "tags[]",
+                  "value": "<string>,<string>",
+                  "description": "Only delete tests having all specified tags; use `-1` to filter for untagged tests"
+                },
+                {
+                  "disabled": false,
+                  "key": "run_id[]",
+                  "value": "<integer>,<integer>",
+                  "description": "Only delete tests that were in this/these previous run(s)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "568e3590-018b-493e-8d6a-985318ca2c04",
+              "name": "Tests deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "tests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "exploratory_run_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "priority",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "result",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "run_group_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "smart_folder_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "step_query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tests",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "variable",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "embedded",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "owner_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "test_language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "async",
+                      "value": "false"
+                    },
+                    {
+                      "key": "feature_id[]",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "site_id[]",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "state[]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "tags[]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "run_id[]",
+                      "value": "<integer>,<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "34ce87a1-d854-4b41-a538-a8aad3527034",
+              "name": "Tests could not be deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "tests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "exploratory_run_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "priority",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "result",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "run_group_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "smart_folder_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "step_query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tests",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "variable",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "embedded",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "owner_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "test_language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "async",
+                      "value": "false"
+                    },
+                    {
+                      "key": "feature_id[]",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "site_id[]",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "state[]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "tags[]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "run_id[]",
+                      "value": "<integer>,<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a62bea60-461c-46ca-8ec0-5013aec12892",
+          "name": "Duplicate multiple tests",
+          "request": {
+            "name": "Duplicate multiple tests",
+            "description": {
+              "content": "Duplicate multiple tests",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "tests",
+                "duplicate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category\": \"<string>\",\n  \"exploratory_run_id\": \"<integer>\",\n  \"feature_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"priority\": \"<string>\",\n  \"query\": \"<string>\",\n  \"result\": \"<string>\",\n  \"run_group_id\": \"<integer>\",\n  \"site_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"smart_folder_id\": \"<integer>\",\n  \"state\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"step_query\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tests\": \"<string>\",\n  \"type\": \"<string>\",\n  \"run_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"variable\": \"<string>\",\n  \"embedded\": \"<boolean>\",\n  \"owner_id\": \"<integer>\",\n  \"test_language\": \"<string>\",\n  \"async\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1005d626-5bfb-4bd2-ba09-66ad4f399a24",
+              "name": "Tests duplicated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "tests",
+                    "duplicate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"<string>\",\n  \"exploratory_run_id\": \"<integer>\",\n  \"feature_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"priority\": \"<string>\",\n  \"query\": \"<string>\",\n  \"result\": \"<string>\",\n  \"run_group_id\": \"<integer>\",\n  \"site_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"smart_folder_id\": \"<integer>\",\n  \"state\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"step_query\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tests\": \"<string>\",\n  \"type\": \"<string>\",\n  \"run_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"variable\": \"<string>\",\n  \"embedded\": \"<boolean>\",\n  \"owner_id\": \"<integer>\",\n  \"test_language\": \"<string>\",\n  \"async\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5cf9164e-be77-4cdf-87a4-12c8f0a7eb03",
+              "name": "Tests scheduled to be duplicated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "tests",
+                    "duplicate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"<string>\",\n  \"exploratory_run_id\": \"<integer>\",\n  \"feature_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"priority\": \"<string>\",\n  \"query\": \"<string>\",\n  \"result\": \"<string>\",\n  \"run_group_id\": \"<integer>\",\n  \"site_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"smart_folder_id\": \"<integer>\",\n  \"state\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"step_query\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tests\": \"<string>\",\n  \"type\": \"<string>\",\n  \"run_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"variable\": \"<string>\",\n  \"embedded\": \"<boolean>\",\n  \"owner_id\": \"<integer>\",\n  \"test_language\": \"<string>\",\n  \"async\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2a6d9703-0efe-4768-bb94-75defee20080",
+              "name": "Tests could not be duplicated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "tests",
+                    "duplicate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"category\": \"<string>\",\n  \"exploratory_run_id\": \"<integer>\",\n  \"feature_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"priority\": \"<string>\",\n  \"query\": \"<string>\",\n  \"result\": \"<string>\",\n  \"run_group_id\": \"<integer>\",\n  \"site_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"smart_folder_id\": \"<integer>\",\n  \"state\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"step_query\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tests\": \"<string>\",\n  \"type\": \"<string>\",\n  \"run_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"variable\": \"<string>\",\n  \"embedded\": \"<boolean>\",\n  \"owner_id\": \"<integer>\",\n  \"test_language\": \"<string>\",\n  \"async\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "692a75d0-6240-465e-b454-4a13e805e5f8",
+          "name": "Regenerate a test with AI from a new prompt",
+          "request": {
+            "name": "Regenerate a test with AI from a new prompt",
+            "description": {
+              "content": "Regenerate a test with AI from a new prompt",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "tests",
+                ":test_id",
+                "regenerate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "test_id",
+                  "description": "(Required) A test ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ai_mode\": \"<string>\",\n  \"browsers\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"category\": \"<string>\",\n  \"connection_id\": \"<string>\",\n  \"reroute_geo\": \"<string>\",\n  \"description\": \"<string>\",\n  \"environment_id\": \"<integer>\",\n  \"feature_id\": \"<integer>\",\n  \"login_snippet_id\": \"<integer>\",\n  \"owner_id\": \"<integer>\",\n  \"priority\": \"<string>\",\n  \"prompt\": \"<string>\",\n  \"prompt_credentials\": \"<string>\",\n  \"rfml_id\": \"<string>\",\n  \"site_id\": \"<integer>\",\n  \"start_uri\": \"<string>\",\n  \"state\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"atc_settings\": {\n    \"delay_after\": \"<integer>\"\n  },\n  \"slim\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d9372c7d-0f01-470a-b26f-44ec7fddd8f0",
+              "name": "Test regeneration started",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "tests",
+                    ":test_id",
+                    "regenerate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "test_id",
+                      "description": "(Required) A test ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ai_mode\": \"<string>\",\n  \"browsers\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"category\": \"<string>\",\n  \"connection_id\": \"<string>\",\n  \"reroute_geo\": \"<string>\",\n  \"description\": \"<string>\",\n  \"environment_id\": \"<integer>\",\n  \"feature_id\": \"<integer>\",\n  \"login_snippet_id\": \"<integer>\",\n  \"owner_id\": \"<integer>\",\n  \"priority\": \"<string>\",\n  \"prompt\": \"<string>\",\n  \"prompt_credentials\": \"<string>\",\n  \"rfml_id\": \"<string>\",\n  \"site_id\": \"<integer>\",\n  \"start_uri\": \"<string>\",\n  \"state\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"atc_settings\": {\n    \"delay_after\": \"<integer>\"\n  },\n  \"slim\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"created_at\": \"string\",\n  \"test_id\": \"string\",\n  \"title\": \"string\",\n  \"result\": \"string\",\n  \"wisp\": \"string\",\n  \"prompt\": \"string\",\n  \"prompt_credentials\": \"string\",\n  \"ai_mode\": \"string\",\n  \"state\": \"string\",\n  \"category\": \"string\",\n  \"site_id\": \"string\",\n  \"priority\": \"string\",\n  \"start_uri\": \"string\",\n  \"description\": \"string\",\n  \"browsers\": {\n    \"id\": 8396,\n    \"created_at\": \"1989-08-17T06:00:54.426Z\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"category\": \"string\",\n    \"result\": \"string\",\n    \"state\": \"string\",\n    \"overridden_results\": {\n      \"id\": \"string\",\n      \"created_at\": \"2008-05-11T07:52:30.641Z\",\n      \"note\": \"string\",\n      \"result\": \"string\",\n      \"job_group_id\": \"string\",\n      \"user\": {\n        \"id\": \"string\",\n        \"created_at\": \"1951-02-22T03:58:36.923Z\",\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"state\": \"string\",\n        \"role\": \"string\"\n      }\n    },\n    \"credit_cost\": \"string\"\n  },\n  \"tags\": \"string\",\n  \"frontend_url\": \"string\",\n  \"rfml_id\": \"string\",\n  \"exploratory_run_id\": \"string\",\n  \"initial_redirect_behavior\": \"string\",\n  \"source\": \"string\",\n  \"reroute_geo\": \"string\",\n  \"connection\": {\n    \"id\": \"string\",\n    \"created_at\": \"1963-02-18T02:41:40.804Z\",\n    \"name\": \"string\",\n    \"api_token\": \"string\",\n    \"state\": \"string\",\n    \"link_state\": \"string\",\n    \"type\": \"rainforest\"\n  },\n  \"atc_settings\": \"string\",\n  \"owner\": {\n    \"id\": \"string\",\n    \"created_at\": \"1973-07-16T17:25:23.943Z\",\n    \"name\": \"string\",\n    \"email\": \"string\",\n    \"state\": \"string\",\n    \"role\": \"string\"\n  },\n  \"last_updated_by\": {\n    \"id\": \"string\",\n    \"created_at\": \"1977-12-06T22:38:37.736Z\",\n    \"name\": \"string\",\n    \"email\": \"string\",\n    \"state\": \"string\",\n    \"role\": \"string\"\n  },\n  \"updated_at\": \"string\",\n  \"archived_at\": \"string\",\n  \"deleted\": \"string\",\n  \"attached_to\": {\n    \"id\": \"string\",\n    \"created_at\": \"string\",\n    \"test_id\": \"string\",\n    \"title\": \"string\",\n    \"result\": \"string\",\n    \"wisp\": \"string\",\n    \"prompt\": \"string\",\n    \"prompt_credentials\": \"string\",\n    \"ai_mode\": \"string\",\n    \"priority\": \"string\",\n    \"real_cost_to_run\": \"string\",\n    \"owner_id\": \"string\",\n    \"state\": \"string\",\n    \"updated_at\": \"string\",\n    \"deleted\": \"string\",\n    \"feature_id\": \"string\"\n  },\n  \"dry_run_url\": \"string\",\n  \"last_run\": {\n    \"id\": 409,\n    \"created_at\": \"2012-02-15T10:13:41.576Z\",\n    \"state\": \"string\"\n  },\n  \"feature_id\": \"string\",\n  \"has_wisp\": \"string\",\n  \"type\": \"string\",\n  \"coverage_summary\": \"string\",\n  \"used_in_snippets_count\": \"string\",\n  \"used_in_tests_count\": \"string\",\n  \"used_in_archived_snippets_count\": \"string\",\n  \"used_in_archived_tests_count\": \"string\",\n  \"self_healed_at\": \"string\",\n  \"last_run_test\": {\n    \"self_healed\": \"string\",\n    \"rescued\": \"string\"\n  },\n  \"step_count\": 8135,\n  \"deletable\": true,\n  \"editable\": true,\n  \"embedded\": true,\n  \"unrewritable_reason\": \"string\",\n  \"test_version_id\": \"string\",\n  \"total_instances\": \"string\",\n  \"job_test_generation_id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d0792313-4d11-475e-a1ac-3f2cf6a4ab18",
+              "name": "Test could not be regenerated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "tests",
+                    ":test_id",
+                    "regenerate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "test_id",
+                      "description": "(Required) A test ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ai_mode\": \"<string>\",\n  \"browsers\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"category\": \"<string>\",\n  \"connection_id\": \"<string>\",\n  \"reroute_geo\": \"<string>\",\n  \"description\": \"<string>\",\n  \"environment_id\": \"<integer>\",\n  \"feature_id\": \"<integer>\",\n  \"login_snippet_id\": \"<integer>\",\n  \"owner_id\": \"<integer>\",\n  \"priority\": \"<string>\",\n  \"prompt\": \"<string>\",\n  \"prompt_credentials\": \"<string>\",\n  \"rfml_id\": \"<string>\",\n  \"site_id\": \"<integer>\",\n  \"start_uri\": \"<string>\",\n  \"state\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"atc_settings\": {\n    \"delay_after\": \"<integer>\"\n  },\n  \"slim\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "70fd7316-05e7-47d2-84b5-be45f8dec950",
+              "name": "Another AI generation is already in progress",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "tests",
+                    ":test_id",
+                    "regenerate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "test_id",
+                      "description": "(Required) A test ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ai_mode\": \"<string>\",\n  \"browsers\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"category\": \"<string>\",\n  \"connection_id\": \"<string>\",\n  \"reroute_geo\": \"<string>\",\n  \"description\": \"<string>\",\n  \"environment_id\": \"<integer>\",\n  \"feature_id\": \"<integer>\",\n  \"login_snippet_id\": \"<integer>\",\n  \"owner_id\": \"<integer>\",\n  \"priority\": \"<string>\",\n  \"prompt\": \"<string>\",\n  \"prompt_credentials\": \"<string>\",\n  \"rfml_id\": \"<string>\",\n  \"site_id\": \"<integer>\",\n  \"start_uri\": \"<string>\",\n  \"state\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"atc_settings\": {\n    \"delay_after\": \"<integer>\"\n  },\n  \"slim\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8feb4c73-ec34-4a6c-97bc-f6be4c473d43",
+          "name": "Tag a group of tests",
+          "request": {
+            "name": "Tag a group of tests",
+            "description": {
+              "content": "Tag a group of tests",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "tests",
+                "tags"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tag_with\": \"<string>\",\n  \"category\": \"<string>\",\n  \"exploratory_run_id\": \"<integer>\",\n  \"feature_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"priority\": \"<string>\",\n  \"query\": \"<string>\",\n  \"result\": \"<string>\",\n  \"run_group_id\": \"<integer>\",\n  \"site_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"smart_folder_id\": \"<integer>\",\n  \"state\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"step_query\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tests\": \"<string>\",\n  \"type\": \"<string>\",\n  \"run_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"variable\": \"<string>\",\n  \"embedded\": \"<boolean>\",\n  \"owner_id\": \"<integer>\",\n  \"test_language\": \"<string>\",\n  \"async\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "43ea17b9-d0ba-4490-95a1-8c97db529691",
+              "name": "Tag a group of tests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "tests",
+                    "tags"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tag_with\": \"<string>\",\n  \"category\": \"<string>\",\n  \"exploratory_run_id\": \"<integer>\",\n  \"feature_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"priority\": \"<string>\",\n  \"query\": \"<string>\",\n  \"result\": \"<string>\",\n  \"run_group_id\": \"<integer>\",\n  \"site_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"smart_folder_id\": \"<integer>\",\n  \"state\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"step_query\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tests\": \"<string>\",\n  \"type\": \"<string>\",\n  \"run_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"variable\": \"<string>\",\n  \"embedded\": \"<boolean>\",\n  \"owner_id\": \"<integer>\",\n  \"test_language\": \"<string>\",\n  \"async\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"test_count\": 1916,\n  \"snippet_count\": 8928\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "161f4b49-a719-4f97-84ef-d3418c541174",
+          "name": "Remove tags from a group of tests",
+          "request": {
+            "name": "Remove tags from a group of tests",
+            "description": {
+              "content": "Untag a group of tests",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "tests",
+                "tags"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "category",
+                  "value": "<string>",
+                  "description": "Only untag tests with this category"
+                },
+                {
+                  "disabled": false,
+                  "key": "exploratory_run_id",
+                  "value": "<integer>",
+                  "description": "Only untag created in this exploratory run"
+                },
+                {
+                  "disabled": false,
+                  "key": "priority",
+                  "value": "<string>",
+                  "description": "Only untag tests with this priority"
+                },
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "Only untag tests whose title contains, or ID matches, this string"
+                },
+                {
+                  "disabled": false,
+                  "key": "result",
+                  "value": "<string>",
+                  "description": "Only untag tests with a specific result"
+                },
+                {
+                  "disabled": false,
+                  "key": "run_group_id",
+                  "value": "<integer>",
+                  "description": "Only untag tests in this run group; use `-1` to filter for tests not in any run groups"
+                },
+                {
+                  "disabled": false,
+                  "key": "smart_folder_id",
+                  "value": "<integer>",
+                  "description": "Only untag tests in this saved filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "step_query",
+                  "value": "<string>",
+                  "description": "Only untag tests whose steps match this string"
+                },
+                {
+                  "disabled": false,
+                  "key": "tests",
+                  "value": "<string>",
+                  "description": "Only untag tests matching this criteria. Can be comma-separated list of test ids or 'all' to untag all tests"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Only untag tests of this type"
+                },
+                {
+                  "disabled": false,
+                  "key": "variable",
+                  "value": "<string>",
+                  "description": "Only untag tests that contain given variable"
+                },
+                {
+                  "disabled": false,
+                  "key": "embedded",
+                  "value": "<boolean>",
+                  "description": "If true, only untag tests that are embedded in other tests. If false, only untag tests that are not embedded in other tests."
+                },
+                {
+                  "disabled": false,
+                  "key": "owner_id",
+                  "value": "<integer>",
+                  "description": "Only untag tests owned by this user; use `-1` to filter for tests without an owner"
+                },
+                {
+                  "disabled": false,
+                  "key": "test_language",
+                  "value": "<string>",
+                  "description": "Only untag tests with a specified language"
+                },
+                {
+                  "disabled": false,
+                  "key": "async",
+                  "value": "false",
+                  "description": "When true perform the operation asynchronously. Use when you're experiencing timeouts. There is no way to determine if the operation was successful or when it is complete."
+                },
+                {
+                  "disabled": false,
+                  "key": "untag_with",
+                  "value": "<string>",
+                  "description": "(Required) List of tags to remove"
+                },
+                {
+                  "disabled": false,
+                  "key": "feature_id[]",
+                  "value": "<integer>,<integer>",
+                  "description": "Only untag tests with this/these feature(s); use `-1` to filter for tests without a feature"
+                },
+                {
+                  "disabled": false,
+                  "key": "site_id[]",
+                  "value": "<integer>,<integer>",
+                  "description": "Only untag tests for this/these site(s)"
+                },
+                {
+                  "disabled": false,
+                  "key": "state[]",
+                  "value": "<string>,<string>",
+                  "description": "Only untag tests that with this state"
+                },
+                {
+                  "disabled": false,
+                  "key": "tags[]",
+                  "value": "<string>,<string>",
+                  "description": "Only untag tests having all specified tags; use `-1` to filter for untagged tests"
+                },
+                {
+                  "disabled": false,
+                  "key": "run_id[]",
+                  "value": "<integer>,<integer>",
+                  "description": "Only untag tests that were in this/these previous run(s)"
+                }
+              ],
+              "variable": []
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0963cf04-ee39-4a07-81f4-4925507f65c2",
+              "name": "Untag a group of tests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "tests",
+                    "tags"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "exploratory_run_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "priority",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "result",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "run_group_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "smart_folder_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "step_query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tests",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "variable",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "embedded",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "owner_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "test_language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "async",
+                      "value": "false"
+                    },
+                    {
+                      "key": "untag_with",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "feature_id[]",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "site_id[]",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "state[]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "tags[]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "run_id[]",
+                      "value": "<integer>,<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f7fbedb7-266b-4747-ade2-9dcf121b533d",
+          "name": "List credit costs for a selection of tests",
+          "request": {
+            "name": "List credit costs for a selection of tests",
+            "description": {
+              "content": "List credit costs for a selection of tests",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "tests",
+                "credit_cost"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "category",
+                  "value": "<string>",
+                  "description": "Only return tests with this category"
+                },
+                {
+                  "disabled": false,
+                  "key": "exploratory_run_id",
+                  "value": "<integer>",
+                  "description": "Only return created in this exploratory run"
+                },
+                {
+                  "disabled": false,
+                  "key": "priority",
+                  "value": "<string>",
+                  "description": "Only return tests with this priority"
+                },
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "Only return tests whose title contains, or ID matches, this string"
+                },
+                {
+                  "disabled": false,
+                  "key": "result",
+                  "value": "<string>",
+                  "description": "Only return tests with a specific result"
+                },
+                {
+                  "disabled": false,
+                  "key": "run_group_id",
+                  "value": "<integer>",
+                  "description": "Only return tests in this run group; use `-1` to filter for tests not in any run groups"
+                },
+                {
+                  "disabled": false,
+                  "key": "smart_folder_id",
+                  "value": "<integer>",
+                  "description": "Only return tests in this saved filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "step_query",
+                  "value": "<string>",
+                  "description": "Only return tests whose steps match this string"
+                },
+                {
+                  "disabled": false,
+                  "key": "tests",
+                  "value": "<string>",
+                  "description": "Only return tests matching this criteria. Can be comma-separated list of test ids or 'all' to return all tests"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Only return tests of this type"
+                },
+                {
+                  "disabled": false,
+                  "key": "variable",
+                  "value": "<string>",
+                  "description": "Only return tests that contain given variable"
+                },
+                {
+                  "disabled": false,
+                  "key": "embedded",
+                  "value": "<boolean>",
+                  "description": "If true, only return tests that are embedded in other tests. If false, only return tests that are not embedded in other tests."
+                },
+                {
+                  "disabled": false,
+                  "key": "owner_id",
+                  "value": "<integer>",
+                  "description": "Only return tests owned by this user; use `-1` to filter for tests without an owner"
+                },
+                {
+                  "disabled": false,
+                  "key": "test_language",
+                  "value": "<string>",
+                  "description": "Only return tests with a specified language"
+                },
+                {
+                  "disabled": false,
+                  "key": "feature_id[]",
+                  "value": "<integer>,<integer>",
+                  "description": "Only return tests with this/these feature(s); use `-1` to filter for tests without a feature"
+                },
+                {
+                  "disabled": false,
+                  "key": "site_id[]",
+                  "value": "<integer>,<integer>",
+                  "description": "Only return tests for this/these site(s)"
+                },
+                {
+                  "disabled": false,
+                  "key": "state[]",
+                  "value": "<string>,<string>",
+                  "description": "Only return tests that with this state"
+                },
+                {
+                  "disabled": false,
+                  "key": "tags[]",
+                  "value": "<string>,<string>",
+                  "description": "Only return tests having all specified tags; use `-1` to filter for untagged tests"
+                },
+                {
+                  "disabled": false,
+                  "key": "run_id[]",
+                  "value": "<integer>,<integer>",
+                  "description": "Only return tests that were in this/these previous run(s)"
+                },
+                {
+                  "disabled": false,
+                  "key": "browsers[]",
+                  "value": "<string>,<string>",
+                  "description": "Specify browsers to use for credit cost. Uses test's default browsers if omitted."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5919c402-a4ba-4e30-91e5-206e99081052",
+              "name": "List credit costs for a selection of tests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "tests",
+                    "credit_cost"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "exploratory_run_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "priority",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "result",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "run_group_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "smart_folder_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "step_query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tests",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "variable",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "embedded",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "owner_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "test_language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "feature_id[]",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "site_id[]",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "state[]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "tags[]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "run_id[]",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "browsers[]",
+                      "value": "<string>,<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a51f7e16-fbc7-43bd-aa52-3cf8c719cc63",
+          "name": "Get files for a test",
+          "request": {
+            "name": "Get files for a test",
+            "description": {
+              "content": "Get files for a test",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "tests",
+                ":test_id",
+                "files"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "test_id",
+                  "description": "(Required) A test ID"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d64a8022-1730-48ed-9765-9eb54fb0954f",
+              "name": "Get files for a test",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "tests",
+                    ":test_id",
+                    "files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "test_id",
+                      "description": "(Required) A test ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5940882d-d853-474b-abb9-203b0604ee90",
+          "name": "Create a new file for a test",
+          "request": {
+            "name": "Create a new file for a test",
+            "description": {
+              "content": "Create a new file for a test",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "tests",
+                ":test_id",
+                "files"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "test_id",
+                  "description": "(Required) A test ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"size\": \"<string>\",\n  \"mime_type\": \"<string>\",\n  \"digest\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4efc0289-d2e5-49ff-8f9f-d62d84878e18",
+              "name": "Create a new file for a test",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "tests",
+                    ":test_id",
+                    "files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "test_id",
+                      "description": "(Required) A test ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"size\": \"<string>\",\n  \"mime_type\": \"<string>\",\n  \"digest\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6add4953-3572-4921-8cc1-4c03e1510163",
+          "name": "Get a test",
+          "request": {
+            "name": "Get a test",
+            "description": {
+              "content": "Get a test",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "tests",
+                ":test_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "slim",
+                  "value": "false",
+                  "description": "If true, returns less data in order to reduce latency and response size"
+                },
+                {
+                  "disabled": false,
+                  "key": "environment_id",
+                  "value": "<integer>",
+                  "description": "Environment ID used to get initial_navigate_url"
+                },
+                {
+                  "disabled": false,
+                  "key": "test_version_id",
+                  "value": "<integer>",
+                  "description": "Test version ID used to get specific version details"
+                },
+                {
+                  "disabled": false,
+                  "key": "test_event_id",
+                  "value": "<integer>",
+                  "description": "Test event ID used to get timestamp from"
+                },
+                {
+                  "disabled": false,
+                  "key": "options[]",
+                  "value": "<string>,<string>",
+                  "description": "Extra details to display: steps, wisp"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "test_id",
+                  "description": "(Required) A test ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "339d1e4a-e3fc-4ff5-906e-aadab367a099",
+              "name": "Get a test",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "tests",
+                    ":test_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "slim",
+                      "value": "false"
+                    },
+                    {
+                      "key": "environment_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "test_version_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "test_event_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "options[]",
+                      "value": "<string>,<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "test_id",
+                      "description": "(Required) A test ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"created_at\": \"string\",\n  \"test_id\": \"string\",\n  \"title\": \"string\",\n  \"result\": \"string\",\n  \"wisp\": \"string\",\n  \"prompt\": \"string\",\n  \"prompt_credentials\": \"string\",\n  \"ai_mode\": \"string\",\n  \"state\": \"string\",\n  \"category\": \"string\",\n  \"site_id\": \"string\",\n  \"priority\": \"string\",\n  \"start_uri\": \"string\",\n  \"description\": \"string\",\n  \"browsers\": {\n    \"id\": 8396,\n    \"created_at\": \"1989-08-17T06:00:54.426Z\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"category\": \"string\",\n    \"result\": \"string\",\n    \"state\": \"string\",\n    \"overridden_results\": {\n      \"id\": \"string\",\n      \"created_at\": \"2008-05-11T07:52:30.641Z\",\n      \"note\": \"string\",\n      \"result\": \"string\",\n      \"job_group_id\": \"string\",\n      \"user\": {\n        \"id\": \"string\",\n        \"created_at\": \"1951-02-22T03:58:36.923Z\",\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"state\": \"string\",\n        \"role\": \"string\"\n      }\n    },\n    \"credit_cost\": \"string\"\n  },\n  \"tags\": \"string\",\n  \"frontend_url\": \"string\",\n  \"rfml_id\": \"string\",\n  \"exploratory_run_id\": \"string\",\n  \"initial_redirect_behavior\": \"string\",\n  \"source\": \"string\",\n  \"reroute_geo\": \"string\",\n  \"connection\": {\n    \"id\": \"string\",\n    \"created_at\": \"1963-02-18T02:41:40.804Z\",\n    \"name\": \"string\",\n    \"api_token\": \"string\",\n    \"state\": \"string\",\n    \"link_state\": \"string\",\n    \"type\": \"rainforest\"\n  },\n  \"atc_settings\": \"string\",\n  \"owner\": {\n    \"id\": \"string\",\n    \"created_at\": \"1973-07-16T17:25:23.943Z\",\n    \"name\": \"string\",\n    \"email\": \"string\",\n    \"state\": \"string\",\n    \"role\": \"string\"\n  },\n  \"last_updated_by\": {\n    \"id\": \"string\",\n    \"created_at\": \"1977-12-06T22:38:37.736Z\",\n    \"name\": \"string\",\n    \"email\": \"string\",\n    \"state\": \"string\",\n    \"role\": \"string\"\n  },\n  \"updated_at\": \"string\",\n  \"archived_at\": \"string\",\n  \"deleted\": \"string\",\n  \"attached_to\": {\n    \"id\": \"string\",\n    \"created_at\": \"string\",\n    \"test_id\": \"string\",\n    \"title\": \"string\",\n    \"result\": \"string\",\n    \"wisp\": \"string\",\n    \"prompt\": \"string\",\n    \"prompt_credentials\": \"string\",\n    \"ai_mode\": \"string\",\n    \"priority\": \"string\",\n    \"real_cost_to_run\": \"string\",\n    \"owner_id\": \"string\",\n    \"state\": \"string\",\n    \"updated_at\": \"string\",\n    \"deleted\": \"string\",\n    \"feature_id\": \"string\"\n  },\n  \"dry_run_url\": \"string\",\n  \"last_run\": {\n    \"id\": 409,\n    \"created_at\": \"2012-02-15T10:13:41.576Z\",\n    \"state\": \"string\"\n  },\n  \"feature_id\": \"string\",\n  \"has_wisp\": \"string\",\n  \"type\": \"string\",\n  \"coverage_summary\": \"string\",\n  \"used_in_snippets_count\": \"string\",\n  \"used_in_tests_count\": \"string\",\n  \"used_in_archived_snippets_count\": \"string\",\n  \"used_in_archived_tests_count\": \"string\",\n  \"self_healed_at\": \"string\",\n  \"last_run_test\": {\n    \"self_healed\": \"string\",\n    \"rescued\": \"string\"\n  },\n  \"step_count\": 8135,\n  \"deletable\": true,\n  \"editable\": true,\n  \"embedded\": true,\n  \"unrewritable_reason\": \"string\",\n  \"test_version_id\": \"string\",\n  \"total_instances\": \"string\",\n  \"job_test_generation_id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3e73532b-4d11-4c6f-a503-9daa12199523",
+          "name": "Update a test",
+          "request": {
+            "name": "Update a test",
+            "description": {
+              "content": "Update a test",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "tests",
+                ":test_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "test_id",
+                  "description": "(Required) A test ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ai_mode\": \"<string>\",\n  \"browsers\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"category\": \"<string>\",\n  \"connection_id\": \"<string>\",\n  \"reroute_geo\": \"<string>\",\n  \"description\": \"<string>\",\n  \"environment_id\": \"<integer>\",\n  \"feature_id\": \"<integer>\",\n  \"login_snippet_id\": \"<integer>\",\n  \"owner_id\": \"<integer>\",\n  \"priority\": \"<string>\",\n  \"prompt\": \"<string>\",\n  \"prompt_credentials\": \"<string>\",\n  \"rfml_id\": \"<string>\",\n  \"site_id\": \"<integer>\",\n  \"start_uri\": \"<string>\",\n  \"state\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"atc_settings\": {\n    \"delay_after\": \"<integer>\"\n  },\n  \"slim\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7d07b978-6b49-46f9-a39f-1fe23ec18406",
+              "name": "Update a test",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "tests",
+                    ":test_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "test_id",
+                      "description": "(Required) A test ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ai_mode\": \"<string>\",\n  \"browsers\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"category\": \"<string>\",\n  \"connection_id\": \"<string>\",\n  \"reroute_geo\": \"<string>\",\n  \"description\": \"<string>\",\n  \"environment_id\": \"<integer>\",\n  \"feature_id\": \"<integer>\",\n  \"login_snippet_id\": \"<integer>\",\n  \"owner_id\": \"<integer>\",\n  \"priority\": \"<string>\",\n  \"prompt\": \"<string>\",\n  \"prompt_credentials\": \"<string>\",\n  \"rfml_id\": \"<string>\",\n  \"site_id\": \"<integer>\",\n  \"start_uri\": \"<string>\",\n  \"state\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"atc_settings\": {\n    \"delay_after\": \"<integer>\"\n  },\n  \"slim\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"created_at\": \"string\",\n  \"test_id\": \"string\",\n  \"title\": \"string\",\n  \"result\": \"string\",\n  \"wisp\": \"string\",\n  \"prompt\": \"string\",\n  \"prompt_credentials\": \"string\",\n  \"ai_mode\": \"string\",\n  \"state\": \"string\",\n  \"category\": \"string\",\n  \"site_id\": \"string\",\n  \"priority\": \"string\",\n  \"start_uri\": \"string\",\n  \"description\": \"string\",\n  \"browsers\": {\n    \"id\": 8396,\n    \"created_at\": \"1989-08-17T06:00:54.426Z\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"category\": \"string\",\n    \"result\": \"string\",\n    \"state\": \"string\",\n    \"overridden_results\": {\n      \"id\": \"string\",\n      \"created_at\": \"2008-05-11T07:52:30.641Z\",\n      \"note\": \"string\",\n      \"result\": \"string\",\n      \"job_group_id\": \"string\",\n      \"user\": {\n        \"id\": \"string\",\n        \"created_at\": \"1951-02-22T03:58:36.923Z\",\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"state\": \"string\",\n        \"role\": \"string\"\n      }\n    },\n    \"credit_cost\": \"string\"\n  },\n  \"tags\": \"string\",\n  \"frontend_url\": \"string\",\n  \"rfml_id\": \"string\",\n  \"exploratory_run_id\": \"string\",\n  \"initial_redirect_behavior\": \"string\",\n  \"source\": \"string\",\n  \"reroute_geo\": \"string\",\n  \"connection\": {\n    \"id\": \"string\",\n    \"created_at\": \"1963-02-18T02:41:40.804Z\",\n    \"name\": \"string\",\n    \"api_token\": \"string\",\n    \"state\": \"string\",\n    \"link_state\": \"string\",\n    \"type\": \"rainforest\"\n  },\n  \"atc_settings\": \"string\",\n  \"owner\": {\n    \"id\": \"string\",\n    \"created_at\": \"1973-07-16T17:25:23.943Z\",\n    \"name\": \"string\",\n    \"email\": \"string\",\n    \"state\": \"string\",\n    \"role\": \"string\"\n  },\n  \"last_updated_by\": {\n    \"id\": \"string\",\n    \"created_at\": \"1977-12-06T22:38:37.736Z\",\n    \"name\": \"string\",\n    \"email\": \"string\",\n    \"state\": \"string\",\n    \"role\": \"string\"\n  },\n  \"updated_at\": \"string\",\n  \"archived_at\": \"string\",\n  \"deleted\": \"string\",\n  \"attached_to\": {\n    \"id\": \"string\",\n    \"created_at\": \"string\",\n    \"test_id\": \"string\",\n    \"title\": \"string\",\n    \"result\": \"string\",\n    \"wisp\": \"string\",\n    \"prompt\": \"string\",\n    \"prompt_credentials\": \"string\",\n    \"ai_mode\": \"string\",\n    \"priority\": \"string\",\n    \"real_cost_to_run\": \"string\",\n    \"owner_id\": \"string\",\n    \"state\": \"string\",\n    \"updated_at\": \"string\",\n    \"deleted\": \"string\",\n    \"feature_id\": \"string\"\n  },\n  \"dry_run_url\": \"string\",\n  \"last_run\": {\n    \"id\": 409,\n    \"created_at\": \"2012-02-15T10:13:41.576Z\",\n    \"state\": \"string\"\n  },\n  \"feature_id\": \"string\",\n  \"has_wisp\": \"string\",\n  \"type\": \"string\",\n  \"coverage_summary\": \"string\",\n  \"used_in_snippets_count\": \"string\",\n  \"used_in_tests_count\": \"string\",\n  \"used_in_archived_snippets_count\": \"string\",\n  \"used_in_archived_tests_count\": \"string\",\n  \"self_healed_at\": \"string\",\n  \"last_run_test\": {\n    \"self_healed\": \"string\",\n    \"rescued\": \"string\"\n  },\n  \"step_count\": 8135,\n  \"deletable\": true,\n  \"editable\": true,\n  \"embedded\": true,\n  \"unrewritable_reason\": \"string\",\n  \"test_version_id\": \"string\",\n  \"total_instances\": \"string\",\n  \"job_test_generation_id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "603a1c4a-f1db-4a4a-82e8-ec701e1e5a60",
+          "name": "Delete a test",
+          "request": {
+            "name": "Delete a test",
+            "description": {
+              "content": "Delete a test",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "tests",
+                ":test_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "test_id",
+                  "description": "(Required) A test ID"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2c28061e-0738-4612-bc2d-e5aeb4aaae65",
+              "name": "Delete a test",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "tests",
+                    ":test_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "test_id",
+                      "description": "(Required) A test ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8871ecc0-04f8-4e83-b574-479f5e3bd334",
+          "name": "Comment history for a test",
+          "request": {
+            "name": "Comment history for a test",
+            "description": {
+              "content": "Comment history for a test",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "tests",
+                ":test_id",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page of results to display"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "30",
+                  "description": "Number of results to return per page; maximum: 100"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "test_id",
+                  "description": "(Required) A test ID"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d4cd9967-20cc-4eff-bda8-68d43ab4556b",
+              "name": "Comment history for a test",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "tests",
+                    ":test_id",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "30"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "test_id",
+                      "description": "(Required) A test ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "80f36cb3-0e6e-4756-a813-908079c0c15a",
+          "name": "Run history for a test",
+          "request": {
+            "name": "Run history for a test",
+            "description": {
+              "content": "Run history for a test",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "tests",
+                ":test_id",
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page of results to display"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "10",
+                  "description": "Number of results to return per page; maximum: 100"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "test_id",
+                  "description": "(Required) A test ID"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "360b04e8-f077-4373-9da0-04831596f7a4",
+              "name": "Run history for a test",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "tests",
+                    ":test_id",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "test_id",
+                      "description": "(Required) A test ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "78d0cf0e-76f0-4552-b28a-36691ad0d8b7",
+          "name": "Run and generation history for a test",
+          "request": {
+            "name": "Run and generation history for a test",
+            "description": {
+              "content": "Run and generation history for a test",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "tests",
+                ":test_id",
+                "automation_history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page of results to display"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "10",
+                  "description": "Number of results to return per page; maximum: 100"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "test_id",
+                  "description": "(Required) A test ID"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7c3982f0-16e9-42c6-a033-a366bf80db09",
+              "name": "Run and generation history for a test",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "tests",
+                    ":test_id",
+                    "automation_history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "test_id",
+                      "description": "(Required) A test ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "51ca1f84-d74a-4a00-8e26-0ae16ddbade7",
+          "name": "Get list of run group elements directly or indirectly linked to the test",
+          "request": {
+            "name": "Get list of run group elements directly or indirectly linked to the test",
+            "description": {
+              "content": "Get list of run group elements directly or indirectly linked to the test",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "tests",
+                ":test_id",
+                "run_group_elements"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "test_id",
+                  "description": "(Required) A test ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9a10629a-854f-4143-98fa-183f3297872e",
+              "name": "Get list of run group elements directly or indirectly linked to the test",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "tests",
+                    ":test_id",
+                    "run_group_elements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "test_id",
+                      "description": "(Required) A test ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 2288,\n  \"created_at\": \"2011-10-04T22:14:31.759Z\",\n  \"run_group_id\": 8348,\n  \"run_group_title\": \"string\",\n  \"type\": \"feature\",\n  \"element\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.rainforestqa.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "CLIENT_TOKEN"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ea00509e-3a47-4ad7-9308-cefcfdf51649",
+    "name": "Rainforest callback tests API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).",
+      "type": "text/plain"
+    }
+  }
+}

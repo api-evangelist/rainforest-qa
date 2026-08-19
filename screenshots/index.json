@@ -1,0 +1,19 @@
+[
+  {
+    "repo": "rainforest-qa",
+    "captured_at": "2026-08-17T081442",
+    "source_url": "https://app.rainforestqa.com/",
+    "source_type": "DeveloperPortal",
+    "file": "rainforest-qa-2026-08-17T081442.png",
+    "bytes": 97725
+  },
+  {
+    "repo": "rainforest-qa",
+    "captured_at": "2026-08-17T124920",
+    "source_url": "https://rainforestqa.com",
+    "source_type": "root-domain",
+    "file": "rainforest-qa-2026-08-17T124920.png",
+    "bytes": 495886,
+    "capture": "playwright-local"
+  }
+]

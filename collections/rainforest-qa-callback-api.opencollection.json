@@ -1,0 +1,57 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rainforest callback API",
+    "version": "1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "CLIENT_TOKEN",
+      "value": "{{CLIENT_TOKEN}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "callback",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Notify Rainforest when a run webhook callback is complete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.rainforestqa.com/api/1/callback/run/:run_id/:callback_type/:digest",
+            "params": [
+              {
+                "name": "run_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the Run you are sending a callback for"
+              },
+              {
+                "name": "callback_type",
+                "value": "",
+                "type": "path",
+                "description": "`before_run` is currently the only type that is handled by this endpoint"
+              },
+              {
+                "name": "digest",
+                "value": "",
+                "type": "path",
+                "description": "MD5-HMAC Digest created with [Rainforest Auth](https://github.com/rainforestapp/auth)"
+              }
+            ]
+          },
+          "docs": "Notify Rainforest when a `before_run` webhook callback is complete. See the [Using Webhooks article](https://help.rainforestqa.com/docs/using-webhooks#running-a-test-using-an-advanced-webhook) for more information.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,171 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rainforest callback test_results API",
+    "version": "1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "CLIENT_TOKEN",
+      "value": "{{CLIENT_TOKEN}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "test_results",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List test results",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.rainforestqa.com/api/1/test_results",
+            "params": [
+              {
+                "name": "category",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests with this category"
+              },
+              {
+                "name": "exploratory_run_id",
+                "value": "",
+                "type": "query",
+                "description": "Only return created in this exploratory run"
+              },
+              {
+                "name": "priority",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests with this priority"
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests whose title contains, or ID matches, this string"
+              },
+              {
+                "name": "result",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests with a specific result"
+              },
+              {
+                "name": "run_group_id",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests in this run group; use `-1` to filter for tests not in any run groups"
+              },
+              {
+                "name": "smart_folder_id",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests in this saved filter"
+              },
+              {
+                "name": "step_query",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests whose steps match this string"
+              },
+              {
+                "name": "tests",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests matching this criteria. Can be comma-separated list of test ids or 'all' to return all tests"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests of this type"
+              },
+              {
+                "name": "variable",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests that contain given variable"
+              },
+              {
+                "name": "environment_id",
+                "value": "",
+                "type": "query",
+                "description": "Only return that were run in the specified environment"
+              },
+              {
+                "name": "has_comments",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests with or without comments"
+              },
+              {
+                "name": "latest_only",
+                "value": "",
+                "type": "query",
+                "description": "Only the latest results for a test"
+              },
+              {
+                "name": "release",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests that were run in the specified release"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page of results to display"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page; maximum: 100"
+              },
+              {
+                "name": "feature_id[]",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests with this/these feature(s); use `-1` to filter for tests without a feature"
+              },
+              {
+                "name": "site_id[]",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests for this/these site(s)"
+              },
+              {
+                "name": "state[]",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests that with this state"
+              },
+              {
+                "name": "tags[]",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests having all specified tags; use `-1` to filter for untagged tests"
+              },
+              {
+                "name": "run_id[]",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests that were in this/these previous run(s)"
+              }
+            ]
+          },
+          "docs": "List test results"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

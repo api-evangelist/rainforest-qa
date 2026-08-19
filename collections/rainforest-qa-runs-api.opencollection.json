@@ -1,0 +1,644 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rainforest callback runs API",
+    "version": "1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "CLIENT_TOKEN",
+      "value": "{{CLIENT_TOKEN}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "runs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List runs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.rainforestqa.com/api/1/runs",
+            "params": [
+              {
+                "name": "created_at[gte]",
+                "value": "",
+                "type": "query",
+                "description": "Only runs created at or after this time; must be used with `created_at[lt]`"
+              },
+              {
+                "name": "created_at[lt]",
+                "value": "",
+                "type": "query",
+                "description": "Only runs created before this time; must be used with `created_at[gte]`"
+              },
+              {
+                "name": "execution_method",
+                "value": "",
+                "type": "query",
+                "description": "Only runs executed using this method"
+              },
+              {
+                "name": "crowd",
+                "value": "",
+                "type": "query",
+                "description": "Only runs against this crowd"
+              },
+              {
+                "name": "environment_id",
+                "value": "",
+                "type": "query",
+                "description": "Only runs against this/these environment(s)"
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query",
+                "description": "Only runs with this mode"
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Only runs that have an id that matches this query or runs that have a description which contains the query"
+              },
+              {
+                "name": "release",
+                "value": "",
+                "type": "query",
+                "description": "Only runs matching this release"
+              },
+              {
+                "name": "result",
+                "value": "",
+                "type": "query",
+                "description": "Only runs with this result"
+              },
+              {
+                "name": "run_group_id",
+                "value": "",
+                "type": "query",
+                "description": "Only runs for this/these run group(s)"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query",
+                "description": "Only runs from this source"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Only runs in this state"
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query",
+                "description": "Only runs created by this/these user(s)"
+              },
+              {
+                "name": "branch_id",
+                "value": "",
+                "type": "query",
+                "description": "Only runs created on this/these branch(es)"
+              },
+              {
+                "name": "sort[][id]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort[][description]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort[][created_at]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page of results to display"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page; maximum: 100"
+              }
+            ]
+          },
+          "docs": "List runs"
+        },
+        {
+          "info": {
+            "name": "Create a new run",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.rainforestqa.com/api/1/runs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new run"
+        },
+        {
+          "info": {
+            "name": "Get a test from a run",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.rainforestqa.com/api/1/runs/:run_id/tests/:test_id",
+            "params": [
+              {
+                "name": "run_id",
+                "value": "",
+                "type": "path",
+                "description": "A run ID"
+              },
+              {
+                "name": "test_id",
+                "value": "",
+                "type": "path",
+                "description": "A test ID"
+              },
+              {
+                "name": "show_rejected_jobs",
+                "value": "",
+                "type": "query",
+                "description": "Show rejected jobs or not"
+              }
+            ]
+          },
+          "docs": "Get a test from a run"
+        },
+        {
+          "info": {
+            "name": "Get historical credit usage for runs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.rainforestqa.com/api/1/runs/historical_usage",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page of results to display"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page; maximum: 100"
+              }
+            ]
+          },
+          "docs": "List historical credit usage for runs"
+        },
+        {
+          "info": {
+            "name": "Get a run",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.rainforestqa.com/api/1/runs/:run_id",
+            "params": [
+              {
+                "name": "run_id",
+                "value": "",
+                "type": "path",
+                "description": "A run ID"
+              },
+              {
+                "name": "slim",
+                "value": "",
+                "type": "query",
+                "description": "If true, returns less data in order to reduce latency and response size"
+              }
+            ]
+          },
+          "docs": "Get a run"
+        },
+        {
+          "info": {
+            "name": "Update a run",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.rainforestqa.com/api/1/runs/:run_id",
+            "params": [
+              {
+                "name": "run_id",
+                "value": "",
+                "type": "path",
+                "description": "A run ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a run"
+        },
+        {
+          "info": {
+            "name": "Cancel a run",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.rainforestqa.com/api/1/runs/:run_id",
+            "params": [
+              {
+                "name": "run_id",
+                "value": "",
+                "type": "path",
+                "description": "A run ID"
+              }
+            ]
+          },
+          "docs": "Cancel a run"
+        },
+        {
+          "info": {
+            "name": "Get a run's JUnit XML",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.rainforestqa.com/api/1/runs/:run_id/junit",
+            "params": [
+              {
+                "name": "run_id",
+                "value": "",
+                "type": "path",
+                "description": "A run ID"
+              }
+            ]
+          },
+          "docs": "Get JUnit.xml for a run containting details of all tests. The format will be JUnit XML, but the content here may change over time.\n"
+        },
+        {
+          "info": {
+            "name": "List usages for a run",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.rainforestqa.com/api/1/runs/:run_id/usages",
+            "params": [
+              {
+                "name": "run_id",
+                "value": "",
+                "type": "path",
+                "description": "A run ID"
+              }
+            ]
+          },
+          "docs": "List usages for a run"
+        },
+        {
+          "info": {
+            "name": "Create a rerun",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.rainforestqa.com/api/1/runs/:run_id/rerun_all",
+            "params": [
+              {
+                "name": "run_id",
+                "value": "",
+                "type": "path",
+                "description": "A run ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Rerun all tests from a previous run"
+        },
+        {
+          "info": {
+            "name": "Create a rerun",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.rainforestqa.com/api/1/runs/:run_id/rerun_failed",
+            "params": [
+              {
+                "name": "run_id",
+                "value": "",
+                "type": "path",
+                "description": "A run ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Rerun failed tests from a previous run"
+        },
+        {
+          "info": {
+            "name": "List tests for a run",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.rainforestqa.com/api/1/runs/:run_id/tests",
+            "params": [
+              {
+                "name": "run_id",
+                "value": "",
+                "type": "path",
+                "description": "A run ID"
+              },
+              {
+                "name": "category",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests with this category"
+              },
+              {
+                "name": "exploratory_run_id",
+                "value": "",
+                "type": "query",
+                "description": "Only return created in this exploratory run"
+              },
+              {
+                "name": "priority",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests with this priority"
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests whose title contains, or ID matches, this string"
+              },
+              {
+                "name": "result",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests with a specific result"
+              },
+              {
+                "name": "run_group_id",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests in this run group; use `-1` to filter for tests not in any run groups"
+              },
+              {
+                "name": "smart_folder_id",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests in this saved filter"
+              },
+              {
+                "name": "step_query",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests whose steps match this string"
+              },
+              {
+                "name": "tests",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests matching this criteria. Can be comma-separated list of test ids or 'all' to return all tests"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests of this type"
+              },
+              {
+                "name": "variable",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests that contain given variable"
+              },
+              {
+                "name": "environment_id",
+                "value": "",
+                "type": "query",
+                "description": "Only return that were run in the specified environment"
+              },
+              {
+                "name": "has_comments",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests with or without comments"
+              },
+              {
+                "name": "latest_only",
+                "value": "",
+                "type": "query",
+                "description": "Only the latest results for a test"
+              },
+              {
+                "name": "release",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests that were run in the specified release"
+              },
+              {
+                "name": "sort[][title]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort[][priority]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort[][duration]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort[][result]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort[][failure_status]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort[][failed_snippet]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page of results to display"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page; maximum: 100"
+              },
+              {
+                "name": "slim",
+                "value": "",
+                "type": "query",
+                "description": "If true, returns less data in order to reduce latency and response size"
+              },
+              {
+                "name": "feature_id[]",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests with this/these feature(s); use `-1` to filter for tests without a feature"
+              },
+              {
+                "name": "site_id[]",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests for this/these site(s)"
+              },
+              {
+                "name": "state[]",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests that with this state"
+              },
+              {
+                "name": "tags[]",
+                "value": "",
+                "type": "query",
+                "description": "Only return tests having all specified tags; use `-1` to filter for untagged tests"
+              }
+            ]
+          },
+          "docs": "List tests for a run"
+        },
+        {
+          "info": {
+            "name": "Mark tests as viewed",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.rainforestqa.com/api/1/runs/:run_id/tests/mark_as_viewed",
+            "params": [
+              {
+                "name": "run_id",
+                "value": "",
+                "type": "path",
+                "description": "A run ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Mark test results as viewed"
+        },
+        {
+          "info": {
+            "name": "List comments for a run test",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.rainforestqa.com/api/1/runs/:run_id/tests/:test_id/comments",
+            "params": [
+              {
+                "name": "run_id",
+                "value": "",
+                "type": "path",
+                "description": "A run ID"
+              },
+              {
+                "name": "test_id",
+                "value": "",
+                "type": "path",
+                "description": "A test ID"
+              }
+            ]
+          },
+          "docs": "List comments for a run test"
+        },
+        {
+          "info": {
+            "name": "Get a step from a run",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.rainforestqa.com/api/1/runs/:run_id/steps/:step_id",
+            "params": [
+              {
+                "name": "run_id",
+                "value": "",
+                "type": "path",
+                "description": "A run ID"
+              },
+              {
+                "name": "step_id",
+                "value": "",
+                "type": "path",
+                "description": "A step ID"
+              },
+              {
+                "name": "include_feedback",
+                "value": "",
+                "type": "query",
+                "description": "Include tester feedback?"
+              },
+              {
+                "name": "show_rejected_jobs",
+                "value": "",
+                "type": "query",
+                "description": "Show rejected jobs?"
+              },
+              {
+                "name": "browsers[]",
+                "value": "",
+                "type": "query",
+                "description": "Only include certain browsers in the result"
+              }
+            ]
+          },
+          "docs": "Get a step from a run"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

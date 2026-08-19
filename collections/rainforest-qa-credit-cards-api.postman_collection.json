@@ -1,0 +1,129 @@
+{
+  "item": [
+    {
+      "id": "108c8a29-dd2f-440d-804f-24f806cf262a",
+      "name": "credit_cards",
+      "description": {
+        "content": "Operations about credit_cards",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3c0f89dd-e36d-4216-9171-06fc4051e465",
+          "name": "List credit cards",
+          "request": {
+            "name": "List credit cards",
+            "description": {
+              "content": "List credit cards",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "credit_cards"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5ba42f1f-9c3b-4ef3-b739-d342b2b41f2f",
+              "name": "Retrieved credit cards",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "credit_cards"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"default_card\": \"string\",\n  \"credit_cards\": [\n    {\n      \"card_id\": \"string\",\n      \"last4\": \"string\",\n      \"type\": \"string\",\n      \"exp_month\": \"string\",\n      \"exp_year\": \"string\"\n    },\n    {\n      \"card_id\": \"string\",\n      \"last4\": \"string\",\n      \"type\": \"string\",\n      \"exp_month\": \"string\",\n      \"exp_year\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.rainforestqa.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "CLIENT_TOKEN"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "580a861b-b861-41af-a59a-03497921d5f5",
+    "name": "Rainforest callback credit_cards API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).",
+      "type": "text/plain"
+    }
+  }
+}

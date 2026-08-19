@@ -1,0 +1,2469 @@
+{
+  "item": [
+    {
+      "id": "761a4f1e-e976-4c8e-807b-56ecabc1f454",
+      "name": "run_groups",
+      "description": {
+        "content": "Operations about run_groups",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "83e9c532-5951-443e-bdd9-deb7f230130f",
+          "name": "List run groups",
+          "request": {
+            "name": "List run groups",
+            "description": {
+              "content": "List run groups",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "run_groups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "title",
+                  "value": "<string>",
+                  "description": "Filter by title (case-insensitive)"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort[][title]",
+                  "value": "<string>,<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page of results to display"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "10",
+                  "description": "Number of results to return per page; maximum: 100"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d130dc63-8f73-4ea1-8263-d27ce563e4b1",
+              "name": "Run groups retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "run_groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort[][title]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Total pages",
+                  "key": "X-Total-Pages",
+                  "value": "7334"
+                },
+                {
+                  "disabled": false,
+                  "description": "Current page",
+                  "key": "X-Current-Page",
+                  "value": "7334"
+                },
+                {
+                  "disabled": false,
+                  "description": "The maximum number of results per page",
+                  "key": "X-Per-Page",
+                  "value": "7334"
+                },
+                {
+                  "disabled": false,
+                  "description": "The total number of results",
+                  "key": "X-Total-Results",
+                  "value": "7334"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 5307,\n    \"created_at\": \"2010-04-30T07:10:52.324Z\",\n    \"title\": \"string\",\n    \"reroute_geo\": \"string\",\n    \"connection\": {\n      \"id\": \"string\",\n      \"created_at\": \"2015-11-19T21:40:08.054Z\",\n      \"name\": \"string\",\n      \"api_token\": \"string\",\n      \"state\": \"string\",\n      \"link_state\": \"string\",\n      \"type\": \"rainforest\"\n    },\n    \"crowd\": \"automation\",\n    \"execution_method\": \"automation\",\n    \"browsers\": [\n      \"string\",\n      \"string\"\n    ],\n    \"schedule\": {\n      \"id\": 8394,\n      \"created_at\": \"1974-05-27T04:06:47.270Z\",\n      \"repeat_rules\": [\n        {\n          \"id\": 5999,\n          \"created_at\": \"1960-11-21T21:26:03.061Z\",\n          \"day\": \"sunday\",\n          \"time\": \"string\"\n        },\n        {\n          \"id\": 2668,\n          \"created_at\": \"2024-10-25T22:50:59.377Z\",\n          \"day\": \"monday\",\n          \"time\": \"string\"\n        }\n      ],\n      \"timezone\": \"string\"\n    },\n    \"environment\": {\n      \"name\": false,\n      \"default\": true,\n      \"webhook\": \"string\",\n      \"webhook_enabled\": false,\n      \"is_temporary\": false,\n      \"site_environments\": [\n        {\n          \"site_id\": 9164,\n          \"environment_id\": 2655,\n          \"url\": \"string\",\n          \"id\": 5662,\n          \"created_at\": \"1965-03-04T02:16:19.369Z\"\n        },\n        {\n          \"site_id\": 8623,\n          \"environment_id\": 753,\n          \"url\": \"string\",\n          \"id\": 8406,\n          \"created_at\": \"2021-06-11T16:57:26.191Z\"\n        }\n      ],\n      \"id\": 4816,\n      \"created_at\": \"1965-12-14T01:14:48.494Z\",\n      \"deleted_at\": \"2002-09-11T15:52:56.710Z\",\n      \"will_delete_after\": \"1956-02-02T16:06:29.792Z\"\n    },\n    \"test_count\": 2107\n  },\n  {\n    \"id\": 7841,\n    \"created_at\": \"1956-04-20T05:22:49.765Z\",\n    \"title\": \"string\",\n    \"reroute_geo\": \"string\",\n    \"connection\": {\n      \"id\": \"string\",\n      \"created_at\": \"1961-07-13T02:59:53.981Z\",\n      \"name\": \"string\",\n      \"api_token\": \"string\",\n      \"state\": \"string\",\n      \"link_state\": \"string\",\n      \"type\": \"rainforest\"\n    },\n    \"crowd\": \"on_premise_crowd\",\n    \"execution_method\": \"on_premise\",\n    \"browsers\": [\n      \"string\",\n      \"string\"\n    ],\n    \"schedule\": {\n      \"id\": 2059,\n      \"created_at\": \"2010-10-17T02:05:43.647Z\",\n      \"repeat_rules\": [\n        {\n          \"id\": 3533,\n          \"created_at\": \"1952-08-11T05:35:19.631Z\",\n          \"day\": \"wednesday\",\n          \"time\": \"string\"\n        },\n        {\n          \"id\": 6656,\n          \"created_at\": \"1992-02-23T11:00:22.951Z\",\n          \"day\": \"tuesday\",\n          \"time\": \"string\"\n        }\n      ],\n      \"timezone\": \"string\"\n    },\n    \"environment\": {\n      \"name\": false,\n      \"default\": false,\n      \"webhook\": \"string\",\n      \"webhook_enabled\": true,\n      \"is_temporary\": false,\n      \"site_environments\": [\n        {\n          \"site_id\": 9256,\n          \"environment_id\": 5897,\n          \"url\": \"string\",\n          \"id\": 1464,\n          \"created_at\": \"1976-12-30T19:47:23.962Z\"\n        },\n        {\n          \"site_id\": 1393,\n          \"environment_id\": 3791,\n          \"url\": \"string\",\n          \"id\": 5067,\n          \"created_at\": \"2014-02-11T02:02:18.306Z\"\n        }\n      ],\n      \"id\": 3657,\n      \"created_at\": \"1972-01-14T17:24:15.849Z\",\n      \"deleted_at\": \"2017-01-14T01:52:36.780Z\",\n      \"will_delete_after\": \"1955-01-25T17:11:31.054Z\"\n    },\n    \"test_count\": 6922\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "88b5bf12-f187-4d3e-a7e5-0375f8d92785",
+          "name": "Create a new run group",
+          "request": {
+            "name": "Create a new run group",
+            "description": {
+              "content": "Create a new run group",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "run_groups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"reroute_geo\": \"<string>\",\n  \"environment_id\": \"<integer>\",\n  \"crowd\": \"<string>\",\n  \"execution_method\": \"<string>\",\n  \"browsers\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"schedule\": {\n    \"repeat_rules\": [\n      {\n        \"time\": \"<string>\",\n        \"day\": \"<string>\",\n        \"id\": \"<integer>\"\n      },\n      {\n        \"time\": \"<string>\",\n        \"day\": \"<string>\",\n        \"id\": \"<integer>\"\n      }\n    ],\n    \"timezone\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4387c8d3-d451-4d15-95de-3596b4cfed45",
+              "name": "Run group created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "run_groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"reroute_geo\": \"<string>\",\n  \"environment_id\": \"<integer>\",\n  \"crowd\": \"<string>\",\n  \"execution_method\": \"<string>\",\n  \"browsers\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"schedule\": {\n    \"repeat_rules\": [\n      {\n        \"time\": \"<string>\",\n        \"day\": \"<string>\",\n        \"id\": \"<integer>\"\n      },\n      {\n        \"time\": \"<string>\",\n        \"day\": \"<string>\",\n        \"id\": \"<integer>\"\n      }\n    ],\n    \"timezone\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4562,\n  \"created_at\": \"1962-07-12T11:42:59.233Z\",\n  \"title\": \"string\",\n  \"reroute_geo\": \"string\",\n  \"connection\": {\n    \"id\": \"string\",\n    \"created_at\": \"1989-01-28T08:29:58.936Z\",\n    \"name\": \"string\",\n    \"api_token\": \"string\",\n    \"state\": \"string\",\n    \"link_state\": \"string\",\n    \"type\": \"user\"\n  },\n  \"crowd\": \"automation_and_crowd\",\n  \"execution_method\": \"crowd\",\n  \"browsers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"schedule\": {\n    \"id\": 8898,\n    \"created_at\": \"1998-01-14T18:22:48.743Z\",\n    \"repeat_rules\": [\n      {\n        \"id\": 2198,\n        \"created_at\": \"1976-01-31T16:27:29.518Z\",\n        \"day\": \"monday\",\n        \"time\": \"string\"\n      },\n      {\n        \"id\": 9638,\n        \"created_at\": \"1955-01-09T21:08:45.409Z\",\n        \"day\": \"saturday\",\n        \"time\": \"string\"\n      }\n    ],\n    \"timezone\": \"string\"\n  },\n  \"environment\": {\n    \"name\": false,\n    \"default\": false,\n    \"webhook\": \"string\",\n    \"webhook_enabled\": true,\n    \"is_temporary\": false,\n    \"site_environments\": [\n      {\n        \"site_id\": 747,\n        \"environment_id\": 5929,\n        \"url\": \"string\",\n        \"id\": 4454,\n        \"created_at\": \"2020-10-25T11:10:19.339Z\"\n      },\n      {\n        \"site_id\": 363,\n        \"environment_id\": 3241,\n        \"url\": \"string\",\n        \"id\": 3119,\n        \"created_at\": \"1974-12-18T20:11:00.940Z\"\n      }\n    ],\n    \"id\": 4491,\n    \"created_at\": \"1957-06-06T12:26:02.523Z\",\n    \"deleted_at\": \"1962-04-13T18:25:00.177Z\",\n    \"will_delete_after\": \"1958-03-10T23:05:35.274Z\"\n  },\n  \"test_count\": 4030\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3880f77a-23c8-4435-9c1b-d036d570f73c",
+              "name": "Run group could not created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "run_groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"reroute_geo\": \"<string>\",\n  \"environment_id\": \"<integer>\",\n  \"crowd\": \"<string>\",\n  \"execution_method\": \"<string>\",\n  \"browsers\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"schedule\": {\n    \"repeat_rules\": [\n      {\n        \"time\": \"<string>\",\n        \"day\": \"<string>\",\n        \"id\": \"<integer>\"\n      },\n      {\n        \"time\": \"<string>\",\n        \"day\": \"<string>\",\n        \"id\": \"<integer>\"\n      }\n    ],\n    \"timezone\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b8a25c78-9177-439b-b9bc-3195fb9f55f2",
+          "name": "Add multiple elements to a run group",
+          "request": {
+            "name": "Add multiple elements to a run group",
+            "description": {
+              "content": "Add multiple elements to a run group",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "run_groups",
+                ":id",
+                "elements",
+                "batch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"elements\": [\n    {\n      \"type\": \"<string>\",\n      \"element_id\": \"<integer>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"element_id\": \"<integer>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2f70fa62-370c-43c6-b7a3-ba4b7578ea30",
+              "name": "Element(s) added to run group",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "run_groups",
+                    ":id",
+                    "elements",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"elements\": [\n    {\n      \"type\": \"<string>\",\n      \"element_id\": \"<integer>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"element_id\": \"<integer>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fb9aaf7f-1715-44aa-a82e-9358b92cd151",
+              "name": "Element(s) could not be added to run group",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "run_groups",
+                    ":id",
+                    "elements",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"elements\": [\n    {\n      \"type\": \"<string>\",\n      \"element_id\": \"<integer>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"element_id\": \"<integer>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ea7d3072-39f1-400c-ad23-380a22d34fe4",
+              "name": "Run group or element not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "run_groups",
+                    ":id",
+                    "elements",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"elements\": [\n    {\n      \"type\": \"<string>\",\n      \"element_id\": \"<integer>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"element_id\": \"<integer>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "88a33d80-64eb-4b9f-b9cd-6ea807961d01",
+          "name": "Remove multiple elements from a run group",
+          "request": {
+            "name": "Remove multiple elements from a run group",
+            "description": {
+              "content": "Remove multiple elements from a run group",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "run_groups",
+                ":id",
+                "elements",
+                "batch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "elements[][type]",
+                  "value": "<string>,<string>",
+                  "description": "(Required) The element's type"
+                },
+                {
+                  "disabled": false,
+                  "key": "elements[][element_id]",
+                  "value": "<integer>,<integer>",
+                  "description": "The feature, filter, or test's id"
+                },
+                {
+                  "disabled": false,
+                  "key": "elements[][name]",
+                  "value": "<string>,<string>",
+                  "description": "The tag's name"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "18ddbe0f-9951-42ee-b8b6-252f9caa424f",
+              "name": "Element(s) removed from run group",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "run_groups",
+                    ":id",
+                    "elements",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "elements[][type]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "elements[][element_id]",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "elements[][name]",
+                      "value": "<string>,<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ok\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6561682e-19f9-4e53-a31a-7dbfb1597905",
+              "name": "Run group or element not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "run_groups",
+                    ":id",
+                    "elements",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "elements[][type]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "elements[][element_id]",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "elements[][name]",
+                      "value": "<string>,<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7d19e64c-0ace-4987-9372-f2e345772f5a",
+          "name": "Get a run group",
+          "request": {
+            "name": "Get a run group",
+            "description": {
+              "content": "Get a run group",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "run_groups",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7755b5c0-fc8d-4975-92fc-ff1a2f66744a",
+              "name": "Run group retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "run_groups",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4562,\n  \"created_at\": \"1962-07-12T11:42:59.233Z\",\n  \"title\": \"string\",\n  \"reroute_geo\": \"string\",\n  \"connection\": {\n    \"id\": \"string\",\n    \"created_at\": \"1989-01-28T08:29:58.936Z\",\n    \"name\": \"string\",\n    \"api_token\": \"string\",\n    \"state\": \"string\",\n    \"link_state\": \"string\",\n    \"type\": \"user\"\n  },\n  \"crowd\": \"automation_and_crowd\",\n  \"execution_method\": \"crowd\",\n  \"browsers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"schedule\": {\n    \"id\": 8898,\n    \"created_at\": \"1998-01-14T18:22:48.743Z\",\n    \"repeat_rules\": [\n      {\n        \"id\": 2198,\n        \"created_at\": \"1976-01-31T16:27:29.518Z\",\n        \"day\": \"monday\",\n        \"time\": \"string\"\n      },\n      {\n        \"id\": 9638,\n        \"created_at\": \"1955-01-09T21:08:45.409Z\",\n        \"day\": \"saturday\",\n        \"time\": \"string\"\n      }\n    ],\n    \"timezone\": \"string\"\n  },\n  \"environment\": {\n    \"name\": false,\n    \"default\": false,\n    \"webhook\": \"string\",\n    \"webhook_enabled\": true,\n    \"is_temporary\": false,\n    \"site_environments\": [\n      {\n        \"site_id\": 747,\n        \"environment_id\": 5929,\n        \"url\": \"string\",\n        \"id\": 4454,\n        \"created_at\": \"2020-10-25T11:10:19.339Z\"\n      },\n      {\n        \"site_id\": 363,\n        \"environment_id\": 3241,\n        \"url\": \"string\",\n        \"id\": 3119,\n        \"created_at\": \"1974-12-18T20:11:00.940Z\"\n      }\n    ],\n    \"id\": 4491,\n    \"created_at\": \"1957-06-06T12:26:02.523Z\",\n    \"deleted_at\": \"1962-04-13T18:25:00.177Z\",\n    \"will_delete_after\": \"1958-03-10T23:05:35.274Z\"\n  },\n  \"test_count\": 4030\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "759d4693-81da-40aa-ac56-cfac568e7aa6",
+              "name": "Run group not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "run_groups",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0fcfaaa4-f3f7-4861-89da-1fd852200263",
+          "name": "Update a run group",
+          "request": {
+            "name": "Update a run group",
+            "description": {
+              "content": "Update a run group",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "run_groups",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"reroute_geo\": \"<string>\",\n  \"environment_id\": \"<integer>\",\n  \"crowd\": \"<string>\",\n  \"execution_method\": \"<string>\",\n  \"browsers\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"schedule\": {\n    \"repeat_rules\": [\n      {\n        \"time\": \"<string>\",\n        \"day\": \"<string>\",\n        \"id\": \"<integer>\"\n      },\n      {\n        \"time\": \"<string>\",\n        \"day\": \"<string>\",\n        \"id\": \"<integer>\"\n      }\n    ],\n    \"timezone\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4fe2febe-7080-4813-ae07-975ecc1bd7a4",
+              "name": "Update a run group",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "run_groups",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"reroute_geo\": \"<string>\",\n  \"environment_id\": \"<integer>\",\n  \"crowd\": \"<string>\",\n  \"execution_method\": \"<string>\",\n  \"browsers\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"schedule\": {\n    \"repeat_rules\": [\n      {\n        \"time\": \"<string>\",\n        \"day\": \"<string>\",\n        \"id\": \"<integer>\"\n      },\n      {\n        \"time\": \"<string>\",\n        \"day\": \"<string>\",\n        \"id\": \"<integer>\"\n      }\n    ],\n    \"timezone\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4562,\n  \"created_at\": \"1962-07-12T11:42:59.233Z\",\n  \"title\": \"string\",\n  \"reroute_geo\": \"string\",\n  \"connection\": {\n    \"id\": \"string\",\n    \"created_at\": \"1989-01-28T08:29:58.936Z\",\n    \"name\": \"string\",\n    \"api_token\": \"string\",\n    \"state\": \"string\",\n    \"link_state\": \"string\",\n    \"type\": \"user\"\n  },\n  \"crowd\": \"automation_and_crowd\",\n  \"execution_method\": \"crowd\",\n  \"browsers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"schedule\": {\n    \"id\": 8898,\n    \"created_at\": \"1998-01-14T18:22:48.743Z\",\n    \"repeat_rules\": [\n      {\n        \"id\": 2198,\n        \"created_at\": \"1976-01-31T16:27:29.518Z\",\n        \"day\": \"monday\",\n        \"time\": \"string\"\n      },\n      {\n        \"id\": 9638,\n        \"created_at\": \"1955-01-09T21:08:45.409Z\",\n        \"day\": \"saturday\",\n        \"time\": \"string\"\n      }\n    ],\n    \"timezone\": \"string\"\n  },\n  \"environment\": {\n    \"name\": false,\n    \"default\": false,\n    \"webhook\": \"string\",\n    \"webhook_enabled\": true,\n    \"is_temporary\": false,\n    \"site_environments\": [\n      {\n        \"site_id\": 747,\n        \"environment_id\": 5929,\n        \"url\": \"string\",\n        \"id\": 4454,\n        \"created_at\": \"2020-10-25T11:10:19.339Z\"\n      },\n      {\n        \"site_id\": 363,\n        \"environment_id\": 3241,\n        \"url\": \"string\",\n        \"id\": 3119,\n        \"created_at\": \"1974-12-18T20:11:00.940Z\"\n      }\n    ],\n    \"id\": 4491,\n    \"created_at\": \"1957-06-06T12:26:02.523Z\",\n    \"deleted_at\": \"1962-04-13T18:25:00.177Z\",\n    \"will_delete_after\": \"1958-03-10T23:05:35.274Z\"\n  },\n  \"test_count\": 4030\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "13c086a2-2883-4689-bc68-0554603d2b7c",
+          "name": "Delete a run group",
+          "request": {
+            "name": "Delete a run group",
+            "description": {
+              "content": "Delete a run group",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "run_groups",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bd772288-86aa-4ef4-991a-cc9d511e45aa",
+              "name": "Run group deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "run_groups",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4562,\n  \"created_at\": \"1962-07-12T11:42:59.233Z\",\n  \"title\": \"string\",\n  \"reroute_geo\": \"string\",\n  \"connection\": {\n    \"id\": \"string\",\n    \"created_at\": \"1989-01-28T08:29:58.936Z\",\n    \"name\": \"string\",\n    \"api_token\": \"string\",\n    \"state\": \"string\",\n    \"link_state\": \"string\",\n    \"type\": \"user\"\n  },\n  \"crowd\": \"automation_and_crowd\",\n  \"execution_method\": \"crowd\",\n  \"browsers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"schedule\": {\n    \"id\": 8898,\n    \"created_at\": \"1998-01-14T18:22:48.743Z\",\n    \"repeat_rules\": [\n      {\n        \"id\": 2198,\n        \"created_at\": \"1976-01-31T16:27:29.518Z\",\n        \"day\": \"monday\",\n        \"time\": \"string\"\n      },\n      {\n        \"id\": 9638,\n        \"created_at\": \"1955-01-09T21:08:45.409Z\",\n        \"day\": \"saturday\",\n        \"time\": \"string\"\n      }\n    ],\n    \"timezone\": \"string\"\n  },\n  \"environment\": {\n    \"name\": false,\n    \"default\": false,\n    \"webhook\": \"string\",\n    \"webhook_enabled\": true,\n    \"is_temporary\": false,\n    \"site_environments\": [\n      {\n        \"site_id\": 747,\n        \"environment_id\": 5929,\n        \"url\": \"string\",\n        \"id\": 4454,\n        \"created_at\": \"2020-10-25T11:10:19.339Z\"\n      },\n      {\n        \"site_id\": 363,\n        \"environment_id\": 3241,\n        \"url\": \"string\",\n        \"id\": 3119,\n        \"created_at\": \"1974-12-18T20:11:00.940Z\"\n      }\n    ],\n    \"id\": 4491,\n    \"created_at\": \"1957-06-06T12:26:02.523Z\",\n    \"deleted_at\": \"1962-04-13T18:25:00.177Z\",\n    \"will_delete_after\": \"1958-03-10T23:05:35.274Z\"\n  },\n  \"test_count\": 4030\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "38b7a96d-2d68-485c-9a00-1757375a45da",
+              "name": "Run group not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "run_groups",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "65af4a6e-7483-414a-9dd2-a15decdc2310",
+          "name": "Get runs for a run group",
+          "request": {
+            "name": "Get runs for a run group",
+            "description": {
+              "content": "Get runs for a run group",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "run_groups",
+                ":id",
+                "runs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page of results to display"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "10",
+                  "description": "Number of results to return per page; maximum: 100"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "889e9820-2d43-4de8-a5df-80ef59feb381",
+              "name": "Run group runs retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "run_groups",
+                    ":id",
+                    "runs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Total pages",
+                  "key": "X-Total-Pages",
+                  "value": "7334"
+                },
+                {
+                  "disabled": false,
+                  "description": "Current page",
+                  "key": "X-Current-Page",
+                  "value": "7334"
+                },
+                {
+                  "disabled": false,
+                  "description": "The maximum number of results per page",
+                  "key": "X-Per-Page",
+                  "value": "7334"
+                },
+                {
+                  "disabled": false,
+                  "description": "The total number of results",
+                  "key": "X-Total-Results",
+                  "value": "7334"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 3204,\n    \"created_at\": \"1979-01-02T16:21:34.022Z\",\n    \"crowd\": \"default\",\n    \"execution_method\": \"on_premise\",\n    \"environment\": {\n      \"name\": true,\n      \"default\": true,\n      \"webhook\": \"string\",\n      \"webhook_enabled\": true,\n      \"is_temporary\": true,\n      \"site_environments\": [\n        {\n          \"site_id\": 2438,\n          \"environment_id\": 2270,\n          \"url\": \"string\",\n          \"id\": 4513,\n          \"created_at\": \"2004-07-09T13:13:56.286Z\"\n        },\n        {\n          \"site_id\": 8123,\n          \"environment_id\": 9768,\n          \"url\": \"string\",\n          \"id\": 4868,\n          \"created_at\": \"1949-12-04T09:41:20.074Z\"\n        }\n      ],\n      \"id\": 1176,\n      \"created_at\": \"2007-06-22T11:31:18.648Z\",\n      \"deleted_at\": \"1982-08-10T07:07:53.820Z\",\n      \"will_delete_after\": \"2024-03-06T10:38:42.488Z\"\n    },\n    \"environment_id\": 3973,\n    \"state\": \"downloading_app\",\n    \"mode\": \"standard\",\n    \"description\": \"string\",\n    \"state_details\": {},\n    \"has_webhook\": true,\n    \"result\": \"passed\",\n    \"current_progress\": {\n      \"percent\": 5022,\n      \"total\": 5490,\n      \"complete\": 6798,\n      \"passed\": 1108,\n      \"failed\": 9298,\n      \"no_result\": 8809,\n      \"eta\": {}\n    },\n    \"timestamps\": {},\n    \"release\": \"string\",\n    \"browsers\": [\n      {\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"category\": \"phone\",\n        \"state\": \"disabled\"\n      },\n      {\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"category\": \"tablet\",\n        \"state\": \"enabled\"\n      }\n    ],\n    \"user\": {\n      \"id\": 595,\n      \"created_at\": \"2005-11-01T15:21:12.721Z\",\n      \"client_analytics_id\": 875,\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"api_token\": \"string\",\n      \"client_permissions\": \"string\",\n      \"state\": \"string\",\n      \"role\": \"string\",\n      \"settings\": \"string\",\n      \"profiles\": {\n        \"id\": 1992,\n        \"created_at\": \"1952-02-24T23:10:37.241Z\",\n        \"provider\": \"string\"\n      },\n      \"intercom_user_hash\": \"string\",\n      \"show_nps\": \"string\",\n      \"onboarding_progress\": \"string\"\n    },\n    \"user_id\": 530,\n    \"requested_tests\": [\n      9876,\n      7951\n    ],\n    \"error_reason\": \"string\",\n    \"app_logs\": [\n      \"string\",\n      \"string\"\n    ],\n    \"filters\": {},\n    \"source\": \"rainforest-cli\",\n    \"frontend_url\": \"string\",\n    \"total_tests\": 4523,\n    \"total_passed_tests\": 4228,\n    \"total_failed_tests\": 9979,\n    \"total_no_result_tests\": 3013,\n    \"total_rescued_tests\": \"string\",\n    \"total_self_healed_tests\": \"string\",\n    \"total_failures_categorized\": 4869,\n    \"total_failures_resolved\": 6327,\n    \"time_taken\": 143.60796967082922,\n    \"reroute_geo\": \"string\",\n    \"connection\": {\n      \"id\": \"string\",\n      \"created_at\": \"2010-02-15T13:04:07.688Z\",\n      \"name\": \"string\",\n      \"api_token\": \"string\",\n      \"state\": \"string\",\n      \"link_state\": \"string\",\n      \"type\": \"rainforest\"\n    },\n    \"tests\": [\n      {\n        \"id\": \"string\",\n        \"created_at\": \"1959-04-23T04:05:15.808Z\",\n        \"test_id\": \"string\",\n        \"title\": \"string\",\n        \"run_id\": \"string\",\n        \"result\": \"string\",\n        \"wisp\": \"string\",\n        \"history\": \"string\",\n        \"priority\": \"string\",\n        \"real_cost_to_run\": \"string\",\n        \"owner_id\": \"string\",\n        \"state\": \"string\",\n        \"updated_at\": \"string\",\n        \"unresolved_failures_count\": 8913,\n        \"viewed\": \"string\",\n        \"has_comments\": \"string\",\n        \"last_viewed_by\": {\n          \"id\": \"string\",\n          \"created_at\": \"2005-09-25T05:39:37.006Z\",\n          \"name\": \"string\",\n          \"email\": \"string\",\n          \"state\": \"string\",\n          \"role\": \"string\"\n        },\n        \"last_viewed_at\": \"string\",\n        \"last_review\": {\n          \"id\": 8317,\n          \"created_at\": \"2026-03-17T21:25:19.583Z\",\n          \"status\": \"string\",\n          \"reason\": \"string\",\n          \"reason_updated_at\": \"string\",\n          \"run_id\": \"string\",\n          \"run\": \"string\",\n          \"test_id\": \"string\",\n          \"resolved\": \"string\",\n          \"transitioned_by\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"state\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"role\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"notified_user\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"state\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"role\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"reviewer\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"state\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"role\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"test\": {\n            \"crowd\": \"string\",\n            \"execution_method\": \"string\",\n            \"last_run\": \"string\",\n            \"test_lite\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"transitioned_at\": \"string\",\n          \"updated_at\": \"string\"\n        },\n        \"total_retries\": 2853,\n        \"crowd\": \"string\",\n        \"execution_method\": \"crowd\",\n        \"started_at\": \"string\",\n        \"completed_at\": \"string\",\n        \"comment_count\": \"string\",\n        \"fallback_used\": \"string\",\n        \"self_healed\": \"string\",\n        \"failed_steps\": \"string\",\n        \"total_steps\": \"string\",\n        \"test_deleted\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"created_at\": \"2003-05-06T22:26:15.294Z\",\n        \"test_id\": \"string\",\n        \"title\": \"string\",\n        \"run_id\": \"string\",\n        \"result\": \"string\",\n        \"wisp\": \"string\",\n        \"history\": \"string\",\n        \"priority\": \"string\",\n        \"real_cost_to_run\": \"string\",\n        \"owner_id\": \"string\",\n        \"state\": \"string\",\n        \"updated_at\": \"string\",\n        \"unresolved_failures_count\": 9178,\n        \"viewed\": \"string\",\n        \"has_comments\": \"string\",\n        \"last_viewed_by\": {\n          \"id\": \"string\",\n          \"created_at\": \"2012-05-31T14:01:09.290Z\",\n          \"name\": \"string\",\n          \"email\": \"string\",\n          \"state\": \"string\",\n          \"role\": \"string\"\n        },\n        \"last_viewed_at\": \"string\",\n        \"last_review\": {\n          \"id\": 2017,\n          \"created_at\": \"1962-10-22T23:37:24.969Z\",\n          \"status\": \"string\",\n          \"reason\": \"string\",\n          \"reason_updated_at\": \"string\",\n          \"run_id\": \"string\",\n          \"run\": \"string\",\n          \"test_id\": \"string\",\n          \"resolved\": \"string\",\n          \"transitioned_by\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"state\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"role\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"notified_user\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"state\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"role\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"reviewer\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"state\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"role\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"test\": {\n            \"crowd\": \"string\",\n            \"execution_method\": \"string\",\n            \"last_run\": \"string\",\n            \"test_lite\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"transitioned_at\": \"string\",\n          \"updated_at\": \"string\"\n        },\n        \"total_retries\": 4572,\n        \"crowd\": \"string\",\n        \"execution_method\": \"automation_and_crowd\",\n        \"started_at\": \"string\",\n        \"completed_at\": \"string\",\n        \"comment_count\": \"string\",\n        \"fallback_used\": \"string\",\n        \"self_healed\": \"string\",\n        \"failed_steps\": \"string\",\n        \"total_steps\": \"string\",\n        \"test_deleted\": \"string\"\n      }\n    ],\n    \"stats\": {\n      \"total_time_for_one_person\": \"string\",\n      \"total_time_for_rainforest\": \"string\",\n      \"total_rainforest_overhead\": \"string\",\n      \"speed_up\": \"string\"\n    },\n    \"step_cost\": 9460,\n    \"credit_cost\": 7824,\n    \"branch\": {\n      \"id\": 6252,\n      \"created_at\": \"1981-08-31T13:11:49.808Z\",\n      \"name\": \"string\",\n      \"user\": {\n        \"id\": \"string\",\n        \"created_at\": \"1971-09-01T17:30:36.600Z\",\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"state\": \"string\",\n        \"role\": \"string\"\n      }\n    }\n  },\n  {\n    \"id\": 2377,\n    \"created_at\": \"1960-11-06T13:32:31.268Z\",\n    \"crowd\": \"automation_and_crowd\",\n    \"execution_method\": \"automation_and_crowd\",\n    \"environment\": {\n      \"name\": true,\n      \"default\": false,\n      \"webhook\": \"string\",\n      \"webhook_enabled\": false,\n      \"is_temporary\": false,\n      \"site_environments\": [\n        {\n          \"site_id\": 3035,\n          \"environment_id\": 9914,\n          \"url\": \"string\",\n          \"id\": 2201,\n          \"created_at\": \"1996-12-02T20:53:16.329Z\"\n        },\n        {\n          \"site_id\": 3546,\n          \"environment_id\": 455,\n          \"url\": \"string\",\n          \"id\": 1067,\n          \"created_at\": \"2016-03-26T13:14:54.486Z\"\n        }\n      ],\n      \"id\": 7565,\n      \"created_at\": \"2013-03-17T02:58:48.270Z\",\n      \"deleted_at\": \"1950-03-04T05:04:02.961Z\",\n      \"will_delete_after\": \"2008-05-27T15:46:30.631Z\"\n    },\n    \"environment_id\": 5502,\n    \"state\": \"waiting_for_test_initialization\",\n    \"mode\": \"standard\",\n    \"description\": \"string\",\n    \"state_details\": {},\n    \"has_webhook\": true,\n    \"result\": \"no_result\",\n    \"current_progress\": {\n      \"percent\": 1074,\n      \"total\": 6216,\n      \"complete\": 1167,\n      \"passed\": 7324,\n      \"failed\": 3034,\n      \"no_result\": 3547,\n      \"eta\": {}\n    },\n    \"timestamps\": {},\n    \"release\": \"string\",\n    \"browsers\": [\n      {\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"category\": \"software\",\n        \"state\": \"enabled\"\n      },\n      {\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"category\": \"browser\",\n        \"state\": \"enabled\"\n      }\n    ],\n    \"user\": {\n      \"id\": 1254,\n      \"created_at\": \"1997-09-23T18:41:08.699Z\",\n      \"client_analytics_id\": 1821,\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"api_token\": \"string\",\n      \"client_permissions\": \"string\",\n      \"state\": \"string\",\n      \"role\": \"string\",\n      \"settings\": \"string\",\n      \"profiles\": {\n        \"id\": 5430,\n        \"created_at\": \"1964-09-28T11:53:07.414Z\",\n        \"provider\": \"string\"\n      },\n      \"intercom_user_hash\": \"string\",\n      \"show_nps\": \"string\",\n      \"onboarding_progress\": \"string\"\n    },\n    \"user_id\": 5447,\n    \"requested_tests\": [\n      3135,\n      7825\n    ],\n    \"error_reason\": \"string\",\n    \"app_logs\": [\n      \"string\",\n      \"string\"\n    ],\n    \"filters\": {},\n    \"source\": \"rainforest-orb\",\n    \"frontend_url\": \"string\",\n    \"total_tests\": 7004,\n    \"total_passed_tests\": 7651,\n    \"total_failed_tests\": 4066,\n    \"total_no_result_tests\": 6134,\n    \"total_rescued_tests\": \"string\",\n    \"total_self_healed_tests\": \"string\",\n    \"total_failures_categorized\": 7197,\n    \"total_failures_resolved\": 8685,\n    \"time_taken\": 9658.851156698876,\n    \"reroute_geo\": \"string\",\n    \"connection\": {\n      \"id\": \"string\",\n      \"created_at\": \"1958-12-25T09:03:19.584Z\",\n      \"name\": \"string\",\n      \"api_token\": \"string\",\n      \"state\": \"string\",\n      \"link_state\": \"string\",\n      \"type\": \"user\"\n    },\n    \"tests\": [\n      {\n        \"id\": \"string\",\n        \"created_at\": \"1995-12-03T11:46:00.388Z\",\n        \"test_id\": \"string\",\n        \"title\": \"string\",\n        \"run_id\": \"string\",\n        \"result\": \"string\",\n        \"wisp\": \"string\",\n        \"history\": \"string\",\n        \"priority\": \"string\",\n        \"real_cost_to_run\": \"string\",\n        \"owner_id\": \"string\",\n        \"state\": \"string\",\n        \"updated_at\": \"string\",\n        \"unresolved_failures_count\": 9074,\n        \"viewed\": \"string\",\n        \"has_comments\": \"string\",\n        \"last_viewed_by\": {\n          \"id\": \"string\",\n          \"created_at\": \"1971-01-10T06:10:13.852Z\",\n          \"name\": \"string\",\n          \"email\": \"string\",\n          \"state\": \"string\",\n          \"role\": \"string\"\n        },\n        \"last_viewed_at\": \"string\",\n        \"last_review\": {\n          \"id\": 8906,\n          \"created_at\": \"1978-05-16T17:09:35.007Z\",\n          \"status\": \"string\",\n          \"reason\": \"string\",\n          \"reason_updated_at\": \"string\",\n          \"run_id\": \"string\",\n          \"run\": \"string\",\n          \"test_id\": \"string\",\n          \"resolved\": \"string\",\n          \"transitioned_by\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"state\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"role\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"notified_user\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"state\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"role\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"reviewer\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"state\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"role\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"test\": {\n            \"crowd\": \"string\",\n            \"execution_method\": \"string\",\n            \"last_run\": \"string\",\n            \"test_lite\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"transitioned_at\": \"string\",\n          \"updated_at\": \"string\"\n        },\n        \"total_retries\": 7162,\n        \"crowd\": \"string\",\n        \"execution_method\": \"crowd\",\n        \"started_at\": \"string\",\n        \"completed_at\": \"string\",\n        \"comment_count\": \"string\",\n        \"fallback_used\": \"string\",\n        \"self_healed\": \"string\",\n        \"failed_steps\": \"string\",\n        \"total_steps\": \"string\",\n        \"test_deleted\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"created_at\": \"2026-01-21T08:11:33.053Z\",\n        \"test_id\": \"string\",\n        \"title\": \"string\",\n        \"run_id\": \"string\",\n        \"result\": \"string\",\n        \"wisp\": \"string\",\n        \"history\": \"string\",\n        \"priority\": \"string\",\n        \"real_cost_to_run\": \"string\",\n        \"owner_id\": \"string\",\n        \"state\": \"string\",\n        \"updated_at\": \"string\",\n        \"unresolved_failures_count\": 6992,\n        \"viewed\": \"string\",\n        \"has_comments\": \"string\",\n        \"last_viewed_by\": {\n          \"id\": \"string\",\n          \"created_at\": \"1947-06-06T12:27:45.090Z\",\n          \"name\": \"string\",\n          \"email\": \"string\",\n          \"state\": \"string\",\n          \"role\": \"string\"\n        },\n        \"last_viewed_at\": \"string\",\n        \"last_review\": {\n          \"id\": 7756,\n          \"created_at\": \"1977-03-25T10:15:58.461Z\",\n          \"status\": \"string\",\n          \"reason\": \"string\",\n          \"reason_updated_at\": \"string\",\n          \"run_id\": \"string\",\n          \"run\": \"string\",\n          \"test_id\": \"string\",\n          \"resolved\": \"string\",\n          \"transitioned_by\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"state\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"role\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"notified_user\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"state\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"role\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"reviewer\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"created_at\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"state\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"role\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"test\": {\n            \"crowd\": \"string\",\n            \"execution_method\": \"string\",\n            \"last_run\": \"string\",\n            \"test_lite\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"transitioned_at\": \"string\",\n          \"updated_at\": \"string\"\n        },\n        \"total_retries\": 4150,\n        \"crowd\": \"string\",\n        \"execution_method\": \"automation_and_crowd\",\n        \"started_at\": \"string\",\n        \"completed_at\": \"string\",\n        \"comment_count\": \"string\",\n        \"fallback_used\": \"string\",\n        \"self_healed\": \"string\",\n        \"failed_steps\": \"string\",\n        \"total_steps\": \"string\",\n        \"test_deleted\": \"string\"\n      }\n    ],\n    \"stats\": {\n      \"total_time_for_one_person\": \"string\",\n      \"total_time_for_rainforest\": \"string\",\n      \"total_rainforest_overhead\": \"string\",\n      \"speed_up\": \"string\"\n    },\n    \"step_cost\": 7017,\n    \"credit_cost\": 6907,\n    \"branch\": {\n      \"id\": 4260,\n      \"created_at\": \"1956-02-28T14:07:33.403Z\",\n      \"name\": \"string\",\n      \"user\": {\n        \"id\": \"string\",\n        \"created_at\": \"1969-05-14T14:01:14.435Z\",\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"state\": \"string\",\n        \"role\": \"string\"\n      }\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d167a4fa-eab3-47f0-909f-256e1434fe38",
+              "name": "Run group not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "run_groups",
+                    ":id",
+                    "runs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ff0e37c4-234e-46ce-a0b2-733585c42734",
+          "name": "Create a new run group run",
+          "request": {
+            "name": "Create a new run group run",
+            "description": {
+              "content": "Create a new run group run",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "run_groups",
+                ":id",
+                "runs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"browsers\": [\n    {\n      \"\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"execution_method\": \"<string>\",\n  \"crowd\": \"<string>\",\n  \"description\": \"<string>\",\n  \"environment_id\": \"<integer>\",\n  \"release\": \"<string>\",\n  \"connection_id\": \"<string>\",\n  \"reroute_geo\": \"<string>\",\n  \"conflict\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "df6d9f17-9e30-4f92-aa78-11e93884ec34",
+              "name": "Run created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "run_groups",
+                    ":id",
+                    "runs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"browsers\": [\n    {\n      \"\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"execution_method\": \"<string>\",\n  \"crowd\": \"<string>\",\n  \"description\": \"<string>\",\n  \"environment_id\": \"<integer>\",\n  \"release\": \"<string>\",\n  \"connection_id\": \"<string>\",\n  \"reroute_geo\": \"<string>\",\n  \"conflict\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 9884,\n  \"created_at\": \"1986-01-01T15:36:20.356Z\",\n  \"crowd\": \"automation\",\n  \"execution_method\": \"automation\",\n  \"environment\": {\n    \"name\": false,\n    \"default\": true,\n    \"webhook\": \"string\",\n    \"webhook_enabled\": true,\n    \"is_temporary\": false,\n    \"site_environments\": [\n      {\n        \"site_id\": 1819,\n        \"environment_id\": 5643,\n        \"url\": \"string\",\n        \"id\": 8379,\n        \"created_at\": \"1973-02-07T06:30:30.635Z\"\n      },\n      {\n        \"site_id\": 9120,\n        \"environment_id\": 1844,\n        \"url\": \"string\",\n        \"id\": 7473,\n        \"created_at\": \"1968-08-25T19:15:52.590Z\"\n      }\n    ],\n    \"id\": 6148,\n    \"created_at\": \"2005-07-07T21:27:46.118Z\",\n    \"deleted_at\": \"2025-04-13T23:27:46.205Z\",\n    \"will_delete_after\": \"1961-11-08T12:11:08.549Z\"\n  },\n  \"environment_id\": 3047,\n  \"state\": \"aborting\",\n  \"mode\": \"standard\",\n  \"description\": \"string\",\n  \"state_details\": {},\n  \"has_webhook\": true,\n  \"result\": \"no_result\",\n  \"current_progress\": {\n    \"percent\": 2518,\n    \"total\": 19,\n    \"complete\": 526,\n    \"passed\": 8553,\n    \"failed\": 2983,\n    \"no_result\": 4277,\n    \"eta\": {}\n  },\n  \"timestamps\": {},\n  \"release\": \"string\",\n  \"browsers\": [\n    {\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"category\": \"tablet\",\n      \"state\": \"enabled\"\n    },\n    {\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"category\": \"browser\",\n      \"state\": \"disabled\"\n    }\n  ],\n  \"user\": {\n    \"id\": 1031,\n    \"created_at\": \"1990-09-23T06:34:18.234Z\",\n    \"client_analytics_id\": 3905,\n    \"name\": \"string\",\n    \"email\": \"string\",\n    \"api_token\": \"string\",\n    \"client_permissions\": \"string\",\n    \"state\": \"string\",\n    \"role\": \"string\",\n    \"settings\": \"string\",\n    \"profiles\": {\n      \"id\": 1966,\n      \"created_at\": \"1963-09-05T02:49:42.041Z\",\n      \"provider\": \"string\"\n    },\n    \"intercom_user_hash\": \"string\",\n    \"show_nps\": \"string\",\n    \"onboarding_progress\": \"string\"\n  },\n  \"user_id\": 3864,\n  \"requested_tests\": [\n    8093,\n    2048\n  ],\n  \"error_reason\": \"string\",\n  \"app_logs\": [\n    \"string\",\n    \"string\"\n  ],\n  \"filters\": {},\n  \"source\": \"api\",\n  \"frontend_url\": \"string\",\n  \"total_tests\": 7209,\n  \"total_passed_tests\": 4070,\n  \"total_failed_tests\": 9881,\n  \"total_no_result_tests\": 2363,\n  \"total_rescued_tests\": \"string\",\n  \"total_self_healed_tests\": \"string\",\n  \"total_failures_categorized\": 3429,\n  \"total_failures_resolved\": 1980,\n  \"time_taken\": 6828.986569505938,\n  \"reroute_geo\": \"string\",\n  \"connection\": {\n    \"id\": \"string\",\n    \"created_at\": \"2018-01-16T13:49:00.874Z\",\n    \"name\": \"string\",\n    \"api_token\": \"string\",\n    \"state\": \"string\",\n    \"link_state\": \"string\",\n    \"type\": \"rainforest\"\n  },\n  \"tests\": [\n    {\n      \"id\": \"string\",\n      \"created_at\": \"2013-03-18T05:23:35.729Z\",\n      \"test_id\": \"string\",\n      \"title\": \"string\",\n      \"run_id\": \"string\",\n      \"result\": \"string\",\n      \"wisp\": \"string\",\n      \"history\": \"string\",\n      \"priority\": \"string\",\n      \"real_cost_to_run\": \"string\",\n      \"owner_id\": \"string\",\n      \"state\": \"string\",\n      \"updated_at\": \"string\",\n      \"unresolved_failures_count\": 4724,\n      \"viewed\": \"string\",\n      \"has_comments\": \"string\",\n      \"last_viewed_by\": {\n        \"id\": \"string\",\n        \"created_at\": \"1988-10-30T22:00:58.108Z\",\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"state\": \"string\",\n        \"role\": \"string\"\n      },\n      \"last_viewed_at\": \"string\",\n      \"last_review\": {\n        \"id\": 6,\n        \"created_at\": \"1994-12-15T07:01:50.923Z\",\n        \"status\": \"string\",\n        \"reason\": \"string\",\n        \"reason_updated_at\": \"string\",\n        \"run_id\": \"string\",\n        \"run\": \"string\",\n        \"test_id\": \"string\",\n        \"resolved\": \"string\",\n        \"transitioned_by\": {\n          \"id\": \"string\",\n          \"created_at\": \"2020-01-19T19:12:56.739Z\",\n          \"name\": \"string\",\n          \"email\": \"string\",\n          \"state\": \"string\",\n          \"role\": \"string\"\n        },\n        \"notified_user\": {\n          \"id\": \"string\",\n          \"created_at\": \"1980-09-11T13:05:58.813Z\",\n          \"name\": \"string\",\n          \"email\": \"string\",\n          \"state\": \"string\",\n          \"role\": \"string\"\n        },\n        \"reviewer\": {\n          \"id\": \"string\",\n          \"created_at\": \"1970-02-01T04:28:04.350Z\",\n          \"name\": \"string\",\n          \"email\": \"string\",\n          \"state\": \"string\",\n          \"role\": \"string\"\n        },\n        \"test\": {\n          \"crowd\": \"string\",\n          \"execution_method\": \"string\",\n          \"last_run\": \"string\",\n          \"test_lite\": {\n            \"id\": \"string\",\n            \"created_at\": \"string\",\n            \"test_id\": \"string\",\n            \"title\": \"string\",\n            \"result\": \"string\",\n            \"wisp\": \"string\",\n            \"prompt\": \"string\",\n            \"prompt_credentials\": \"string\",\n            \"ai_mode\": \"string\",\n            \"priority\": \"string\",\n            \"real_cost_to_run\": \"string\",\n            \"owner_id\": \"string\",\n            \"state\": \"string\",\n            \"updated_at\": \"string\",\n            \"deleted\": \"string\",\n            \"feature_id\": \"string\"\n          }\n        },\n        \"transitioned_at\": \"string\",\n        \"updated_at\": \"string\"\n      },\n      \"total_retries\": 2460,\n      \"crowd\": \"string\",\n      \"execution_method\": \"on_premise\",\n      \"started_at\": \"string\",\n      \"completed_at\": \"string\",\n      \"comment_count\": \"string\",\n      \"fallback_used\": \"string\",\n      \"self_healed\": \"string\",\n      \"failed_steps\": \"string\",\n      \"total_steps\": \"string\",\n      \"test_deleted\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"created_at\": \"1977-01-13T03:11:11.689Z\",\n      \"test_id\": \"string\",\n      \"title\": \"string\",\n      \"run_id\": \"string\",\n      \"result\": \"string\",\n      \"wisp\": \"string\",\n      \"history\": \"string\",\n      \"priority\": \"string\",\n      \"real_cost_to_run\": \"string\",\n      \"owner_id\": \"string\",\n      \"state\": \"string\",\n      \"updated_at\": \"string\",\n      \"unresolved_failures_count\": 7124,\n      \"viewed\": \"string\",\n      \"has_comments\": \"string\",\n      \"last_viewed_by\": {\n        \"id\": \"string\",\n        \"created_at\": \"2021-08-21T14:47:21.860Z\",\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"state\": \"string\",\n        \"role\": \"string\"\n      },\n      \"last_viewed_at\": \"string\",\n      \"last_review\": {\n        \"id\": 8853,\n        \"created_at\": \"2006-06-30T04:14:24.229Z\",\n        \"status\": \"string\",\n        \"reason\": \"string\",\n        \"reason_updated_at\": \"string\",\n        \"run_id\": \"string\",\n        \"run\": \"string\",\n        \"test_id\": \"string\",\n        \"resolved\": \"string\",\n        \"transitioned_by\": {\n          \"id\": \"string\",\n          \"created_at\": \"2020-12-08T13:27:58.155Z\",\n          \"name\": \"string\",\n          \"email\": \"string\",\n          \"state\": \"string\",\n          \"role\": \"string\"\n        },\n        \"notified_user\": {\n          \"id\": \"string\",\n          \"created_at\": \"1987-08-18T09:15:04.681Z\",\n          \"name\": \"string\",\n          \"email\": \"string\",\n          \"state\": \"string\",\n          \"role\": \"string\"\n        },\n        \"reviewer\": {\n          \"id\": \"string\",\n          \"created_at\": \"1951-05-14T20:44:53.338Z\",\n          \"name\": \"string\",\n          \"email\": \"string\",\n          \"state\": \"string\",\n          \"role\": \"string\"\n        },\n        \"test\": {\n          \"crowd\": \"string\",\n          \"execution_method\": \"string\",\n          \"last_run\": \"string\",\n          \"test_lite\": {\n            \"id\": \"string\",\n            \"created_at\": \"string\",\n            \"test_id\": \"string\",\n            \"title\": \"string\",\n            \"result\": \"string\",\n            \"wisp\": \"string\",\n            \"prompt\": \"string\",\n            \"prompt_credentials\": \"string\",\n            \"ai_mode\": \"string\",\n            \"priority\": \"string\",\n            \"real_cost_to_run\": \"string\",\n            \"owner_id\": \"string\",\n            \"state\": \"string\",\n            \"updated_at\": \"string\",\n            \"deleted\": \"string\",\n            \"feature_id\": \"string\"\n          }\n        },\n        \"transitioned_at\": \"string\",\n        \"updated_at\": \"string\"\n      },\n      \"total_retries\": 533,\n      \"crowd\": \"string\",\n      \"execution_method\": \"on_premise\",\n      \"started_at\": \"string\",\n      \"completed_at\": \"string\",\n      \"comment_count\": \"string\",\n      \"fallback_used\": \"string\",\n      \"self_healed\": \"string\",\n      \"failed_steps\": \"string\",\n      \"total_steps\": \"string\",\n      \"test_deleted\": \"string\"\n    }\n  ],\n  \"stats\": {\n    \"total_time_for_one_person\": \"string\",\n    \"total_time_for_rainforest\": \"string\",\n    \"total_rainforest_overhead\": \"string\",\n    \"speed_up\": \"string\"\n  },\n  \"step_cost\": 5218,\n  \"credit_cost\": 9717,\n  \"branch\": {\n    \"id\": 3810,\n    \"created_at\": \"1989-05-16T14:23:40.740Z\",\n    \"name\": \"string\",\n    \"user\": {\n      \"id\": \"string\",\n      \"created_at\": \"1976-06-15T02:37:47.092Z\",\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"state\": \"string\",\n      \"role\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "470680da-b71d-4c9a-a9af-2a1bf2df89bd",
+              "name": "Run group could not created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "run_groups",
+                    ":id",
+                    "runs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"browsers\": [\n    {\n      \"\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"execution_method\": \"<string>\",\n  \"crowd\": \"<string>\",\n  \"description\": \"<string>\",\n  \"environment_id\": \"<integer>\",\n  \"release\": \"<string>\",\n  \"connection_id\": \"<string>\",\n  \"reroute_geo\": \"<string>\",\n  \"conflict\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d21b5605-1bbd-4ba6-8562-5770e1f053d8",
+          "name": "Get run group elements",
+          "request": {
+            "name": "Get run group elements",
+            "description": {
+              "content": "Get run group elements",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "run_groups",
+                ":id",
+                "elements"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sort[][title]",
+                  "value": "<string>,<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort[][created_at]",
+                  "value": "<string>,<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort[][updated_at]",
+                  "value": "<string>,<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort[][priority]",
+                  "value": "<string>,<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page of results to display"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "10",
+                  "description": "Number of results to return per page; maximum: 100"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1a6f19fb-d11d-4b8c-9d3b-fc02f0ed6b88",
+              "name": "Run group elements retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "run_groups",
+                    ":id",
+                    "elements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sort[][title]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "sort[][created_at]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "sort[][updated_at]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "sort[][priority]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Total pages",
+                  "key": "X-Total-Pages",
+                  "value": "7334"
+                },
+                {
+                  "disabled": false,
+                  "description": "Current page",
+                  "key": "X-Current-Page",
+                  "value": "7334"
+                },
+                {
+                  "disabled": false,
+                  "description": "The maximum number of results per page",
+                  "key": "X-Per-Page",
+                  "value": "7334"
+                },
+                {
+                  "disabled": false,
+                  "description": "The total number of results",
+                  "key": "X-Total-Results",
+                  "value": "7334"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 8707,\n    \"created_at\": \"1979-10-14T13:24:36.747Z\",\n    \"run_group_id\": 6871,\n    \"run_group_title\": \"string\",\n    \"type\": \"feature\",\n    \"element\": {}\n  },\n  {\n    \"id\": 8872,\n    \"created_at\": \"1981-03-18T16:16:06.483Z\",\n    \"run_group_id\": 2222,\n    \"run_group_title\": \"string\",\n    \"type\": \"test\",\n    \"element\": {}\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dbbe9eda-705f-4f64-92d9-a93466099db0",
+              "name": "Run group not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "run_groups",
+                    ":id",
+                    "elements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sort[][title]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "sort[][created_at]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "sort[][updated_at]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "sort[][priority]",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d596e3d-72c9-429c-a17c-adb8c2124ebf",
+          "name": "Add an element to a run group",
+          "request": {
+            "name": "Add an element to a run group",
+            "description": {
+              "content": "Add an element to a run group",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "run_groups",
+                ":id",
+                "elements"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"element_id\": \"<integer>\",\n  \"name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "698e859e-abfc-4b63-902a-21690e5f5d31",
+              "name": "Element added to run group",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "run_groups",
+                    ":id",
+                    "elements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"element_id\": \"<integer>\",\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 2787,\n  \"created_at\": \"1963-10-20T13:05:32.759Z\",\n  \"run_group_id\": 21,\n  \"run_group_title\": \"string\",\n  \"type\": \"feature\",\n  \"element\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "22c77644-62fa-4341-aa42-ce561cb1764b",
+              "name": "Element could not be added to run group",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "run_groups",
+                    ":id",
+                    "elements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"element_id\": \"<integer>\",\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b912df95-00db-48c6-ac49-fb727b32916e",
+              "name": "Run group or element not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "run_groups",
+                    ":id",
+                    "elements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"element_id\": \"<integer>\",\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7f793441-327f-44a9-bd0c-5bbb67f0e79e",
+          "name": "Get an element from a run group",
+          "request": {
+            "name": "Get an element from a run group",
+            "description": {
+              "content": "Get an element from a run group",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "run_groups",
+                ":id",
+                "elements",
+                ":element_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "element_id",
+                  "description": "(Required) The element ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9dea32e0-70c3-4d08-a116-52ef1ed73d11",
+              "name": "Run group element retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "run_groups",
+                    ":id",
+                    "elements",
+                    ":element_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "element_id",
+                      "description": "(Required) The element ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 2787,\n  \"created_at\": \"1963-10-20T13:05:32.759Z\",\n  \"run_group_id\": 21,\n  \"run_group_title\": \"string\",\n  \"type\": \"feature\",\n  \"element\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8ad4039c-ead0-4fc1-ae93-8c3b6d7fc876",
+              "name": "Run group or element not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "run_groups",
+                    ":id",
+                    "elements",
+                    ":element_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "element_id",
+                      "description": "(Required) The element ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7e1f9139-67b1-48fe-9bdf-b79ff079f033",
+          "name": "Remove an element from a run group",
+          "request": {
+            "name": "Remove an element from a run group",
+            "description": {
+              "content": "Remove an element from a run group",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "run_groups",
+                ":id",
+                "elements",
+                ":element_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "element_id",
+                  "description": "(Required) The element ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "639e49f4-2dc0-4b68-ab8b-d8ec81916362",
+              "name": "Element removed from run group",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "run_groups",
+                    ":id",
+                    "elements",
+                    ":element_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "element_id",
+                      "description": "(Required) The element ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 2787,\n  \"created_at\": \"1963-10-20T13:05:32.759Z\",\n  \"run_group_id\": 21,\n  \"run_group_title\": \"string\",\n  \"type\": \"feature\",\n  \"element\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "71404c3a-59fe-41fe-af6c-f995de724212",
+              "name": "Run group or element not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "run_groups",
+                    ":id",
+                    "elements",
+                    ":element_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "element_id",
+                      "description": "(Required) The element ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.rainforestqa.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "CLIENT_TOKEN"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "13aeb934-60b6-491d-82a3-98fac25f8475",
+    "name": "Rainforest callback run_groups API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rainforest callback clients API",
+    "version": "1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "CLIENT_TOKEN",
+      "value": "{{CLIENT_TOKEN}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "clients",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch your account details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.rainforestqa.com/api/1/clients"
+          },
+          "docs": "Fetch your account details"
+        },
+        {
+          "info": {
+            "name": "Update account information",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.rainforestqa.com/api/1/clients",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update account information"
+        },
+        {
+          "info": {
+            "name": "Fetch usage stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.rainforestqa.com/api/1/clients/stats"
+          },
+          "docs": "Fetch usage stats"
+        },
+        {
+          "info": {
+            "name": "Select different client",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.rainforestqa.com/api/1/clients/select",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Select different client"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

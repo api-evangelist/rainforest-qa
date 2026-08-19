@@ -1,0 +1,1048 @@
+{
+  "item": [
+    {
+      "id": "0a438619-9192-4f77-8412-75dcb551392a",
+      "name": "users",
+      "description": {
+        "content": "Operations about users",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e957977a-ddc6-4360-ae4a-dfbc7d591617",
+          "name": "List users",
+          "request": {
+            "name": "List users",
+            "description": {
+              "content": "List users",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Filter by name (case-insensitive)"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page of results to display"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "10",
+                  "description": "Number of results to return per page; maximum: 100"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f5934409-6efc-4038-a318-678bf205dfb2",
+              "name": "List users",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 932,\n  \"created_at\": \"2007-06-18T02:12:55.694Z\",\n  \"client_analytics_id\": 2915,\n  \"name\": \"string\",\n  \"email\": \"string\",\n  \"api_token\": \"string\",\n  \"client_permissions\": \"string\",\n  \"state\": \"string\",\n  \"role\": \"string\",\n  \"settings\": \"string\",\n  \"profiles\": {\n    \"id\": 2469,\n    \"created_at\": \"1946-12-24T17:39:43.448Z\",\n    \"provider\": \"string\"\n  },\n  \"intercom_user_hash\": \"string\",\n  \"show_nps\": \"string\",\n  \"onboarding_progress\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "58735b38-bf8b-4914-a385-553cd0a9de76",
+          "name": "Invite a user to authenticated account",
+          "request": {
+            "name": "Invite a user to authenticated account",
+            "description": {
+              "content": "Invite a user to authenticated account",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6e289cb8-e87c-4a12-bccd-ae1c863ab5ef",
+              "name": "Invite a user to authenticated account",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 932,\n  \"created_at\": \"2007-06-18T02:12:55.694Z\",\n  \"client_analytics_id\": 2915,\n  \"name\": \"string\",\n  \"email\": \"string\",\n  \"api_token\": \"string\",\n  \"client_permissions\": \"string\",\n  \"state\": \"string\",\n  \"role\": \"string\",\n  \"settings\": \"string\",\n  \"profiles\": {\n    \"id\": 2469,\n    \"created_at\": \"1946-12-24T17:39:43.448Z\",\n    \"provider\": \"string\"\n  },\n  \"intercom_user_hash\": \"string\",\n  \"show_nps\": \"string\",\n  \"onboarding_progress\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "40763af8-7293-48cc-b523-44df7b48aa76",
+          "name": "List all users with and without permissions",
+          "request": {
+            "name": "List all users with and without permissions",
+            "description": {
+              "content": "List all users with and without permissions",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "users",
+                "all"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "slim",
+                  "value": "false",
+                  "description": "If true, returns less data in order to reduce latency and response size"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "78aca918-ef0f-4dfc-b737-4242c60e0bb6",
+              "name": "List all users with and without permissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "users",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "slim",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3d280327-2ab4-4537-b8bb-3f9e35cfb493",
+          "name": "Update user permissisons",
+          "request": {
+            "name": "Update user permissisons",
+            "description": {
+              "content": "Update user permissisons",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "users",
+                "permissions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"users\": [\n    {\n      \"email\": \"<string>\",\n      \"permissions\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    },\n    {\n      \"email\": \"<string>\",\n      \"permissions\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "902ecbd3-3b4f-420a-ad3a-64aef6b12317",
+              "name": "Update user permissisons",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "users",
+                    "permissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"users\": [\n    {\n      \"email\": \"<string>\",\n      \"permissions\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    },\n    {\n      \"email\": \"<string>\",\n      \"permissions\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f249bc8a-1ef6-4445-8e73-ad3b96010071",
+          "name": "Reset the password for an email",
+          "request": {
+            "name": "Reset the password for an email",
+            "description": {
+              "content": "Reset the password for an email",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "users",
+                "reset_password"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a973266e-62bb-4e89-af46-7a88e93ecc5b",
+              "name": "Reset the password for an email",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "users",
+                    "reset_password"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d147f273-ee6c-43cc-a217-db2444f79876",
+          "name": "Get a user's account information",
+          "request": {
+            "name": "Get a user's account information",
+            "description": {
+              "content": "Get a user's account information",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "users",
+                ":user_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "user_id",
+                  "description": "(Required) A user ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4ab37977-da57-4d72-8b03-b25357abe4f1",
+              "name": "Get a user's account information",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "users",
+                    ":user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "user_id",
+                      "description": "(Required) A user ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 932,\n  \"created_at\": \"2007-06-18T02:12:55.694Z\",\n  \"client_analytics_id\": 2915,\n  \"name\": \"string\",\n  \"email\": \"string\",\n  \"api_token\": \"string\",\n  \"client_permissions\": \"string\",\n  \"state\": \"string\",\n  \"role\": \"string\",\n  \"settings\": \"string\",\n  \"profiles\": {\n    \"id\": 2469,\n    \"created_at\": \"1946-12-24T17:39:43.448Z\",\n    \"provider\": \"string\"\n  },\n  \"intercom_user_hash\": \"string\",\n  \"show_nps\": \"string\",\n  \"onboarding_progress\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "457329c7-2f65-4a13-bfc0-0e643c12bc84",
+          "name": "Update a user",
+          "request": {
+            "name": "Update a user",
+            "description": {
+              "content": "Update a user",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "users",
+                ":user_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "user_id",
+                  "description": "(Required) A user ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"current_password\": \"<string>\",\n  \"invite_token\": \"<string>\",\n  \"role\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0ff305e7-b6d5-4a9f-99c8-0211acc797cd",
+              "name": "Update a user",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "users",
+                    ":user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "user_id",
+                      "description": "(Required) A user ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"current_password\": \"<string>\",\n  \"invite_token\": \"<string>\",\n  \"role\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 932,\n  \"created_at\": \"2007-06-18T02:12:55.694Z\",\n  \"client_analytics_id\": 2915,\n  \"name\": \"string\",\n  \"email\": \"string\",\n  \"api_token\": \"string\",\n  \"client_permissions\": \"string\",\n  \"state\": \"string\",\n  \"role\": \"string\",\n  \"settings\": \"string\",\n  \"profiles\": {\n    \"id\": 2469,\n    \"created_at\": \"1946-12-24T17:39:43.448Z\",\n    \"provider\": \"string\"\n  },\n  \"intercom_user_hash\": \"string\",\n  \"show_nps\": \"string\",\n  \"onboarding_progress\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "87f3e288-4b30-405d-bf05-67398a6cb228",
+          "name": "Delete a user account",
+          "request": {
+            "name": "Delete a user account",
+            "description": {
+              "content": "Delete a user account",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "users",
+                ":user_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "delete_linked",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "user_id",
+                  "description": "(Required) A user ID"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9ccca18b-72fe-472b-b020-2186e7d665cf",
+              "name": "Delete a user account",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "users",
+                    ":user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "delete_linked",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "user_id",
+                      "description": "(Required) A user ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b0f1dcaf-1cce-4d4f-b6e3-d0cf6c89a636",
+          "name": "Rotate a user's API token",
+          "request": {
+            "name": "Rotate a user's API token",
+            "description": {
+              "content": "Rotate a user's API token",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "users",
+                ":user_id",
+                "regenerate_api_token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "user_id",
+                  "description": "(Required) A user ID"
+                }
+              ]
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "60ea2a40-f90a-4090-bd37-3c6189cd96dc",
+              "name": "Rotate a user's API token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "users",
+                    ":user_id",
+                    "regenerate_api_token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "user_id",
+                      "description": "(Required) A user ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0e530344-f0cc-4552-ab47-3ebf4db3927c",
+          "name": "Delete a user's Omniauth provider profile",
+          "request": {
+            "name": "Delete a user's Omniauth provider profile",
+            "description": {
+              "content": "Delete a user's Omniauth provider profile",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "1",
+                "users",
+                ":user_id",
+                "omniauth",
+                ":provider"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "user_id",
+                  "description": "(Required) A user ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "provider",
+                  "description": "(Required) A provider name"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f38e7d36-0889-4bb6-81f0-155da9c63fe0",
+              "name": "Delete a user's Omniauth provider profile",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "1",
+                    "users",
+                    ":user_id",
+                    "omniauth",
+                    ":provider"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "user_id",
+                      "description": "(Required) A user ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "provider",
+                      "description": "(Required) A provider name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "CLIENT_TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.rainforestqa.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "CLIENT_TOKEN"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "56b36ad9-bb23-4663-90e7-580a46b38930",
+    "name": "Rainforest callback users API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).",
+      "type": "text/plain"
+    }
+  }
+}
