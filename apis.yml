@@ -63,7 +63,7 @@ apis:
   humanURL: https://help.rainforestqa.com/reference
   baseURL: https://app.rainforestqa.com/api
   tags:
-  - Callback
+  - callback
   tags_raw:
   - callback
   properties:
@@ -122,8 +122,7 @@ apis:
   description: Operations about credit_cards
   humanURL: https://help.rainforestqa.com/reference
   baseURL: https://app.rainforestqa.com/api
-  tags:
-  - Credit Cards
+  tags: []
   tags_raw:
   - credit_cards
   properties:
@@ -183,7 +182,7 @@ apis:
   humanURL: https://help.rainforestqa.com/reference
   baseURL: https://app.rainforestqa.com/api
   tags:
-  - Folders
+  - folders
   tags_raw:
   - folders
   properties:
@@ -203,7 +202,7 @@ apis:
   humanURL: https://help.rainforestqa.com/reference
   baseURL: https://app.rainforestqa.com/api
   tags:
-  - Generators
+  - generators
   tags_raw:
   - generators
   properties:
@@ -261,7 +260,7 @@ apis:
   humanURL: https://help.rainforestqa.com/reference
   baseURL: https://app.rainforestqa.com/api
   tags:
-  - Runs
+  - runs
   tags_raw:
   - runs
   properties:
@@ -339,8 +338,7 @@ apis:
   description: Operations about test_results
   humanURL: https://help.rainforestqa.com/reference
   baseURL: https://app.rainforestqa.com/api
-  tags:
-  - Test Results
+  tags: []
   tags_raw:
   - test_results
   properties:
