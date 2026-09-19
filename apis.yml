@@ -144,7 +144,7 @@ apis:
   humanURL: https://help.rainforestqa.com/reference
   baseURL: https://app.rainforestqa.com/api
   tags:
-  - Environments
+  - Environment
   tags_raw:
   - environments
   properties:
