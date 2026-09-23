@@ -1,24 +1,7 @@
 {
   "provider": "rainforest-qa",
   "sources": [
-    "rainforest-qa-callback-api-openapi.yml",
-    "rainforest-qa-clients-api-openapi.yml",
-    "rainforest-qa-connections-api-openapi.yml",
-    "rainforest-qa-credit-cards-api-openapi.yml",
-    "rainforest-qa-environments-api-openapi.yml",
-    "rainforest-qa-features-api-openapi.yml",
-    "rainforest-qa-folders-api-openapi.yml",
-    "rainforest-qa-generators-api-openapi.yml",
-    "rainforest-qa-on-premise-crowd-api-openapi.yml",
-    "rainforest-qa-run-groups-api-openapi.yml",
-    "rainforest-qa-runs-api-openapi.yml",
-    "rainforest-qa-site-environments-api-openapi.yml",
-    "rainforest-qa-sites-api-openapi.yml",
-    "rainforest-qa-tags-api-openapi.yml",
-    "rainforest-qa-test-results-api-openapi.yml",
-    "rainforest-qa-tests-api-openapi.yml",
-    "rainforest-qa-users-api-openapi.yml",
-    "rainforest-qa-vm-stack-api-openapi.yml"
+    "_original/rainforest-qa-openapi-original.yml"
   ],
   "outputs": [
     "rainforest-qa-callback-api-openapi.yml",
@@ -43,6 +26,29 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "rainforest-qa-openapi-original.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "rainforest-qa-callback-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rainforest-qa-clients-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rainforest-qa-connections-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rainforest-qa-credit-cards-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rainforest-qa-environments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rainforest-qa-features-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rainforest-qa-folders-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rainforest-qa-generators-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rainforest-qa-on-premise-crowd-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rainforest-qa-run-groups-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rainforest-qa-runs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rainforest-qa-site-environments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rainforest-qa-sites-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rainforest-qa-tags-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rainforest-qa-test-results-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rainforest-qa-tests-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rainforest-qa-users-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rainforest-qa-vm-stack-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

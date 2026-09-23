@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Rainforest callback clients API
+  title: Rainforest Clients API
   description: Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).
   version: '1'
 servers:
@@ -8,13 +8,12 @@ servers:
 security:
 - api_key: []
 tags:
-- name: clients
+- name: Clients
   description: Operations about clients
 paths:
   /1/clients:
     get:
       summary: Fetch your account details
-      description: Fetch your account details
       responses:
         '200':
           description: Retrieved account details
@@ -23,12 +22,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/Client'
       tags:
-      - clients
+      - Clients
       operationId: get-clients
       x-rdme-order: 1
     put:
       summary: Update account information
-      description: Update account information
       requestBody:
         content:
           application/json:
@@ -49,24 +47,22 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
       tags:
-      - clients
+      - Clients
       operationId: put-clients
       x-rdme-order: 2
   /1/clients/stats:
     get:
       summary: Fetch usage stats
-      description: Fetch usage stats
       responses:
         '200':
           description: Fetch usage stats
       tags:
-      - clients
+      - Clients
       operationId: get-client-stats
       x-rdme-order: 3
   /1/clients/select:
     post:
       summary: Select different client
-      description: Select different client
       requestBody:
         content:
           application/json:
@@ -93,11 +89,90 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
       tags:
-      - clients
+      - Clients
       operationId: post-clients-select
       x-rdme-order: 4
 components:
   schemas:
+    post-clients-select:
+      type: object
+      properties:
+        client_id:
+          type: integer
+          format: int32
+          description: Id of client that you want to switch to
+      required:
+      - client_id
+      description: Select different client
+    SiteEnvironment:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        site_id:
+          type: integer
+          format: int32
+        environment_id:
+          type: integer
+          format: int32
+        url:
+          type: string
+          format: url
+      required:
+      - site_id
+      - environment_id
+      - url
+    RunLite:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        state:
+          type: string
+          enum:
+          - queued
+          - validating
+          - downloading_app
+          - waiting_for_test_initialization
+          - analyzing_app
+          - error
+          - sending_webhook
+          - in_progress
+          - aborting
+          - aborted
+          - timed_out
+          - waiting_for_callback
+          - complete
+          - pending_investigation
+        requested_tests:
+          type: array
+          items:
+            type: integer
+            format: int32
+        current_progress:
+          $ref: '#/components/schemas/RunProgress'
+        credit_cost:
+          type: integer
+          format: int32
+        result:
+          type: string
+          enum:
+          - passed
+          - failed
+          - no_result
+        updated_at:
+          type: string
+          format: date-time
+        environment:
+          $ref: '#/components/schemas/Environment'
     Environment:
       type: object
       properties:
@@ -138,6 +213,85 @@ components:
       - is_temporary
       - site_environments
       description: Environment model
+    BrowserWithDefault:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        category:
+          type: string
+          enum:
+          - browser
+          - software
+          - tablet
+          - phone
+        browser_version:
+          type: string
+        os_version:
+          type: string
+        credit_cost:
+          type: integer
+          format: int32
+        mobile_os_type:
+          type: string
+          enum:
+          - ios
+          - android
+        mobile_device_type:
+          type: string
+          enum:
+          - vm
+          - real_device
+        default:
+          type: boolean
+    RunProgress:
+      type: object
+      properties:
+        percent:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+        complete:
+          type: integer
+          format: int32
+        passed:
+          type: integer
+          format: int32
+        failed:
+          type: integer
+          format: int32
+        no_result:
+          type: integer
+          format: int32
+        eta:
+          type: object
+    BrowserCreditCost:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        browser_id:
+          type: integer
+          format: int32
+        browser_key:
+          type: string
+        credit_cost:
+          type: integer
+          format: int32
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: An error message describing what went wrong
+      required:
+      - error
+      description: Error model
     put-clients:
       type: object
       properties:
@@ -780,71 +934,6 @@ components:
         fallback_dom_enabled:
           type: string
       description: Update account information
-    BrowserWithDefault:
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        category:
-          type: string
-          enum:
-          - browser
-          - software
-          - tablet
-          - phone
-        browser_version:
-          type: string
-        os_version:
-          type: string
-        credit_cost:
-          type: integer
-          format: int32
-        mobile_os_type:
-          type: string
-          enum:
-          - ios
-          - android
-        mobile_device_type:
-          type: string
-          enum:
-          - vm
-          - real_device
-        default:
-          type: boolean
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-          description: An error message describing what went wrong
-      required:
-      - error
-      description: Error model
-    RunProgress:
-      type: object
-      properties:
-        percent:
-          type: integer
-          format: int32
-        total:
-          type: integer
-          format: int32
-        complete:
-          type: integer
-          format: int32
-        passed:
-          type: integer
-          format: int32
-        failed:
-          type: integer
-          format: int32
-        no_result:
-          type: integer
-          format: int32
-        eta:
-          type: object
     Client:
       type: object
       properties:
@@ -920,99 +1009,6 @@ components:
         has_private_sms_numbers:
           type: boolean
       description: Client model
-    BrowserCreditCost:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        browser_id:
-          type: integer
-          format: int32
-        browser_key:
-          type: string
-        credit_cost:
-          type: integer
-          format: int32
-    RunLite:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        created_at:
-          type: string
-          format: date-time
-        state:
-          type: string
-          enum:
-          - queued
-          - validating
-          - downloading_app
-          - waiting_for_test_initialization
-          - analyzing_app
-          - error
-          - sending_webhook
-          - in_progress
-          - aborting
-          - aborted
-          - timed_out
-          - waiting_for_callback
-          - complete
-          - pending_investigation
-        requested_tests:
-          type: array
-          items:
-            type: integer
-            format: int32
-        current_progress:
-          $ref: '#/components/schemas/RunProgress'
-        credit_cost:
-          type: integer
-          format: int32
-        result:
-          type: string
-          enum:
-          - passed
-          - failed
-          - no_result
-        updated_at:
-          type: string
-          format: date-time
-        environment:
-          $ref: '#/components/schemas/Environment'
-    post-clients-select:
-      type: object
-      properties:
-        client_id:
-          type: integer
-          format: int32
-          description: Id of client that you want to switch to
-      required:
-      - client_id
-      description: Select different client
-    SiteEnvironment:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        created_at:
-          type: string
-          format: date-time
-        site_id:
-          type: integer
-          format: int32
-        environment_id:
-          type: integer
-          format: int32
-        url:
-          type: string
-          format: url
-      required:
-      - site_id
-      - environment_id
-      - url
   securitySchemes:
     api_key:
       type: apiKey

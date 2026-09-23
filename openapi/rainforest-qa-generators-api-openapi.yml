@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Rainforest callback generators API
+  title: Rainforest Generators API
   description: Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).
   version: '1'
 servers:
@@ -8,13 +8,12 @@ servers:
 security:
 - api_key: []
 tags:
-- name: generators
+- name: Generators
   description: Operations about generators
 paths:
   /1/generators:
     get:
       summary: List generators
-      description: List generators
       parameters:
       - in: query
         name: generator_type
@@ -82,12 +81,11 @@ paths:
                 items:
                   $ref: '#/components/schemas/Generator'
       tags:
-      - generators
+      - Generators
       operationId: get-generators
       x-rdme-order: 1
     post:
       summary: Create a new generator
-      description: Create a new generator
       requestBody:
         content:
           application/json:
@@ -108,13 +106,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
       tags:
-      - generators
+      - Generators
       operationId: post-generators
       x-rdme-order: 2
   /1/generators/{generator_id}:
     get:
       summary: Get a generator
-      description: Get a generator
       parameters:
       - in: path
         name: generator_id
@@ -144,12 +141,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
       tags:
-      - generators
+      - Generators
       operationId: get-generator
       x-rdme-order: 10
     put:
       summary: Update a generator
-      description: Update a generator
       parameters:
       - in: path
         name: generator_id
@@ -184,12 +180,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
       tags:
-      - generators
+      - Generators
       operationId: put-generator
       x-rdme-order: 11
     delete:
       summary: Delete a generator
-      description: Delete a generator
       parameters:
       - in: path
         name: generator_id
@@ -225,13 +220,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
       tags:
-      - generators
+      - Generators
       operationId: delete-generator
       x-rdme-order: 12
   /1/generators/{generator_id}/rows:
     get:
       summary: List generator rows
-      description: List generator rows
       parameters:
       - in: path
         name: generator_id
@@ -319,12 +313,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
       tags:
-      - generators
+      - Generators
       operationId: get-generator-rows
       x-rdme-order: 20
     post:
       summary: Create a new generator row
-      description: Create a new generator row
       parameters:
       - in: path
         name: generator_id
@@ -359,13 +352,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
       tags:
-      - generators
+      - Generators
       operationId: post-generator-rows
       x-rdme-order: 21
   /1/generators/{generator_id}/rows/batch:
     post:
       summary: Create multiple generator rows
-      description: Create multiple generator rows
       parameters:
       - in: path
         name: generator_id
@@ -402,13 +394,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
       tags:
-      - generators
+      - Generators
       operationId: post-generator-rows-batch
       x-rdme-order: 22
   /1/generators/{generator_id}/rows/{row_id}:
     get:
       summary: Get a generator row
-      description: Get a generator row
       parameters:
       - in: path
         name: generator_id
@@ -438,12 +429,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
       tags:
-      - generators
+      - Generators
       operationId: get-generator-row
       x-rdme-order: 30
     put:
       summary: Update a generator row
-      description: Update a generator row
       parameters:
       - in: path
         name: generator_id
@@ -485,12 +475,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
       tags:
-      - generators
+      - Generators
       operationId: put-generator-row
       x-rdme-order: 31
     delete:
       summary: Delete a generator row
-      description: Delete a generator row
       parameters:
       - in: path
         name: generator_id
@@ -526,11 +515,40 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
       tags:
-      - generators
+      - Generators
       operationId: delete-generator-row
       x-rdme-order: 32
 components:
   schemas:
+    post-generator-rows-batch:
+      type: object
+      properties:
+        data:
+          type: array
+          description: An array of Generator Row data objects. Keys are column IDs.
+          items:
+            type: object
+            additionalProperties: true
+      required:
+      - data
+      description: Create multiple generator rows
+    Ok:
+      type: object
+      properties:
+        ok:
+          type: boolean
+          description: 🆗
+      description: Ok model
+    post-generator-rows:
+      type: object
+      properties:
+        data:
+          type: object
+          description: A Generator Row data object. Keys are column IDs.
+          additionalProperties: true
+      required:
+      - data
+      description: Create a new generator row
     post-generators:
       type: object
       properties:
@@ -580,18 +598,16 @@ components:
       - name
       - description
       description: Create a new generator
-    post-generator-rows-batch:
+    GeneratorColumn:
       type: object
       properties:
-        data:
-          type: array
-          description: An array of Generator Row data objects. Keys are column IDs.
-          items:
-            type: object
-            additionalProperties: true
-      required:
-      - data
-      description: Create multiple generator rows
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        name:
+          type: string
     put-generator:
       type: object
       properties:
@@ -635,6 +651,36 @@ components:
           description: If true, returns less data in order to reduce latency and response size
           default: false
       description: Update a generator
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: An error message describing what went wrong
+      required:
+      - error
+      description: Error model
+    put-generator-row:
+      type: object
+      properties:
+        data:
+          type: object
+          description: A Generator Row data object. Keys are column IDs.
+          additionalProperties: true
+      required:
+      - data
+      description: Update a generator row
+    GeneratorRow:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          description: The Generator Row ID
+        data:
+          type: object
+          description: A hash of values. Keys are Generator Column IDs.
+      description: GeneratorRow model
     Generator:
       type: object
       properties:
@@ -685,63 +731,6 @@ components:
           type: integer
           format: int32
       description: Generator model
-    Ok:
-      type: object
-      properties:
-        ok:
-          type: boolean
-          description: 🆗
-      description: Ok model
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-          description: An error message describing what went wrong
-      required:
-      - error
-      description: Error model
-    GeneratorRow:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-          description: The Generator Row ID
-        data:
-          type: object
-          description: A hash of values. Keys are Generator Column IDs.
-      description: GeneratorRow model
-    put-generator-row:
-      type: object
-      properties:
-        data:
-          type: object
-          description: A Generator Row data object. Keys are column IDs.
-          additionalProperties: true
-      required:
-      - data
-      description: Update a generator row
-    GeneratorColumn:
-      type: object
-      properties:
-        id:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-        name:
-          type: string
-    post-generator-rows:
-      type: object
-      properties:
-        data:
-          type: object
-          description: A Generator Row data object. Keys are column IDs.
-          additionalProperties: true
-      required:
-      - data
-      description: Create a new generator row
   securitySchemes:
     api_key:
       type: apiKey

@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Rainforest callback on_premise_crowd API
+  title: Rainforest On Premise Crowd API
   description: Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).
   version: '1'
 servers:
@@ -14,7 +14,6 @@ paths:
   /1/on_premise_crowd:
     get:
       summary: List On-Prem Crowd testers
-      description: List On-Prem Crowd testers
       responses:
         '200':
           description: Retrieved On-Prem crowd testers
@@ -30,7 +29,6 @@ paths:
       x-rdme-order: 1
     post:
       summary: Create an On-Prem Crowd tester
-      description: Create an On-Prem Crowd tester
       requestBody:
         content:
           application/json:
@@ -57,7 +55,6 @@ paths:
   /1/on_premise_crowd/{worker_id}:
     delete:
       summary: Delete an On-Prem Crowd tester
-      description: Delete an On-Prem Crowd tester
       parameters:
       - in: path
         name: worker_id
@@ -85,20 +82,15 @@ paths:
       x-rdme-order: 10
 components:
   schemas:
-    post-on_premise_crowd_testers:
+    Error:
       type: object
       properties:
-        email:
+        error:
           type: string
-          format: email
-          description: Email of the tester
-        name:
-          type: string
-          description: Name of the tester
+          description: An error message describing what went wrong
       required:
-      - email
-      - name
-      description: Create an On-Prem Crowd tester
+      - error
+      description: Error model
     Worker:
       type: object
       properties:
@@ -123,15 +115,20 @@ components:
           type: string
           format: url
       description: Worker model
-    Error:
+    post-on_premise_crowd_testers:
       type: object
       properties:
-        error:
+        email:
           type: string
-          description: An error message describing what went wrong
+          format: email
+          description: Email of the tester
+        name:
+          type: string
+          description: Name of the tester
       required:
-      - error
-      description: Error model
+      - email
+      - name
+      description: Create an On-Prem Crowd tester
   securitySchemes:
     api_key:
       type: apiKey

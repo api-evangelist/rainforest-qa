@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Rainforest callback connections API
+  title: Rainforest Connections API
   description: Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).
   version: '1'
 servers:
@@ -8,13 +8,12 @@ servers:
 security:
 - api_key: []
 tags:
-- name: connections
+- name: Connections
   description: Operations about connections
 paths:
   /1/connections:
     get:
       summary: List connections
-      description: List connections
       parameters:
       - in: query
         name: page
@@ -40,7 +39,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Connection'
       tags:
-      - connections
+      - Connections
       operationId: get-connections
     post:
       summary: Creates a new connection
@@ -59,13 +58,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/Connection'
       tags:
-      - connections
+      - Connections
       operationId: create-connection
       x-rdme-order: 1
   /1/connections/{id}:
     get:
       summary: Get connection
-      description: Get connection
       parameters:
       - in: path
         name: id
@@ -81,11 +79,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Connection'
       tags:
-      - connections
+      - Connections
       operationId: get-connection
     put:
       summary: Rename connection
-      description: Rename connection
       parameters:
       - in: path
         name: id
@@ -107,11 +104,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Connection'
       tags:
-      - connections
+      - Connections
       operationId: rename-connection
     delete:
       summary: Delete connection
-      description: Delete connection
       parameters:
       - in: path
         name: id
@@ -123,12 +119,11 @@ paths:
         '204':
           description: Delete connection
       tags:
-      - connections
+      - Connections
       operationId: delete-connection
   /1/connections/{id}/status:
     get:
       summary: Get connection status
-      description: Get connection status
       parameters:
       - in: path
         name: id
@@ -140,12 +135,11 @@ paths:
         '200':
           description: Get connection status
       tags:
-      - connections
+      - Connections
       operationId: get-connection-status
   /1/connections/{id}/regenerate_api_token:
     put:
       summary: Regenerate API token
-      description: Regenerate API token
       parameters:
       - in: path
         name: id
@@ -157,10 +151,28 @@ paths:
         '200':
           description: Regenerate API token
       tags:
-      - connections
+      - Connections
       operationId: regenerate-api-token
 components:
   schemas:
+    rename-connection:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Connection name
+      required:
+      - name
+      description: Rename connection
+    create-connection:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Connection name
+      required:
+      - name
+      description: Create connection
     Connection:
       type: object
       properties:
@@ -183,24 +195,6 @@ components:
           - rainforest
           - user
       description: Connection model
-    rename-connection:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Connection name
-      required:
-      - name
-      description: Rename connection
-    create-connection:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Connection name
-      required:
-      - name
-      description: Create connection
   securitySchemes:
     api_key:
       type: apiKey
