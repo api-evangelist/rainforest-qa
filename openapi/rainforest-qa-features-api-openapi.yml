@@ -441,15 +441,6 @@ paths:
       x-rdme-order: 14
 components:
   schemas:
-    put-feature:
-      type: object
-      properties:
-        title:
-          type: string
-          description: The new title of the feature
-      required:
-      - title
-      description: Update a feature
     Feature:
       type: object
       properties:
@@ -471,15 +462,6 @@ components:
       - title
       - test_count
       description: Feature model
-    post-features:
-      type: object
-      properties:
-        title:
-          type: string
-          description: The title of the feature
-      required:
-      - title
-      description: Create a new feature
     Error:
       type: object
       properties:
@@ -587,6 +569,24 @@ components:
           - plain_english
           - rainforest_test_language
       description: Add tests to a feature
+    post-features:
+      type: object
+      properties:
+        title:
+          type: string
+          description: The title of the feature
+      required:
+      - title
+      description: Create a new feature
+    put-feature:
+      type: object
+      properties:
+        title:
+          type: string
+          description: The new title of the feature
+      required:
+      - title
+      description: Update a feature
   securitySchemes:
     api_key:
       type: apiKey

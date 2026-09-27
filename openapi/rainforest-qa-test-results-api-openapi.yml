@@ -234,61 +234,6 @@ paths:
       x-rdme-order: 1
 components:
   schemas:
-    OverriddenResult:
-      type: object
-      properties:
-        id:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-        note:
-          type: string
-        result:
-          type: string
-        job_group_id:
-          type: string
-        user:
-          $ref: '#/components/schemas/UserLite'
-    RunTestBrowserStatus:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        created_at:
-          type: string
-          format: date-time
-        name:
-          type: string
-        description:
-          type: string
-        category:
-          type: string
-        result:
-          type: string
-        state:
-          type: string
-        overridden_results:
-          $ref: '#/components/schemas/OverriddenResult'
-        credit_cost:
-          type: string
-    UserLite:
-      type: object
-      properties:
-        id:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-        name:
-          type: string
-        email:
-          type: string
-        state:
-          type: string
-        role:
-          type: string
     RunTestReview:
       type: object
       properties:
@@ -333,6 +278,34 @@ components:
           type: string
         updated_at:
           type: string
+    RunStep:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        test_id:
+          type: string
+        action:
+          type: string
+        response:
+          type: string
+        rfa_action:
+          type: string
+        start_uri:
+          type: string
+        redirection:
+          type: string
+        is_conditional_step:
+          type: string
+        is_generate_steps_action:
+          type: string
+        browsers:
+          type: string
+      description: RunStep model
     Tests_RunTestsIndex:
       type: object
       properties:
@@ -420,6 +393,61 @@ components:
           type: integer
           format: int32
       description: Tests_RunTestsIndex model
+    RunTestBrowserStatus:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        name:
+          type: string
+        description:
+          type: string
+        category:
+          type: string
+        result:
+          type: string
+        state:
+          type: string
+        overridden_results:
+          $ref: '#/components/schemas/OverriddenResult'
+        credit_cost:
+          type: string
+    OverriddenResult:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        note:
+          type: string
+        result:
+          type: string
+        job_group_id:
+          type: string
+        user:
+          $ref: '#/components/schemas/UserLite'
+    UserLite:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        name:
+          type: string
+        email:
+          type: string
+        state:
+          type: string
+        role:
+          type: string
     Tests_Lite:
       type: object
       properties:
@@ -455,34 +483,6 @@ components:
           type: string
         feature_id:
           type: string
-    RunStep:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        created_at:
-          type: string
-          format: date-time
-        test_id:
-          type: string
-        action:
-          type: string
-        response:
-          type: string
-        rfa_action:
-          type: string
-        start_uri:
-          type: string
-        redirection:
-          type: string
-        is_conditional_step:
-          type: string
-        is_generate_steps_action:
-          type: string
-        browsers:
-          type: string
-      description: RunStep model
   securitySchemes:
     api_key:
       type: apiKey

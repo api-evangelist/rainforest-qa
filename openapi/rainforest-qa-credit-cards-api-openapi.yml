@@ -27,16 +27,6 @@ paths:
       x-rdme-order: 1
 components:
   schemas:
-    CreditCards:
-      type: object
-      properties:
-        default_card:
-          type: string
-        credit_cards:
-          type: array
-          items:
-            $ref: '#/components/schemas/CreditCard'
-      description: CreditCards model
     CreditCard:
       type: object
       properties:
@@ -50,6 +40,16 @@ components:
           type: string
         exp_year:
           type: string
+    CreditCards:
+      type: object
+      properties:
+        default_card:
+          type: string
+        credit_cards:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreditCard'
+      description: CreditCards model
   securitySchemes:
     api_key:
       type: apiKey

@@ -164,15 +164,6 @@ components:
       required:
       - name
       description: Rename connection
-    create-connection:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Connection name
-      required:
-      - name
-      description: Create connection
     Connection:
       type: object
       properties:
@@ -195,6 +186,15 @@ components:
           - rainforest
           - user
       description: Connection model
+    create-connection:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Connection name
+      required:
+      - name
+      description: Create connection
   securitySchemes:
     api_key:
       type: apiKey

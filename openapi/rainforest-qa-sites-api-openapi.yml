@@ -227,6 +227,15 @@ components:
           type: string
           description: Set the AI generation rules for the site
       description: Update a site
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: An error message describing what went wrong
+      required:
+      - error
+      description: Error model
     Site:
       type: object
       properties:
@@ -255,15 +264,6 @@ components:
           type: integer
           format: int32
       description: Site model
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-          description: An error message describing what went wrong
-      required:
-      - error
-      description: Error model
   securitySchemes:
     api_key:
       type: apiKey

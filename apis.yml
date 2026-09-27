@@ -59,7 +59,7 @@ tags:
 - Developer Tools
 apis:
 - aid: rainforest-qa:rainforest-qa-callback-api
-  name: Rainforest QA callback API
+  name: Rainforest QA Callback API
   description: Operations about callbacks
   humanURL: https://help.rainforestqa.com/reference
   baseURL: https://app.rainforestqa.com/api
@@ -79,7 +79,7 @@ apis:
   - type: Conventions
     url: conventions/rainforest-qa-conventions.yml
 - aid: rainforest-qa:rainforest-qa-clients-api
-  name: Rainforest QA clients API
+  name: Rainforest QA Clients API
   description: Operations about clients
   humanURL: https://help.rainforestqa.com/reference
   baseURL: https://app.rainforestqa.com/api
@@ -99,7 +99,7 @@ apis:
   - type: Conventions
     url: conventions/rainforest-qa-conventions.yml
 - aid: rainforest-qa:rainforest-qa-connections-api
-  name: Rainforest QA connections API
+  name: Rainforest QA Connections API
   description: Operations about connections
   humanURL: https://help.rainforestqa.com/reference
   baseURL: https://app.rainforestqa.com/api
@@ -119,7 +119,7 @@ apis:
   - type: Conventions
     url: conventions/rainforest-qa-conventions.yml
 - aid: rainforest-qa:rainforest-qa-credit-cards-api
-  name: Rainforest QA credit_cards API
+  name: Rainforest QA Credit Cards API
   description: Operations about credit_cards
   humanURL: https://help.rainforestqa.com/reference
   baseURL: https://app.rainforestqa.com/api
@@ -139,7 +139,7 @@ apis:
   - type: Conventions
     url: conventions/rainforest-qa-conventions.yml
 - aid: rainforest-qa:rainforest-qa-environments-api
-  name: Rainforest QA environments API
+  name: Rainforest QA Environments API
   description: Operations about environments
   humanURL: https://help.rainforestqa.com/reference
   baseURL: https://app.rainforestqa.com/api
@@ -159,7 +159,7 @@ apis:
   - type: Conventions
     url: conventions/rainforest-qa-conventions.yml
 - aid: rainforest-qa:rainforest-qa-features-api
-  name: Rainforest QA features API
+  name: Rainforest QA Features API
   description: Operations about features
   humanURL: https://help.rainforestqa.com/reference
   baseURL: https://app.rainforestqa.com/api
@@ -179,7 +179,7 @@ apis:
   - type: Conventions
     url: conventions/rainforest-qa-conventions.yml
 - aid: rainforest-qa:rainforest-qa-folders-api
-  name: Rainforest QA folders API
+  name: Rainforest QA Folders API
   description: Operations about folders
   humanURL: https://help.rainforestqa.com/reference
   baseURL: https://app.rainforestqa.com/api
@@ -199,7 +199,7 @@ apis:
   - type: Conventions
     url: conventions/rainforest-qa-conventions.yml
 - aid: rainforest-qa:rainforest-qa-generators-api
-  name: Rainforest QA generators API
+  name: Rainforest QA Generators API
   description: Operations about generators
   humanURL: https://help.rainforestqa.com/reference
   baseURL: https://app.rainforestqa.com/api
@@ -219,7 +219,7 @@ apis:
   - type: Conventions
     url: conventions/rainforest-qa-conventions.yml
 - aid: rainforest-qa:rainforest-qa-on-premise-crowd-api
-  name: Rainforest QA on_premise_crowd API
+  name: Rainforest QA On Premise Crowd API
   description: Operations about on_premise_crowds
   humanURL: https://help.rainforestqa.com/reference
   baseURL: https://app.rainforestqa.com/api
@@ -238,7 +238,7 @@ apis:
   - type: Conventions
     url: conventions/rainforest-qa-conventions.yml
 - aid: rainforest-qa:rainforest-qa-run-groups-api
-  name: Rainforest QA run_groups API
+  name: Rainforest QA Run Groups API
   description: Operations about run_groups
   humanURL: https://help.rainforestqa.com/reference
   baseURL: https://app.rainforestqa.com/api
@@ -257,7 +257,7 @@ apis:
   - type: Conventions
     url: conventions/rainforest-qa-conventions.yml
 - aid: rainforest-qa:rainforest-qa-runs-api
-  name: Rainforest QA runs API
+  name: Rainforest QA Runs API
   description: Operations about runs
   humanURL: https://help.rainforestqa.com/reference
   baseURL: https://app.rainforestqa.com/api
@@ -277,7 +277,7 @@ apis:
   - type: Conventions
     url: conventions/rainforest-qa-conventions.yml
 - aid: rainforest-qa:rainforest-qa-site-environments-api
-  name: Rainforest QA site_environments API
+  name: Rainforest QA Site Environments API
   description: Operations about site_environments
   humanURL: https://help.rainforestqa.com/reference
   baseURL: https://app.rainforestqa.com/api
@@ -296,7 +296,7 @@ apis:
   - type: Conventions
     url: conventions/rainforest-qa-conventions.yml
 - aid: rainforest-qa:rainforest-qa-sites-api
-  name: Rainforest QA sites API
+  name: Rainforest QA Sites API
   description: Operations about sites
   humanURL: https://help.rainforestqa.com/reference
   baseURL: https://app.rainforestqa.com/api
@@ -316,7 +316,7 @@ apis:
   - type: Conventions
     url: conventions/rainforest-qa-conventions.yml
 - aid: rainforest-qa:rainforest-qa-tags-api
-  name: Rainforest QA tags API
+  name: Rainforest QA Tags API
   description: Operations about tags
   humanURL: https://help.rainforestqa.com/reference
   baseURL: https://app.rainforestqa.com/api
@@ -336,7 +336,7 @@ apis:
   - type: Conventions
     url: conventions/rainforest-qa-conventions.yml
 - aid: rainforest-qa:rainforest-qa-test-results-api
-  name: Rainforest QA test_results API
+  name: Rainforest QA Test Results API
   description: Operations about test_results
   humanURL: https://help.rainforestqa.com/reference
   baseURL: https://app.rainforestqa.com/api
@@ -356,7 +356,7 @@ apis:
   - type: Conventions
     url: conventions/rainforest-qa-conventions.yml
 - aid: rainforest-qa:rainforest-qa-tests-api
-  name: Rainforest QA tests API
+  name: Rainforest QA Tests API
   description: Operations about tests
   humanURL: https://help.rainforestqa.com/reference
   baseURL: https://app.rainforestqa.com/api
@@ -376,7 +376,7 @@ apis:
   - type: Conventions
     url: conventions/rainforest-qa-conventions.yml
 - aid: rainforest-qa:rainforest-qa-users-api
-  name: Rainforest QA users API
+  name: Rainforest QA Users API
   description: Operations about users
   humanURL: https://help.rainforestqa.com/reference
   baseURL: https://app.rainforestqa.com/api
@@ -396,7 +396,7 @@ apis:
   - type: Conventions
     url: conventions/rainforest-qa-conventions.yml
 - aid: rainforest-qa:rainforest-qa-vm-stack-api
-  name: Rainforest QA vm_stack API
+  name: Rainforest QA Vm Stack API
   description: Operations about vm_stacks
   humanURL: https://help.rainforestqa.com/reference
   baseURL: https://app.rainforestqa.com/api
