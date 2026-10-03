@@ -155,7 +155,7 @@ paths:
       operationId: regenerate-api-token
 components:
   schemas:
-    rename-connection:
+    create-connection:
       type: object
       properties:
         name:
@@ -163,7 +163,7 @@ components:
           description: Connection name
       required:
       - name
-      description: Rename connection
+      description: Create connection
     Connection:
       type: object
       properties:
@@ -186,7 +186,7 @@ components:
           - rainforest
           - user
       description: Connection model
-    create-connection:
+    rename-connection:
       type: object
       properties:
         name:
@@ -194,7 +194,7 @@ components:
           description: Connection name
       required:
       - name
-      description: Create connection
+      description: Rename connection
   securitySchemes:
     api_key:
       type: apiKey

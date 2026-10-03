@@ -232,17 +232,6 @@ paths:
       x-rdme-order: 15
 components:
   schemas:
-    Profile:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        created_at:
-          type: string
-          format: date-time
-        provider:
-          type: string
     post-users-reset_password:
       type: object
       properties:
@@ -252,69 +241,6 @@ components:
       required:
       - email
       description: Reset the password for an email
-    put-user:
-      type: object
-      properties:
-        name:
-          type: string
-          description: The name of the user
-        email:
-          type: string
-          description: The email address for this user
-        password:
-          type: string
-          description: A new password for this user
-        current_password:
-          type: string
-          description: This user's current password
-        invite_token:
-          type: string
-          description: The invite token sent to the user on first invite. Must be present when setting the password for the first time.
-        role:
-          type: string
-          description: Primary account can pass ownership by setting this to 'owner'
-          enum:
-          - owner
-          - member
-      description: Update a user
-    put-users-permissions:
-      type: object
-      properties:
-        users:
-          type: array
-          items:
-            type: object
-            properties:
-              email:
-                type: string
-                description: The Email of the user
-              permissions:
-                type: array
-                description: Array of client ids that this will have access to
-                items:
-                  type: integer
-                  format: int32
-            required:
-            - email
-            - permissions
-      required:
-      - users
-      description: Update user permissisons
-    post-users:
-      type: object
-      properties:
-        email:
-          type: string
-          description: The user's email
-        name:
-          type: string
-          description: The name of the user
-        password:
-          type: string
-          description: The password for this user
-      required:
-      - email
-      description: Invite a user to authenticated account
     User:
       type: object
       properties:
@@ -350,6 +276,80 @@ components:
         onboarding_progress:
           type: string
       description: User model
+    post-users:
+      type: object
+      properties:
+        email:
+          type: string
+          description: The user's email
+        name:
+          type: string
+          description: The name of the user
+        password:
+          type: string
+          description: The password for this user
+      required:
+      - email
+      description: Invite a user to authenticated account
+    put-users-permissions:
+      type: object
+      properties:
+        users:
+          type: array
+          items:
+            type: object
+            properties:
+              email:
+                type: string
+                description: The Email of the user
+              permissions:
+                type: array
+                description: Array of client ids that this will have access to
+                items:
+                  type: integer
+                  format: int32
+            required:
+            - email
+            - permissions
+      required:
+      - users
+      description: Update user permissisons
+    Profile:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        provider:
+          type: string
+    put-user:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the user
+        email:
+          type: string
+          description: The email address for this user
+        password:
+          type: string
+          description: A new password for this user
+        current_password:
+          type: string
+          description: This user's current password
+        invite_token:
+          type: string
+          description: The invite token sent to the user on first invite. Must be present when setting the password for the first time.
+        role:
+          type: string
+          description: Primary account can pass ownership by setting this to 'owner'
+          enum:
+          - owner
+          - member
+      description: Update a user
   securitySchemes:
     api_key:
       type: apiKey

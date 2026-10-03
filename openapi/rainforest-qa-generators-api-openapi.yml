@@ -520,136 +520,6 @@ paths:
       x-rdme-order: 32
 components:
   schemas:
-    post-generators:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name of generator
-        description:
-          type: string
-          description: Description of generator
-        generator_type:
-          type: string
-          description: Generator type
-          enum:
-          - custom
-          - tabular
-          default: tabular
-        data:
-          type: array
-          description: Array of generator row data objects
-          items:
-            type: object
-            additionalProperties: true
-        columns:
-          type: array
-          description: Array of column names
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-                description: Column name
-            required:
-            - name
-        reusable:
-          type: boolean
-          description: Whether this generator is to be reusable across tests within a run (only applies for tabular generators)
-          default: false
-        single_use:
-          type: boolean
-          description: Whether this generator's rows will be removed after a single use (only applies for tabular generators)
-          default: false
-        slim:
-          type: boolean
-          description: If true, returns less data in order to reduce latency and response size
-          default: false
-      required:
-      - name
-      - description
-      description: Create a new generator
-    put-generator-row:
-      type: object
-      properties:
-        data:
-          type: object
-          description: A Generator Row data object. Keys are column IDs.
-          additionalProperties: true
-      required:
-      - data
-      description: Update a generator row
-    post-generator-rows-batch:
-      type: object
-      properties:
-        data:
-          type: array
-          description: An array of Generator Row data objects. Keys are column IDs.
-          items:
-            type: object
-            additionalProperties: true
-      required:
-      - data
-      description: Create multiple generator rows
-    put-generator:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name of generator
-        description:
-          type: string
-          description: Description of generator
-        generator_type:
-          type: string
-          description: Generator type
-          enum:
-          - custom
-          - tabular
-        data:
-          type: array
-          description: Array of generator row data objects
-          items:
-            type: object
-            additionalProperties: true
-        columns:
-          type: array
-          description: Array of column names
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-                description: Column name
-            required:
-            - name
-        reusable:
-          type: boolean
-          description: Whether this generator is to be reusable across tests within a run (only applies for tabular generators)
-        single_use:
-          type: boolean
-          description: Whether this generator's rows will be removed after a single use (only applies for tabular generators)
-        slim:
-          type: boolean
-          description: If true, returns less data in order to reduce latency and response size
-          default: false
-      description: Update a generator
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-          description: An error message describing what went wrong
-      required:
-      - error
-      description: Error model
-    Ok:
-      type: object
-      properties:
-        ok:
-          type: boolean
-          description: 🆗
-      description: Ok model
     GeneratorColumn:
       type: object
       properties:
@@ -660,16 +530,15 @@ components:
           format: date-time
         name:
           type: string
-    post-generator-rows:
+    Error:
       type: object
       properties:
-        data:
-          type: object
-          description: A Generator Row data object. Keys are column IDs.
-          additionalProperties: true
+        error:
+          type: string
+          description: An error message describing what went wrong
       required:
-      - data
-      description: Create a new generator row
+      - error
+      description: Error model
     Generator:
       type: object
       properties:
@@ -720,6 +589,62 @@ components:
           type: integer
           format: int32
       description: Generator model
+    Ok:
+      type: object
+      properties:
+        ok:
+          type: boolean
+          description: 🆗
+      description: Ok model
+    post-generators:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of generator
+        description:
+          type: string
+          description: Description of generator
+        generator_type:
+          type: string
+          description: Generator type
+          enum:
+          - custom
+          - tabular
+          default: tabular
+        data:
+          type: array
+          description: Array of generator row data objects
+          items:
+            type: object
+            additionalProperties: true
+        columns:
+          type: array
+          description: Array of column names
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                description: Column name
+            required:
+            - name
+        reusable:
+          type: boolean
+          description: Whether this generator is to be reusable across tests within a run (only applies for tabular generators)
+          default: false
+        single_use:
+          type: boolean
+          description: Whether this generator's rows will be removed after a single use (only applies for tabular generators)
+          default: false
+        slim:
+          type: boolean
+          description: If true, returns less data in order to reduce latency and response size
+          default: false
+      required:
+      - name
+      - description
+      description: Create a new generator
     GeneratorRow:
       type: object
       properties:
@@ -731,6 +656,81 @@ components:
           type: object
           description: A hash of values. Keys are Generator Column IDs.
       description: GeneratorRow model
+    post-generator-rows:
+      type: object
+      properties:
+        data:
+          type: object
+          description: A Generator Row data object. Keys are column IDs.
+          additionalProperties: true
+      required:
+      - data
+      description: Create a new generator row
+    post-generator-rows-batch:
+      type: object
+      properties:
+        data:
+          type: array
+          description: An array of Generator Row data objects. Keys are column IDs.
+          items:
+            type: object
+            additionalProperties: true
+      required:
+      - data
+      description: Create multiple generator rows
+    put-generator-row:
+      type: object
+      properties:
+        data:
+          type: object
+          description: A Generator Row data object. Keys are column IDs.
+          additionalProperties: true
+      required:
+      - data
+      description: Update a generator row
+    put-generator:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of generator
+        description:
+          type: string
+          description: Description of generator
+        generator_type:
+          type: string
+          description: Generator type
+          enum:
+          - custom
+          - tabular
+        data:
+          type: array
+          description: Array of generator row data objects
+          items:
+            type: object
+            additionalProperties: true
+        columns:
+          type: array
+          description: Array of column names
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                description: Column name
+            required:
+            - name
+        reusable:
+          type: boolean
+          description: Whether this generator is to be reusable across tests within a run (only applies for tabular generators)
+        single_use:
+          type: boolean
+          description: Whether this generator's rows will be removed after a single use (only applies for tabular generators)
+        slim:
+          type: boolean
+          description: If true, returns less data in order to reduce latency and response size
+          default: false
+      description: Update a generator
   securitySchemes:
     api_key:
       type: apiKey

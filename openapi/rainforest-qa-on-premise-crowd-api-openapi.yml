@@ -82,20 +82,6 @@ paths:
       x-rdme-order: 10
 components:
   schemas:
-    post-on_premise_crowd_testers:
-      type: object
-      properties:
-        email:
-          type: string
-          format: email
-          description: Email of the tester
-        name:
-          type: string
-          description: Name of the tester
-      required:
-      - email
-      - name
-      description: Create an On-Prem Crowd tester
     Error:
       type: object
       properties:
@@ -129,6 +115,20 @@ components:
           type: string
           format: url
       description: Worker model
+    post-on_premise_crowd_testers:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+          description: Email of the tester
+        name:
+          type: string
+          description: Name of the tester
+      required:
+      - email
+      - name
+      description: Create an On-Prem Crowd tester
   securitySchemes:
     api_key:
       type: apiKey

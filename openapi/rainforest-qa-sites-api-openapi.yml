@@ -179,6 +179,43 @@ paths:
       x-rdme-order: 2
 components:
   schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: An error message describing what went wrong
+      required:
+      - error
+      description: Error model
+    Site:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        name:
+          type: string
+        default:
+          type: boolean
+        category:
+          type: string
+          enum:
+          - site
+          - ios
+          - android
+        ai_generation_rules:
+          type: string
+        snippet_count:
+          type: integer
+          format: int32
+        test_count:
+          type: integer
+          format: int32
+      description: Site model
     post-sites:
       type: object
       properties:
@@ -227,43 +264,6 @@ components:
           type: string
           description: Set the AI generation rules for the site
       description: Update a site
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-          description: An error message describing what went wrong
-      required:
-      - error
-      description: Error model
-    Site:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        created_at:
-          type: string
-          format: date-time
-        name:
-          type: string
-        default:
-          type: boolean
-        category:
-          type: string
-          enum:
-          - site
-          - ios
-          - android
-        ai_generation_rules:
-          type: string
-        snippet_count:
-          type: integer
-          format: int32
-        test_count:
-          type: integer
-          format: int32
-      description: Site model
   securitySchemes:
     api_key:
       type: apiKey

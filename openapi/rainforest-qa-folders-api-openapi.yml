@@ -217,112 +217,6 @@ paths:
       x-rdme-order: 12
 components:
   schemas:
-    Tests_Index:
-      type: object
-      properties:
-        id:
-          type: string
-        created_at:
-          type: string
-        test_id:
-          type: string
-        title:
-          type: string
-        result:
-          type: string
-        wisp:
-          type: string
-        prompt:
-          type: string
-        prompt_credentials:
-          type: string
-        ai_mode:
-          type: string
-        state:
-          type: string
-        category:
-          type: string
-        site_id:
-          type: string
-        priority:
-          type: string
-        start_uri:
-          type: string
-        description:
-          type: string
-        browsers:
-          $ref: '#/components/schemas/RunTestBrowserStatus'
-        tags:
-          type: string
-        frontend_url:
-          type: string
-        rfml_id:
-          type: string
-        exploratory_run_id:
-          type: string
-        initial_redirect_behavior:
-          type: string
-        source:
-          type: string
-        reroute_geo:
-          type: string
-          description: 'Deprecated: please use `connection.id` instead'
-        connection:
-          $ref: '#/components/schemas/Connection'
-        atc_settings:
-          type: string
-        owner:
-          $ref: '#/components/schemas/UserLite'
-        last_updated_by:
-          $ref: '#/components/schemas/UserLite'
-        updated_at:
-          type: string
-        archived_at:
-          type: string
-        deleted:
-          type: string
-        attached_to:
-          $ref: '#/components/schemas/Tests_Lite'
-        dry_run_url:
-          type: string
-        last_run:
-          $ref: '#/components/schemas/RunSuperLite'
-        feature_id:
-          type: string
-        has_wisp:
-          type: string
-        type:
-          type: string
-        coverage_summary:
-          type: string
-        used_in_snippets_count:
-          type: string
-        used_in_tests_count:
-          type: string
-        used_in_archived_snippets_count:
-          type: string
-        used_in_archived_tests_count:
-          type: string
-        self_healed_at:
-          type: string
-        last_run_test:
-          type: object
-          properties:
-            self_healed:
-              type: string
-            rescued:
-              type: string
-    RunSuperLite:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        created_at:
-          type: string
-          format: date-time
-        state:
-          type: string
     post-folders:
       type: object
       properties:
@@ -472,117 +366,123 @@ components:
       required:
       - title
       description: Create a new folder
-    SmartFolder:
+    Tests_Index:
       type: object
       properties:
         id:
-          type: integer
-          format: int32
+          type: string
+        created_at:
+          type: string
+        test_id:
+          type: string
+        title:
+          type: string
+        result:
+          type: string
+        wisp:
+          type: string
+        prompt:
+          type: string
+        prompt_credentials:
+          type: string
+        ai_mode:
+          type: string
+        state:
+          type: string
+        category:
+          type: string
+        site_id:
+          type: string
+        priority:
+          type: string
+        start_uri:
+          type: string
+        description:
+          type: string
+        browsers:
+          $ref: '#/components/schemas/RunTestBrowserStatus'
+        tags:
+          type: string
+        frontend_url:
+          type: string
+        rfml_id:
+          type: string
+        exploratory_run_id:
+          type: string
+        initial_redirect_behavior:
+          type: string
+        source:
+          type: string
+        reroute_geo:
+          type: string
+          description: 'Deprecated: please use `connection.id` instead'
+        connection:
+          $ref: '#/components/schemas/Connection'
+        atc_settings:
+          type: string
+        owner:
+          $ref: '#/components/schemas/UserLite'
+        last_updated_by:
+          $ref: '#/components/schemas/UserLite'
+        updated_at:
+          type: string
+        archived_at:
+          type: string
+        deleted:
+          type: string
+        attached_to:
+          $ref: '#/components/schemas/Tests_Lite'
+        dry_run_url:
+          type: string
+        last_run:
+          $ref: '#/components/schemas/RunSuperLite'
+        feature_id:
+          type: string
+        has_wisp:
+          type: string
+        type:
+          type: string
+        coverage_summary:
+          type: string
+        used_in_snippets_count:
+          type: string
+        used_in_tests_count:
+          type: string
+        used_in_archived_snippets_count:
+          type: string
+        used_in_archived_tests_count:
+          type: string
+        self_healed_at:
+          type: string
+        last_run_test:
+          type: object
+          properties:
+            self_healed:
+              type: string
+            rescued:
+              type: string
+    Connection:
+      type: object
+      properties:
+        id:
+          type: string
         created_at:
           type: string
           format: date-time
-        title:
+        name:
+          type: string
+        api_token:
+          type: string
+        state:
+          type: string
+        link_state:
           type: string
         type:
           type: string
           enum:
-          - filter
-          - tag
-        logic:
-          type: array
-          items:
-            type: object
-          example:
-          - expression:
-              tag: foo
-              inclusive: true
-          - operation: and
-          - expression:
-              tag: bar
-              inclusive: false
-          - operation: or
-          - expression:
-              tag: baz
-              inclusive: true
-        filters:
-          type: array
-          items:
-            $ref: '#/components/schemas/Filter'
-          example:
-          - owner_id: 117
-          - priority: P1
-        test_count:
-          type: integer
-          format: int32
-        tests:
-          type: array
-          items:
-            $ref: '#/components/schemas/Tests_Index'
-        updated_at:
-          type: string
-          format: date-time
-      required:
-      - title
-      - type
-      - logic
-      - filters
-      - updated_at
-      description: SmartFolder model
-    RunTestBrowserStatus:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        created_at:
-          type: string
-          format: date-time
-        name:
-          type: string
-        description:
-          type: string
-        category:
-          type: string
-        result:
-          type: string
-        state:
-          type: string
-        overridden_results:
-          $ref: '#/components/schemas/OverriddenResult'
-        credit_cost:
-          type: string
-    OverriddenResult:
-      type: object
-      properties:
-        id:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-        note:
-          type: string
-        result:
-          type: string
-        job_group_id:
-          type: string
-        user:
-          $ref: '#/components/schemas/UserLite'
-    UserLite:
-      type: object
-      properties:
-        id:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-        name:
-          type: string
-        email:
-          type: string
-        state:
-          type: string
-        role:
-          type: string
+          - rainforest
+          - user
+      description: Connection model
     put-folder:
       type: object
       properties:
@@ -730,6 +630,22 @@ components:
               has_comments:
                 type: string
       description: Update a folder
+    OverriddenResult:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        note:
+          type: string
+        result:
+          type: string
+        job_group_id:
+          type: string
+        user:
+          $ref: '#/components/schemas/UserLite'
     Error:
       type: object
       properties:
@@ -830,7 +746,97 @@ components:
           - rainforest_test_language
         has_comments:
           type: boolean
-    Connection:
+    RunTestBrowserStatus:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        name:
+          type: string
+        description:
+          type: string
+        category:
+          type: string
+        result:
+          type: string
+        state:
+          type: string
+        overridden_results:
+          $ref: '#/components/schemas/OverriddenResult'
+        credit_cost:
+          type: string
+    SmartFolder:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        title:
+          type: string
+        type:
+          type: string
+          enum:
+          - filter
+          - tag
+        logic:
+          type: array
+          items:
+            type: object
+          example:
+          - expression:
+              tag: foo
+              inclusive: true
+          - operation: and
+          - expression:
+              tag: bar
+              inclusive: false
+          - operation: or
+          - expression:
+              tag: baz
+              inclusive: true
+        filters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Filter'
+          example:
+          - owner_id: 117
+          - priority: P1
+        test_count:
+          type: integer
+          format: int32
+        tests:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tests_Index'
+        updated_at:
+          type: string
+          format: date-time
+      required:
+      - title
+      - type
+      - logic
+      - filters
+      - updated_at
+      description: SmartFolder model
+    RunSuperLite:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        state:
+          type: string
+    UserLite:
       type: object
       properties:
         id:
@@ -840,18 +846,12 @@ components:
           format: date-time
         name:
           type: string
-        api_token:
+        email:
           type: string
         state:
           type: string
-        link_state:
+        role:
           type: string
-        type:
-          type: string
-          enum:
-          - rainforest
-          - user
-      description: Connection model
   securitySchemes:
     api_key:
       type: apiKey

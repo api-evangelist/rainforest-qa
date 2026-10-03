@@ -94,6 +94,171 @@ paths:
       x-rdme-order: 4
 components:
   schemas:
+    BrowserCreditCost:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        browser_id:
+          type: integer
+          format: int32
+        browser_key:
+          type: string
+        credit_cost:
+          type: integer
+          format: int32
+    Environment:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        name:
+          type: boolean
+        default:
+          type: boolean
+        webhook:
+          type: string
+          format: url
+        webhook_enabled:
+          type: boolean
+        is_temporary:
+          type: boolean
+        deleted_at:
+          type: string
+          format: date-time
+          description: Only rendered if the environment is deleted
+        site_environments:
+          type: array
+          items:
+            $ref: '#/components/schemas/SiteEnvironment'
+        will_delete_after:
+          type: string
+          format: date-time
+          description: Only rendered if `is_temporary` is `true`
+      required:
+      - name
+      - default
+      - webhook
+      - webhook_enabled
+      - is_temporary
+      - site_environments
+      description: Environment model
+    RunLite:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        state:
+          type: string
+          enum:
+          - queued
+          - validating
+          - downloading_app
+          - waiting_for_test_initialization
+          - analyzing_app
+          - error
+          - sending_webhook
+          - in_progress
+          - aborting
+          - aborted
+          - timed_out
+          - waiting_for_callback
+          - complete
+          - pending_investigation
+        requested_tests:
+          type: array
+          items:
+            type: integer
+            format: int32
+        current_progress:
+          $ref: '#/components/schemas/RunProgress'
+        credit_cost:
+          type: integer
+          format: int32
+        result:
+          type: string
+          enum:
+          - passed
+          - failed
+          - no_result
+        updated_at:
+          type: string
+          format: date-time
+        environment:
+          $ref: '#/components/schemas/Environment'
+    post-clients-select:
+      type: object
+      properties:
+        client_id:
+          type: integer
+          format: int32
+          description: Id of client that you want to switch to
+      required:
+      - client_id
+      description: Select different client
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: An error message describing what went wrong
+      required:
+      - error
+      description: Error model
+    RunProgress:
+      type: object
+      properties:
+        percent:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+        complete:
+          type: integer
+          format: int32
+        passed:
+          type: integer
+          format: int32
+        failed:
+          type: integer
+          format: int32
+        no_result:
+          type: integer
+          format: int32
+        eta:
+          type: object
+    SiteEnvironment:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        site_id:
+          type: integer
+          format: int32
+        environment_id:
+          type: integer
+          format: int32
+        url:
+          type: string
+          format: url
+      required:
+      - site_id
+      - environment_id
+      - url
     Client:
       type: object
       properties:
@@ -169,39 +334,6 @@ components:
         has_private_sms_numbers:
           type: boolean
       description: Client model
-    BrowserWithDefault:
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        category:
-          type: string
-          enum:
-          - browser
-          - software
-          - tablet
-          - phone
-        browser_version:
-          type: string
-        os_version:
-          type: string
-        credit_cost:
-          type: integer
-          format: int32
-        mobile_os_type:
-          type: string
-          enum:
-          - ios
-          - android
-        mobile_device_type:
-          type: string
-          enum:
-          - vm
-          - real_device
-        default:
-          type: boolean
     put-clients:
       type: object
       properties:
@@ -844,171 +976,39 @@ components:
         fallback_dom_enabled:
           type: string
       description: Update account information
-    RunLite:
+    BrowserWithDefault:
       type: object
       properties:
-        id:
-          type: integer
-          format: int32
-        created_at:
+        name:
           type: string
-          format: date-time
-        state:
+        description:
+          type: string
+        category:
           type: string
           enum:
-          - queued
-          - validating
-          - downloading_app
-          - waiting_for_test_initialization
-          - analyzing_app
-          - error
-          - sending_webhook
-          - in_progress
-          - aborting
-          - aborted
-          - timed_out
-          - waiting_for_callback
-          - complete
-          - pending_investigation
-        requested_tests:
-          type: array
-          items:
-            type: integer
-            format: int32
-        current_progress:
-          $ref: '#/components/schemas/RunProgress'
+          - browser
+          - software
+          - tablet
+          - phone
+        browser_version:
+          type: string
+        os_version:
+          type: string
         credit_cost:
           type: integer
           format: int32
-        result:
+        mobile_os_type:
           type: string
           enum:
-          - passed
-          - failed
-          - no_result
-        updated_at:
+          - ios
+          - android
+        mobile_device_type:
           type: string
-          format: date-time
-        environment:
-          $ref: '#/components/schemas/Environment'
-    SiteEnvironment:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        created_at:
-          type: string
-          format: date-time
-        site_id:
-          type: integer
-          format: int32
-        environment_id:
-          type: integer
-          format: int32
-        url:
-          type: string
-          format: url
-      required:
-      - site_id
-      - environment_id
-      - url
-    Environment:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        created_at:
-          type: string
-          format: date-time
-        name:
-          type: boolean
+          enum:
+          - vm
+          - real_device
         default:
           type: boolean
-        webhook:
-          type: string
-          format: url
-        webhook_enabled:
-          type: boolean
-        is_temporary:
-          type: boolean
-        deleted_at:
-          type: string
-          format: date-time
-          description: Only rendered if the environment is deleted
-        site_environments:
-          type: array
-          items:
-            $ref: '#/components/schemas/SiteEnvironment'
-        will_delete_after:
-          type: string
-          format: date-time
-          description: Only rendered if `is_temporary` is `true`
-      required:
-      - name
-      - default
-      - webhook
-      - webhook_enabled
-      - is_temporary
-      - site_environments
-      description: Environment model
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-          description: An error message describing what went wrong
-      required:
-      - error
-      description: Error model
-    post-clients-select:
-      type: object
-      properties:
-        client_id:
-          type: integer
-          format: int32
-          description: Id of client that you want to switch to
-      required:
-      - client_id
-      description: Select different client
-    RunProgress:
-      type: object
-      properties:
-        percent:
-          type: integer
-          format: int32
-        total:
-          type: integer
-          format: int32
-        complete:
-          type: integer
-          format: int32
-        passed:
-          type: integer
-          format: int32
-        failed:
-          type: integer
-          format: int32
-        no_result:
-          type: integer
-          format: int32
-        eta:
-          type: object
-    BrowserCreditCost:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        browser_id:
-          type: integer
-          format: int32
-        browser_key:
-          type: string
-        credit_cost:
-          type: integer
-          format: int32
   securitySchemes:
     api_key:
       type: apiKey

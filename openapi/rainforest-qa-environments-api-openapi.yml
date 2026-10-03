@@ -193,28 +193,6 @@ components:
           type: boolean
           description: Use the webhook for new runs?
       description: Update an environment
-    SiteEnvironment:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        created_at:
-          type: string
-          format: date-time
-        site_id:
-          type: integer
-          format: int32
-        environment_id:
-          type: integer
-          format: int32
-        url:
-          type: string
-          format: url
-      required:
-      - site_id
-      - environment_id
-      - url
     post-environments:
       type: object
       properties:
@@ -290,6 +268,28 @@ components:
       required:
       - error
       description: Error model
+    SiteEnvironment:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        site_id:
+          type: integer
+          format: int32
+        environment_id:
+          type: integer
+          format: int32
+        url:
+          type: string
+          format: url
+      required:
+      - site_id
+      - environment_id
+      - url
   securitySchemes:
     api_key:
       type: apiKey
