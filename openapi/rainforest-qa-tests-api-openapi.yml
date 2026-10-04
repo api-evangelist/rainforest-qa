@@ -1448,6 +1448,197 @@ paths:
       x-rdme-order: 50
 components:
   schemas:
+    RunSuperLite:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        state:
+          type: string
+    Ok:
+      type: object
+      properties:
+        ok:
+          type: boolean
+          description: 🆗
+      description: Ok model
+    RunTestBrowserStatus:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        name:
+          type: string
+        description:
+          type: string
+        category:
+          type: string
+        result:
+          type: string
+        state:
+          type: string
+        overridden_results:
+          $ref: '#/components/schemas/OverriddenResult'
+        credit_cost:
+          type: string
+    post-test-files:
+      type: object
+      properties:
+        size:
+          type: string
+          description: Size of the file
+        mime_type:
+          type: string
+          description: Mime Type of the file
+        digest:
+          type: string
+          description: MD5 digest of file
+        name:
+          type: string
+          description: Name of the file
+      required:
+      - size
+      - mime_type
+      description: Create a new file for a test
+    put-test-regenerate:
+      type: object
+      properties:
+        ai_mode:
+          type: string
+          description: Set to `self-heal` to turn on self-healing for snippets
+          enum:
+          - self-heal
+        browsers:
+          type: array
+          description: List of browsers that the test runs on by default; you can find a list of possible options via the client API
+          items:
+            type: string
+        category:
+          type: string
+          description: Test category
+          enum:
+          - site
+          - app
+        connection_id:
+          type: string
+          description: Connection to route test execution through (geographic location or custom tunnel)
+        reroute_geo:
+          type: string
+          description: 'Deprecated: use connection_id instead'
+        description:
+          type: string
+          description: Test notes
+        environment_id:
+          type: integer
+          format: int32
+          description: Environment used to get initial_navigate_url (only concerns Visual Editor tests)
+        feature_id:
+          type: integer
+          format: int32
+          description: Test feature
+        login_snippet_id:
+          type: integer
+          format: int32
+          description: ID of a snippet to use for login steps at the start of AI test generation. Mutually exclusive with prompt_credentials
+        owner_id:
+          type: integer
+          format: int32
+          description: Test owner
+        priority:
+          type: string
+          description: Test priority
+          enum:
+          - P1
+          - P2
+          - P3
+          - ''
+        prompt:
+          type: string
+          description: Prompt for self-healing snippets or AI generated tests
+        prompt_credentials:
+          type: string
+          description: Login credentials for AI test generation (e.g. 'username / password'). Mutually exclusive with login_snippet_id
+        rfml_id:
+          type: string
+          description: RFML ID for this test
+        site_id:
+          type: integer
+          format: int32
+          description: Tested site
+        start_uri:
+          type: string
+          description: The path this test starts at; if present, must start with a /
+        state:
+          type: string
+          description: Test state
+          enum:
+          - enabled
+          - disabled
+          - draft
+          - archived
+        tags:
+          type: array
+          description: Test tags
+          items:
+            type: string
+        title:
+          type: string
+          description: 'Test title (maximum length: 255 characters)'
+        type:
+          type: string
+          description: The type of test to create
+          enum:
+          - snippet
+          - test
+        atc_settings:
+          type: object
+          properties:
+            delay_after:
+              type: integer
+              format: int32
+              description: Delay(seconds) in execution after every verb
+          required:
+          - delay_after
+        slim:
+          type: boolean
+          description: If true, returns less data in order to reduce latency and response size
+          default: false
+      description: Regenerate a test with AI from a new prompt
+    RunGroupElement:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        run_group_id:
+          type: integer
+          format: int32
+          description: The element's run group's ID
+        run_group_title:
+          type: string
+          description: The element's run group's title
+        type:
+          type: string
+          enum:
+          - test
+          - feature
+          - filter
+          - tag
+        element:
+          type: object
+          description: Details of the test, feature, or filter
+      description: RunGroupElement model
     post-tests:
       type: object
       properties:
@@ -1556,508 +1747,6 @@ components:
       - title
       - type
       description: Create a new test
-    put-test:
-      type: object
-      properties:
-        ai_mode:
-          type: string
-          description: Set to `self-heal` to turn on self-healing for snippets
-          enum:
-          - self-heal
-        browsers:
-          type: array
-          description: List of browsers that the test runs on by default; you can find a list of possible options via the client API
-          items:
-            type: string
-        category:
-          type: string
-          description: Test category
-          enum:
-          - site
-          - app
-        connection_id:
-          type: string
-          description: Connection to route test execution through (geographic location or custom tunnel)
-        reroute_geo:
-          type: string
-          description: 'Deprecated: use connection_id instead'
-        description:
-          type: string
-          description: Test notes
-        environment_id:
-          type: integer
-          format: int32
-          description: Environment used to get initial_navigate_url (only concerns Visual Editor tests)
-        feature_id:
-          type: integer
-          format: int32
-          description: Test feature
-        login_snippet_id:
-          type: integer
-          format: int32
-          description: ID of a snippet to use for login steps at the start of AI test generation. Mutually exclusive with prompt_credentials
-        owner_id:
-          type: integer
-          format: int32
-          description: Test owner
-        priority:
-          type: string
-          description: Test priority
-          enum:
-          - P1
-          - P2
-          - P3
-          - ''
-        prompt:
-          type: string
-          description: Prompt for self-healing snippets or AI generated tests
-        prompt_credentials:
-          type: string
-          description: Login credentials for AI test generation (e.g. 'username / password'). Mutually exclusive with login_snippet_id
-        rfml_id:
-          type: string
-          description: RFML ID for this test
-        site_id:
-          type: integer
-          format: int32
-          description: Tested site
-        start_uri:
-          type: string
-          description: The path this test starts at; if present, must start with a /
-        state:
-          type: string
-          description: Test state
-          enum:
-          - enabled
-          - disabled
-          - draft
-          - archived
-        tags:
-          type: array
-          description: Test tags
-          items:
-            type: string
-        title:
-          type: string
-          description: 'Test title (maximum length: 255 characters)'
-        type:
-          type: string
-          description: The type of test to create
-          enum:
-          - snippet
-          - test
-        atc_settings:
-          type: object
-          properties:
-            delay_after:
-              type: integer
-              format: int32
-              description: Delay(seconds) in execution after every verb
-          required:
-          - delay_after
-        slim:
-          type: boolean
-          description: If true, returns less data in order to reduce latency and response size
-          default: false
-      description: Update a test
-    Test:
-      type: object
-      properties:
-        id:
-          type: string
-        created_at:
-          type: string
-        test_id:
-          type: string
-        title:
-          type: string
-        result:
-          type: string
-        wisp:
-          type: string
-        prompt:
-          type: string
-        prompt_credentials:
-          type: string
-        ai_mode:
-          type: string
-        state:
-          type: string
-        category:
-          type: string
-        site_id:
-          type: string
-        priority:
-          type: string
-        start_uri:
-          type: string
-        description:
-          type: string
-        browsers:
-          $ref: '#/components/schemas/RunTestBrowserStatus'
-        tags:
-          type: string
-        frontend_url:
-          type: string
-        rfml_id:
-          type: string
-        exploratory_run_id:
-          type: string
-        initial_redirect_behavior:
-          type: string
-        source:
-          type: string
-        reroute_geo:
-          type: string
-          description: 'Deprecated: please use `connection.id` instead'
-        connection:
-          $ref: '#/components/schemas/Connection'
-        atc_settings:
-          type: string
-        owner:
-          $ref: '#/components/schemas/UserLite'
-        last_updated_by:
-          $ref: '#/components/schemas/UserLite'
-        updated_at:
-          type: string
-        archived_at:
-          type: string
-        deleted:
-          type: string
-        attached_to:
-          $ref: '#/components/schemas/Tests_Lite'
-        dry_run_url:
-          type: string
-        last_run:
-          $ref: '#/components/schemas/RunSuperLite'
-        feature_id:
-          type: string
-        has_wisp:
-          type: string
-        type:
-          type: string
-        coverage_summary:
-          type: string
-        used_in_snippets_count:
-          type: string
-        used_in_tests_count:
-          type: string
-        used_in_archived_snippets_count:
-          type: string
-        used_in_archived_tests_count:
-          type: string
-        self_healed_at:
-          type: string
-        last_run_test:
-          type: object
-          properties:
-            self_healed:
-              type: string
-            rescued:
-              type: string
-        step_count:
-          type: integer
-          format: int32
-        deletable:
-          type: boolean
-        editable:
-          type: boolean
-        embedded:
-          type: boolean
-        unrewritable_reason:
-          type: string
-        test_version_id:
-          type: string
-        total_instances:
-          type: string
-        job_test_generation_id:
-          type: string
-      description: Test model
-    Connection:
-      type: object
-      properties:
-        id:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-        name:
-          type: string
-        api_token:
-          type: string
-        state:
-          type: string
-        link_state:
-          type: string
-        type:
-          type: string
-          enum:
-          - rainforest
-          - user
-      description: Connection model
-    post-test-files:
-      type: object
-      properties:
-        size:
-          type: string
-          description: Size of the file
-        mime_type:
-          type: string
-          description: Mime Type of the file
-        digest:
-          type: string
-          description: MD5 digest of file
-        name:
-          type: string
-          description: Name of the file
-      required:
-      - size
-      - mime_type
-      description: Create a new file for a test
-    RunGroupElement:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        created_at:
-          type: string
-          format: date-time
-        run_group_id:
-          type: integer
-          format: int32
-          description: The element's run group's ID
-        run_group_title:
-          type: string
-          description: The element's run group's title
-        type:
-          type: string
-          enum:
-          - test
-          - feature
-          - filter
-          - tag
-        element:
-          type: object
-          description: Details of the test, feature, or filter
-      description: RunGroupElement model
-    put-test-regenerate:
-      type: object
-      properties:
-        ai_mode:
-          type: string
-          description: Set to `self-heal` to turn on self-healing for snippets
-          enum:
-          - self-heal
-        browsers:
-          type: array
-          description: List of browsers that the test runs on by default; you can find a list of possible options via the client API
-          items:
-            type: string
-        category:
-          type: string
-          description: Test category
-          enum:
-          - site
-          - app
-        connection_id:
-          type: string
-          description: Connection to route test execution through (geographic location or custom tunnel)
-        reroute_geo:
-          type: string
-          description: 'Deprecated: use connection_id instead'
-        description:
-          type: string
-          description: Test notes
-        environment_id:
-          type: integer
-          format: int32
-          description: Environment used to get initial_navigate_url (only concerns Visual Editor tests)
-        feature_id:
-          type: integer
-          format: int32
-          description: Test feature
-        login_snippet_id:
-          type: integer
-          format: int32
-          description: ID of a snippet to use for login steps at the start of AI test generation. Mutually exclusive with prompt_credentials
-        owner_id:
-          type: integer
-          format: int32
-          description: Test owner
-        priority:
-          type: string
-          description: Test priority
-          enum:
-          - P1
-          - P2
-          - P3
-          - ''
-        prompt:
-          type: string
-          description: Prompt for self-healing snippets or AI generated tests
-        prompt_credentials:
-          type: string
-          description: Login credentials for AI test generation (e.g. 'username / password'). Mutually exclusive with login_snippet_id
-        rfml_id:
-          type: string
-          description: RFML ID for this test
-        site_id:
-          type: integer
-          format: int32
-          description: Tested site
-        start_uri:
-          type: string
-          description: The path this test starts at; if present, must start with a /
-        state:
-          type: string
-          description: Test state
-          enum:
-          - enabled
-          - disabled
-          - draft
-          - archived
-        tags:
-          type: array
-          description: Test tags
-          items:
-            type: string
-        title:
-          type: string
-          description: 'Test title (maximum length: 255 characters)'
-        type:
-          type: string
-          description: The type of test to create
-          enum:
-          - snippet
-          - test
-        atc_settings:
-          type: object
-          properties:
-            delay_after:
-              type: integer
-              format: int32
-              description: Delay(seconds) in execution after every verb
-          required:
-          - delay_after
-        slim:
-          type: boolean
-          description: If true, returns less data in order to reduce latency and response size
-          default: false
-      description: Regenerate a test with AI from a new prompt
-    post-tests-tags:
-      type: object
-      properties:
-        category:
-          type: string
-          description: Only tag tests with this category
-          enum:
-          - app
-          - site
-        exploratory_run_id:
-          type: integer
-          format: int32
-          description: Only tag created in this exploratory run
-        feature_id:
-          type: array
-          description: Only tag tests with this/these feature(s); use `-1` to filter for tests without a feature
-          items:
-            type: integer
-            format: int32
-        priority:
-          type: string
-          description: Only tag tests with this priority
-          enum:
-          - P1
-          - P2
-          - P3
-          - ''
-          - not_prioritized
-        query:
-          type: string
-          description: Only tag tests whose title contains, or ID matches, this string
-        result:
-          type: string
-          description: Only tag tests with a specific result
-          enum:
-          - passed
-          - failed
-          - no_result
-        run_group_id:
-          type: integer
-          format: int32
-          description: Only tag tests in this run group; use `-1` to filter for tests not in any run groups
-        site_id:
-          type: array
-          description: Only tag tests for this/these site(s)
-          items:
-            type: integer
-            format: int32
-        smart_folder_id:
-          type: integer
-          format: int32
-          description: Only tag tests in this saved filter
-        state:
-          type: array
-          description: Only tag tests that with this state
-          items:
-            type: string
-            enum:
-            - enabled
-            - disabled
-            - draft
-            - archived
-            - all
-            - unarchived
-        step_query:
-          type: string
-          description: Only tag tests whose steps match this string
-        tags:
-          type: array
-          description: Only tag tests having all specified tags; use `-1` to filter for untagged tests
-          items:
-            type: string
-        tests:
-          type: string
-          description: Only tag tests matching this criteria. Can be comma-separated list of test ids or 'all' to tag all tests
-        type:
-          type: string
-          description: Only tag tests of this type
-          enum:
-          - snippet
-          - test
-        run_id:
-          type: array
-          description: Only tag tests that were in this/these previous run(s)
-          items:
-            type: integer
-            format: int32
-        variable:
-          type: string
-          description: Only tag tests that contain given variable
-        embedded:
-          type: boolean
-          description: If true, only tag tests that are embedded in other tests. If false, only tag tests that are not embedded in other tests.
-        owner_id:
-          type: integer
-          format: int32
-          description: Only tag tests owned by this user; use `-1` to filter for tests without an owner
-        test_language:
-          type: string
-          description: Only tag tests with a specified language
-          enum:
-          - plain_english
-          - rainforest_test_language
-        async:
-          type: boolean
-          description: When true perform the operation asynchronously. Use when you're experiencing timeouts. There is no way to determine if the operation was successful or when it is complete.
-          default: false
-        tag_with:
-          type: string
-          description: List of tags to add
-      required:
-      - tag_with
-      description: Tag a group of tests
     Error:
       type: object
       properties:
@@ -2175,87 +1864,6 @@ components:
           description: When true perform the operation asynchronously. Use when you're experiencing timeouts. There is no way to determine if the operation was successful or when it is complete.
           default: false
       description: Duplicate multiple tests
-    Tests_Lite:
-      type: object
-      properties:
-        id:
-          type: string
-        created_at:
-          type: string
-        test_id:
-          type: string
-        title:
-          type: string
-        result:
-          type: string
-        wisp:
-          type: string
-        prompt:
-          type: string
-        prompt_credentials:
-          type: string
-        ai_mode:
-          type: string
-        priority:
-          type: string
-        real_cost_to_run:
-          type: string
-        owner_id:
-          type: string
-        state:
-          type: string
-        updated_at:
-          type: string
-        deleted:
-          type: string
-        feature_id:
-          type: string
-    Ok:
-      type: object
-      properties:
-        ok:
-          type: boolean
-          description: 🆗
-      description: Ok model
-    RunTestBrowserStatus:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        created_at:
-          type: string
-          format: date-time
-        name:
-          type: string
-        description:
-          type: string
-        category:
-          type: string
-        result:
-          type: string
-        state:
-          type: string
-        overridden_results:
-          $ref: '#/components/schemas/OverriddenResult'
-        credit_cost:
-          type: string
-    OverriddenResult:
-      type: object
-      properties:
-        id:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-        note:
-          type: string
-        result:
-          type: string
-        job_group_id:
-          type: string
-        user:
-          $ref: '#/components/schemas/UserLite'
     put-tests:
       type: object
       properties:
@@ -2397,17 +2005,119 @@ components:
           type: string
           description: 'Test titles (maximum length: 255 characters)'
       description: Update multiple tests
-    RunSuperLite:
+    Test:
       type: object
       properties:
         id:
-          type: integer
-          format: int32
+          type: string
         created_at:
           type: string
-          format: date-time
+        test_id:
+          type: string
+        title:
+          type: string
+        result:
+          type: string
+        wisp:
+          type: string
+        prompt:
+          type: string
+        prompt_credentials:
+          type: string
+        ai_mode:
+          type: string
         state:
           type: string
+        category:
+          type: string
+        site_id:
+          type: string
+        priority:
+          type: string
+        start_uri:
+          type: string
+        description:
+          type: string
+        browsers:
+          $ref: '#/components/schemas/RunTestBrowserStatus'
+        tags:
+          type: string
+        frontend_url:
+          type: string
+        rfml_id:
+          type: string
+        exploratory_run_id:
+          type: string
+        initial_redirect_behavior:
+          type: string
+        source:
+          type: string
+        reroute_geo:
+          type: string
+          description: 'Deprecated: please use `connection.id` instead'
+        connection:
+          $ref: '#/components/schemas/Connection'
+        atc_settings:
+          type: string
+        owner:
+          $ref: '#/components/schemas/UserLite'
+        last_updated_by:
+          $ref: '#/components/schemas/UserLite'
+        updated_at:
+          type: string
+        archived_at:
+          type: string
+        deleted:
+          type: string
+        attached_to:
+          $ref: '#/components/schemas/Tests_Lite'
+        dry_run_url:
+          type: string
+        last_run:
+          $ref: '#/components/schemas/RunSuperLite'
+        feature_id:
+          type: string
+        has_wisp:
+          type: string
+        type:
+          type: string
+        coverage_summary:
+          type: string
+        used_in_snippets_count:
+          type: string
+        used_in_tests_count:
+          type: string
+        used_in_archived_snippets_count:
+          type: string
+        used_in_archived_tests_count:
+          type: string
+        self_healed_at:
+          type: string
+        last_run_test:
+          type: object
+          properties:
+            self_healed:
+              type: string
+            rescued:
+              type: string
+        step_count:
+          type: integer
+          format: int32
+        deletable:
+          type: boolean
+        editable:
+          type: boolean
+        embedded:
+          type: boolean
+        unrewritable_reason:
+          type: string
+        test_version_id:
+          type: string
+        total_instances:
+          type: string
+        job_test_generation_id:
+          type: string
+      description: Test model
     UserLite:
       type: object
       properties:
@@ -2424,6 +2134,170 @@ components:
           type: string
         role:
           type: string
+    OverriddenResult:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        note:
+          type: string
+        result:
+          type: string
+        job_group_id:
+          type: string
+        user:
+          $ref: '#/components/schemas/UserLite'
+    Tests_Lite:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+        test_id:
+          type: string
+        title:
+          type: string
+        result:
+          type: string
+        wisp:
+          type: string
+        prompt:
+          type: string
+        prompt_credentials:
+          type: string
+        ai_mode:
+          type: string
+        priority:
+          type: string
+        real_cost_to_run:
+          type: string
+        owner_id:
+          type: string
+        state:
+          type: string
+        updated_at:
+          type: string
+        deleted:
+          type: string
+        feature_id:
+          type: string
+    post-tests-tags:
+      type: object
+      properties:
+        category:
+          type: string
+          description: Only tag tests with this category
+          enum:
+          - app
+          - site
+        exploratory_run_id:
+          type: integer
+          format: int32
+          description: Only tag created in this exploratory run
+        feature_id:
+          type: array
+          description: Only tag tests with this/these feature(s); use `-1` to filter for tests without a feature
+          items:
+            type: integer
+            format: int32
+        priority:
+          type: string
+          description: Only tag tests with this priority
+          enum:
+          - P1
+          - P2
+          - P3
+          - ''
+          - not_prioritized
+        query:
+          type: string
+          description: Only tag tests whose title contains, or ID matches, this string
+        result:
+          type: string
+          description: Only tag tests with a specific result
+          enum:
+          - passed
+          - failed
+          - no_result
+        run_group_id:
+          type: integer
+          format: int32
+          description: Only tag tests in this run group; use `-1` to filter for tests not in any run groups
+        site_id:
+          type: array
+          description: Only tag tests for this/these site(s)
+          items:
+            type: integer
+            format: int32
+        smart_folder_id:
+          type: integer
+          format: int32
+          description: Only tag tests in this saved filter
+        state:
+          type: array
+          description: Only tag tests that with this state
+          items:
+            type: string
+            enum:
+            - enabled
+            - disabled
+            - draft
+            - archived
+            - all
+            - unarchived
+        step_query:
+          type: string
+          description: Only tag tests whose steps match this string
+        tags:
+          type: array
+          description: Only tag tests having all specified tags; use `-1` to filter for untagged tests
+          items:
+            type: string
+        tests:
+          type: string
+          description: Only tag tests matching this criteria. Can be comma-separated list of test ids or 'all' to tag all tests
+        type:
+          type: string
+          description: Only tag tests of this type
+          enum:
+          - snippet
+          - test
+        run_id:
+          type: array
+          description: Only tag tests that were in this/these previous run(s)
+          items:
+            type: integer
+            format: int32
+        variable:
+          type: string
+          description: Only tag tests that contain given variable
+        embedded:
+          type: boolean
+          description: If true, only tag tests that are embedded in other tests. If false, only tag tests that are not embedded in other tests.
+        owner_id:
+          type: integer
+          format: int32
+          description: Only tag tests owned by this user; use `-1` to filter for tests without an owner
+        test_language:
+          type: string
+          description: Only tag tests with a specified language
+          enum:
+          - plain_english
+          - rainforest_test_language
+        async:
+          type: boolean
+          description: When true perform the operation asynchronously. Use when you're experiencing timeouts. There is no way to determine if the operation was successful or when it is complete.
+          default: false
+        tag_with:
+          type: string
+          description: List of tags to add
+      required:
+      - tag_with
+      description: Tag a group of tests
     Tag:
       type: object
       properties:
@@ -2436,6 +2310,132 @@ components:
           type: integer
           format: int32
       description: Tag model
+    Connection:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        name:
+          type: string
+        api_token:
+          type: string
+        state:
+          type: string
+        link_state:
+          type: string
+        type:
+          type: string
+          enum:
+          - rainforest
+          - user
+      description: Connection model
+    put-test:
+      type: object
+      properties:
+        ai_mode:
+          type: string
+          description: Set to `self-heal` to turn on self-healing for snippets
+          enum:
+          - self-heal
+        browsers:
+          type: array
+          description: List of browsers that the test runs on by default; you can find a list of possible options via the client API
+          items:
+            type: string
+        category:
+          type: string
+          description: Test category
+          enum:
+          - site
+          - app
+        connection_id:
+          type: string
+          description: Connection to route test execution through (geographic location or custom tunnel)
+        reroute_geo:
+          type: string
+          description: 'Deprecated: use connection_id instead'
+        description:
+          type: string
+          description: Test notes
+        environment_id:
+          type: integer
+          format: int32
+          description: Environment used to get initial_navigate_url (only concerns Visual Editor tests)
+        feature_id:
+          type: integer
+          format: int32
+          description: Test feature
+        login_snippet_id:
+          type: integer
+          format: int32
+          description: ID of a snippet to use for login steps at the start of AI test generation. Mutually exclusive with prompt_credentials
+        owner_id:
+          type: integer
+          format: int32
+          description: Test owner
+        priority:
+          type: string
+          description: Test priority
+          enum:
+          - P1
+          - P2
+          - P3
+          - ''
+        prompt:
+          type: string
+          description: Prompt for self-healing snippets or AI generated tests
+        prompt_credentials:
+          type: string
+          description: Login credentials for AI test generation (e.g. 'username / password'). Mutually exclusive with login_snippet_id
+        rfml_id:
+          type: string
+          description: RFML ID for this test
+        site_id:
+          type: integer
+          format: int32
+          description: Tested site
+        start_uri:
+          type: string
+          description: The path this test starts at; if present, must start with a /
+        state:
+          type: string
+          description: Test state
+          enum:
+          - enabled
+          - disabled
+          - draft
+          - archived
+        tags:
+          type: array
+          description: Test tags
+          items:
+            type: string
+        title:
+          type: string
+          description: 'Test title (maximum length: 255 characters)'
+        type:
+          type: string
+          description: The type of test to create
+          enum:
+          - snippet
+          - test
+        atc_settings:
+          type: object
+          properties:
+            delay_after:
+              type: integer
+              format: int32
+              description: Delay(seconds) in execution after every verb
+          required:
+          - delay_after
+        slim:
+          type: boolean
+          description: If true, returns less data in order to reduce latency and response size
+          default: false
+      description: Update a test
   securitySchemes:
     api_key:
       type: apiKey

@@ -179,15 +179,6 @@ paths:
       x-rdme-order: 2
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-          description: An error message describing what went wrong
-      required:
-      - error
-      description: Error model
     Site:
       type: object
       properties:
@@ -216,6 +207,37 @@ components:
           type: integer
           format: int32
       description: Site model
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: An error message describing what went wrong
+      required:
+      - error
+      description: Error model
+    put-site:
+      type: object
+      properties:
+        name:
+          type: string
+          description: New name of site
+        default:
+          type: boolean
+          description: Set this site as default
+          enum:
+          - true
+        category:
+          type: string
+          description: Set the type of url
+          enum:
+          - site
+          - ios
+          - android
+        ai_generation_rules:
+          type: string
+          description: Set the AI generation rules for the site
+      description: Update a site
     post-sites:
       type: object
       properties:
@@ -242,28 +264,6 @@ components:
       required:
       - name
       description: Create a new site - creates corresponding site-environments for each environment as well
-    put-site:
-      type: object
-      properties:
-        name:
-          type: string
-          description: New name of site
-        default:
-          type: boolean
-          description: Set this site as default
-          enum:
-          - true
-        category:
-          type: string
-          description: Set the type of url
-          enum:
-          - site
-          - ios
-          - android
-        ai_generation_rules:
-          type: string
-          description: Set the AI generation rules for the site
-      description: Update a site
   securitySchemes:
     api_key:
       type: apiKey

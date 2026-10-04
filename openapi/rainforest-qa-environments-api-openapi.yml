@@ -176,49 +176,6 @@ paths:
       x-rdme-order: 12
 components:
   schemas:
-    put-environment:
-      type: object
-      properties:
-        name:
-          type: string
-          description: The name of the environment
-        default:
-          type: boolean
-          description: Set this environment as the default
-        webhook:
-          type: string
-          format: url
-          description: Default webhook for new runs
-        webhook_enabled:
-          type: boolean
-          description: Use the webhook for new runs?
-      description: Update an environment
-    post-environments:
-      type: object
-      properties:
-        name:
-          type: string
-          description: The name of the environment
-        webhook:
-          type: string
-          format: url
-          description: Default webhook to call before starting new runs
-        webhook_enabled:
-          type: boolean
-          description: Use the webhook for new runs?
-        default:
-          type: boolean
-          description: Set this environment as the default
-        url:
-          type: string
-          format: url
-          description: Default base URL for tests run in this environment
-        is_temporary:
-          type: boolean
-          description: Should this be deleted after 72 hours of use?
-      required:
-      - name
-      description: Create a new environment and corresponding site-environments for each site as well
     Environment:
       type: object
       properties:
@@ -268,6 +225,49 @@ components:
       required:
       - error
       description: Error model
+    post-environments:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the environment
+        webhook:
+          type: string
+          format: url
+          description: Default webhook to call before starting new runs
+        webhook_enabled:
+          type: boolean
+          description: Use the webhook for new runs?
+        default:
+          type: boolean
+          description: Set this environment as the default
+        url:
+          type: string
+          format: url
+          description: Default base URL for tests run in this environment
+        is_temporary:
+          type: boolean
+          description: Should this be deleted after 72 hours of use?
+      required:
+      - name
+      description: Create a new environment and corresponding site-environments for each site as well
+    put-environment:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the environment
+        default:
+          type: boolean
+          description: Set this environment as the default
+        webhook:
+          type: string
+          format: url
+          description: Default webhook for new runs
+        webhook_enabled:
+          type: boolean
+          description: Use the webhook for new runs?
+      description: Update an environment
     SiteEnvironment:
       type: object
       properties:

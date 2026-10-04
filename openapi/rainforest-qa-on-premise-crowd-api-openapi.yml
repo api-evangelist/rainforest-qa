@@ -82,15 +82,6 @@ paths:
       x-rdme-order: 10
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-          description: An error message describing what went wrong
-      required:
-      - error
-      description: Error model
     Worker:
       type: object
       properties:
@@ -115,6 +106,15 @@ components:
           type: string
           format: url
       description: Worker model
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: An error message describing what went wrong
+      required:
+      - error
+      description: Error model
     post-on_premise_crowd_testers:
       type: object
       properties:
