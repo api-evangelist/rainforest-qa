@@ -1,0 +1,90 @@
+slug: rainforest-qa
+provider: Rainforest QA
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 8
+edges:
+- tag: Tests
+  spec_file: rainforest-qa-tests-api-openapi.yml
+  capability_id: BC-4200.50
+  capability_id_l1: BC-4200
+  capability_name: Software Quality Engineering
+  confidence: 0.93
+  evidence: '"Create a new test", "Duplicate multiple tests", "Regenerate a test with AI from a new prompt"'
+  reason: Authoring and management of automated/manual software tests is Software Quality Engineering
+    (test strategy and automated test suite stewardship).
+- tag: Runs
+  spec_file: rainforest-qa-runs-api-openapi.yml
+  capability_id: BC-4200.50
+  capability_id_l1: BC-4200
+  capability_name: Software Quality Engineering
+  confidence: 0.9
+  evidence: GET /1/runs/{run_id}/junit get-run-junit Get a run's JUnit XML; POST /1/runs/{run_id}/rerun_failed
+    Create a rerun
+  reason: Triggering, cancelling, rerunning test runs and pulling JUnit results is directly automated
+    test execution and defect surfacing — Software Quality Engineering.
+- tag: Test Results
+  spec_file: rainforest-qa-test-results-api-openapi.yml
+  capability_id: BC-4200.50
+  capability_id_l1: BC-4200
+  capability_name: Software Quality Engineering
+  confidence: 0.9
+  evidence: GET /1/test_results "List test results"; schemas RunTestReview, RunStep, RunTestBrowserStatus
+  reason: Retrieval of software test execution results is squarely test suite stewardship / defect-and-quality
+    evidence under Software Quality Engineering.
+- tag: run_groups
+  spec_file: rainforest-qa-run-groups-api-openapi.yml
+  capability_id: BC-4200.50
+  capability_id_l1: BC-4200
+  capability_name: Software Quality Engineering
+  confidence: 0.8
+  evidence: '"Create a new run group run", "Get runs for a run group"; schemas RunStats, RunProgress,
+    Schedule, Tests_RunTestsLite'
+  reason: Grouping and scheduling of test runs and tracking their progress is automated test suite stewardship
+    under Software Quality Engineering.
+- tag: Environments
+  spec_file: rainforest-qa-environments-api-openapi.yml
+  capability_id: BC-4210.20
+  capability_id_l1: BC-4210
+  capability_name: Environment Management
+  confidence: 0.7
+  evidence: POST /1/environments post-environments Create a new environment; schemas Environment, SiteEnvironment
+  reason: CRUD over testing environments (site/environment pairs) used to run QA against non-production
+    targets matches Environment Management under release & deployment.
+- tag: Features
+  spec_file: rainforest-qa-features-api-openapi.yml
+  capability_id: BC-4200.50
+  capability_id_l1: BC-4200
+  capability_name: Software Quality Engineering
+  confidence: 0.7
+  evidence: POST /1/features/{id}/tests post-feature-tests Add tests to a feature
+  reason: Features group and organise automated tests within the QA platform — stewardship of the test
+    suite, i.e. Software Quality Engineering.
+- tag: Folders
+  spec_file: rainforest-qa-folders-api-openapi.yml
+  capability_id: BC-4200.50
+  capability_id_l1: BC-4200
+  capability_name: Software Quality Engineering
+  confidence: 0.7
+  evidence: GET /1/folders get-folders List folders; schemas Tests_Index, SmartFolder, RunTestBrowserStatus
+  reason: Folders organise tests and runs in the no-code testing platform; this is test suite stewardship
+    within Software Quality Engineering.
+- tag: Generators
+  spec_file: rainforest-qa-generators-api-openapi.yml
+  capability_id: BC-4200.50
+  capability_id_l1: BC-4200
+  capability_name: Software Quality Engineering
+  confidence: 0.7
+  evidence: POST /1/generators/{generator_id}/rows post-generator-rows Create a new generator row; schemas
+    GeneratorColumn, GeneratorRow
+  reason: Generators are tabular test-data sets driving Rainforest tests; managing them is part of automated
+    test suite stewardship (Software Quality Engineering).
