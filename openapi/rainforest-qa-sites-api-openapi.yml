@@ -179,6 +179,32 @@ paths:
       x-rdme-order: 2
 components:
   schemas:
+    post-sites:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the new site
+        default_url:
+          type: string
+          description: Default URL for site-environments
+        default:
+          type: boolean
+          description: Set this site as the default
+        category:
+          type: string
+          description: Set the type of url
+          enum:
+          - site
+          - ios
+          - android
+          default: site
+        ai_generation_rules:
+          type: string
+          description: Set the AI generation rules for the site
+      required:
+      - name
+      description: Create a new site - creates corresponding site-environments for each environment as well
     Site:
       type: object
       properties:
@@ -207,15 +233,6 @@ components:
           type: integer
           format: int32
       description: Site model
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-          description: An error message describing what went wrong
-      required:
-      - error
-      description: Error model
     put-site:
       type: object
       properties:
@@ -238,32 +255,15 @@ components:
           type: string
           description: Set the AI generation rules for the site
       description: Update a site
-    post-sites:
+    Error:
       type: object
       properties:
-        name:
+        error:
           type: string
-          description: The name of the new site
-        default_url:
-          type: string
-          description: Default URL for site-environments
-        default:
-          type: boolean
-          description: Set this site as the default
-        category:
-          type: string
-          description: Set the type of url
-          enum:
-          - site
-          - ios
-          - android
-          default: site
-        ai_generation_rules:
-          type: string
-          description: Set the AI generation rules for the site
+          description: An error message describing what went wrong
       required:
-      - name
-      description: Create a new site - creates corresponding site-environments for each environment as well
+      - error
+      description: Error model
   securitySchemes:
     api_key:
       type: apiKey

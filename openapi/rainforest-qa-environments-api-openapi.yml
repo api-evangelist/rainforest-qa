@@ -176,6 +176,54 @@ paths:
       x-rdme-order: 12
 components:
   schemas:
+    post-environments:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the environment
+        webhook:
+          type: string
+          format: url
+          description: Default webhook to call before starting new runs
+        webhook_enabled:
+          type: boolean
+          description: Use the webhook for new runs?
+        default:
+          type: boolean
+          description: Set this environment as the default
+        url:
+          type: string
+          format: url
+          description: Default base URL for tests run in this environment
+        is_temporary:
+          type: boolean
+          description: Should this be deleted after 72 hours of use?
+      required:
+      - name
+      description: Create a new environment and corresponding site-environments for each site as well
+    SiteEnvironment:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        site_id:
+          type: integer
+          format: int32
+        environment_id:
+          type: integer
+          format: int32
+        url:
+          type: string
+          format: url
+      required:
+      - site_id
+      - environment_id
+      - url
     Environment:
       type: object
       properties:
@@ -216,41 +264,6 @@ components:
       - is_temporary
       - site_environments
       description: Environment model
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-          description: An error message describing what went wrong
-      required:
-      - error
-      description: Error model
-    post-environments:
-      type: object
-      properties:
-        name:
-          type: string
-          description: The name of the environment
-        webhook:
-          type: string
-          format: url
-          description: Default webhook to call before starting new runs
-        webhook_enabled:
-          type: boolean
-          description: Use the webhook for new runs?
-        default:
-          type: boolean
-          description: Set this environment as the default
-        url:
-          type: string
-          format: url
-          description: Default base URL for tests run in this environment
-        is_temporary:
-          type: boolean
-          description: Should this be deleted after 72 hours of use?
-      required:
-      - name
-      description: Create a new environment and corresponding site-environments for each site as well
     put-environment:
       type: object
       properties:
@@ -268,28 +281,15 @@ components:
           type: boolean
           description: Use the webhook for new runs?
       description: Update an environment
-    SiteEnvironment:
+    Error:
       type: object
       properties:
-        id:
-          type: integer
-          format: int32
-        created_at:
+        error:
           type: string
-          format: date-time
-        site_id:
-          type: integer
-          format: int32
-        environment_id:
-          type: integer
-          format: int32
-        url:
-          type: string
-          format: url
+          description: An error message describing what went wrong
       required:
-      - site_id
-      - environment_id
-      - url
+      - error
+      description: Error model
   securitySchemes:
     api_key:
       type: apiKey

@@ -441,36 +441,15 @@ paths:
       x-rdme-order: 14
 components:
   schemas:
-    Feature:
+    put-feature:
       type: object
       properties:
-        id:
-          type: integer
-          format: int32
-        created_at:
-          type: string
-          format: date-time
         title:
           type: string
-        test_count:
-          type: integer
-          format: int32
-        updated_at:
-          type: string
-          format: date-time
+          description: The new title of the feature
       required:
       - title
-      - test_count
-      description: Feature model
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-          description: An error message describing what went wrong
-      required:
-      - error
-      description: Error model
+      description: Update a feature
     post-feature-tests:
       type: object
       properties:
@@ -569,15 +548,36 @@ components:
           - plain_english
           - rainforest_test_language
       description: Add tests to a feature
-    put-feature:
+    Feature:
       type: object
       properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
         title:
           type: string
-          description: The new title of the feature
+        test_count:
+          type: integer
+          format: int32
+        updated_at:
+          type: string
+          format: date-time
       required:
       - title
-      description: Update a feature
+      - test_count
+      description: Feature model
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: An error message describing what went wrong
+      required:
+      - error
+      description: Error model
     post-features:
       type: object
       properties:

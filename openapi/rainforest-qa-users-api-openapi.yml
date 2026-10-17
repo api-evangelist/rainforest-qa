@@ -232,6 +232,15 @@ paths:
       x-rdme-order: 15
 components:
   schemas:
+    post-users-reset_password:
+      type: object
+      properties:
+        email:
+          type: string
+          description: The email where to send the credentials
+      required:
+      - email
+      description: Reset the password for an email
     put-user:
       type: object
       properties:
@@ -257,15 +266,55 @@ components:
           - owner
           - member
       description: Update a user
-    post-users-reset_password:
+    Profile:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        provider:
+          type: string
+    post-users:
       type: object
       properties:
         email:
           type: string
-          description: The email where to send the credentials
+          description: The user's email
+        name:
+          type: string
+          description: The name of the user
+        password:
+          type: string
+          description: The password for this user
       required:
       - email
-      description: Reset the password for an email
+      description: Invite a user to authenticated account
+    put-users-permissions:
+      type: object
+      properties:
+        users:
+          type: array
+          items:
+            type: object
+            properties:
+              email:
+                type: string
+                description: The Email of the user
+              permissions:
+                type: array
+                description: Array of client ids that this will have access to
+                items:
+                  type: integer
+                  format: int32
+            required:
+            - email
+            - permissions
+      required:
+      - users
+      description: Update user permissisons
     User:
       type: object
       properties:
@@ -301,55 +350,6 @@ components:
         onboarding_progress:
           type: string
       description: User model
-    post-users:
-      type: object
-      properties:
-        email:
-          type: string
-          description: The user's email
-        name:
-          type: string
-          description: The name of the user
-        password:
-          type: string
-          description: The password for this user
-      required:
-      - email
-      description: Invite a user to authenticated account
-    Profile:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        created_at:
-          type: string
-          format: date-time
-        provider:
-          type: string
-    put-users-permissions:
-      type: object
-      properties:
-        users:
-          type: array
-          items:
-            type: object
-            properties:
-              email:
-                type: string
-                description: The Email of the user
-              permissions:
-                type: array
-                description: Array of client ids that this will have access to
-                items:
-                  type: integer
-                  format: int32
-            required:
-            - email
-            - permissions
-      required:
-      - users
-      description: Update user permissisons
   securitySchemes:
     api_key:
       type: apiKey

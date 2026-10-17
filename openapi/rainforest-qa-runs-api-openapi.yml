@@ -1037,6 +1037,346 @@ paths:
       x-rdme-order: 40
 components:
   schemas:
+    Branch:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        name:
+          type: string
+        user:
+          $ref: '#/components/schemas/UserLite'
+    Tests_Lite:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+        test_id:
+          type: string
+        title:
+          type: string
+        result:
+          type: string
+        wisp:
+          type: string
+        prompt:
+          type: string
+        prompt_credentials:
+          type: string
+        ai_mode:
+          type: string
+        priority:
+          type: string
+        real_cost_to_run:
+          type: string
+        owner_id:
+          type: string
+        state:
+          type: string
+        updated_at:
+          type: string
+        deleted:
+          type: string
+        feature_id:
+          type: string
+    RunBrowser:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        category:
+          type: string
+          enum:
+          - browser
+          - software
+          - tablet
+          - phone
+        state:
+          type: string
+          enum:
+          - enabled
+          - disabled
+    RunTestBrowserStatus:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        name:
+          type: string
+        description:
+          type: string
+        category:
+          type: string
+        result:
+          type: string
+        state:
+          type: string
+        overridden_results:
+          $ref: '#/components/schemas/OverriddenResult'
+        credit_cost:
+          type: string
+    Profile:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        provider:
+          type: string
+    RunStats:
+      type: object
+      properties:
+        total_time_for_one_person:
+          type: string
+        total_time_for_rainforest:
+          type: string
+        total_rainforest_overhead:
+          type: string
+        speed_up:
+          type: string
+    post-run-tests-mark_as_viewed:
+      type: object
+      properties:
+        tests:
+          type: array
+          description: An array of test ids to mark as viewed
+          items:
+            type: integer
+            format: int32
+      required:
+      - tests
+      description: Mark test results as viewed
+    SiteEnvironment:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        site_id:
+          type: integer
+          format: int32
+        environment_id:
+          type: integer
+          format: int32
+        url:
+          type: string
+          format: url
+      required:
+      - site_id
+      - environment_id
+      - url
+    Runs_Index:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        crowd:
+          type: string
+          enum:
+          - default
+          - on_premise_crowd
+          - automation
+          - automation_and_crowd
+        execution_method:
+          type: string
+          enum:
+          - crowd
+          - automation
+          - automation_and_crowd
+          - on_premise
+        environment:
+          $ref: '#/components/schemas/Environment'
+        branch_id:
+          type: integer
+          format: int32
+        environment_id:
+          type: integer
+          format: int32
+        state:
+          type: string
+          enum:
+          - queued
+          - validating
+          - downloading_app
+          - waiting_for_test_initialization
+          - analyzing_app
+          - error
+          - sending_webhook
+          - in_progress
+          - aborting
+          - aborted
+          - timed_out
+          - waiting_for_callback
+          - complete
+          - pending_investigation
+        mode:
+          type: string
+          enum:
+          - standard
+          - draft
+        description:
+          type: string
+        state_details:
+          type: object
+        has_webhook:
+          type: boolean
+        result:
+          type: string
+          enum:
+          - passed
+          - failed
+          - no_result
+        current_progress:
+          $ref: '#/components/schemas/RunProgress'
+        timestamps:
+          type: object
+        release:
+          type: string
+        browsers:
+          type: array
+          items:
+            $ref: '#/components/schemas/RunBrowser'
+        user:
+          $ref: '#/components/schemas/UserLite'
+        user_id:
+          type: integer
+          format: int32
+        requested_tests:
+          type: array
+          items:
+            type: integer
+            format: int32
+        error_reason:
+          type: string
+        app_logs:
+          type: array
+          items:
+            type: string
+            format: url
+        filters:
+          type: object
+        source:
+          type: string
+          enum:
+          - api
+          - application
+          - rainforest-cli
+          - rainforest-orb
+          - rainforest-gh-action
+          - schedule
+          - unknown
+        frontend_url:
+          type: string
+          format: url
+        total_tests:
+          type: integer
+          format: int32
+        total_passed_tests:
+          type: integer
+          format: int32
+        total_failed_tests:
+          type: integer
+          format: int32
+        total_no_result_tests:
+          type: integer
+          format: int32
+        total_rescued_tests:
+          type: string
+        total_self_healed_tests:
+          type: string
+        total_failures_categorized:
+          type: integer
+          format: int32
+        total_failures_resolved:
+          type: integer
+          format: int32
+        time_taken:
+          type: number
+      description: Runs_Index model
+    UserLite:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        name:
+          type: string
+        email:
+          type: string
+        state:
+          type: string
+        role:
+          type: string
+    post-run-rerun_failed:
+      type: object
+      properties:
+        test_ids:
+          type: array
+          description: Provide a list of ids to rerun only a subset of the failed tests in the run
+          items:
+            type: object
+            format: int32
+            properties:
+              ? ''
+              : type: array
+                description: Provide a list of ids to rerun only a subset of the failed tests in the run
+                items:
+                  type: integer
+                  format: int32
+        conflict:
+          type: string
+          description: How should we handle current other runs that are in progress; values are `cancel` to cancel runs in the same environment as your new run and `cancel-all` to cancel all runs
+          enum:
+          - cancel
+          - cancel-all
+      description: Rerun failed tests from a previous run
+    RunProgress:
+      type: object
+      properties:
+        percent:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+        complete:
+          type: integer
+          format: int32
+        passed:
+          type: integer
+          format: int32
+        failed:
+          type: integer
+          format: int32
+        no_result:
+          type: integer
+          format: int32
+        eta:
+          type: object
     post-runs:
       type: object
       properties:
@@ -1195,7 +1535,30 @@ components:
           - cancel
           - cancel-all
       description: Create a new run
-    User:
+    post-run-rerun_all:
+      type: object
+      properties:
+        test_ids:
+          type: array
+          description: Provide a list of ids to rerun only a subset of the tests in the run
+          items:
+            type: object
+            format: int32
+            properties:
+              ? ''
+              : type: array
+                description: Provide a list of ids to rerun only a subset of the tests in the run
+                items:
+                  type: integer
+                  format: int32
+        conflict:
+          type: string
+          description: How should we handle current other runs that are in progress; values are `cancel` to cancel runs in the same environment as your new run and `cancel-all` to cancel all runs
+          enum:
+          - cancel
+          - cancel-all
+      description: Rerun all tests from a previous run
+    RunTestReview:
       type: object
       properties:
         id:
@@ -1204,32 +1567,41 @@ components:
         created_at:
           type: string
           format: date-time
-        client_analytics_id:
-          type: integer
-          format: int32
-        name:
+        status:
           type: string
-        email:
+        reason:
           type: string
-        api_token:
+        reason_updated_at:
           type: string
-        client_permissions:
+        run_id:
           type: string
-        state:
+        run:
           type: string
-        role:
+        test_id:
           type: string
-        settings:
+        resolved:
           type: string
-        profiles:
-          $ref: '#/components/schemas/Profile'
-        intercom_user_hash:
+        transitioned_by:
+          $ref: '#/components/schemas/UserLite'
+        notified_user:
+          $ref: '#/components/schemas/UserLite'
+        reviewer:
+          $ref: '#/components/schemas/UserLite'
+        test:
+          type: object
+          properties:
+            crowd:
+              type: string
+            execution_method:
+              type: string
+            last_run:
+              type: string
+            test_lite:
+              $ref: '#/components/schemas/Tests_Lite'
+        transitioned_at:
           type: string
-        show_nps:
+        updated_at:
           type: string
-        onboarding_progress:
-          type: string
-      description: User model
     RunStep:
       type: object
       properties:
@@ -1258,40 +1630,23 @@ components:
         browsers:
           type: string
       description: RunStep model
-    RunProgress:
+    OverriddenResult:
       type: object
       properties:
-        percent:
-          type: integer
-          format: int32
-        total:
-          type: integer
-          format: int32
-        complete:
-          type: integer
-          format: int32
-        passed:
-          type: integer
-          format: int32
-        failed:
-          type: integer
-          format: int32
-        no_result:
-          type: integer
-          format: int32
-        eta:
-          type: object
-    RunUsage:
-      type: object
-      properties:
-        automated_execution_time:
-          type: integer
-          format: int32
-        manual_execution_time:
-          type: integer
-          format: int32
-      description: RunUsage model
-    Runs_Index:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        note:
+          type: string
+        result:
+          type: string
+        job_group_id:
+          type: string
+        user:
+          $ref: '#/components/schemas/UserLite'
+    RunCost:
       type: object
       properties:
         id:
@@ -1300,129 +1655,15 @@ components:
         created_at:
           type: string
           format: date-time
-        crowd:
+        date:
           type: string
-          enum:
-          - default
-          - on_premise_crowd
-          - automation
-          - automation_and_crowd
-        execution_method:
+          format: date-time
+        title:
           type: string
-          enum:
-          - crowd
-          - automation
-          - automation_and_crowd
-          - on_premise
-        environment:
-          $ref: '#/components/schemas/Environment'
-        branch_id:
+        credits_used:
           type: integer
           format: int32
-        environment_id:
-          type: integer
-          format: int32
-        state:
-          type: string
-          enum:
-          - queued
-          - validating
-          - downloading_app
-          - waiting_for_test_initialization
-          - analyzing_app
-          - error
-          - sending_webhook
-          - in_progress
-          - aborting
-          - aborted
-          - timed_out
-          - waiting_for_callback
-          - complete
-          - pending_investigation
-        mode:
-          type: string
-          enum:
-          - standard
-          - draft
-        description:
-          type: string
-        state_details:
-          type: object
-        has_webhook:
-          type: boolean
-        result:
-          type: string
-          enum:
-          - passed
-          - failed
-          - no_result
-        current_progress:
-          $ref: '#/components/schemas/RunProgress'
-        timestamps:
-          type: object
-        release:
-          type: string
-        browsers:
-          type: array
-          items:
-            $ref: '#/components/schemas/RunBrowser'
-        user:
-          $ref: '#/components/schemas/UserLite'
-        user_id:
-          type: integer
-          format: int32
-        requested_tests:
-          type: array
-          items:
-            type: integer
-            format: int32
-        error_reason:
-          type: string
-        app_logs:
-          type: array
-          items:
-            type: string
-            format: url
-        filters:
-          type: object
-        source:
-          type: string
-          enum:
-          - api
-          - application
-          - rainforest-cli
-          - rainforest-orb
-          - rainforest-gh-action
-          - schedule
-          - unknown
-        frontend_url:
-          type: string
-          format: url
-        total_tests:
-          type: integer
-          format: int32
-        total_passed_tests:
-          type: integer
-          format: int32
-        total_failed_tests:
-          type: integer
-          format: int32
-        total_no_result_tests:
-          type: integer
-          format: int32
-        total_rescued_tests:
-          type: string
-        total_self_healed_tests:
-          type: string
-        total_failures_categorized:
-          type: integer
-          format: int32
-        total_failures_resolved:
-          type: integer
-          format: int32
-        time_taken:
-          type: number
-      description: Runs_Index model
+      description: RunCost model
     Run:
       type: object
       properties:
@@ -1571,29 +1812,7 @@ components:
         branch:
           $ref: '#/components/schemas/Branch'
       description: Run model
-    RunStats:
-      type: object
-      properties:
-        total_time_for_one_person:
-          type: string
-        total_time_for_rainforest:
-          type: string
-        total_rainforest_overhead:
-          type: string
-        speed_up:
-          type: string
-    Profile:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        created_at:
-          type: string
-          format: date-time
-        provider:
-          type: string
-    Branch:
+    Environment:
       type: object
       properties:
         id:
@@ -1603,10 +1822,46 @@ components:
           type: string
           format: date-time
         name:
+          type: boolean
+        default:
+          type: boolean
+        webhook:
           type: string
-        user:
-          $ref: '#/components/schemas/UserLite'
-    SiteEnvironment:
+          format: url
+        webhook_enabled:
+          type: boolean
+        is_temporary:
+          type: boolean
+        deleted_at:
+          type: string
+          format: date-time
+          description: Only rendered if the environment is deleted
+        site_environments:
+          type: array
+          items:
+            $ref: '#/components/schemas/SiteEnvironment'
+        will_delete_after:
+          type: string
+          format: date-time
+          description: Only rendered if `is_temporary` is `true`
+      required:
+      - name
+      - default
+      - webhook
+      - webhook_enabled
+      - is_temporary
+      - site_environments
+      description: Environment model
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: An error message describing what went wrong
+      required:
+      - error
+      description: Error model
+    TestCommentHistory:
       type: object
       properties:
         id:
@@ -1615,19 +1870,197 @@ components:
         created_at:
           type: string
           format: date-time
-        site_id:
+        run_id:
           type: integer
           format: int32
-        environment_id:
+        rf_test_id:
           type: integer
           format: int32
-        url:
+        run_step_id:
+          type: integer
+          format: int32
+        browser_name:
+          type: string
+        worker_id:
+          type: integer
+          format: int32
+        original_step_id:
+          type: integer
+          format: int32
+        comment:
+          type: string
+        worker:
+          $ref: '#/components/schemas/Worker'
+      description: TestCommentHistory model
+    Tests_RunTestsLite:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        test_id:
+          type: string
+        title:
+          type: string
+        run_id:
+          type: string
+        result:
+          type: string
+        wisp:
+          type: string
+        history:
+          type: string
+        priority:
+          type: string
+        real_cost_to_run:
+          type: string
+        owner_id:
+          type: string
+        state:
+          type: string
+        updated_at:
+          type: string
+        unresolved_failures_count:
+          type: integer
+          format: int32
+        viewed:
+          type: string
+        has_comments:
+          type: string
+        last_viewed_by:
+          $ref: '#/components/schemas/UserLite'
+        last_viewed_at:
+          type: string
+        last_review:
+          $ref: '#/components/schemas/RunTestReview'
+        total_retries:
+          type: integer
+          format: int32
+        crowd:
+          type: string
+        execution_method:
+          type: string
+          enum:
+          - crowd
+          - automation
+          - automation_and_crowd
+          - on_premise
+        started_at:
+          type: string
+        completed_at:
+          type: string
+        comment_count:
+          type: string
+        fallback_used:
+          type: string
+        self_healed:
+          type: string
+        failed_steps:
+          type: string
+        total_steps:
+          type: string
+        test_deleted:
+          type: string
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        client_analytics_id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        email:
+          type: string
+        api_token:
+          type: string
+        client_permissions:
+          type: string
+        state:
+          type: string
+        role:
+          type: string
+        settings:
+          type: string
+        profiles:
+          $ref: '#/components/schemas/Profile'
+        intercom_user_hash:
+          type: string
+        show_nps:
+          type: string
+        onboarding_progress:
+          type: string
+      description: User model
+    put-run:
+      type: object
+      properties:
+        release:
+          type: string
+          description: Manually entered release information about the release the run is associated with.
+      description: Update a run
+    Connection:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        name:
+          type: string
+        api_token:
+          type: string
+        state:
+          type: string
+        link_state:
+          type: string
+        type:
+          type: string
+          enum:
+          - rainforest
+          - user
+      description: Connection model
+    RunUsage:
+      type: object
+      properties:
+        automated_execution_time:
+          type: integer
+          format: int32
+        manual_execution_time:
+          type: integer
+          format: int32
+      description: RunUsage model
+    Worker:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        created_at:
+          type: string
+          format: date-time
+        uuid:
+          type: string
+          format: uuid
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        pic:
           type: string
           format: url
-      required:
-      - site_id
-      - environment_id
-      - url
+        profile_url:
+          type: string
+          format: url
+      description: Worker model
     Tests_RunTestsIndex:
       type: object
       properties:
@@ -1715,439 +2148,6 @@ components:
           type: integer
           format: int32
       description: Tests_RunTestsIndex model
-    Environment:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        created_at:
-          type: string
-          format: date-time
-        name:
-          type: boolean
-        default:
-          type: boolean
-        webhook:
-          type: string
-          format: url
-        webhook_enabled:
-          type: boolean
-        is_temporary:
-          type: boolean
-        deleted_at:
-          type: string
-          format: date-time
-          description: Only rendered if the environment is deleted
-        site_environments:
-          type: array
-          items:
-            $ref: '#/components/schemas/SiteEnvironment'
-        will_delete_after:
-          type: string
-          format: date-time
-          description: Only rendered if `is_temporary` is `true`
-      required:
-      - name
-      - default
-      - webhook
-      - webhook_enabled
-      - is_temporary
-      - site_environments
-      description: Environment model
-    TestCommentHistory:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        created_at:
-          type: string
-          format: date-time
-        run_id:
-          type: integer
-          format: int32
-        rf_test_id:
-          type: integer
-          format: int32
-        run_step_id:
-          type: integer
-          format: int32
-        browser_name:
-          type: string
-        worker_id:
-          type: integer
-          format: int32
-        original_step_id:
-          type: integer
-          format: int32
-        comment:
-          type: string
-        worker:
-          $ref: '#/components/schemas/Worker'
-      description: TestCommentHistory model
-    Tests_Lite:
-      type: object
-      properties:
-        id:
-          type: string
-        created_at:
-          type: string
-        test_id:
-          type: string
-        title:
-          type: string
-        result:
-          type: string
-        wisp:
-          type: string
-        prompt:
-          type: string
-        prompt_credentials:
-          type: string
-        ai_mode:
-          type: string
-        priority:
-          type: string
-        real_cost_to_run:
-          type: string
-        owner_id:
-          type: string
-        state:
-          type: string
-        updated_at:
-          type: string
-        deleted:
-          type: string
-        feature_id:
-          type: string
-    post-run-rerun_all:
-      type: object
-      properties:
-        test_ids:
-          type: array
-          description: Provide a list of ids to rerun only a subset of the tests in the run
-          items:
-            type: object
-            format: int32
-            properties:
-              ? ''
-              : type: array
-                description: Provide a list of ids to rerun only a subset of the tests in the run
-                items:
-                  type: integer
-                  format: int32
-        conflict:
-          type: string
-          description: How should we handle current other runs that are in progress; values are `cancel` to cancel runs in the same environment as your new run and `cancel-all` to cancel all runs
-          enum:
-          - cancel
-          - cancel-all
-      description: Rerun all tests from a previous run
-    Worker:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        created_at:
-          type: string
-          format: date-time
-        uuid:
-          type: string
-          format: uuid
-        name:
-          type: string
-        email:
-          type: string
-          format: email
-        pic:
-          type: string
-          format: url
-        profile_url:
-          type: string
-          format: url
-      description: Worker model
-    Tests_RunTestsLite:
-      type: object
-      properties:
-        id:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-        test_id:
-          type: string
-        title:
-          type: string
-        run_id:
-          type: string
-        result:
-          type: string
-        wisp:
-          type: string
-        history:
-          type: string
-        priority:
-          type: string
-        real_cost_to_run:
-          type: string
-        owner_id:
-          type: string
-        state:
-          type: string
-        updated_at:
-          type: string
-        unresolved_failures_count:
-          type: integer
-          format: int32
-        viewed:
-          type: string
-        has_comments:
-          type: string
-        last_viewed_by:
-          $ref: '#/components/schemas/UserLite'
-        last_viewed_at:
-          type: string
-        last_review:
-          $ref: '#/components/schemas/RunTestReview'
-        total_retries:
-          type: integer
-          format: int32
-        crowd:
-          type: string
-        execution_method:
-          type: string
-          enum:
-          - crowd
-          - automation
-          - automation_and_crowd
-          - on_premise
-        started_at:
-          type: string
-        completed_at:
-          type: string
-        comment_count:
-          type: string
-        fallback_used:
-          type: string
-        self_healed:
-          type: string
-        failed_steps:
-          type: string
-        total_steps:
-          type: string
-        test_deleted:
-          type: string
-    RunTestBrowserStatus:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        created_at:
-          type: string
-          format: date-time
-        name:
-          type: string
-        description:
-          type: string
-        category:
-          type: string
-        result:
-          type: string
-        state:
-          type: string
-        overridden_results:
-          $ref: '#/components/schemas/OverriddenResult'
-        credit_cost:
-          type: string
-    OverriddenResult:
-      type: object
-      properties:
-        id:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-        note:
-          type: string
-        result:
-          type: string
-        job_group_id:
-          type: string
-        user:
-          $ref: '#/components/schemas/UserLite'
-    UserLite:
-      type: object
-      properties:
-        id:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-        name:
-          type: string
-        email:
-          type: string
-        state:
-          type: string
-        role:
-          type: string
-    RunCost:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        created_at:
-          type: string
-          format: date-time
-        date:
-          type: string
-          format: date-time
-        title:
-          type: string
-        credits_used:
-          type: integer
-          format: int32
-      description: RunCost model
-    RunTestReview:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        created_at:
-          type: string
-          format: date-time
-        status:
-          type: string
-        reason:
-          type: string
-        reason_updated_at:
-          type: string
-        run_id:
-          type: string
-        run:
-          type: string
-        test_id:
-          type: string
-        resolved:
-          type: string
-        transitioned_by:
-          $ref: '#/components/schemas/UserLite'
-        notified_user:
-          $ref: '#/components/schemas/UserLite'
-        reviewer:
-          $ref: '#/components/schemas/UserLite'
-        test:
-          type: object
-          properties:
-            crowd:
-              type: string
-            execution_method:
-              type: string
-            last_run:
-              type: string
-            test_lite:
-              $ref: '#/components/schemas/Tests_Lite'
-        transitioned_at:
-          type: string
-        updated_at:
-          type: string
-    Connection:
-      type: object
-      properties:
-        id:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-        name:
-          type: string
-        api_token:
-          type: string
-        state:
-          type: string
-        link_state:
-          type: string
-        type:
-          type: string
-          enum:
-          - rainforest
-          - user
-      description: Connection model
-    put-run:
-      type: object
-      properties:
-        release:
-          type: string
-          description: Manually entered release information about the release the run is associated with.
-      description: Update a run
-    post-run-rerun_failed:
-      type: object
-      properties:
-        test_ids:
-          type: array
-          description: Provide a list of ids to rerun only a subset of the failed tests in the run
-          items:
-            type: object
-            format: int32
-            properties:
-              ? ''
-              : type: array
-                description: Provide a list of ids to rerun only a subset of the failed tests in the run
-                items:
-                  type: integer
-                  format: int32
-        conflict:
-          type: string
-          description: How should we handle current other runs that are in progress; values are `cancel` to cancel runs in the same environment as your new run and `cancel-all` to cancel all runs
-          enum:
-          - cancel
-          - cancel-all
-      description: Rerun failed tests from a previous run
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-          description: An error message describing what went wrong
-      required:
-      - error
-      description: Error model
-    post-run-tests-mark_as_viewed:
-      type: object
-      properties:
-        tests:
-          type: array
-          description: An array of test ids to mark as viewed
-          items:
-            type: integer
-            format: int32
-      required:
-      - tests
-      description: Mark test results as viewed
-    RunBrowser:
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        category:
-          type: string
-          enum:
-          - browser
-          - software
-          - tablet
-          - phone
-        state:
-          type: string
-          enum:
-          - enabled
-          - disabled
   securitySchemes:
     api_key:
       type: apiKey
