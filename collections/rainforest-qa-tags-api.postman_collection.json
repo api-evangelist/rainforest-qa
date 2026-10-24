@@ -1,352 +1,356 @@
 {
+  "info": {
+    "_postman_id": "cdfce5e9-fc7a-4994-923d-2aab3e75751d",
+    "name": "Rainforest Tags API",
+    "description": "Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T19:48:39.000Z",
+    "updatedAt": "2026-10-21T19:48:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-cdfce5e9-fc7a-4994-923d-2aab3e75751d"
+  },
   "item": [
     {
-      "id": "23c2cbbb-c1ed-4e74-9c24-136a72827171",
-      "name": "tags",
-      "description": {
-        "content": "Operations about tags",
-        "type": "text/plain"
-      },
+      "name": "1",
       "item": [
         {
-          "id": "02571b16-4939-4350-99d1-e624765e2f4d",
-          "name": "List tags",
-          "request": {
-            "name": "List tags",
-            "description": {
-              "content": "List tags",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "1",
-                "tags"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
+          "name": "tags",
+          "item": [
+            {
+              "name": "{name}",
+              "item": [
                 {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1",
-                  "description": "Page of results to display"
+                  "name": "Rename a tag",
+                  "id": "09f20c12-e6e9-44bb-b269-e3b6d748ee47",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"new_name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/1/tags/:name",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1",
+                        "tags",
+                        ":name"
+                      ],
+                      "variable": [
+                        {
+                          "id": "a1d3029d-7138-4ce3-a50d-3a936c47bd3f",
+                          "key": "name",
+                          "value": "<string>",
+                          "description": "(Required) Tag name"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "2f1602bd-c78f-485e-8d74-aee97d34a329",
+                      "name": "Tag renamed",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "CLIENT_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"new_name\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/1/tags/:name",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1",
+                            "tags",
+                            ":name"
+                          ],
+                          "variable": [
+                            {
+                              "key": "name"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"name\": \"<string>\",\n  \"test_count\": \"<integer>\",\n  \"snippet_count\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-21T19:48:39.000Z",
+                      "updatedAt": "2026-10-21T19:48:39.000Z",
+                      "uid": "35240-2f1602bd-c78f-485e-8d74-aee97d34a329"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T19:48:39.000Z",
+                  "updatedAt": "2026-10-21T19:48:39.000Z",
+                  "uid": "35240-09f20c12-e6e9-44bb-b269-e3b6d748ee47"
                 },
                 {
-                  "disabled": false,
-                  "key": "page_size",
-                  "value": "10",
-                  "description": "Number of results to return per page; maximum: 100"
-                },
-                {
-                  "disabled": false,
-                  "key": "name",
-                  "value": "<string>",
-                  "description": "Filter by name (case-insensitive)"
+                  "name": "Delete a tag",
+                  "id": "8d18d10d-aa17-4bc7-a9bd-21f4fb92dbf9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/1/tags/:name",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1",
+                        "tags",
+                        ":name"
+                      ],
+                      "variable": [
+                        {
+                          "id": "9d841a06-b02f-47ce-8bcc-5511943c7f1d",
+                          "key": "name",
+                          "value": "<string>",
+                          "description": "(Required) Tag name"
+                        }
+                      ]
+                    },
+                    "description": "Remove a tag from all tests"
+                  },
+                  "response": [
+                    {
+                      "id": "3f98061d-7138-433e-8999-cd17d0d9069a",
+                      "name": "Tag deleted",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "CLIENT_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/1/tags/:name",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1",
+                            "tags",
+                            ":name"
+                          ],
+                          "variable": [
+                            {
+                              "key": "name"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"name\": \"<string>\",\n  \"test_count\": \"<integer>\",\n  \"snippet_count\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-21T19:48:39.000Z",
+                      "updatedAt": "2026-10-21T19:48:39.000Z",
+                      "uid": "35240-3f98061d-7138-433e-8999-cd17d0d9069a"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T19:48:39.000Z",
+                  "updatedAt": "2026-10-21T19:48:39.000Z",
+                  "uid": "35240-8d18d10d-aa17-4bc7-a9bd-21f4fb92dbf9"
                 }
               ],
-              "variable": []
+              "id": "e140bcbb-cc81-43a8-8cad-0e17709471db",
+              "createdAt": "2026-10-21T19:48:39.000Z",
+              "updatedAt": "2026-10-21T19:48:39.000Z",
+              "uid": "35240-e140bcbb-cc81-43a8-8cad-0e17709471db"
             },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
             {
-              "id": "864e7d4b-6fa1-400f-b70f-f91d91566b06",
-              "name": "Tags retrieved",
-              "originalRequest": {
+              "name": "List tags",
+              "id": "3ff2ced6-ed7b-49e7-9888-d1cfcc60c2d4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
                 "url": {
+                  "raw": "{{baseUrl}}/1/tags?page=1&page_size=10&name=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "1",
                     "tags"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
                   "query": [
                     {
+                      "description": "Page of results to display",
                       "key": "page",
                       "value": "1"
                     },
                     {
+                      "description": "Number of results to return per page; maximum: 100",
                       "key": "page_size",
                       "value": "10"
                     },
                     {
+                      "description": "Filter by name (case-insensitive)",
                       "key": "name",
                       "value": "<string>"
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"name\": \"string\",\n    \"test_count\": 38,\n    \"snippet_count\": 6599\n  },\n  {\n    \"name\": \"string\",\n    \"test_count\": 4045,\n    \"snippet_count\": 2085\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "845631e0-1d75-4e10-a698-b05031adb67b",
-          "name": "Rename a tag",
-          "request": {
-            "name": "Rename a tag",
-            "description": {
-              "content": "Rename a tag",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "1",
-                "tags",
-                ":name"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "name",
-                  "description": "(Required) Tag name"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"new_name\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "b41e8f60-6529-40bd-8f66-83b5c1b86451",
-              "name": "Tag renamed",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "tags",
-                    ":name"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "name",
-                      "description": "(Required) Tag name"
-                    }
                   ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"new_name\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
                 }
               },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"name\": \"string\",\n  \"test_count\": 2354,\n  \"snippet_count\": 4758\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "ca7c3295-8de8-43ca-bf78-7b1535df3d4e",
-          "name": "Delete a tag",
-          "request": {
-            "name": "Delete a tag",
-            "description": {
-              "content": "Remove a tag from all tests",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "1",
-                "tags",
-                ":name"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "name",
-                  "description": "(Required) Tag name"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "63aa3ab0-604d-4049-ac2f-be6ba74670a6",
-              "name": "Tag deleted",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "tags",
-                    ":name"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+                  "id": "6dd5ac20-d56c-4ea7-987b-d98252429be8",
+                  "name": "Tags retrieved",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "CLIENT_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/1/tags?page=1&page_size=10&name=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1",
+                        "tags"
+                      ],
+                      "query": [
+                        {
+                          "description": "Page of results to display",
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Number of results to return per page; maximum: 100",
+                          "key": "page_size",
+                          "value": "10"
+                        },
+                        {
+                          "description": "Filter by name (case-insensitive)",
+                          "key": "name",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "name",
-                      "description": "(Required) Tag name"
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"name\": \"<string>\",\n    \"test_count\": \"<integer>\",\n    \"snippet_count\": \"<integer>\"\n  },\n  {\n    \"name\": \"<string>\",\n    \"test_count\": \"<integer>\",\n    \"snippet_count\": \"<integer>\"\n  }\n]",
+                  "createdAt": "2026-10-21T19:48:39.000Z",
+                  "updatedAt": "2026-10-21T19:48:39.000Z",
+                  "uid": "35240-6dd5ac20-d56c-4ea7-987b-d98252429be8"
                 }
               ],
-              "body": "{\n  \"name\": \"string\",\n  \"test_count\": 2354,\n  \"snippet_count\": 4758\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-21T19:48:39.000Z",
+              "updatedAt": "2026-10-21T19:48:39.000Z",
+              "uid": "35240-3ff2ced6-ed7b-49e7-9888-d1cfcc60c2d4"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "2f7b83a2-bf9f-40d2-ab05-594e74ab4991",
+          "createdAt": "2026-10-21T19:48:39.000Z",
+          "updatedAt": "2026-10-21T19:48:39.000Z",
+          "uid": "35240-2f7b83a2-bf9f-40d2-ab05-594e74ab4991"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.rainforestqa.com/api",
-      "key": "baseUrl"
+      "id": "a8da2253-b539-444f-bc4a-20a09e5dba06",
+      "createdAt": "2026-10-21T19:48:39.000Z",
+      "updatedAt": "2026-10-21T19:48:39.000Z",
+      "uid": "35240-a8da2253-b539-444f-bc4a-20a09e5dba06"
     }
   ],
   "auth": {
@@ -354,25 +358,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "CLIENT_TOKEN"
+        "value": "CLIENT_TOKEN",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "46d5ec4c-4686-4d0f-a600-608877575296",
-    "name": "Rainforest callback tags API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.rainforestqa.com/api"
     }
-  }
+  ]
 }

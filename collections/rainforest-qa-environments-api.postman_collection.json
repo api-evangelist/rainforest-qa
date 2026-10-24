@@ -1,884 +1,878 @@
 {
+  "info": {
+    "_postman_id": "26f10097-31d0-4f0d-abe4-abc29e550352",
+    "name": "Rainforest Environments API",
+    "description": "Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T19:47:37.000Z",
+    "updatedAt": "2026-10-21T19:47:37.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-26f10097-31d0-4f0d-abe4-abc29e550352"
+  },
   "item": [
     {
-      "id": "ec0f6ed1-72dc-49d7-9122-4cc8627179bb",
-      "name": "environments",
-      "description": {
-        "content": "Operations about environments",
-        "type": "text/plain"
-      },
+      "name": "1",
       "item": [
         {
-          "id": "4bdbb412-621b-420c-8bd3-a82665543c97",
-          "name": "List environments",
-          "request": {
-            "name": "List environments",
-            "description": {
-              "content": "List environments",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "1",
-                "environments"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
+          "name": "environments",
+          "item": [
+            {
+              "name": "{environment_id}",
+              "item": [
                 {
-                  "disabled": false,
-                  "key": "name",
-                  "value": "<string>",
-                  "description": "Filter by name (case-insensitive)"
+                  "name": "Get an environment",
+                  "id": "2f95fcdd-7287-45bd-ab4e-2d2b845bb2c8",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/1/environments/:environment_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1",
+                        "environments",
+                        ":environment_id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "d626fc6a-705e-4295-a6fe-79e7761f202e",
+                          "key": "environment_id",
+                          "value": "<string>",
+                          "description": "(Required) An environment ID"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "2506925f-8b2f-4d24-9864-44bb40a6fcdf",
+                      "name": "Environment retrieved",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "CLIENT_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/1/environments/:environment_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1",
+                            "environments",
+                            ":environment_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "environment_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"name\": \"<boolean>\",\n  \"default\": \"<boolean>\",\n  \"webhook\": \"<string>\",\n  \"webhook_enabled\": \"<boolean>\",\n  \"is_temporary\": \"<boolean>\",\n  \"site_environments\": [\n    {\n      \"site_id\": \"<integer>\",\n      \"environment_id\": \"<integer>\",\n      \"url\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"created_at\": \"<dateTime>\"\n    },\n    {\n      \"site_id\": \"<integer>\",\n      \"environment_id\": \"<integer>\",\n      \"url\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"created_at\": \"<dateTime>\"\n    }\n  ],\n  \"id\": \"<integer>\",\n  \"created_at\": \"<dateTime>\",\n  \"deleted_at\": \"<dateTime>\",\n  \"will_delete_after\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-10-21T19:47:38.000Z",
+                      "updatedAt": "2026-10-21T19:47:38.000Z",
+                      "uid": "35240-2506925f-8b2f-4d24-9864-44bb40a6fcdf"
+                    },
+                    {
+                      "id": "056a92db-33cf-47b3-8cd0-2834cd3651c0",
+                      "name": "Environment not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "CLIENT_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/1/environments/:environment_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1",
+                            "environments",
+                            ":environment_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "environment_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T19:47:38.000Z",
+                      "updatedAt": "2026-10-21T19:47:38.000Z",
+                      "uid": "35240-056a92db-33cf-47b3-8cd0-2834cd3651c0"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T19:47:38.000Z",
+                  "updatedAt": "2026-10-21T19:47:38.000Z",
+                  "uid": "35240-2f95fcdd-7287-45bd-ab4e-2d2b845bb2c8"
                 },
                 {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1",
-                  "description": "Page of results to display"
+                  "name": "Update an environment",
+                  "id": "276b69d6-9f55-42d9-ad82-1c2b8b360ce6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"default\": \"<boolean>\",\n  \"webhook\": \"<string>\",\n  \"webhook_enabled\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/1/environments/:environment_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1",
+                        "environments",
+                        ":environment_id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "5d7a02fe-312e-489b-967d-71ac907cdef7",
+                          "key": "environment_id",
+                          "value": "<string>",
+                          "description": "(Required) An environment ID"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "7aa27668-a1bd-4e53-8a7b-4b588238c0f8",
+                      "name": "Environment updated",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "CLIENT_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"default\": \"<boolean>\",\n  \"webhook\": \"<string>\",\n  \"webhook_enabled\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/1/environments/:environment_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1",
+                            "environments",
+                            ":environment_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "environment_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"name\": \"<boolean>\",\n  \"default\": \"<boolean>\",\n  \"webhook\": \"<string>\",\n  \"webhook_enabled\": \"<boolean>\",\n  \"is_temporary\": \"<boolean>\",\n  \"site_environments\": [\n    {\n      \"site_id\": \"<integer>\",\n      \"environment_id\": \"<integer>\",\n      \"url\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"created_at\": \"<dateTime>\"\n    },\n    {\n      \"site_id\": \"<integer>\",\n      \"environment_id\": \"<integer>\",\n      \"url\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"created_at\": \"<dateTime>\"\n    }\n  ],\n  \"id\": \"<integer>\",\n  \"created_at\": \"<dateTime>\",\n  \"deleted_at\": \"<dateTime>\",\n  \"will_delete_after\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-10-21T19:47:38.000Z",
+                      "updatedAt": "2026-10-21T19:47:38.000Z",
+                      "uid": "35240-7aa27668-a1bd-4e53-8a7b-4b588238c0f8"
+                    },
+                    {
+                      "id": "27ff5d16-19ee-45df-9a79-84be1b2a688d",
+                      "name": "Environment could not be updated",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "CLIENT_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"default\": \"<boolean>\",\n  \"webhook\": \"<string>\",\n  \"webhook_enabled\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/1/environments/:environment_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1",
+                            "environments",
+                            ":environment_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "environment_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T19:47:38.000Z",
+                      "updatedAt": "2026-10-21T19:47:38.000Z",
+                      "uid": "35240-27ff5d16-19ee-45df-9a79-84be1b2a688d"
+                    },
+                    {
+                      "id": "fe3dedd1-1386-4b44-8764-3c4cc90da2e8",
+                      "name": "Environment not found",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "CLIENT_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"default\": \"<boolean>\",\n  \"webhook\": \"<string>\",\n  \"webhook_enabled\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/1/environments/:environment_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1",
+                            "environments",
+                            ":environment_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "environment_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T19:47:38.000Z",
+                      "updatedAt": "2026-10-21T19:47:38.000Z",
+                      "uid": "35240-fe3dedd1-1386-4b44-8764-3c4cc90da2e8"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T19:47:38.000Z",
+                  "updatedAt": "2026-10-21T19:47:38.000Z",
+                  "uid": "35240-276b69d6-9f55-42d9-ad82-1c2b8b360ce6"
                 },
                 {
-                  "disabled": false,
-                  "key": "page_size",
-                  "value": "10",
-                  "description": "Number of results to return per page; maximum: 100"
+                  "name": "Delete an environment",
+                  "id": "314f3007-08d9-43c5-a685-87d3bce7c1ec",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/1/environments/:environment_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1",
+                        "environments",
+                        ":environment_id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "8b200968-ac91-4dc2-954c-469a72035eb9",
+                          "key": "environment_id",
+                          "value": "<string>",
+                          "description": "(Required) An environment ID"
+                        }
+                      ]
+                    },
+                    "description": "Delete an environment and its associated site-environments"
+                  },
+                  "response": [
+                    {
+                      "id": "5de7ed61-2178-4aff-b53e-3077e6ba60bb",
+                      "name": "Environment deleted",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "CLIENT_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/1/environments/:environment_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1",
+                            "environments",
+                            ":environment_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "environment_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"name\": \"<boolean>\",\n  \"default\": \"<boolean>\",\n  \"webhook\": \"<string>\",\n  \"webhook_enabled\": \"<boolean>\",\n  \"is_temporary\": \"<boolean>\",\n  \"site_environments\": [\n    {\n      \"site_id\": \"<integer>\",\n      \"environment_id\": \"<integer>\",\n      \"url\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"created_at\": \"<dateTime>\"\n    },\n    {\n      \"site_id\": \"<integer>\",\n      \"environment_id\": \"<integer>\",\n      \"url\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"created_at\": \"<dateTime>\"\n    }\n  ],\n  \"id\": \"<integer>\",\n  \"created_at\": \"<dateTime>\",\n  \"deleted_at\": \"<dateTime>\",\n  \"will_delete_after\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-10-21T19:47:38.000Z",
+                      "updatedAt": "2026-10-21T19:47:38.000Z",
+                      "uid": "35240-5de7ed61-2178-4aff-b53e-3077e6ba60bb"
+                    },
+                    {
+                      "id": "540baebc-1a38-426f-a41d-7d91c894c423",
+                      "name": "Environment could not be deleted",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "CLIENT_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/1/environments/:environment_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1",
+                            "environments",
+                            ":environment_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "environment_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T19:47:38.000Z",
+                      "updatedAt": "2026-10-21T19:47:38.000Z",
+                      "uid": "35240-540baebc-1a38-426f-a41d-7d91c894c423"
+                    },
+                    {
+                      "id": "4837191c-762c-4179-af74-6d6a03616678",
+                      "name": "Environment not found",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "CLIENT_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/1/environments/:environment_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1",
+                            "environments",
+                            ":environment_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "environment_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T19:47:38.000Z",
+                      "updatedAt": "2026-10-21T19:47:38.000Z",
+                      "uid": "35240-4837191c-762c-4179-af74-6d6a03616678"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T19:47:38.000Z",
+                  "updatedAt": "2026-10-21T19:47:38.000Z",
+                  "uid": "35240-314f3007-08d9-43c5-a685-87d3bce7c1ec"
                 }
               ],
-              "variable": []
+              "id": "7879db0f-c5eb-4df9-8edc-6da5ddccb3c2",
+              "createdAt": "2026-10-21T19:47:37.000Z",
+              "updatedAt": "2026-10-21T19:47:37.000Z",
+              "uid": "35240-7879db0f-c5eb-4df9-8edc-6da5ddccb3c2"
             },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
             {
-              "id": "c047f926-3526-4d0f-a5e9-4f1d872251d4",
-              "name": "Retrieved environments",
-              "originalRequest": {
+              "name": "List environments",
+              "id": "c621cf00-c966-420d-a6ee-650258633281",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
                 "url": {
+                  "raw": "{{baseUrl}}/1/environments?name=<string>&page=1&page_size=10",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "1",
                     "environments"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
                   "query": [
                     {
+                      "description": "Filter by name (case-insensitive)",
                       "key": "name",
                       "value": "<string>"
                     },
                     {
+                      "description": "Page of results to display",
                       "key": "page",
                       "value": "1"
                     },
                     {
+                      "description": "Number of results to return per page; maximum: 100",
                       "key": "page_size",
                       "value": "10"
                     }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "212f41e3-15c6-4f64-a254-8a4ede5cd918",
+                  "name": "Retrieved environments",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "CLIENT_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/1/environments?name=<string>&page=1&page_size=10",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1",
+                        "environments"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by name (case-insensitive)",
+                          "key": "name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Page of results to display",
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Number of results to return per page; maximum: 100",
+                          "key": "page_size",
+                          "value": "10"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
                   ],
-                  "variable": []
-                },
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"name\": \"<boolean>\",\n    \"default\": \"<boolean>\",\n    \"webhook\": \"<string>\",\n    \"webhook_enabled\": \"<boolean>\",\n    \"is_temporary\": \"<boolean>\",\n    \"site_environments\": [\n      {\n        \"site_id\": \"<integer>\",\n        \"environment_id\": \"<integer>\",\n        \"url\": \"<string>\",\n        \"id\": \"<integer>\",\n        \"created_at\": \"<dateTime>\"\n      },\n      {\n        \"site_id\": \"<integer>\",\n        \"environment_id\": \"<integer>\",\n        \"url\": \"<string>\",\n        \"id\": \"<integer>\",\n        \"created_at\": \"<dateTime>\"\n      }\n    ],\n    \"id\": \"<integer>\",\n    \"created_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"will_delete_after\": \"<dateTime>\"\n  },\n  {\n    \"name\": \"<boolean>\",\n    \"default\": \"<boolean>\",\n    \"webhook\": \"<string>\",\n    \"webhook_enabled\": \"<boolean>\",\n    \"is_temporary\": \"<boolean>\",\n    \"site_environments\": [\n      {\n        \"site_id\": \"<integer>\",\n        \"environment_id\": \"<integer>\",\n        \"url\": \"<string>\",\n        \"id\": \"<integer>\",\n        \"created_at\": \"<dateTime>\"\n      },\n      {\n        \"site_id\": \"<integer>\",\n        \"environment_id\": \"<integer>\",\n        \"url\": \"<string>\",\n        \"id\": \"<integer>\",\n        \"created_at\": \"<dateTime>\"\n      }\n    ],\n    \"id\": \"<integer>\",\n    \"created_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"will_delete_after\": \"<dateTime>\"\n  }\n]",
+                  "createdAt": "2026-10-21T19:47:38.000Z",
+                  "updatedAt": "2026-10-21T19:47:38.000Z",
+                  "uid": "35240-212f41e3-15c6-4f64-a254-8a4ede5cd918"
+                }
+              ],
+              "createdAt": "2026-10-21T19:47:38.000Z",
+              "updatedAt": "2026-10-21T19:47:38.000Z",
+              "uid": "35240-c621cf00-c966-420d-a6ee-650258633281"
+            },
+            {
+              "name": "Create a new environment",
+              "id": "b5c3bdc7-56ae-48f0-94ca-f8f660173ba6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
+                    "key": "Content-Type",
+                    "value": "application/json"
                   },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"name\": true,\n    \"default\": false,\n    \"webhook\": \"string\",\n    \"webhook_enabled\": false,\n    \"is_temporary\": false,\n    \"site_environments\": [\n      {\n        \"site_id\": 4556,\n        \"environment_id\": 2853,\n        \"url\": \"string\",\n        \"id\": 6250,\n        \"created_at\": \"1950-11-05T21:49:22.314Z\"\n      },\n      {\n        \"site_id\": 1248,\n        \"environment_id\": 4886,\n        \"url\": \"string\",\n        \"id\": 1203,\n        \"created_at\": \"1984-12-30T07:11:23.004Z\"\n      }\n    ],\n    \"id\": 4902,\n    \"created_at\": \"1971-01-19T10:07:19.968Z\",\n    \"deleted_at\": \"1971-01-06T17:13:47.638Z\",\n    \"will_delete_after\": \"1982-05-07T17:08:38.697Z\"\n  },\n  {\n    \"name\": false,\n    \"default\": false,\n    \"webhook\": \"string\",\n    \"webhook_enabled\": true,\n    \"is_temporary\": true,\n    \"site_environments\": [\n      {\n        \"site_id\": 9234,\n        \"environment_id\": 4043,\n        \"url\": \"string\",\n        \"id\": 1780,\n        \"created_at\": \"2021-11-03T16:25:09.052Z\"\n      },\n      {\n        \"site_id\": 5834,\n        \"environment_id\": 9599,\n        \"url\": \"string\",\n        \"id\": 1798,\n        \"created_at\": \"2001-04-25T01:15:45.204Z\"\n      }\n    ],\n    \"id\": 6312,\n    \"created_at\": \"1981-07-06T14:55:13.479Z\",\n    \"deleted_at\": \"1985-03-22T10:36:38.327Z\",\n    \"will_delete_after\": \"2002-03-08T08:03:59.690Z\"\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "fcfc5801-82ab-42c8-8028-80eac5c9163e",
-          "name": "Create a new environment",
-          "request": {
-            "name": "Create a new environment",
-            "description": {
-              "content": "Create a new environment and corresponding site-environments for each site as well",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "1",
-                "environments"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"webhook\": \"<url>\",\n  \"webhook_enabled\": \"<boolean>\",\n  \"default\": \"<boolean>\",\n  \"url\": \"<url>\",\n  \"is_temporary\": \"<boolean>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "b8abf748-997d-4203-a5c6-24e4c5c2060c",
-              "name": "Environment created",
-              "originalRequest": {
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"webhook\": \"<string>\",\n  \"webhook_enabled\": \"<boolean>\",\n  \"default\": \"<boolean>\",\n  \"url\": \"<string>\",\n  \"is_temporary\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
                 "url": {
+                  "raw": "{{baseUrl}}/1/environments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "1",
                     "environments"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
+                  ]
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"webhook\": \"<url>\",\n  \"webhook_enabled\": \"<boolean>\",\n  \"default\": \"<boolean>\",\n  \"url\": \"<url>\",\n  \"is_temporary\": \"<boolean>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
+                "description": "Create a new environment and corresponding site-environments for each site as well"
               },
-              "status": "Created",
-              "code": 201,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "27300684-21ae-4e90-b361-28d93cb68dda",
+                  "name": "Environment created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "CLIENT_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"webhook\": \"<string>\",\n  \"webhook_enabled\": \"<boolean>\",\n  \"default\": \"<boolean>\",\n  \"url\": \"<string>\",\n  \"is_temporary\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/1/environments",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1",
+                        "environments"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"name\": \"<boolean>\",\n  \"default\": \"<boolean>\",\n  \"webhook\": \"<string>\",\n  \"webhook_enabled\": \"<boolean>\",\n  \"is_temporary\": \"<boolean>\",\n  \"site_environments\": [\n    {\n      \"site_id\": \"<integer>\",\n      \"environment_id\": \"<integer>\",\n      \"url\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"created_at\": \"<dateTime>\"\n    },\n    {\n      \"site_id\": \"<integer>\",\n      \"environment_id\": \"<integer>\",\n      \"url\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"created_at\": \"<dateTime>\"\n    }\n  ],\n  \"id\": \"<integer>\",\n  \"created_at\": \"<dateTime>\",\n  \"deleted_at\": \"<dateTime>\",\n  \"will_delete_after\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-10-21T19:47:38.000Z",
+                  "updatedAt": "2026-10-21T19:47:38.000Z",
+                  "uid": "35240-27300684-21ae-4e90-b361-28d93cb68dda"
+                },
+                {
+                  "id": "78cabb76-f2a8-4416-8725-7d08fd8408b4",
+                  "name": "Environment could not be created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "CLIENT_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"webhook\": \"<string>\",\n  \"webhook_enabled\": \"<boolean>\",\n  \"default\": \"<boolean>\",\n  \"url\": \"<string>\",\n  \"is_temporary\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/1/environments",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1",
+                        "environments"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T19:47:38.000Z",
+                  "updatedAt": "2026-10-21T19:47:38.000Z",
+                  "uid": "35240-78cabb76-f2a8-4416-8725-7d08fd8408b4"
                 }
               ],
-              "body": "{\n  \"name\": true,\n  \"default\": true,\n  \"webhook\": \"string\",\n  \"webhook_enabled\": true,\n  \"is_temporary\": true,\n  \"site_environments\": [\n    {\n      \"site_id\": 1691,\n      \"environment_id\": 2814,\n      \"url\": \"string\",\n      \"id\": 7253,\n      \"created_at\": \"2024-05-24T05:41:45.002Z\"\n    },\n    {\n      \"site_id\": 6276,\n      \"environment_id\": 4932,\n      \"url\": \"string\",\n      \"id\": 3340,\n      \"created_at\": \"1970-05-20T00:45:35.735Z\"\n    }\n  ],\n  \"id\": 1380,\n  \"created_at\": \"1988-02-27T11:18:24.366Z\",\n  \"deleted_at\": \"2021-08-20T14:28:32.355Z\",\n  \"will_delete_after\": \"2011-02-03T15:33:52.436Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "86c19f97-d35a-4b86-9339-5fa04d9e5877",
-              "name": "Environment could not be created",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "environments"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"webhook\": \"<url>\",\n  \"webhook_enabled\": \"<boolean>\",\n  \"default\": \"<boolean>\",\n  \"url\": \"<url>\",\n  \"is_temporary\": \"<boolean>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-21T19:47:38.000Z",
+              "updatedAt": "2026-10-21T19:47:38.000Z",
+              "uid": "35240-b5c3bdc7-56ae-48f0-94ca-f8f660173ba6"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "719622dd-4181-4744-aa55-a8fda65f2eae",
-          "name": "Get an environment",
-          "request": {
-            "name": "Get an environment",
-            "description": {
-              "content": "Get an environment",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "1",
-                "environments",
-                ":environment_id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "environment_id",
-                  "description": "(Required) An environment ID"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "08bbadcf-c2db-44a7-bf5d-ba12ef0a9439",
-              "name": "Environment retrieved",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "environments",
-                    ":environment_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "environment_id",
-                      "description": "(Required) An environment ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"name\": true,\n  \"default\": true,\n  \"webhook\": \"string\",\n  \"webhook_enabled\": true,\n  \"is_temporary\": true,\n  \"site_environments\": [\n    {\n      \"site_id\": 1691,\n      \"environment_id\": 2814,\n      \"url\": \"string\",\n      \"id\": 7253,\n      \"created_at\": \"2024-05-24T05:41:45.002Z\"\n    },\n    {\n      \"site_id\": 6276,\n      \"environment_id\": 4932,\n      \"url\": \"string\",\n      \"id\": 3340,\n      \"created_at\": \"1970-05-20T00:45:35.735Z\"\n    }\n  ],\n  \"id\": 1380,\n  \"created_at\": \"1988-02-27T11:18:24.366Z\",\n  \"deleted_at\": \"2021-08-20T14:28:32.355Z\",\n  \"will_delete_after\": \"2011-02-03T15:33:52.436Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "5b74b2c6-a5b9-4109-ab0c-c26fccfd7223",
-              "name": "Environment not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "environments",
-                    ":environment_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "environment_id",
-                      "description": "(Required) An environment ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "4d345fcd-aeb5-4f34-8eba-36598a884dab",
-          "name": "Update an environment",
-          "request": {
-            "name": "Update an environment",
-            "description": {
-              "content": "Update an environment",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "1",
-                "environments",
-                ":environment_id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "environment_id",
-                  "description": "(Required) An environment ID"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"default\": \"<boolean>\",\n  \"webhook\": \"<url>\",\n  \"webhook_enabled\": \"<boolean>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "aedf5a30-ad5c-482f-9c45-4f7cfc911d8f",
-              "name": "Environment updated",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "environments",
-                    ":environment_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "environment_id",
-                      "description": "(Required) An environment ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"default\": \"<boolean>\",\n  \"webhook\": \"<url>\",\n  \"webhook_enabled\": \"<boolean>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"name\": true,\n  \"default\": true,\n  \"webhook\": \"string\",\n  \"webhook_enabled\": true,\n  \"is_temporary\": true,\n  \"site_environments\": [\n    {\n      \"site_id\": 1691,\n      \"environment_id\": 2814,\n      \"url\": \"string\",\n      \"id\": 7253,\n      \"created_at\": \"2024-05-24T05:41:45.002Z\"\n    },\n    {\n      \"site_id\": 6276,\n      \"environment_id\": 4932,\n      \"url\": \"string\",\n      \"id\": 3340,\n      \"created_at\": \"1970-05-20T00:45:35.735Z\"\n    }\n  ],\n  \"id\": 1380,\n  \"created_at\": \"1988-02-27T11:18:24.366Z\",\n  \"deleted_at\": \"2021-08-20T14:28:32.355Z\",\n  \"will_delete_after\": \"2011-02-03T15:33:52.436Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "13dad761-9977-42a2-b09d-94d48621e579",
-              "name": "Environment could not be updated",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "environments",
-                    ":environment_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "environment_id",
-                      "description": "(Required) An environment ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"default\": \"<boolean>\",\n  \"webhook\": \"<url>\",\n  \"webhook_enabled\": \"<boolean>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "4555629a-8d27-4e6a-ba56-cbf3f43336ca",
-              "name": "Environment not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "environments",
-                    ":environment_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "environment_id",
-                      "description": "(Required) An environment ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"default\": \"<boolean>\",\n  \"webhook\": \"<url>\",\n  \"webhook_enabled\": \"<boolean>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "2bf3beb1-8ebe-4087-87c5-04cb6014da6d",
-          "name": "Delete an environment",
-          "request": {
-            "name": "Delete an environment",
-            "description": {
-              "content": "Delete an environment and its associated site-environments",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "1",
-                "environments",
-                ":environment_id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "environment_id",
-                  "description": "(Required) An environment ID"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "17fba049-9019-4fd2-82aa-e2bbad1d0a96",
-              "name": "Environment deleted",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "environments",
-                    ":environment_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "environment_id",
-                      "description": "(Required) An environment ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"name\": true,\n  \"default\": true,\n  \"webhook\": \"string\",\n  \"webhook_enabled\": true,\n  \"is_temporary\": true,\n  \"site_environments\": [\n    {\n      \"site_id\": 1691,\n      \"environment_id\": 2814,\n      \"url\": \"string\",\n      \"id\": 7253,\n      \"created_at\": \"2024-05-24T05:41:45.002Z\"\n    },\n    {\n      \"site_id\": 6276,\n      \"environment_id\": 4932,\n      \"url\": \"string\",\n      \"id\": 3340,\n      \"created_at\": \"1970-05-20T00:45:35.735Z\"\n    }\n  ],\n  \"id\": 1380,\n  \"created_at\": \"1988-02-27T11:18:24.366Z\",\n  \"deleted_at\": \"2021-08-20T14:28:32.355Z\",\n  \"will_delete_after\": \"2011-02-03T15:33:52.436Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "5e4d2ced-fe71-4047-bb6d-778184ba573c",
-              "name": "Environment could not be deleted",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "environments",
-                    ":environment_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "environment_id",
-                      "description": "(Required) An environment ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "af95a67b-233c-4182-bf63-9ccb9c5fd77a",
-              "name": "Environment not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "environments",
-                    ":environment_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "environment_id",
-                      "description": "(Required) An environment ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "f941af1c-6907-44ae-bd6d-0324a2869c86",
+          "createdAt": "2026-10-21T19:47:37.000Z",
+          "updatedAt": "2026-10-21T19:47:37.000Z",
+          "uid": "35240-f941af1c-6907-44ae-bd6d-0324a2869c86"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.rainforestqa.com/api",
-      "key": "baseUrl"
+      "id": "cec5a89d-2dec-4971-a7e3-0d484ba9c970",
+      "createdAt": "2026-10-21T19:47:37.000Z",
+      "updatedAt": "2026-10-21T19:47:37.000Z",
+      "uid": "35240-cec5a89d-2dec-4971-a7e3-0d484ba9c970"
     }
   ],
   "auth": {
@@ -886,25 +880,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "CLIENT_TOKEN"
+        "value": "CLIENT_TOKEN",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "90118e7d-c1ae-4d46-8c4d-51048a048228",
-    "name": "Rainforest callback environments API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.rainforestqa.com/api"
     }
-  }
+  ]
 }

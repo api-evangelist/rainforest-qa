@@ -1,1541 +1,1567 @@
 {
+  "info": {
+    "_postman_id": "503c05de-b2a6-4b82-aed2-a37f05391d5b",
+    "name": "Rainforest Features API",
+    "description": "Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T19:47:43.000Z",
+    "updatedAt": "2026-10-21T19:47:44.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-503c05de-b2a6-4b82-aed2-a37f05391d5b"
+  },
   "item": [
     {
-      "id": "23b1a44c-2153-4ff8-aa99-87a1c315d7fa",
-      "name": "features",
-      "description": {
-        "content": "Operations about features",
-        "type": "text/plain"
-      },
+      "name": "1",
       "item": [
         {
-          "id": "d45aba3f-fb57-4103-aa08-57abb0ab3ea4",
-          "name": "List features",
-          "request": {
-            "name": "List features",
-            "description": {
-              "content": "List features",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "1",
-                "features"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
+          "name": "features",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
                 {
-                  "disabled": false,
-                  "key": "title",
-                  "value": "<string>",
-                  "description": "Filter by title (case-insensitive)"
+                  "name": "tests",
+                  "item": [
+                    {
+                      "name": "Add tests to a feature",
+                      "id": "bd92deb7-27a4-4ac7-8a20-a596a7556b44",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"category\": \"app\",\n  \"exploratory_run_id\": \"<integer>\",\n  \"feature_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"priority\": \"P1\",\n  \"query\": \"<string>\",\n  \"result\": \"failed\",\n  \"run_group_id\": \"<integer>\",\n  \"site_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"smart_folder_id\": \"<integer>\",\n  \"state\": [\n    \"draft\",\n    \"unarchived\"\n  ],\n  \"step_query\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tests\": \"<string>\",\n  \"run_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"variable\": \"<string>\",\n  \"embedded\": \"<boolean>\",\n  \"owner_id\": \"<integer>\",\n  \"test_language\": \"plain_english\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/1/features/:id/tests",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1",
+                            "features",
+                            ":id",
+                            "tests"
+                          ],
+                          "variable": [
+                            {
+                              "id": "1df9b639-d646-4b15-9b0e-ae38849e4a97",
+                              "key": "id",
+                              "value": "<integer>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "1eef41f2-e45d-4e11-b86a-50f3a1937376",
+                          "name": "Tests added to feature",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "CLIENT_TOKEN",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"category\": \"app\",\n  \"exploratory_run_id\": \"<integer>\",\n  \"feature_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"priority\": \"P1\",\n  \"query\": \"<string>\",\n  \"result\": \"failed\",\n  \"run_group_id\": \"<integer>\",\n  \"site_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"smart_folder_id\": \"<integer>\",\n  \"state\": [\n    \"draft\",\n    \"unarchived\"\n  ],\n  \"step_query\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tests\": \"<string>\",\n  \"run_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"variable\": \"<string>\",\n  \"embedded\": \"<boolean>\",\n  \"owner_id\": \"<integer>\",\n  \"test_language\": \"plain_english\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/1/features/:id/tests",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "1",
+                                "features",
+                                ":id",
+                                "tests"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"title\": \"<string>\",\n  \"test_count\": \"<integer>\",\n  \"id\": \"<integer>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-10-21T19:47:44.000Z",
+                          "updatedAt": "2026-10-21T19:47:44.000Z",
+                          "uid": "35240-1eef41f2-e45d-4e11-b86a-50f3a1937376"
+                        },
+                        {
+                          "id": "0703fd5e-1586-4ff7-8b95-3ac1efc03cfe",
+                          "name": "Can't add snippets to a Feature",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "CLIENT_TOKEN",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"category\": \"app\",\n  \"exploratory_run_id\": \"<integer>\",\n  \"feature_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"priority\": \"P1\",\n  \"query\": \"<string>\",\n  \"result\": \"failed\",\n  \"run_group_id\": \"<integer>\",\n  \"site_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"smart_folder_id\": \"<integer>\",\n  \"state\": [\n    \"draft\",\n    \"unarchived\"\n  ],\n  \"step_query\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tests\": \"<string>\",\n  \"run_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"variable\": \"<string>\",\n  \"embedded\": \"<boolean>\",\n  \"owner_id\": \"<integer>\",\n  \"test_language\": \"plain_english\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/1/features/:id/tests",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "1",
+                                "features",
+                                ":id",
+                                "tests"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T19:47:44.000Z",
+                          "updatedAt": "2026-10-21T19:47:44.000Z",
+                          "uid": "35240-0703fd5e-1586-4ff7-8b95-3ac1efc03cfe"
+                        },
+                        {
+                          "id": "1d4c6c0d-6563-4fb8-8455-4eb8e0d58de1",
+                          "name": "Feature not found",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "CLIENT_TOKEN",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"category\": \"app\",\n  \"exploratory_run_id\": \"<integer>\",\n  \"feature_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"priority\": \"P1\",\n  \"query\": \"<string>\",\n  \"result\": \"failed\",\n  \"run_group_id\": \"<integer>\",\n  \"site_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"smart_folder_id\": \"<integer>\",\n  \"state\": [\n    \"draft\",\n    \"unarchived\"\n  ],\n  \"step_query\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tests\": \"<string>\",\n  \"run_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"variable\": \"<string>\",\n  \"embedded\": \"<boolean>\",\n  \"owner_id\": \"<integer>\",\n  \"test_language\": \"plain_english\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/1/features/:id/tests",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "1",
+                                "features",
+                                ":id",
+                                "tests"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T19:47:44.000Z",
+                          "updatedAt": "2026-10-21T19:47:44.000Z",
+                          "uid": "35240-1d4c6c0d-6563-4fb8-8455-4eb8e0d58de1"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:47:44.000Z",
+                      "updatedAt": "2026-10-21T19:47:44.000Z",
+                      "uid": "35240-bd92deb7-27a4-4ac7-8a20-a596a7556b44"
+                    },
+                    {
+                      "name": "Remove tests from a feature",
+                      "id": "44630689-1bb1-48d9-a1ed-1a5d784d1305",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/1/features/:id/tests?category=app&exploratory_run_id=<integer>&priority=P1&query=<string>&result=no_result&run_group_id=<integer>&smart_folder_id=<integer>&step_query=<string>&tests=<string>&type=test&variable=<string>&embedded=<boolean>&owner_id=<integer>&test_language=rainforest_test_language&feature_id[]=<integer>,<integer>&site_id[]=<integer>,<integer>&state[]=unarchived,draft&tags[]=<string>,<string>&run_id[]=<integer>,<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1",
+                            "features",
+                            ":id",
+                            "tests"
+                          ],
+                          "query": [
+                            {
+                              "description": "Only return tests with this category",
+                              "key": "category",
+                              "value": "app"
+                            },
+                            {
+                              "description": "Only return created in this exploratory run",
+                              "key": "exploratory_run_id",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Only return tests with this priority",
+                              "key": "priority",
+                              "value": "P1"
+                            },
+                            {
+                              "description": "Only return tests whose title contains, or ID matches, this string",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Only return tests with a specific result",
+                              "key": "result",
+                              "value": "no_result"
+                            },
+                            {
+                              "description": "Only return tests in this run group; use `-1` to filter for tests not in any run groups",
+                              "key": "run_group_id",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Only return tests in this saved filter",
+                              "key": "smart_folder_id",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Only return tests whose steps match this string",
+                              "key": "step_query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Only return tests matching this criteria. Can be comma-separated list of test ids or 'all' to return all tests",
+                              "key": "tests",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Only return tests of this type",
+                              "key": "type",
+                              "value": "test"
+                            },
+                            {
+                              "description": "Only return tests that contain given variable",
+                              "key": "variable",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "If true, only return tests that are embedded in other tests. If false, only return tests that are not embedded in other tests.",
+                              "key": "embedded",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Only return tests owned by this user; use `-1` to filter for tests without an owner",
+                              "key": "owner_id",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Only return tests with a specified language",
+                              "key": "test_language",
+                              "value": "rainforest_test_language"
+                            },
+                            {
+                              "description": "Only return tests with this/these feature(s); use `-1` to filter for tests without a feature",
+                              "key": "feature_id[]",
+                              "value": "<integer>,<integer>"
+                            },
+                            {
+                              "description": "Only return tests for this/these site(s)",
+                              "key": "site_id[]",
+                              "value": "<integer>,<integer>"
+                            },
+                            {
+                              "description": "Only return tests that with this state",
+                              "key": "state[]",
+                              "value": "unarchived,draft"
+                            },
+                            {
+                              "description": "Only return tests having all specified tags; use `-1` to filter for untagged tests",
+                              "key": "tags[]",
+                              "value": "<string>,<string>"
+                            },
+                            {
+                              "description": "Only return tests that were in this/these previous run(s)",
+                              "key": "run_id[]",
+                              "value": "<integer>,<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "7811cb5d-3b54-40e8-a2b2-f07a56f11d59",
+                              "key": "id",
+                              "value": "<integer>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "aeef8f33-d60b-447c-9cae-fa8b25e09924",
+                          "name": "Tests removed from feature",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "CLIENT_TOKEN",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/1/features/:id/tests?category=app&exploratory_run_id=<integer>&priority=P1&query=<string>&result=no_result&run_group_id=<integer>&smart_folder_id=<integer>&step_query=<string>&tests=<string>&type=test&variable=<string>&embedded=<boolean>&owner_id=<integer>&test_language=rainforest_test_language&feature_id[]=<integer>,<integer>&site_id[]=<integer>,<integer>&state[]=unarchived,draft&tags[]=<string>,<string>&run_id[]=<integer>,<integer>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "1",
+                                "features",
+                                ":id",
+                                "tests"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Only return tests with this category",
+                                  "key": "category",
+                                  "value": "app"
+                                },
+                                {
+                                  "description": "Only return created in this exploratory run",
+                                  "key": "exploratory_run_id",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "Only return tests with this priority",
+                                  "key": "priority",
+                                  "value": "P1"
+                                },
+                                {
+                                  "description": "Only return tests whose title contains, or ID matches, this string",
+                                  "key": "query",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Only return tests with a specific result",
+                                  "key": "result",
+                                  "value": "no_result"
+                                },
+                                {
+                                  "description": "Only return tests in this run group; use `-1` to filter for tests not in any run groups",
+                                  "key": "run_group_id",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "Only return tests in this saved filter",
+                                  "key": "smart_folder_id",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "Only return tests whose steps match this string",
+                                  "key": "step_query",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Only return tests matching this criteria. Can be comma-separated list of test ids or 'all' to return all tests",
+                                  "key": "tests",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Only return tests of this type",
+                                  "key": "type",
+                                  "value": "test"
+                                },
+                                {
+                                  "description": "Only return tests that contain given variable",
+                                  "key": "variable",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "If true, only return tests that are embedded in other tests. If false, only return tests that are not embedded in other tests.",
+                                  "key": "embedded",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "Only return tests owned by this user; use `-1` to filter for tests without an owner",
+                                  "key": "owner_id",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "Only return tests with a specified language",
+                                  "key": "test_language",
+                                  "value": "rainforest_test_language"
+                                },
+                                {
+                                  "description": "Only return tests with this/these feature(s); use `-1` to filter for tests without a feature",
+                                  "key": "feature_id[]",
+                                  "value": "<integer>,<integer>"
+                                },
+                                {
+                                  "description": "Only return tests for this/these site(s)",
+                                  "key": "site_id[]",
+                                  "value": "<integer>,<integer>"
+                                },
+                                {
+                                  "description": "Only return tests that with this state",
+                                  "key": "state[]",
+                                  "value": "unarchived,draft"
+                                },
+                                {
+                                  "description": "Only return tests having all specified tags; use `-1` to filter for untagged tests",
+                                  "key": "tags[]",
+                                  "value": "<string>,<string>"
+                                },
+                                {
+                                  "description": "Only return tests that were in this/these previous run(s)",
+                                  "key": "run_id[]",
+                                  "value": "<integer>,<integer>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"title\": \"<string>\",\n  \"test_count\": \"<integer>\",\n  \"id\": \"<integer>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-10-21T19:47:44.000Z",
+                          "updatedAt": "2026-10-21T19:47:44.000Z",
+                          "uid": "35240-aeef8f33-d60b-447c-9cae-fa8b25e09924"
+                        },
+                        {
+                          "id": "253b5c30-759b-4236-b43e-f30bb6678f69",
+                          "name": "Feature not found",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "CLIENT_TOKEN",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/1/features/:id/tests?category=app&exploratory_run_id=<integer>&priority=P1&query=<string>&result=no_result&run_group_id=<integer>&smart_folder_id=<integer>&step_query=<string>&tests=<string>&type=test&variable=<string>&embedded=<boolean>&owner_id=<integer>&test_language=rainforest_test_language&feature_id[]=<integer>,<integer>&site_id[]=<integer>,<integer>&state[]=unarchived,draft&tags[]=<string>,<string>&run_id[]=<integer>,<integer>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "1",
+                                "features",
+                                ":id",
+                                "tests"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Only return tests with this category",
+                                  "key": "category",
+                                  "value": "app"
+                                },
+                                {
+                                  "description": "Only return created in this exploratory run",
+                                  "key": "exploratory_run_id",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "Only return tests with this priority",
+                                  "key": "priority",
+                                  "value": "P1"
+                                },
+                                {
+                                  "description": "Only return tests whose title contains, or ID matches, this string",
+                                  "key": "query",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Only return tests with a specific result",
+                                  "key": "result",
+                                  "value": "no_result"
+                                },
+                                {
+                                  "description": "Only return tests in this run group; use `-1` to filter for tests not in any run groups",
+                                  "key": "run_group_id",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "Only return tests in this saved filter",
+                                  "key": "smart_folder_id",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "Only return tests whose steps match this string",
+                                  "key": "step_query",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Only return tests matching this criteria. Can be comma-separated list of test ids or 'all' to return all tests",
+                                  "key": "tests",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Only return tests of this type",
+                                  "key": "type",
+                                  "value": "test"
+                                },
+                                {
+                                  "description": "Only return tests that contain given variable",
+                                  "key": "variable",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "If true, only return tests that are embedded in other tests. If false, only return tests that are not embedded in other tests.",
+                                  "key": "embedded",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "Only return tests owned by this user; use `-1` to filter for tests without an owner",
+                                  "key": "owner_id",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "Only return tests with a specified language",
+                                  "key": "test_language",
+                                  "value": "rainforest_test_language"
+                                },
+                                {
+                                  "description": "Only return tests with this/these feature(s); use `-1` to filter for tests without a feature",
+                                  "key": "feature_id[]",
+                                  "value": "<integer>,<integer>"
+                                },
+                                {
+                                  "description": "Only return tests for this/these site(s)",
+                                  "key": "site_id[]",
+                                  "value": "<integer>,<integer>"
+                                },
+                                {
+                                  "description": "Only return tests that with this state",
+                                  "key": "state[]",
+                                  "value": "unarchived,draft"
+                                },
+                                {
+                                  "description": "Only return tests having all specified tags; use `-1` to filter for untagged tests",
+                                  "key": "tags[]",
+                                  "value": "<string>,<string>"
+                                },
+                                {
+                                  "description": "Only return tests that were in this/these previous run(s)",
+                                  "key": "run_id[]",
+                                  "value": "<integer>,<integer>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T19:47:44.000Z",
+                          "updatedAt": "2026-10-21T19:47:44.000Z",
+                          "uid": "35240-253b5c30-759b-4236-b43e-f30bb6678f69"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:47:44.000Z",
+                      "updatedAt": "2026-10-21T19:47:44.000Z",
+                      "uid": "35240-44630689-1bb1-48d9-a1ed-1a5d784d1305"
+                    }
+                  ],
+                  "id": "4497e5e1-a21b-499f-8dbf-bc51abaedcfd",
+                  "createdAt": "2026-10-21T19:47:44.000Z",
+                  "updatedAt": "2026-10-21T19:47:44.000Z",
+                  "uid": "35240-4497e5e1-a21b-499f-8dbf-bc51abaedcfd"
                 },
                 {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1",
-                  "description": "Page of results to display"
+                  "name": "Get a feature",
+                  "id": "5c6df41c-620e-4d5d-bb36-c380221dd44c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/1/features/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1",
+                        "features",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "c6cd11a1-c7e0-47b9-9500-25d0d651f29e",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "df4fdfa3-ffc5-47ab-bc16-f0ab883be984",
+                      "name": "Feature retrieved",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "CLIENT_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/1/features/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1",
+                            "features",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"title\": \"<string>\",\n  \"test_count\": \"<integer>\",\n  \"id\": \"<integer>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-10-21T19:47:44.000Z",
+                      "updatedAt": "2026-10-21T19:47:44.000Z",
+                      "uid": "35240-df4fdfa3-ffc5-47ab-bc16-f0ab883be984"
+                    },
+                    {
+                      "id": "c8e0e521-6928-4404-9839-57b12f6d0809",
+                      "name": "Feature not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "CLIENT_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/1/features/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1",
+                            "features",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T19:47:44.000Z",
+                      "updatedAt": "2026-10-21T19:47:44.000Z",
+                      "uid": "35240-c8e0e521-6928-4404-9839-57b12f6d0809"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T19:47:44.000Z",
+                  "updatedAt": "2026-10-21T19:47:44.000Z",
+                  "uid": "35240-5c6df41c-620e-4d5d-bb36-c380221dd44c"
                 },
                 {
-                  "disabled": false,
-                  "key": "page_size",
-                  "value": "10",
-                  "description": "Number of results to return per page; maximum: 100"
+                  "name": "Update a feature",
+                  "id": "d99c066d-5045-4f81-945f-84bf3214f263",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"title\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/1/features/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1",
+                        "features",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "1e11bdaf-d571-473f-8a32-b2d38c88a8b7",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "398531c4-488a-44e9-b463-cc8ed8fb69cd",
+                      "name": "Feature updated",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "CLIENT_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"title\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/1/features/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1",
+                            "features",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"title\": \"<string>\",\n  \"test_count\": \"<integer>\",\n  \"id\": \"<integer>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-10-21T19:47:44.000Z",
+                      "updatedAt": "2026-10-21T19:47:44.000Z",
+                      "uid": "35240-398531c4-488a-44e9-b463-cc8ed8fb69cd"
+                    },
+                    {
+                      "id": "423a11e6-f50b-4791-bfc3-24dc20cbce4a",
+                      "name": "Feature could not be updated",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "CLIENT_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"title\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/1/features/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1",
+                            "features",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T19:47:44.000Z",
+                      "updatedAt": "2026-10-21T19:47:44.000Z",
+                      "uid": "35240-423a11e6-f50b-4791-bfc3-24dc20cbce4a"
+                    },
+                    {
+                      "id": "d1bab801-3c60-4749-9278-16859d7dcd23",
+                      "name": "Feature not found",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "CLIENT_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"title\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/1/features/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1",
+                            "features",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T19:47:44.000Z",
+                      "updatedAt": "2026-10-21T19:47:44.000Z",
+                      "uid": "35240-d1bab801-3c60-4749-9278-16859d7dcd23"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T19:47:44.000Z",
+                  "updatedAt": "2026-10-21T19:47:44.000Z",
+                  "uid": "35240-d99c066d-5045-4f81-945f-84bf3214f263"
                 },
                 {
-                  "disabled": false,
-                  "key": "sort[][title]",
-                  "value": "<string>,<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "sort[][updated_at]",
-                  "value": "<string>,<string>"
+                  "name": "Delete a feature",
+                  "id": "7ce5f8d4-2a85-4dfc-a616-73b875156ef0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/1/features/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1",
+                        "features",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "79e37aa6-fd3a-4780-808e-57f0067934a7",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "78b2c815-cf0c-42e3-92f9-11e141650d04",
+                      "name": "Feature deleted",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "CLIENT_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/1/features/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1",
+                            "features",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"title\": \"<string>\",\n  \"test_count\": \"<integer>\",\n  \"id\": \"<integer>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-10-21T19:47:44.000Z",
+                      "updatedAt": "2026-10-21T19:47:44.000Z",
+                      "uid": "35240-78b2c815-cf0c-42e3-92f9-11e141650d04"
+                    },
+                    {
+                      "id": "9594dae8-9e2b-420d-aaf1-e638100b2b4f",
+                      "name": "Feature not found",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "CLIENT_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/1/features/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1",
+                            "features",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T19:47:44.000Z",
+                      "updatedAt": "2026-10-21T19:47:44.000Z",
+                      "uid": "35240-9594dae8-9e2b-420d-aaf1-e638100b2b4f"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T19:47:44.000Z",
+                  "updatedAt": "2026-10-21T19:47:44.000Z",
+                  "uid": "35240-7ce5f8d4-2a85-4dfc-a616-73b875156ef0"
                 }
               ],
-              "variable": []
+              "id": "d12c00ae-0f4f-4698-9fef-d40fdf4f1934",
+              "createdAt": "2026-10-21T19:47:44.000Z",
+              "updatedAt": "2026-10-21T19:47:44.000Z",
+              "uid": "35240-d12c00ae-0f4f-4698-9fef-d40fdf4f1934"
             },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
             {
-              "id": "e9489914-c9c4-451a-bff2-dfd9254d04a6",
-              "name": "Features retrieved",
-              "originalRequest": {
+              "name": "List features",
+              "id": "4aec20f1-e790-459b-80d3-9c0205a9237f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
                 "url": {
+                  "raw": "{{baseUrl}}/1/features?title=<string>&page=1&page_size=10&sort[][title]=desc,desc&sort[][updated_at]=desc,desc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "1",
                     "features"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
                   "query": [
                     {
+                      "description": "Filter by title (case-insensitive)",
                       "key": "title",
                       "value": "<string>"
                     },
                     {
+                      "description": "Page of results to display",
                       "key": "page",
                       "value": "1"
                     },
                     {
+                      "description": "Number of results to return per page; maximum: 100",
                       "key": "page_size",
                       "value": "10"
                     },
                     {
                       "key": "sort[][title]",
-                      "value": "<string>,<string>"
+                      "value": "desc,desc"
                     },
                     {
                       "key": "sort[][updated_at]",
-                      "value": "<string>,<string>"
+                      "value": "desc,desc"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "1f7cb8fa-6076-4088-a5ea-b19b0126ee7f",
+                  "name": "Features retrieved",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "CLIENT_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/1/features?title=<string>&page=1&page_size=10&sort[][title]=desc,desc&sort[][updated_at]=desc,desc",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1",
+                        "features"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by title (case-insensitive)",
+                          "key": "title",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Page of results to display",
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Number of results to return per page; maximum: 100",
+                          "key": "page_size",
+                          "value": "10"
+                        },
+                        {
+                          "key": "sort[][title]",
+                          "value": "desc,desc"
+                        },
+                        {
+                          "key": "sort[][updated_at]",
+                          "value": "desc,desc"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Total pages",
+                        "type": "text/plain"
+                      },
+                      "key": "X-Total-Pages",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Current page",
+                        "type": "text/plain"
+                      },
+                      "key": "X-Current-Page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The maximum number of results per page",
+                        "type": "text/plain"
+                      },
+                      "key": "X-Per-Page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The total number of results",
+                        "type": "text/plain"
+                      },
+                      "key": "X-Total-Results",
+                      "value": "<integer>"
                     }
                   ],
-                  "variable": []
-                },
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"title\": \"<string>\",\n    \"test_count\": \"<integer>\",\n    \"id\": \"<integer>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\"\n  },\n  {\n    \"title\": \"<string>\",\n    \"test_count\": \"<integer>\",\n    \"id\": \"<integer>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\"\n  }\n]",
+                  "createdAt": "2026-10-21T19:47:44.000Z",
+                  "updatedAt": "2026-10-21T19:47:44.000Z",
+                  "uid": "35240-1f7cb8fa-6076-4088-a5ea-b19b0126ee7f"
+                }
+              ],
+              "createdAt": "2026-10-21T19:47:44.000Z",
+              "updatedAt": "2026-10-21T19:47:44.000Z",
+              "uid": "35240-4aec20f1-e790-459b-80d3-9c0205a9237f"
+            },
+            {
+              "name": "Create a new feature",
+              "id": "eaff273c-ceb6-4f85-81a8-4106eb19f150",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
+                    "key": "Content-Type",
+                    "value": "application/json"
                   },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "disabled": false,
-                  "description": "Total pages",
-                  "key": "X-Total-Pages",
-                  "value": "870"
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
                 },
-                {
-                  "disabled": false,
-                  "description": "Current page",
-                  "key": "X-Current-Page",
-                  "value": "870"
-                },
-                {
-                  "disabled": false,
-                  "description": "The maximum number of results per page",
-                  "key": "X-Per-Page",
-                  "value": "870"
-                },
-                {
-                  "disabled": false,
-                  "description": "The total number of results",
-                  "key": "X-Total-Results",
-                  "value": "870"
-                },
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"title\": \"string\",\n    \"test_count\": 9868,\n    \"id\": 8135,\n    \"created_at\": \"1949-12-27T18:32:57.495Z\",\n    \"updated_at\": \"2017-02-12T08:40:29.652Z\"\n  },\n  {\n    \"title\": \"string\",\n    \"test_count\": 5200,\n    \"id\": 9065,\n    \"created_at\": \"1974-03-27T20:48:31.736Z\",\n    \"updated_at\": \"1981-01-14T19:25:48.952Z\"\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "9f952a7a-4191-4c69-a4b6-ca2d4104efef",
-          "name": "Create a new feature",
-          "request": {
-            "name": "Create a new feature",
-            "description": {
-              "content": "Create a new feature",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "1",
-                "features"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"title\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "aa04a94b-b7a4-4089-8167-4ea4ea1edc5a",
-              "name": "Feature created",
-              "originalRequest": {
                 "url": {
+                  "raw": "{{baseUrl}}/1/features",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "1",
                     "features"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"title\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
+                  ]
                 }
               },
-              "status": "Created",
-              "code": 201,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"title\": \"string\",\n  \"test_count\": 6986,\n  \"id\": 9510,\n  \"created_at\": \"1972-08-02T10:24:23.615Z\",\n  \"updated_at\": \"1996-01-03T18:06:12.741Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "006a9793-3fb5-40c8-8c44-a75ebfc30d18",
-              "name": "Feature could not be created",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "features"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
+                  "id": "9b5a8b08-22a6-4f9f-938a-a13ee072986c",
+                  "name": "Feature created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "CLIENT_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"title\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
                     },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"title\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
+                    "url": {
+                      "raw": "{{baseUrl}}/1/features",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1",
+                        "features"
+                      ]
                     }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"title\": \"<string>\",\n  \"test_count\": \"<integer>\",\n  \"id\": \"<integer>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-10-21T19:47:44.000Z",
+                  "updatedAt": "2026-10-21T19:47:44.000Z",
+                  "uid": "35240-9b5a8b08-22a6-4f9f-938a-a13ee072986c"
+                },
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "e9eac827-58f0-4061-bce9-05a18a1f3603",
+                  "name": "Feature could not be created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "CLIENT_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"title\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/1/features",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1",
+                        "features"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T19:47:44.000Z",
+                  "updatedAt": "2026-10-21T19:47:44.000Z",
+                  "uid": "35240-e9eac827-58f0-4061-bce9-05a18a1f3603"
                 }
               ],
-              "body": "{\n  \"error\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-21T19:47:44.000Z",
+              "updatedAt": "2026-10-21T19:47:44.000Z",
+              "uid": "35240-eaff273c-ceb6-4f85-81a8-4106eb19f150"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "10b84fdd-97ab-43c6-a4b7-a50952bc035e",
-          "name": "Get a feature",
-          "request": {
-            "name": "Get a feature",
-            "description": {
-              "content": "Get a feature",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "1",
-                "features",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "1ad04ec7-5929-4ed0-a863-0f3cf5acc730",
-              "name": "Feature retrieved",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "features",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"title\": \"string\",\n  \"test_count\": 6986,\n  \"id\": 9510,\n  \"created_at\": \"1972-08-02T10:24:23.615Z\",\n  \"updated_at\": \"1996-01-03T18:06:12.741Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "c258c4f1-2f73-4316-b6b0-15f8b63ceb8d",
-              "name": "Feature not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "features",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "63d19a1a-d454-4b08-9473-41153428edf0",
-          "name": "Update a feature",
-          "request": {
-            "name": "Update a feature",
-            "description": {
-              "content": "Update a feature",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "1",
-                "features",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"title\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "db0ace9f-fbb4-4f27-937a-ccc8b33e2ab9",
-              "name": "Feature updated",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "features",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"title\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"title\": \"string\",\n  \"test_count\": 6986,\n  \"id\": 9510,\n  \"created_at\": \"1972-08-02T10:24:23.615Z\",\n  \"updated_at\": \"1996-01-03T18:06:12.741Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "d4c7e52a-c57a-4d4e-b48e-de5fa7259680",
-              "name": "Feature could not be updated",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "features",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"title\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "17b728dc-a3a4-49d8-9786-65104c8bcbfa",
-              "name": "Feature not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "features",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"title\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "10549166-284f-42a5-b416-1e4b92b023fe",
-          "name": "Delete a feature",
-          "request": {
-            "name": "Delete a feature",
-            "description": {
-              "content": "Delete a feature",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "1",
-                "features",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "6c25e41f-5c98-49ae-8d6e-04edd4302b4d",
-              "name": "Feature deleted",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "features",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"title\": \"string\",\n  \"test_count\": 6986,\n  \"id\": 9510,\n  \"created_at\": \"1972-08-02T10:24:23.615Z\",\n  \"updated_at\": \"1996-01-03T18:06:12.741Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "61563d1e-465b-4d18-9689-a35a3967e0f2",
-              "name": "Feature not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "features",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "0ccc5bbe-b484-449a-bd02-603a24a31e83",
-          "name": "Add tests to a feature",
-          "request": {
-            "name": "Add tests to a feature",
-            "description": {
-              "content": "Add tests to a feature",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "1",
-                "features",
-                ":id",
-                "tests"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"category\": \"<string>\",\n  \"exploratory_run_id\": \"<integer>\",\n  \"feature_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"priority\": \"<string>\",\n  \"query\": \"<string>\",\n  \"result\": \"<string>\",\n  \"run_group_id\": \"<integer>\",\n  \"site_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"smart_folder_id\": \"<integer>\",\n  \"state\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"step_query\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tests\": \"<string>\",\n  \"run_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"variable\": \"<string>\",\n  \"embedded\": \"<boolean>\",\n  \"owner_id\": \"<integer>\",\n  \"test_language\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "a3e3e340-923d-4a0a-b70b-300a46f09c47",
-              "name": "Tests added to feature",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "features",
-                    ":id",
-                    "tests"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"category\": \"<string>\",\n  \"exploratory_run_id\": \"<integer>\",\n  \"feature_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"priority\": \"<string>\",\n  \"query\": \"<string>\",\n  \"result\": \"<string>\",\n  \"run_group_id\": \"<integer>\",\n  \"site_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"smart_folder_id\": \"<integer>\",\n  \"state\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"step_query\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tests\": \"<string>\",\n  \"run_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"variable\": \"<string>\",\n  \"embedded\": \"<boolean>\",\n  \"owner_id\": \"<integer>\",\n  \"test_language\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Created",
-              "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"title\": \"string\",\n  \"test_count\": 6986,\n  \"id\": 9510,\n  \"created_at\": \"1972-08-02T10:24:23.615Z\",\n  \"updated_at\": \"1996-01-03T18:06:12.741Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "26e573d0-fe9a-4bf8-8035-613ae1809ac4",
-              "name": "Can't add snippets to a Feature",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "features",
-                    ":id",
-                    "tests"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"category\": \"<string>\",\n  \"exploratory_run_id\": \"<integer>\",\n  \"feature_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"priority\": \"<string>\",\n  \"query\": \"<string>\",\n  \"result\": \"<string>\",\n  \"run_group_id\": \"<integer>\",\n  \"site_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"smart_folder_id\": \"<integer>\",\n  \"state\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"step_query\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tests\": \"<string>\",\n  \"run_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"variable\": \"<string>\",\n  \"embedded\": \"<boolean>\",\n  \"owner_id\": \"<integer>\",\n  \"test_language\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "2136d857-d3d6-4614-94b6-7bbece54446b",
-              "name": "Feature not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "features",
-                    ":id",
-                    "tests"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"category\": \"<string>\",\n  \"exploratory_run_id\": \"<integer>\",\n  \"feature_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"priority\": \"<string>\",\n  \"query\": \"<string>\",\n  \"result\": \"<string>\",\n  \"run_group_id\": \"<integer>\",\n  \"site_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"smart_folder_id\": \"<integer>\",\n  \"state\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"step_query\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tests\": \"<string>\",\n  \"run_id\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"variable\": \"<string>\",\n  \"embedded\": \"<boolean>\",\n  \"owner_id\": \"<integer>\",\n  \"test_language\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "1dd4ad29-8326-4f16-8b4a-f9e18413f2ec",
-          "name": "Remove tests from a feature",
-          "request": {
-            "name": "Remove tests from a feature",
-            "description": {
-              "content": "Remove tests from a feature",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "1",
-                "features",
-                ":id",
-                "tests"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "category",
-                  "value": "<string>",
-                  "description": "Only return tests with this category"
-                },
-                {
-                  "disabled": false,
-                  "key": "exploratory_run_id",
-                  "value": "<integer>",
-                  "description": "Only return created in this exploratory run"
-                },
-                {
-                  "disabled": false,
-                  "key": "priority",
-                  "value": "<string>",
-                  "description": "Only return tests with this priority"
-                },
-                {
-                  "disabled": false,
-                  "key": "query",
-                  "value": "<string>",
-                  "description": "Only return tests whose title contains, or ID matches, this string"
-                },
-                {
-                  "disabled": false,
-                  "key": "result",
-                  "value": "<string>",
-                  "description": "Only return tests with a specific result"
-                },
-                {
-                  "disabled": false,
-                  "key": "run_group_id",
-                  "value": "<integer>",
-                  "description": "Only return tests in this run group; use `-1` to filter for tests not in any run groups"
-                },
-                {
-                  "disabled": false,
-                  "key": "smart_folder_id",
-                  "value": "<integer>",
-                  "description": "Only return tests in this saved filter"
-                },
-                {
-                  "disabled": false,
-                  "key": "step_query",
-                  "value": "<string>",
-                  "description": "Only return tests whose steps match this string"
-                },
-                {
-                  "disabled": false,
-                  "key": "tests",
-                  "value": "<string>",
-                  "description": "Only return tests matching this criteria. Can be comma-separated list of test ids or 'all' to return all tests"
-                },
-                {
-                  "disabled": false,
-                  "key": "type",
-                  "value": "<string>",
-                  "description": "Only return tests of this type"
-                },
-                {
-                  "disabled": false,
-                  "key": "variable",
-                  "value": "<string>",
-                  "description": "Only return tests that contain given variable"
-                },
-                {
-                  "disabled": false,
-                  "key": "embedded",
-                  "value": "<boolean>",
-                  "description": "If true, only return tests that are embedded in other tests. If false, only return tests that are not embedded in other tests."
-                },
-                {
-                  "disabled": false,
-                  "key": "owner_id",
-                  "value": "<integer>",
-                  "description": "Only return tests owned by this user; use `-1` to filter for tests without an owner"
-                },
-                {
-                  "disabled": false,
-                  "key": "test_language",
-                  "value": "<string>",
-                  "description": "Only return tests with a specified language"
-                },
-                {
-                  "disabled": false,
-                  "key": "feature_id[]",
-                  "value": "<integer>,<integer>",
-                  "description": "Only return tests with this/these feature(s); use `-1` to filter for tests without a feature"
-                },
-                {
-                  "disabled": false,
-                  "key": "site_id[]",
-                  "value": "<integer>,<integer>",
-                  "description": "Only return tests for this/these site(s)"
-                },
-                {
-                  "disabled": false,
-                  "key": "state[]",
-                  "value": "<string>,<string>",
-                  "description": "Only return tests that with this state"
-                },
-                {
-                  "disabled": false,
-                  "key": "tags[]",
-                  "value": "<string>,<string>",
-                  "description": "Only return tests having all specified tags; use `-1` to filter for untagged tests"
-                },
-                {
-                  "disabled": false,
-                  "key": "run_id[]",
-                  "value": "<integer>,<integer>",
-                  "description": "Only return tests that were in this/these previous run(s)"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "7f2ab14f-3347-479b-bf77-f6443ac8cc6c",
-              "name": "Tests removed from feature",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "features",
-                    ":id",
-                    "tests"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "category",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "exploratory_run_id",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "priority",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "query",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "result",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "run_group_id",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "smart_folder_id",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "step_query",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "tests",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "type",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "variable",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "embedded",
-                      "value": "<boolean>"
-                    },
-                    {
-                      "key": "owner_id",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "test_language",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "feature_id[]",
-                      "value": "<integer>,<integer>"
-                    },
-                    {
-                      "key": "site_id[]",
-                      "value": "<integer>,<integer>"
-                    },
-                    {
-                      "key": "state[]",
-                      "value": "<string>,<string>"
-                    },
-                    {
-                      "key": "tags[]",
-                      "value": "<string>,<string>"
-                    },
-                    {
-                      "key": "run_id[]",
-                      "value": "<integer>,<integer>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"title\": \"string\",\n  \"test_count\": 6986,\n  \"id\": 9510,\n  \"created_at\": \"1972-08-02T10:24:23.615Z\",\n  \"updated_at\": \"1996-01-03T18:06:12.741Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "757d37a5-dc6f-4f6a-8d73-ffb525e0ec72",
-              "name": "Feature not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "features",
-                    ":id",
-                    "tests"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "category",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "exploratory_run_id",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "priority",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "query",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "result",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "run_group_id",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "smart_folder_id",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "step_query",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "tests",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "type",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "variable",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "embedded",
-                      "value": "<boolean>"
-                    },
-                    {
-                      "key": "owner_id",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "test_language",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "feature_id[]",
-                      "value": "<integer>,<integer>"
-                    },
-                    {
-                      "key": "site_id[]",
-                      "value": "<integer>,<integer>"
-                    },
-                    {
-                      "key": "state[]",
-                      "value": "<string>,<string>"
-                    },
-                    {
-                      "key": "tags[]",
-                      "value": "<string>,<string>"
-                    },
-                    {
-                      "key": "run_id[]",
-                      "value": "<integer>,<integer>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "be2dbf18-27a4-4b19-82d6-635dc242536b",
+          "createdAt": "2026-10-21T19:47:44.000Z",
+          "updatedAt": "2026-10-21T19:47:44.000Z",
+          "uid": "35240-be2dbf18-27a4-4b19-82d6-635dc242536b"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.rainforestqa.com/api",
-      "key": "baseUrl"
+      "id": "9bbaff33-b785-40a3-af9b-68c2c7a0535e",
+      "createdAt": "2026-10-21T19:47:44.000Z",
+      "updatedAt": "2026-10-21T19:47:44.000Z",
+      "uid": "35240-9bbaff33-b785-40a3-af9b-68c2c7a0535e"
     }
   ],
   "auth": {
@@ -1543,25 +1569,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "CLIENT_TOKEN"
+        "value": "CLIENT_TOKEN",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "cc35420d-65c8-4f2e-8de1-9e4c76dc5f37",
-    "name": "Rainforest callback features API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.rainforestqa.com/api"
     }
-  }
+  ]
 }

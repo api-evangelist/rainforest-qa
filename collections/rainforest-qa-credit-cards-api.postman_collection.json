@@ -1,103 +1,106 @@
 {
+  "info": {
+    "_postman_id": "341dad5b-753b-436b-b529-94dff32f39fd",
+    "name": "Rainforest Credit Cards API",
+    "description": "Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T19:47:30.000Z",
+    "updatedAt": "2026-10-21T19:47:30.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-341dad5b-753b-436b-b529-94dff32f39fd"
+  },
   "item": [
     {
-      "id": "108c8a29-dd2f-440d-804f-24f806cf262a",
-      "name": "credit_cards",
-      "description": {
-        "content": "Operations about credit_cards",
-        "type": "text/plain"
-      },
+      "name": "1",
       "item": [
         {
-          "id": "3c0f89dd-e36d-4216-9171-06fc4051e465",
-          "name": "List credit cards",
-          "request": {
-            "name": "List credit cards",
-            "description": {
-              "content": "List credit cards",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "1",
-                "credit_cards"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "credit_cards",
+          "item": [
             {
-              "id": "5ba42f1f-9c3b-4ef3-b739-d342b2b41f2f",
-              "name": "Retrieved credit cards",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "credit_cards"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+              "name": "List credit cards",
+              "id": "72d3efea-6353-4ccf-872a-c41b923e34ea",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/1/credit_cards",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "1",
+                    "credit_cards"
+                  ]
+                }
               },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "fcb2c8de-a18e-4b9b-ad74-3e2b1c13f7e7",
+                  "name": "Retrieved credit cards",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "CLIENT_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/1/credit_cards",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1",
+                        "credit_cards"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"default_card\": \"<string>\",\n  \"credit_cards\": [\n    {\n      \"card_id\": \"<string>\",\n      \"last4\": \"<string>\",\n      \"type\": \"<string>\",\n      \"exp_month\": \"<string>\",\n      \"exp_year\": \"<string>\"\n    },\n    {\n      \"card_id\": \"<string>\",\n      \"last4\": \"<string>\",\n      \"type\": \"<string>\",\n      \"exp_month\": \"<string>\",\n      \"exp_year\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-10-21T19:47:30.000Z",
+                  "updatedAt": "2026-10-21T19:47:30.000Z",
+                  "uid": "35240-fcb2c8de-a18e-4b9b-ad74-3e2b1c13f7e7"
                 }
               ],
-              "body": "{\n  \"default_card\": \"string\",\n  \"credit_cards\": [\n    {\n      \"card_id\": \"string\",\n      \"last4\": \"string\",\n      \"type\": \"string\",\n      \"exp_month\": \"string\",\n      \"exp_year\": \"string\"\n    },\n    {\n      \"card_id\": \"string\",\n      \"last4\": \"string\",\n      \"type\": \"string\",\n      \"exp_month\": \"string\",\n      \"exp_year\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-21T19:47:30.000Z",
+              "updatedAt": "2026-10-21T19:47:30.000Z",
+              "uid": "35240-72d3efea-6353-4ccf-872a-c41b923e34ea"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "6dd5c959-f784-49d8-9a7e-9624d3f9a7a3",
+          "createdAt": "2026-10-21T19:47:30.000Z",
+          "updatedAt": "2026-10-21T19:47:30.000Z",
+          "uid": "35240-6dd5c959-f784-49d8-9a7e-9624d3f9a7a3"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.rainforestqa.com/api",
-      "key": "baseUrl"
+      "id": "a03d98a2-55d1-4ef1-82be-37db173175df",
+      "createdAt": "2026-10-21T19:47:30.000Z",
+      "updatedAt": "2026-10-21T19:47:30.000Z",
+      "uid": "35240-a03d98a2-55d1-4ef1-82be-37db173175df"
     }
   ],
   "auth": {
@@ -105,25 +108,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "CLIENT_TOKEN"
+        "value": "CLIENT_TOKEN",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "580a861b-b861-41af-a59a-03497921d5f5",
-    "name": "Rainforest callback credit_cards API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.rainforestqa.com/api"
     }
-  }
+  ]
 }

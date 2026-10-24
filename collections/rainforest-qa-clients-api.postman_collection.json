@@ -1,537 +1,565 @@
 {
+  "info": {
+    "_postman_id": "69a2e53b-eb23-46a5-8141-44cdbd68ab51",
+    "name": "Rainforest Clients API",
+    "description": "Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T19:47:18.000Z",
+    "updatedAt": "2026-10-21T19:47:19.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-69a2e53b-eb23-46a5-8141-44cdbd68ab51"
+  },
   "item": [
     {
-      "id": "61666679-e774-4472-99c8-22763a332f7f",
-      "name": "clients",
-      "description": {
-        "content": "Operations about clients",
-        "type": "text/plain"
-      },
+      "name": "1",
       "item": [
         {
-          "id": "a79fbffa-dc9a-4adf-98b2-f0d246031d3a",
-          "name": "Fetch your account details",
-          "request": {
-            "name": "Fetch your account details",
-            "description": {
-              "content": "Fetch your account details",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "1",
-                "clients"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "clients",
+          "item": [
             {
-              "id": "a65e4620-c221-4a4b-9a81-2ddc3ed7d8c0",
-              "name": "Retrieved account details",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "clients"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
+              "name": "stats",
+              "item": [
+                {
+                  "name": "Fetch usage stats",
+                  "id": "0fa56534-df5c-4aae-961a-b687cd68d5e6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/1/clients/stats",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1",
+                        "clients",
+                        "stats"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "e5e34154-b015-42f5-8d42-f4cbf77b0261",
+                      "name": "Fetch usage stats",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "CLIENT_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/1/clients/stats",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1",
+                            "clients",
+                            "stats"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T19:47:19.000Z",
+                      "updatedAt": "2026-10-21T19:47:19.000Z",
+                      "uid": "35240-e5e34154-b015-42f5-8d42-f4cbf77b0261"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T19:47:19.000Z",
+                  "updatedAt": "2026-10-21T19:47:19.000Z",
+                  "uid": "35240-0fa56534-df5c-4aae-961a-b687cd68d5e6"
+                }
+              ],
+              "id": "ebe2fa9f-cf1d-4e9f-9913-fc0b1538b0fe",
+              "createdAt": "2026-10-21T19:47:19.000Z",
+              "updatedAt": "2026-10-21T19:47:19.000Z",
+              "uid": "35240-ebe2fa9f-cf1d-4e9f-9913-fc0b1538b0fe"
+            },
+            {
+              "name": "select",
+              "item": [
+                {
+                  "name": "Select different client",
+                  "id": "937daacb-acb8-4aba-b613-f0ae57a7826f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"client_id\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/1/clients/select",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1",
+                        "clients",
+                        "select"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "9ba9e63c-c782-454f-8eec-e6fedfd8854a",
+                      "name": "Switched to a different client",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "CLIENT_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"client_id\": \"<integer>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/1/clients/select",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1",
+                            "clients",
+                            "select"
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<integer>\",\n  \"created_at\": \"<dateTime>\",\n  \"client_id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"enabled_features\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"enabled_atc_features\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"default_environment_id\": \"<integer>\",\n  \"default_site_id\": \"<integer>\",\n  \"api_token\": \"<string>\",\n  \"algolia_key\": \"<string>\",\n  \"settings\": {},\n  \"billing_email\": \"<email>\",\n  \"timezone\": \"<string>\",\n  \"run_count\": \"<integer>\",\n  \"test_count\": \"<integer>\",\n  \"snippet_count\": \"<integer>\",\n  \"current_test_count\": \"<integer>\",\n  \"current_plan_test_count_limit\": \"<integer>\",\n  \"available_browsers\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"category\": \"tablet\",\n    \"browser_version\": \"<string>\",\n    \"os_version\": \"<string>\",\n    \"credit_cost\": \"<integer>\",\n    \"mobile_os_type\": \"android\",\n    \"mobile_device_type\": \"real_device\",\n    \"default\": \"<boolean>\"\n  },\n  \"owner_email\": \"<email>\",\n  \"currently_running\": {\n    \"id\": \"<integer>\",\n    \"created_at\": \"<dateTime>\",\n    \"state\": \"analyzing_app\",\n    \"requested_tests\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"current_progress\": {\n      \"percent\": \"<integer>\",\n      \"total\": \"<integer>\",\n      \"complete\": \"<integer>\",\n      \"passed\": \"<integer>\",\n      \"failed\": \"<integer>\",\n      \"no_result\": \"<integer>\",\n      \"eta\": {}\n    },\n    \"credit_cost\": \"<integer>\",\n    \"result\": \"no_result\",\n    \"updated_at\": \"<dateTime>\",\n    \"environment\": {\n      \"name\": \"<boolean>\",\n      \"default\": \"<boolean>\",\n      \"webhook\": \"<string>\",\n      \"webhook_enabled\": \"<boolean>\",\n      \"is_temporary\": \"<boolean>\",\n      \"site_environments\": [\n        {\n          \"site_id\": \"<integer>\",\n          \"environment_id\": \"<integer>\",\n          \"url\": \"<string>\",\n          \"id\": \"<integer>\",\n          \"created_at\": \"<dateTime>\"\n        },\n        {\n          \"site_id\": \"<integer>\",\n          \"environment_id\": \"<integer>\",\n          \"url\": \"<string>\",\n          \"id\": \"<integer>\",\n          \"created_at\": \"<dateTime>\"\n        }\n      ],\n      \"id\": \"<integer>\",\n      \"created_at\": \"<dateTime>\",\n      \"deleted_at\": \"<dateTime>\",\n      \"will_delete_after\": \"<dateTime>\"\n    }\n  },\n  \"browser_credit_costs\": {\n    \"id\": \"<integer>\",\n    \"browser_id\": \"<integer>\",\n    \"browser_key\": \"<string>\",\n    \"credit_cost\": \"<integer>\"\n  },\n  \"concurrent_tester_limit\": \"<integer>\",\n  \"virtual_card_limit\": \"<integer>\",\n  \"has_private_sms_numbers\": \"<boolean>\"\n}",
+                      "createdAt": "2026-10-21T19:47:19.000Z",
+                      "updatedAt": "2026-10-21T19:47:19.000Z",
+                      "uid": "35240-9ba9e63c-c782-454f-8eec-e6fedfd8854a"
+                    },
+                    {
+                      "id": "0cdfd0ea-461c-4581-bfbe-adcd38d3da9b",
+                      "name": "Cannot switch to the current client",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "CLIENT_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"client_id\": \"<integer>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/1/clients/select",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1",
+                            "clients",
+                            "select"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T19:47:19.000Z",
+                      "updatedAt": "2026-10-21T19:47:19.000Z",
+                      "uid": "35240-0cdfd0ea-461c-4581-bfbe-adcd38d3da9b"
+                    },
+                    {
+                      "id": "0c3db083-37a5-43e1-9245-c6701e6ed29d",
+                      "name": "Cannot switch to a client you do not have access to",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "CLIENT_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"client_id\": \"<integer>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/1/clients/select",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1",
+                            "clients",
+                            "select"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T19:47:19.000Z",
+                      "updatedAt": "2026-10-21T19:47:19.000Z",
+                      "uid": "35240-0c3db083-37a5-43e1-9245-c6701e6ed29d"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T19:47:19.000Z",
+                  "updatedAt": "2026-10-21T19:47:19.000Z",
+                  "uid": "35240-937daacb-acb8-4aba-b613-f0ae57a7826f"
+                }
+              ],
+              "id": "b238d5e4-57bc-4687-b1e9-99cd1be226dc",
+              "createdAt": "2026-10-21T19:47:19.000Z",
+              "updatedAt": "2026-10-21T19:47:19.000Z",
+              "uid": "35240-b238d5e4-57bc-4687-b1e9-99cd1be226dc"
+            },
+            {
+              "name": "Fetch your account details",
+              "id": "a7962c42-e9af-4234-b60b-1f1540d1e20b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
                 "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"id\": 5855,\n  \"created_at\": \"1953-11-11T08:11:30.602Z\",\n  \"client_id\": 4781,\n  \"name\": \"string\",\n  \"enabled_features\": [\n    \"string\",\n    \"string\"\n  ],\n  \"enabled_atc_features\": [\n    \"string\",\n    \"string\"\n  ],\n  \"default_environment_id\": 2692,\n  \"default_site_id\": 42,\n  \"api_token\": \"string\",\n  \"algolia_key\": \"string\",\n  \"settings\": {},\n  \"billing_email\": \"BD-rXU3Q@CUcKgfPydRwbQVr.wrk\",\n  \"timezone\": \"string\",\n  \"run_count\": 5986,\n  \"test_count\": 7131,\n  \"snippet_count\": 5743,\n  \"current_test_count\": 2914,\n  \"current_plan_test_count_limit\": 8072,\n  \"available_browsers\": {\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"category\": \"phone\",\n    \"browser_version\": \"string\",\n    \"os_version\": \"string\",\n    \"credit_cost\": 2318,\n    \"mobile_os_type\": \"ios\",\n    \"mobile_device_type\": \"real_device\",\n    \"default\": false\n  },\n  \"owner_email\": \"ANzcIo-r4Cag@VOHZkLWXZMfNichXtvftxzKHtgWpZqhq.pof\",\n  \"currently_running\": {\n    \"id\": 1421,\n    \"created_at\": \"1984-02-16T18:13:04.207Z\",\n    \"state\": \"analyzing_app\",\n    \"requested_tests\": [\n      9197,\n      2299\n    ],\n    \"current_progress\": {\n      \"percent\": 6096,\n      \"total\": 775,\n      \"complete\": 9731,\n      \"passed\": 5073,\n      \"failed\": 2729,\n      \"no_result\": 3617,\n      \"eta\": {}\n    },\n    \"credit_cost\": 6917,\n    \"result\": \"no_result\",\n    \"updated_at\": \"2006-12-28T13:24:04.284Z\",\n    \"environment\": {\n      \"name\": true,\n      \"default\": true,\n      \"webhook\": \"string\",\n      \"webhook_enabled\": true,\n      \"is_temporary\": false,\n      \"site_environments\": [\n        {\n          \"site_id\": 6190,\n          \"environment_id\": 8577,\n          \"url\": \"string\",\n          \"id\": 8983,\n          \"created_at\": \"2005-03-13T07:06:07.520Z\"\n        },\n        {\n          \"site_id\": 5226,\n          \"environment_id\": 3069,\n          \"url\": \"string\",\n          \"id\": 8414,\n          \"created_at\": \"1960-06-08T04:23:16.329Z\"\n        }\n      ],\n      \"id\": 7026,\n      \"created_at\": \"1991-12-07T01:02:41.763Z\",\n      \"deleted_at\": \"2012-08-30T17:06:54.549Z\",\n      \"will_delete_after\": \"2021-05-19T01:59:11.073Z\"\n    }\n  },\n  \"browser_credit_costs\": {\n    \"id\": 8877,\n    \"browser_id\": 9369,\n    \"browser_key\": \"string\",\n    \"credit_cost\": 1852\n  },\n  \"concurrent_tester_limit\": 2022,\n  \"virtual_card_limit\": 2797,\n  \"has_private_sms_numbers\": true\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "7207bcbb-2bda-4cd8-a8d2-b1919a302ed5",
-          "name": "Update account information",
-          "request": {
-            "name": "Update account information",
-            "description": {
-              "content": "Update account information",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "1",
-                "clients"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"billing_alert_threshold\": \"<integer>\",\n  \"billing_email\": \"<email>\",\n  \"default_execution_method\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"concurrent_tester_limit\": \"<integer>\",\n  \"virtual_card_limit\": \"<integer>\",\n  \"slack_token\": \"<string>\",\n  \"fallback_ai_enabled\": \"<string>\",\n  \"fallback_dom_enabled\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "cada353c-92ee-4ba5-9e96-ec9f0ce00831",
-              "name": "Updated client",
-              "originalRequest": {
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
                 "url": {
+                  "raw": "{{baseUrl}}/1/clients",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "1",
                     "clients"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "c4454b12-c016-4e37-b7b5-9195edc682fe",
+                  "name": "Retrieved account details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "CLIENT_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/1/clients",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1",
+                        "clients"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<integer>\",\n  \"created_at\": \"<dateTime>\",\n  \"client_id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"enabled_features\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"enabled_atc_features\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"default_environment_id\": \"<integer>\",\n  \"default_site_id\": \"<integer>\",\n  \"api_token\": \"<string>\",\n  \"algolia_key\": \"<string>\",\n  \"settings\": {},\n  \"billing_email\": \"<email>\",\n  \"timezone\": \"<string>\",\n  \"run_count\": \"<integer>\",\n  \"test_count\": \"<integer>\",\n  \"snippet_count\": \"<integer>\",\n  \"current_test_count\": \"<integer>\",\n  \"current_plan_test_count_limit\": \"<integer>\",\n  \"available_browsers\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"category\": \"tablet\",\n    \"browser_version\": \"<string>\",\n    \"os_version\": \"<string>\",\n    \"credit_cost\": \"<integer>\",\n    \"mobile_os_type\": \"android\",\n    \"mobile_device_type\": \"real_device\",\n    \"default\": \"<boolean>\"\n  },\n  \"owner_email\": \"<email>\",\n  \"currently_running\": {\n    \"id\": \"<integer>\",\n    \"created_at\": \"<dateTime>\",\n    \"state\": \"analyzing_app\",\n    \"requested_tests\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"current_progress\": {\n      \"percent\": \"<integer>\",\n      \"total\": \"<integer>\",\n      \"complete\": \"<integer>\",\n      \"passed\": \"<integer>\",\n      \"failed\": \"<integer>\",\n      \"no_result\": \"<integer>\",\n      \"eta\": {}\n    },\n    \"credit_cost\": \"<integer>\",\n    \"result\": \"no_result\",\n    \"updated_at\": \"<dateTime>\",\n    \"environment\": {\n      \"name\": \"<boolean>\",\n      \"default\": \"<boolean>\",\n      \"webhook\": \"<string>\",\n      \"webhook_enabled\": \"<boolean>\",\n      \"is_temporary\": \"<boolean>\",\n      \"site_environments\": [\n        {\n          \"site_id\": \"<integer>\",\n          \"environment_id\": \"<integer>\",\n          \"url\": \"<string>\",\n          \"id\": \"<integer>\",\n          \"created_at\": \"<dateTime>\"\n        },\n        {\n          \"site_id\": \"<integer>\",\n          \"environment_id\": \"<integer>\",\n          \"url\": \"<string>\",\n          \"id\": \"<integer>\",\n          \"created_at\": \"<dateTime>\"\n        }\n      ],\n      \"id\": \"<integer>\",\n      \"created_at\": \"<dateTime>\",\n      \"deleted_at\": \"<dateTime>\",\n      \"will_delete_after\": \"<dateTime>\"\n    }\n  },\n  \"browser_credit_costs\": {\n    \"id\": \"<integer>\",\n    \"browser_id\": \"<integer>\",\n    \"browser_key\": \"<string>\",\n    \"credit_cost\": \"<integer>\"\n  },\n  \"concurrent_tester_limit\": \"<integer>\",\n  \"virtual_card_limit\": \"<integer>\",\n  \"has_private_sms_numbers\": \"<boolean>\"\n}",
+                  "createdAt": "2026-10-21T19:47:19.000Z",
+                  "updatedAt": "2026-10-21T19:47:19.000Z",
+                  "uid": "35240-c4454b12-c016-4e37-b7b5-9195edc682fe"
+                }
+              ],
+              "createdAt": "2026-10-21T19:47:19.000Z",
+              "updatedAt": "2026-10-21T19:47:19.000Z",
+              "uid": "35240-a7962c42-e9af-4234-b60b-1f1540d1e20b"
+            },
+            {
+              "name": "Update account information",
+              "id": "46e6095e-a892-437d-959a-3fab2db7d35c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
+                    "key": "Content-Type",
+                    "value": "application/json"
                   },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "PUT",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"billing_alert_threshold\": \"<integer>\",\n  \"billing_email\": \"<email>\",\n  \"default_execution_method\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"concurrent_tester_limit\": \"<integer>\",\n  \"virtual_card_limit\": \"<integer>\",\n  \"slack_token\": \"<string>\",\n  \"fallback_ai_enabled\": \"<string>\",\n  \"fallback_dom_enabled\": \"<string>\"\n}",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"billing_alert_threshold\": \"<integer>\",\n  \"billing_email\": \"<email>\",\n  \"default_execution_method\": \"crowd\",\n  \"timezone\": \"Asia/Tel_Aviv\",\n  \"concurrent_tester_limit\": \"<integer>\",\n  \"virtual_card_limit\": \"<integer>\",\n  \"slack_token\": \"null\",\n  \"fallback_ai_enabled\": \"<string>\",\n  \"fallback_dom_enabled\": \"<string>\"\n}",
                   "options": {
                     "raw": {
+                      "headerFamily": "json",
                       "language": "json"
                     }
                   }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"id\": 501,\n  \"created_at\": \"1970-01-02T05:46:13.524Z\",\n  \"client_id\": 1463,\n  \"name\": \"string\",\n  \"enabled_features\": [\n    \"string\",\n    \"string\"\n  ],\n  \"enabled_atc_features\": [\n    \"string\",\n    \"string\"\n  ],\n  \"default_environment_id\": 1929,\n  \"default_site_id\": 3392,\n  \"api_token\": \"string\",\n  \"algolia_key\": \"string\",\n  \"settings\": {},\n  \"billing_email\": \"WFLCqCSBI5t@nEyxVCNJHlaIUb.caxv\",\n  \"timezone\": \"string\",\n  \"run_count\": 5390,\n  \"test_count\": 2393,\n  \"snippet_count\": 1491,\n  \"current_test_count\": 6745,\n  \"current_plan_test_count_limit\": 4299,\n  \"available_browsers\": {\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"category\": \"tablet\",\n    \"browser_version\": \"string\",\n    \"os_version\": \"string\",\n    \"credit_cost\": 3335,\n    \"mobile_os_type\": \"ios\",\n    \"mobile_device_type\": \"real_device\",\n    \"default\": true\n  },\n  \"owner_email\": \"kfiDbGKMMyH@KnIYiQEJYQDwXGxKWy.bam\",\n  \"currently_running\": {\n    \"id\": 5972,\n    \"created_at\": \"1982-05-11T12:25:13.738Z\",\n    \"state\": \"aborted\",\n    \"requested_tests\": [\n      7023,\n      5121\n    ],\n    \"current_progress\": {\n      \"percent\": 6405,\n      \"total\": 8266,\n      \"complete\": 5365,\n      \"passed\": 2807,\n      \"failed\": 7509,\n      \"no_result\": 7966,\n      \"eta\": {}\n    },\n    \"credit_cost\": 2912,\n    \"result\": \"failed\",\n    \"updated_at\": \"1973-02-01T14:26:17.871Z\",\n    \"environment\": {\n      \"name\": false,\n      \"default\": true,\n      \"webhook\": \"string\",\n      \"webhook_enabled\": true,\n      \"is_temporary\": true,\n      \"site_environments\": [\n        {\n          \"site_id\": 6620,\n          \"environment_id\": 2815,\n          \"url\": \"string\",\n          \"id\": 2594,\n          \"created_at\": \"1989-11-11T07:36:12.784Z\"\n        },\n        {\n          \"site_id\": 6187,\n          \"environment_id\": 1660,\n          \"url\": \"string\",\n          \"id\": 5008,\n          \"created_at\": \"1976-11-20T15:22:23.332Z\"\n        }\n      ],\n      \"id\": 1040,\n      \"created_at\": \"1960-04-03T12:17:28.117Z\",\n      \"deleted_at\": \"2016-11-12T16:23:19.606Z\",\n      \"will_delete_after\": \"1964-06-03T23:43:27.514Z\"\n    }\n  },\n  \"browser_credit_costs\": {\n    \"id\": 7835,\n    \"browser_id\": 3093,\n    \"browser_key\": \"string\",\n    \"credit_cost\": 5384\n  },\n  \"concurrent_tester_limit\": 9785,\n  \"virtual_card_limit\": 2128,\n  \"has_private_sms_numbers\": true\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "e0a77e81-1c09-456f-8ff3-540069d8d91c",
-              "name": "Could not update client",
-              "originalRequest": {
+                },
                 "url": {
+                  "raw": "{{baseUrl}}/1/clients",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "1",
                     "clients"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"billing_alert_threshold\": \"<integer>\",\n  \"billing_email\": \"<email>\",\n  \"default_execution_method\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"concurrent_tester_limit\": \"<integer>\",\n  \"virtual_card_limit\": \"<integer>\",\n  \"slack_token\": \"<string>\",\n  \"fallback_ai_enabled\": \"<string>\",\n  \"fallback_dom_enabled\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
+                  ]
                 }
               },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "623ebc70-cc90-4ef8-89d6-98a04fec86e9",
+                  "name": "Updated client",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "CLIENT_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"billing_alert_threshold\": \"<integer>\",\n  \"billing_email\": \"<email>\",\n  \"default_execution_method\": \"crowd\",\n  \"timezone\": \"Asia/Tel_Aviv\",\n  \"concurrent_tester_limit\": \"<integer>\",\n  \"virtual_card_limit\": \"<integer>\",\n  \"slack_token\": \"null\",\n  \"fallback_ai_enabled\": \"<string>\",\n  \"fallback_dom_enabled\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/1/clients",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1",
+                        "clients"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<integer>\",\n  \"created_at\": \"<dateTime>\",\n  \"client_id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"enabled_features\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"enabled_atc_features\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"default_environment_id\": \"<integer>\",\n  \"default_site_id\": \"<integer>\",\n  \"api_token\": \"<string>\",\n  \"algolia_key\": \"<string>\",\n  \"settings\": {},\n  \"billing_email\": \"<email>\",\n  \"timezone\": \"<string>\",\n  \"run_count\": \"<integer>\",\n  \"test_count\": \"<integer>\",\n  \"snippet_count\": \"<integer>\",\n  \"current_test_count\": \"<integer>\",\n  \"current_plan_test_count_limit\": \"<integer>\",\n  \"available_browsers\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"category\": \"tablet\",\n    \"browser_version\": \"<string>\",\n    \"os_version\": \"<string>\",\n    \"credit_cost\": \"<integer>\",\n    \"mobile_os_type\": \"android\",\n    \"mobile_device_type\": \"real_device\",\n    \"default\": \"<boolean>\"\n  },\n  \"owner_email\": \"<email>\",\n  \"currently_running\": {\n    \"id\": \"<integer>\",\n    \"created_at\": \"<dateTime>\",\n    \"state\": \"analyzing_app\",\n    \"requested_tests\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"current_progress\": {\n      \"percent\": \"<integer>\",\n      \"total\": \"<integer>\",\n      \"complete\": \"<integer>\",\n      \"passed\": \"<integer>\",\n      \"failed\": \"<integer>\",\n      \"no_result\": \"<integer>\",\n      \"eta\": {}\n    },\n    \"credit_cost\": \"<integer>\",\n    \"result\": \"no_result\",\n    \"updated_at\": \"<dateTime>\",\n    \"environment\": {\n      \"name\": \"<boolean>\",\n      \"default\": \"<boolean>\",\n      \"webhook\": \"<string>\",\n      \"webhook_enabled\": \"<boolean>\",\n      \"is_temporary\": \"<boolean>\",\n      \"site_environments\": [\n        {\n          \"site_id\": \"<integer>\",\n          \"environment_id\": \"<integer>\",\n          \"url\": \"<string>\",\n          \"id\": \"<integer>\",\n          \"created_at\": \"<dateTime>\"\n        },\n        {\n          \"site_id\": \"<integer>\",\n          \"environment_id\": \"<integer>\",\n          \"url\": \"<string>\",\n          \"id\": \"<integer>\",\n          \"created_at\": \"<dateTime>\"\n        }\n      ],\n      \"id\": \"<integer>\",\n      \"created_at\": \"<dateTime>\",\n      \"deleted_at\": \"<dateTime>\",\n      \"will_delete_after\": \"<dateTime>\"\n    }\n  },\n  \"browser_credit_costs\": {\n    \"id\": \"<integer>\",\n    \"browser_id\": \"<integer>\",\n    \"browser_key\": \"<string>\",\n    \"credit_cost\": \"<integer>\"\n  },\n  \"concurrent_tester_limit\": \"<integer>\",\n  \"virtual_card_limit\": \"<integer>\",\n  \"has_private_sms_numbers\": \"<boolean>\"\n}",
+                  "createdAt": "2026-10-21T19:47:19.000Z",
+                  "updatedAt": "2026-10-21T19:47:19.000Z",
+                  "uid": "35240-623ebc70-cc90-4ef8-89d6-98a04fec86e9"
+                },
+                {
+                  "id": "a448c7c5-cce2-4e43-bfb8-e9cf8099c6ee",
+                  "name": "Could not update client",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "CLIENT_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"billing_alert_threshold\": \"<integer>\",\n  \"billing_email\": \"<email>\",\n  \"default_execution_method\": \"crowd\",\n  \"timezone\": \"Asia/Tel_Aviv\",\n  \"concurrent_tester_limit\": \"<integer>\",\n  \"virtual_card_limit\": \"<integer>\",\n  \"slack_token\": \"null\",\n  \"fallback_ai_enabled\": \"<string>\",\n  \"fallback_dom_enabled\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/1/clients",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1",
+                        "clients"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T19:47:19.000Z",
+                  "updatedAt": "2026-10-21T19:47:19.000Z",
+                  "uid": "35240-a448c7c5-cce2-4e43-bfb8-e9cf8099c6ee"
                 }
               ],
-              "body": "{\n  \"error\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-21T19:47:19.000Z",
+              "updatedAt": "2026-10-21T19:47:19.000Z",
+              "uid": "35240-46e6095e-a892-437d-959a-3fab2db7d35c"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "92e50f02-55a5-4a4c-b2cc-859be20bf1af",
-          "name": "Fetch usage stats",
-          "request": {
-            "name": "Fetch usage stats",
-            "description": {
-              "content": "Fetch usage stats",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "1",
-                "clients",
-                "stats"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "7b2845f5-00df-4b69-8699-8792ff2e4254",
-              "name": "Fetch usage stats",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "clients",
-                    "stats"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "fabb1110-698d-42f8-8ac8-976c1f2a3b9d",
-          "name": "Select different client",
-          "request": {
-            "name": "Select different client",
-            "description": {
-              "content": "Select different client",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "1",
-                "clients",
-                "select"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"client_id\": \"<integer>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "08c9a59e-2997-426f-b6aa-b603e735d0e4",
-              "name": "Switched to a different client",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "clients",
-                    "select"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"client_id\": \"<integer>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Created",
-              "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"id\": 501,\n  \"created_at\": \"1970-01-02T05:46:13.524Z\",\n  \"client_id\": 1463,\n  \"name\": \"string\",\n  \"enabled_features\": [\n    \"string\",\n    \"string\"\n  ],\n  \"enabled_atc_features\": [\n    \"string\",\n    \"string\"\n  ],\n  \"default_environment_id\": 1929,\n  \"default_site_id\": 3392,\n  \"api_token\": \"string\",\n  \"algolia_key\": \"string\",\n  \"settings\": {},\n  \"billing_email\": \"WFLCqCSBI5t@nEyxVCNJHlaIUb.caxv\",\n  \"timezone\": \"string\",\n  \"run_count\": 5390,\n  \"test_count\": 2393,\n  \"snippet_count\": 1491,\n  \"current_test_count\": 6745,\n  \"current_plan_test_count_limit\": 4299,\n  \"available_browsers\": {\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"category\": \"tablet\",\n    \"browser_version\": \"string\",\n    \"os_version\": \"string\",\n    \"credit_cost\": 3335,\n    \"mobile_os_type\": \"ios\",\n    \"mobile_device_type\": \"real_device\",\n    \"default\": true\n  },\n  \"owner_email\": \"kfiDbGKMMyH@KnIYiQEJYQDwXGxKWy.bam\",\n  \"currently_running\": {\n    \"id\": 5972,\n    \"created_at\": \"1982-05-11T12:25:13.738Z\",\n    \"state\": \"aborted\",\n    \"requested_tests\": [\n      7023,\n      5121\n    ],\n    \"current_progress\": {\n      \"percent\": 6405,\n      \"total\": 8266,\n      \"complete\": 5365,\n      \"passed\": 2807,\n      \"failed\": 7509,\n      \"no_result\": 7966,\n      \"eta\": {}\n    },\n    \"credit_cost\": 2912,\n    \"result\": \"failed\",\n    \"updated_at\": \"1973-02-01T14:26:17.871Z\",\n    \"environment\": {\n      \"name\": false,\n      \"default\": true,\n      \"webhook\": \"string\",\n      \"webhook_enabled\": true,\n      \"is_temporary\": true,\n      \"site_environments\": [\n        {\n          \"site_id\": 6620,\n          \"environment_id\": 2815,\n          \"url\": \"string\",\n          \"id\": 2594,\n          \"created_at\": \"1989-11-11T07:36:12.784Z\"\n        },\n        {\n          \"site_id\": 6187,\n          \"environment_id\": 1660,\n          \"url\": \"string\",\n          \"id\": 5008,\n          \"created_at\": \"1976-11-20T15:22:23.332Z\"\n        }\n      ],\n      \"id\": 1040,\n      \"created_at\": \"1960-04-03T12:17:28.117Z\",\n      \"deleted_at\": \"2016-11-12T16:23:19.606Z\",\n      \"will_delete_after\": \"1964-06-03T23:43:27.514Z\"\n    }\n  },\n  \"browser_credit_costs\": {\n    \"id\": 7835,\n    \"browser_id\": 3093,\n    \"browser_key\": \"string\",\n    \"credit_cost\": 5384\n  },\n  \"concurrent_tester_limit\": 9785,\n  \"virtual_card_limit\": 2128,\n  \"has_private_sms_numbers\": true\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "4b7acd15-0cb3-4677-a116-e726f0272401",
-              "name": "Cannot switch to the current client",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "clients",
-                    "select"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"client_id\": \"<integer>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "e1d62224-74f3-4d50-a80e-2c6c0a0cd5eb",
-              "name": "Cannot switch to a client you do not have access to",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "clients",
-                    "select"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"client_id\": \"<integer>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "5c13e63b-0ba3-489e-8a5b-011d45d021a4",
+          "createdAt": "2026-10-21T19:47:19.000Z",
+          "updatedAt": "2026-10-21T19:47:19.000Z",
+          "uid": "35240-5c13e63b-0ba3-489e-8a5b-011d45d021a4"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.rainforestqa.com/api",
-      "key": "baseUrl"
+      "id": "7d7e5d2e-756b-4f71-b82c-3b37caa465c8",
+      "createdAt": "2026-10-21T19:47:19.000Z",
+      "updatedAt": "2026-10-21T19:47:19.000Z",
+      "uid": "35240-7d7e5d2e-756b-4f71-b82c-3b37caa465c8"
     }
   ],
   "auth": {
@@ -539,25 +567,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "CLIENT_TOKEN"
+        "value": "CLIENT_TOKEN",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "6cf03e6a-e9f6-4807-a2d4-58c6dca3d541",
-    "name": "Rainforest callback clients API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.rainforestqa.com/api"
     }
-  }
+  ]
 }

@@ -1,93 +1,92 @@
 {
+  "info": {
+    "_postman_id": "be9c55f2-3588-42e4-8a99-6ef81fef974b",
+    "name": "Rainforest Vm Stack API",
+    "description": "Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T19:49:09.000Z",
+    "updatedAt": "2026-10-21T19:49:09.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-be9c55f2-3588-42e4-8a99-6ef81fef974b"
+  },
   "item": [
     {
-      "id": "b97f138f-7e7d-4e8e-8e76-efb662e049fc",
-      "name": "vm_stack",
-      "description": {
-        "content": "Operations about vm_stacks",
-        "type": "text/plain"
-      },
+      "name": "1",
       "item": [
         {
-          "id": "b04a13aa-4e82-4570-aa23-d5f059c58caa",
-          "name": "List IP addresses testers come from",
-          "request": {
-            "name": "List IP addresses testers come from",
-            "description": {
-              "content": "List IP addresses testers come from",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "1",
-                "vm_stack"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "vm_stack",
+          "item": [
             {
-              "id": "619e11c6-dba4-4d9f-a81f-7eab2cef4ade",
               "name": "List IP addresses testers come from",
-              "originalRequest": {
+              "id": "a978abd9-3858-4a46-9c11-818440e5fefd",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
                 "url": {
-                  "path": [
-                    "1",
-                    "vm_stack"
-                  ],
+                  "raw": "{{baseUrl}}/1/vm_stack",
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                  "path": [
+                    "1",
+                    "vm_stack"
+                  ]
+                }
               },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "id": "b9d36afd-b492-4833-969b-ef84c5dfd0fb",
+                  "name": "List IP addresses testers come from",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "CLIENT_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/1/vm_stack",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1",
+                        "vm_stack"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T19:49:10.000Z",
+                  "updatedAt": "2026-10-21T19:49:10.000Z",
+                  "uid": "35240-b9d36afd-b492-4833-969b-ef84c5dfd0fb"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "createdAt": "2026-10-21T19:49:10.000Z",
+              "updatedAt": "2026-10-21T19:49:10.000Z",
+              "uid": "35240-a978abd9-3858-4a46-9c11-818440e5fefd"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "711f4eb1-eb0c-455f-a928-6dc8165e9002",
+          "createdAt": "2026-10-21T19:49:10.000Z",
+          "updatedAt": "2026-10-21T19:49:10.000Z",
+          "uid": "35240-711f4eb1-eb0c-455f-a928-6dc8165e9002"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.rainforestqa.com/api",
-      "key": "baseUrl"
+      "id": "c96d5dad-a4e7-43a8-a9d1-0eb7a920f735",
+      "createdAt": "2026-10-21T19:49:10.000Z",
+      "updatedAt": "2026-10-21T19:49:10.000Z",
+      "uid": "35240-c96d5dad-a4e7-43a8-a9d1-0eb7a920f735"
     }
   ],
   "auth": {
@@ -95,25 +94,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "CLIENT_TOKEN"
+        "value": "CLIENT_TOKEN",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "a4338b2e-56b6-45dd-8c93-9c6178702cf9",
-    "name": "Rainforest callback vm_stack API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.rainforestqa.com/api"
     }
-  }
+  ]
 }

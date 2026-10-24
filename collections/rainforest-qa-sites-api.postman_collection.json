@@ -1,884 +1,878 @@
 {
+  "info": {
+    "_postman_id": "d6067af8-72a3-4b86-8265-897df6053778",
+    "name": "Rainforest Sites API",
+    "description": "Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T19:48:32.000Z",
+    "updatedAt": "2026-10-21T19:48:32.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d6067af8-72a3-4b86-8265-897df6053778"
+  },
   "item": [
     {
-      "id": "b23b64f5-ec0c-4dbc-a178-9108b1046fe5",
-      "name": "sites",
-      "description": {
-        "content": "Operations about sites",
-        "type": "text/plain"
-      },
+      "name": "1",
       "item": [
         {
-          "id": "4d3e5474-d595-498c-9cce-91408e7a8ae9",
-          "name": "Update a site",
-          "request": {
-            "name": "Update a site",
-            "description": {
-              "content": "Update a site",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "1",
-                "sites",
-                ":site_id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "site_id",
-                  "description": "(Required) A site ID"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"default\": \"<boolean>\",\n  \"category\": \"<string>\",\n  \"ai_generation_rules\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
+          "name": "sites",
+          "item": [
             {
-              "id": "0ba6f5de-655f-48ea-bfff-9489312e56fa",
-              "name": "Site updated",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "sites",
-                    ":site_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "site_id",
-                      "description": "(Required) A site ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"default\": \"<boolean>\",\n  \"category\": \"<string>\",\n  \"ai_generation_rules\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "{site_id}",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "Update a site",
+                  "id": "a58136d6-9519-43c9-b3f4-3d8f00224e12",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"default\": true,\n  \"category\": \"site\",\n  \"ai_generation_rules\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/1/sites/:site_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1",
+                        "sites",
+                        ":site_id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "d3603e06-5592-4cbe-83ec-89d0f74fc1ea",
+                          "key": "site_id",
+                          "value": "<integer>",
+                          "description": "(Required) A site ID"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "bdd81ca0-118a-453d-a48d-5120d732b352",
+                      "name": "Site updated",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "CLIENT_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"default\": true,\n  \"category\": \"site\",\n  \"ai_generation_rules\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/1/sites/:site_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1",
+                            "sites",
+                            ":site_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<integer>\",\n  \"created_at\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"default\": \"<boolean>\",\n  \"category\": \"android\",\n  \"ai_generation_rules\": \"<string>\",\n  \"snippet_count\": \"<integer>\",\n  \"test_count\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-21T19:48:33.000Z",
+                      "updatedAt": "2026-10-21T19:48:33.000Z",
+                      "uid": "35240-bdd81ca0-118a-453d-a48d-5120d732b352"
+                    },
+                    {
+                      "id": "bb66f807-b88d-4999-86bb-1028c65cc211",
+                      "name": "Site could not be updated",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "CLIENT_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"default\": true,\n  \"category\": \"site\",\n  \"ai_generation_rules\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/1/sites/:site_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1",
+                            "sites",
+                            ":site_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T19:48:33.000Z",
+                      "updatedAt": "2026-10-21T19:48:33.000Z",
+                      "uid": "35240-bb66f807-b88d-4999-86bb-1028c65cc211"
+                    },
+                    {
+                      "id": "c48adc1c-1ad8-418b-9386-33b9da74376e",
+                      "name": "Site not found",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "CLIENT_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"default\": true,\n  \"category\": \"site\",\n  \"ai_generation_rules\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/1/sites/:site_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1",
+                            "sites",
+                            ":site_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T19:48:33.000Z",
+                      "updatedAt": "2026-10-21T19:48:33.000Z",
+                      "uid": "35240-c48adc1c-1ad8-418b-9386-33b9da74376e"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T19:48:33.000Z",
+                  "updatedAt": "2026-10-21T19:48:33.000Z",
+                  "uid": "35240-a58136d6-9519-43c9-b3f4-3d8f00224e12"
+                },
+                {
+                  "name": "Get a site",
+                  "id": "8523ee3a-1a41-4c14-9069-2187e5c58161",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/1/sites/:site_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1",
+                        "sites",
+                        ":site_id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "f1c5b724-fe59-4e1d-b63a-80be57699eca",
+                          "key": "site_id",
+                          "value": "<integer>",
+                          "description": "(Required) A site ID"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "1078ff40-1980-49c6-84d0-d067b5395f26",
+                      "name": "Site retrieved",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "CLIENT_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/1/sites/:site_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1",
+                            "sites",
+                            ":site_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<integer>\",\n  \"created_at\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"default\": \"<boolean>\",\n  \"category\": \"android\",\n  \"ai_generation_rules\": \"<string>\",\n  \"snippet_count\": \"<integer>\",\n  \"test_count\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-21T19:48:33.000Z",
+                      "updatedAt": "2026-10-21T19:48:33.000Z",
+                      "uid": "35240-1078ff40-1980-49c6-84d0-d067b5395f26"
+                    },
+                    {
+                      "id": "8536b220-ef3d-4ee1-8295-15c9039268fb",
+                      "name": "Site not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "CLIENT_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/1/sites/:site_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1",
+                            "sites",
+                            ":site_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T19:48:33.000Z",
+                      "updatedAt": "2026-10-21T19:48:33.000Z",
+                      "uid": "35240-8536b220-ef3d-4ee1-8295-15c9039268fb"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T19:48:33.000Z",
+                  "updatedAt": "2026-10-21T19:48:33.000Z",
+                  "uid": "35240-8523ee3a-1a41-4c14-9069-2187e5c58161"
+                },
+                {
+                  "name": "Delete a site",
+                  "id": "89df6536-05af-4ea3-b752-192b3311162e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/1/sites/:site_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1",
+                        "sites",
+                        ":site_id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "b8412e9f-cda0-4fcb-8c1b-78ddcb48a99c",
+                          "key": "site_id",
+                          "value": "<integer>",
+                          "description": "(Required) A site ID"
+                        }
+                      ]
+                    },
+                    "description": "Delete a site and its associated site-environments"
+                  },
+                  "response": [
+                    {
+                      "id": "31ea53ab-920c-4a98-a384-734f3707cf56",
+                      "name": "Site deleted",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "CLIENT_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/1/sites/:site_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1",
+                            "sites",
+                            ":site_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<integer>\",\n  \"created_at\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"default\": \"<boolean>\",\n  \"category\": \"android\",\n  \"ai_generation_rules\": \"<string>\",\n  \"snippet_count\": \"<integer>\",\n  \"test_count\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-21T19:48:33.000Z",
+                      "updatedAt": "2026-10-21T19:48:33.000Z",
+                      "uid": "35240-31ea53ab-920c-4a98-a384-734f3707cf56"
+                    },
+                    {
+                      "id": "8fb2eddf-c3b0-4c14-b160-b5b8c1bf8f2a",
+                      "name": "Site could not be deleted",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "CLIENT_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/1/sites/:site_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1",
+                            "sites",
+                            ":site_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T19:48:33.000Z",
+                      "updatedAt": "2026-10-21T19:48:33.000Z",
+                      "uid": "35240-8fb2eddf-c3b0-4c14-b160-b5b8c1bf8f2a"
+                    },
+                    {
+                      "id": "1cb7b5dd-bbbb-427e-ab2d-f2c67f579367",
+                      "name": "Site not found",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "CLIENT_TOKEN",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/1/sites/:site_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "1",
+                            "sites",
+                            ":site_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T19:48:33.000Z",
+                      "updatedAt": "2026-10-21T19:48:33.000Z",
+                      "uid": "35240-1cb7b5dd-bbbb-427e-ab2d-f2c67f579367"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T19:48:33.000Z",
+                  "updatedAt": "2026-10-21T19:48:33.000Z",
+                  "uid": "35240-89df6536-05af-4ea3-b752-192b3311162e"
                 }
               ],
-              "body": "{\n  \"id\": 4842,\n  \"created_at\": \"1995-02-13T20:33:30.589Z\",\n  \"name\": \"string\",\n  \"default\": false,\n  \"category\": \"ios\",\n  \"ai_generation_rules\": \"string\",\n  \"snippet_count\": 5465,\n  \"test_count\": 389\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "ef40091c-bbb4-430e-8bf3-ec355b03ccda",
+              "createdAt": "2026-10-21T19:48:33.000Z",
+              "updatedAt": "2026-10-21T19:48:33.000Z",
+              "uid": "35240-ef40091c-bbb4-430e-8bf3-ec355b03ccda"
             },
             {
-              "id": "5e389915-e464-4b65-a960-31788eedab2f",
-              "name": "Site could not be updated",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "sites",
-                    ":site_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "site_id",
-                      "description": "(Required) A site ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"default\": \"<boolean>\",\n  \"category\": \"<string>\",\n  \"ai_generation_rules\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
+              "name": "List sites",
+              "id": "ed44a771-9e30-4449-846b-ccd34a0637f1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
               },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "257daf74-a5c2-4d0f-a07d-7e3d26103a55",
-              "name": "Site not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "sites",
-                    ":site_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "site_id",
-                      "description": "(Required) A site ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"default\": \"<boolean>\",\n  \"category\": \"<string>\",\n  \"ai_generation_rules\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "77fac9d8-f990-4425-b0e6-f031bd5a8b94",
-          "name": "Get a site",
-          "request": {
-            "name": "Get a site",
-            "description": {
-              "content": "Get a site",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "1",
-                "sites",
-                ":site_id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "site_id",
-                  "description": "(Required) A site ID"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "5100a74f-447b-4251-aa1f-64b84dfc4a3c",
-              "name": "Site retrieved",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "sites",
-                    ":site_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "site_id",
-                      "description": "(Required) A site ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
+              "request": {
                 "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"id\": 4842,\n  \"created_at\": \"1995-02-13T20:33:30.589Z\",\n  \"name\": \"string\",\n  \"default\": false,\n  \"category\": \"ios\",\n  \"ai_generation_rules\": \"string\",\n  \"snippet_count\": 5465,\n  \"test_count\": 389\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "c850b783-49ec-4992-9d8c-d46aa33b0c6e",
-              "name": "Site not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "sites",
-                    ":site_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "site_id",
-                      "description": "(Required) A site ID"
-                    }
-                  ]
-                },
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "00704250-04e1-496f-8a62-8b01b7e9532b",
-          "name": "Delete a site",
-          "request": {
-            "name": "Delete a site",
-            "description": {
-              "content": "Delete a site and its associated site-environments",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "1",
-                "sites",
-                ":site_id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "site_id",
-                  "description": "(Required) A site ID"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "4a399e76-bcaf-4cdb-9371-571bf1dbc96e",
-              "name": "Site deleted",
-              "originalRequest": {
                 "url": {
-                  "path": [
-                    "1",
-                    "sites",
-                    ":site_id"
-                  ],
+                  "raw": "{{baseUrl}}/1/sites?name=<string>&page=1&page_size=10",
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "site_id",
-                      "description": "(Required) A site ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"id\": 4842,\n  \"created_at\": \"1995-02-13T20:33:30.589Z\",\n  \"name\": \"string\",\n  \"default\": false,\n  \"category\": \"ios\",\n  \"ai_generation_rules\": \"string\",\n  \"snippet_count\": 5465,\n  \"test_count\": 389\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "9d51ad4d-a3fa-42d5-8ff0-f4f131074f42",
-              "name": "Site could not be deleted",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "sites",
-                    ":site_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "site_id",
-                      "description": "(Required) A site ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "3ff91c01-2c9d-4df3-8fa2-bcf2575ded24",
-              "name": "Site not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "sites",
-                    ":site_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "site_id",
-                      "description": "(Required) A site ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "f90b99c1-14c5-4282-9c5a-3ffb608a54bd",
-          "name": "List sites",
-          "request": {
-            "name": "List sites",
-            "description": {
-              "content": "List sites",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "1",
-                "sites"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "name",
-                  "value": "<string>",
-                  "description": "Filter by name (case-insensitive)"
-                },
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1",
-                  "description": "Page of results to display"
-                },
-                {
-                  "disabled": false,
-                  "key": "page_size",
-                  "value": "10",
-                  "description": "Number of results to return per page; maximum: 100"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "b57b34f6-e534-4749-b286-e1998d21f832",
-              "name": "Retrieved sites",
-              "originalRequest": {
-                "url": {
                   "path": [
                     "1",
                     "sites"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
                   "query": [
                     {
+                      "description": "Filter by name (case-insensitive)",
                       "key": "name",
                       "value": "<string>"
                     },
                     {
+                      "description": "Page of results to display",
                       "key": "page",
                       "value": "1"
                     },
                     {
+                      "description": "Number of results to return per page; maximum: 100",
                       "key": "page_size",
                       "value": "10"
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "612917ce-4243-46b2-91cf-6273024e2d28",
+                  "name": "Retrieved sites",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "CLIENT_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/1/sites?name=<string>&page=1&page_size=10",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1",
+                        "sites"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by name (case-insensitive)",
+                          "key": "name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Page of results to display",
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Number of results to return per page; maximum: 100",
+                          "key": "page_size",
+                          "value": "10"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"id\": \"<integer>\",\n    \"created_at\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"default\": \"<boolean>\",\n    \"category\": \"ios\",\n    \"ai_generation_rules\": \"<string>\",\n    \"snippet_count\": \"<integer>\",\n    \"test_count\": \"<integer>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"created_at\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"default\": \"<boolean>\",\n    \"category\": \"ios\",\n    \"ai_generation_rules\": \"<string>\",\n    \"snippet_count\": \"<integer>\",\n    \"test_count\": \"<integer>\"\n  }\n]",
+                  "createdAt": "2026-10-21T19:48:33.000Z",
+                  "updatedAt": "2026-10-21T19:48:33.000Z",
+                  "uid": "35240-612917ce-4243-46b2-91cf-6273024e2d28"
                 }
               ],
-              "body": "[\n  {\n    \"id\": 1375,\n    \"created_at\": \"2000-09-19T22:06:36.523Z\",\n    \"name\": \"string\",\n    \"default\": false,\n    \"category\": \"android\",\n    \"ai_generation_rules\": \"string\",\n    \"snippet_count\": 550,\n    \"test_count\": 7897\n  },\n  {\n    \"id\": 7616,\n    \"created_at\": \"1948-06-17T19:24:25.083Z\",\n    \"name\": \"string\",\n    \"default\": false,\n    \"category\": \"android\",\n    \"ai_generation_rules\": \"string\",\n    \"snippet_count\": 64,\n    \"test_count\": 5641\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "fd0328b7-71a5-4468-a88b-ebc2e9a4033c",
-          "name": "Create a new site",
-          "request": {
-            "name": "Create a new site",
-            "description": {
-              "content": "Create a new site - creates corresponding site-environments for each environment as well",
-              "type": "text/plain"
+              "createdAt": "2026-10-21T19:48:33.000Z",
+              "updatedAt": "2026-10-21T19:48:33.000Z",
+              "uid": "35240-ed44a771-9e30-4449-846b-ccd34a0637f1"
             },
-            "url": {
-              "path": [
-                "1",
-                "sites"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"default_url\": \"<string>\",\n  \"default\": \"<boolean>\",\n  \"category\": \"site\",\n  \"ai_generation_rules\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
             {
-              "id": "156b85e3-36bf-4ce3-b473-8b89a31948ba",
-              "name": "Site created",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "sites"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+              "name": "Create a new site",
+              "id": "4c338ba9-03db-48b5-8bca-0b07154ac4bc",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
+                    "key": "Content-Type",
+                    "value": "application/json"
                   },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "POST",
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"name\": \"<string>\",\n  \"default_url\": \"<string>\",\n  \"default\": \"<boolean>\",\n  \"category\": \"site\",\n  \"ai_generation_rules\": \"<string>\"\n}",
                   "options": {
                     "raw": {
+                      "headerFamily": "json",
                       "language": "json"
                     }
                   }
-                }
-              },
-              "status": "Created",
-              "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"id\": 4842,\n  \"created_at\": \"1995-02-13T20:33:30.589Z\",\n  \"name\": \"string\",\n  \"default\": false,\n  \"category\": \"ios\",\n  \"ai_generation_rules\": \"string\",\n  \"snippet_count\": 5465,\n  \"test_count\": 389\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "4851f0ca-77fc-49a0-a556-03ea07c79af9",
-              "name": "Site could not be created",
-              "originalRequest": {
+                },
                 "url": {
-                  "path": [
-                    "1",
-                    "sites"
-                  ],
+                  "raw": "{{baseUrl}}/1/sites",
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [],
-                  "variable": []
+                  "path": [
+                    "1",
+                    "sites"
+                  ]
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"default_url\": \"<string>\",\n  \"default\": \"<boolean>\",\n  \"category\": \"site\",\n  \"ai_generation_rules\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
+                "description": "Create a new site - creates corresponding site-environments for each environment as well"
               },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "6502eba5-3db9-49a9-8f0c-c86d97f7ad9c",
+                  "name": "Site created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "CLIENT_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"default_url\": \"<string>\",\n  \"default\": \"<boolean>\",\n  \"category\": \"site\",\n  \"ai_generation_rules\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/1/sites",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1",
+                        "sites"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<integer>\",\n  \"created_at\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"default\": \"<boolean>\",\n  \"category\": \"android\",\n  \"ai_generation_rules\": \"<string>\",\n  \"snippet_count\": \"<integer>\",\n  \"test_count\": \"<integer>\"\n}",
+                  "createdAt": "2026-10-21T19:48:33.000Z",
+                  "updatedAt": "2026-10-21T19:48:33.000Z",
+                  "uid": "35240-6502eba5-3db9-49a9-8f0c-c86d97f7ad9c"
+                },
+                {
+                  "id": "1fb294da-9cbe-45f8-90aa-bd9a4cbd0e1b",
+                  "name": "Site could not be created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "CLIENT_TOKEN",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"default_url\": \"<string>\",\n  \"default\": \"<boolean>\",\n  \"category\": \"site\",\n  \"ai_generation_rules\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/1/sites",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "1",
+                        "sites"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T19:48:33.000Z",
+                  "updatedAt": "2026-10-21T19:48:33.000Z",
+                  "uid": "35240-1fb294da-9cbe-45f8-90aa-bd9a4cbd0e1b"
                 }
               ],
-              "body": "{\n  \"error\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-21T19:48:33.000Z",
+              "updatedAt": "2026-10-21T19:48:33.000Z",
+              "uid": "35240-4c338ba9-03db-48b5-8bca-0b07154ac4bc"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "80dff910-aff9-4995-af24-9edefb88f8f8",
+          "createdAt": "2026-10-21T19:48:33.000Z",
+          "updatedAt": "2026-10-21T19:48:33.000Z",
+          "uid": "35240-80dff910-aff9-4995-af24-9edefb88f8f8"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.rainforestqa.com/api",
-      "key": "baseUrl"
+      "id": "2542c842-3922-4e76-8133-1baf34ef4dcd",
+      "createdAt": "2026-10-21T19:48:33.000Z",
+      "updatedAt": "2026-10-21T19:48:33.000Z",
+      "uid": "35240-2542c842-3922-4e76-8133-1baf34ef4dcd"
     }
   ],
   "auth": {
@@ -886,25 +880,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "CLIENT_TOKEN"
+        "value": "CLIENT_TOKEN",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "83e219d9-cc3d-4f0c-8ff4-67412a1a3a3f",
-    "name": "Rainforest callback sites API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.rainforestqa.com/api"
     }
-  }
+  ]
 }

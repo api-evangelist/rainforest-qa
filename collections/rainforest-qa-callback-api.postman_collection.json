@@ -1,291 +1,289 @@
 {
+  "info": {
+    "_postman_id": "c33498b0-0b7d-408d-b996-d842c1d00a2e",
+    "name": "Rainforest Callback API",
+    "description": "Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T19:47:12.000Z",
+    "updatedAt": "2026-10-21T19:47:12.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c33498b0-0b7d-408d-b996-d842c1d00a2e"
+  },
   "item": [
     {
-      "id": "a290167b-fe53-47d1-8b8e-8d836e749550",
-      "name": "callback",
-      "description": {
-        "content": "Operations about callbacks",
-        "type": "text/plain"
-      },
+      "name": "1",
       "item": [
         {
-          "id": "34c2a8ca-ce8d-4573-9fa2-89b387a1f659",
-          "name": "Notify Rainforest when a run webhook callback is complete",
-          "request": {
-            "name": "Notify Rainforest when a run webhook callback is complete",
-            "description": {
-              "content": "Notify Rainforest when a `before_run` webhook callback is complete. See the [Using Webhooks article](https://help.rainforestqa.com/docs/using-webhooks#running-a-test-using-an-advanced-webhook) for more information.\n",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "1",
-                "callback",
-                "run",
-                ":run_id",
-                ":callback_type",
-                ":digest"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "run_id",
-                  "description": "(Required) The ID of the Run you are sending a callback for"
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "callback_type",
-                  "description": "(Required) `before_run` is currently the only type that is handled by this endpoint"
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "digest",
-                  "description": "(Required) MD5-HMAC Digest created with [Rainforest Auth](https://github.com/rainforestapp/auth)"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
+          "name": "callback",
+          "item": [
             {
-              "id": "3b18adf6-0358-4b14-99ac-6fecb0d16c37",
-              "name": "Callback successfully handled",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "callback",
-                    "run",
-                    ":run_id",
-                    ":callback_type",
-                    ":digest"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "run_id",
-                      "description": "(Required) The ID of the Run you are sending a callback for"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "callback_type",
-                      "description": "(Required) `before_run` is currently the only type that is handled by this endpoint"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "digest",
-                      "description": "(Required) MD5-HMAC Digest created with [Rainforest Auth](https://github.com/rainforestapp/auth)"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "Created",
-              "code": 201,
-              "header": [
+              "name": "run",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "name": "{run_id}",
+                  "item": [
+                    {
+                      "name": "{callback_type}",
+                      "item": [
+                        {
+                          "name": "{digest}",
+                          "item": [
+                            {
+                              "name": "Notify Rainforest when a run webhook callback is complete",
+                              "id": "ab87888b-b2d1-4256-8111-1bc2d564de7d",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/1/callback/run/:run_id/:callback_type/:digest",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "1",
+                                    "callback",
+                                    "run",
+                                    ":run_id",
+                                    ":callback_type",
+                                    ":digest"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "9c104753-19aa-4f00-80a3-fa2a786078a3",
+                                      "key": "run_id",
+                                      "value": "<string>",
+                                      "description": "(Required) The ID of the Run you are sending a callback for"
+                                    },
+                                    {
+                                      "id": "5134c29c-9c79-49e9-9e5e-35775b1999fc",
+                                      "key": "callback_type",
+                                      "value": "after_run",
+                                      "description": "(Required) `before_run` is currently the only type that is handled by this endpoint"
+                                    },
+                                    {
+                                      "id": "6c962331-7e1f-4b16-b286-dccf14909d56",
+                                      "key": "digest",
+                                      "value": "<string>",
+                                      "description": "(Required) MD5-HMAC Digest created with [Rainforest Auth](https://github.com/rainforestapp/auth)"
+                                    }
+                                  ]
+                                },
+                                "description": "Notify Rainforest when a `before_run` webhook callback is complete. See the Using Webhooks article for more information."
+                              },
+                              "response": [
+                                {
+                                  "id": "581e26dd-234c-4bad-9ae6-a2c0af3e7b06",
+                                  "name": "Callback successfully handled",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "CLIENT_TOKEN",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/1/callback/run/:run_id/:callback_type/:digest",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "1",
+                                        "callback",
+                                        "run",
+                                        ":run_id",
+                                        ":callback_type",
+                                        ":digest"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "run_id"
+                                        },
+                                        {
+                                          "key": "callback_type"
+                                        },
+                                        {
+                                          "key": "digest"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Created",
+                                  "code": 201,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-21T19:47:12.000Z",
+                                  "updatedAt": "2026-10-21T19:47:12.000Z",
+                                  "uid": "35240-581e26dd-234c-4bad-9ae6-a2c0af3e7b06"
+                                },
+                                {
+                                  "id": "17851829-abd7-42b2-8632-0bcd7ede6220",
+                                  "name": "Callback already processed; Invalid `callback_type`",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "CLIENT_TOKEN",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/1/callback/run/:run_id/:callback_type/:digest",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "1",
+                                        "callback",
+                                        "run",
+                                        ":run_id",
+                                        ":callback_type",
+                                        ":digest"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "run_id"
+                                        },
+                                        {
+                                          "key": "callback_type"
+                                        },
+                                        {
+                                          "key": "digest"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Bad Request",
+                                  "code": 400,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"error\": \"<string>\"\n}",
+                                  "createdAt": "2026-10-21T19:47:12.000Z",
+                                  "updatedAt": "2026-10-21T19:47:12.000Z",
+                                  "uid": "35240-17851829-abd7-42b2-8632-0bcd7ede6220"
+                                },
+                                {
+                                  "id": "b8455080-c131-4add-a0ff-8e71966d2e8b",
+                                  "name": "Invalid digest",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "CLIENT_TOKEN",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/1/callback/run/:run_id/:callback_type/:digest",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "1",
+                                        "callback",
+                                        "run",
+                                        ":run_id",
+                                        ":callback_type",
+                                        ":digest"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "run_id"
+                                        },
+                                        {
+                                          "key": "callback_type"
+                                        },
+                                        {
+                                          "key": "digest"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"error\": \"<string>\"\n}",
+                                  "createdAt": "2026-10-21T19:47:12.000Z",
+                                  "updatedAt": "2026-10-21T19:47:12.000Z",
+                                  "uid": "35240-b8455080-c131-4add-a0ff-8e71966d2e8b"
+                                }
+                              ],
+                              "createdAt": "2026-10-21T19:47:12.000Z",
+                              "updatedAt": "2026-10-21T19:47:12.000Z",
+                              "uid": "35240-ab87888b-b2d1-4256-8111-1bc2d564de7d"
+                            }
+                          ],
+                          "id": "a61f311c-1fb9-43a5-a114-a1383fcd2543",
+                          "createdAt": "2026-10-21T19:47:12.000Z",
+                          "updatedAt": "2026-10-21T19:47:12.000Z",
+                          "uid": "35240-a61f311c-1fb9-43a5-a114-a1383fcd2543"
+                        }
+                      ],
+                      "id": "3fccd22d-e5f6-4bbe-9004-4e92a0c130f3",
+                      "createdAt": "2026-10-21T19:47:12.000Z",
+                      "updatedAt": "2026-10-21T19:47:12.000Z",
+                      "uid": "35240-3fccd22d-e5f6-4bbe-9004-4e92a0c130f3"
+                    }
+                  ],
+                  "id": "2232e099-8a90-4c28-b985-85d656157967",
+                  "createdAt": "2026-10-21T19:47:12.000Z",
+                  "updatedAt": "2026-10-21T19:47:12.000Z",
+                  "uid": "35240-2232e099-8a90-4c28-b985-85d656157967"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "0dfe5758-1487-4b59-8ea7-0fa0cf13636d",
-              "name": "Callback already processed; Invalid `callback_type`",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "callback",
-                    "run",
-                    ":run_id",
-                    ":callback_type",
-                    ":digest"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "run_id",
-                      "description": "(Required) The ID of the Run you are sending a callback for"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "callback_type",
-                      "description": "(Required) `before_run` is currently the only type that is handled by this endpoint"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "digest",
-                      "description": "(Required) MD5-HMAC Digest created with [Rainforest Auth](https://github.com/rainforestapp/auth)"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "df49dcdc-7fbe-40bb-8bdc-4f720a64e51a",
-              "name": "Invalid digest",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "1",
-                    "callback",
-                    "run",
-                    ":run_id",
-                    ":callback_type",
-                    ":digest"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "run_id",
-                      "description": "(Required) The ID of the Run you are sending a callback for"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "callback_type",
-                      "description": "(Required) `before_run` is currently the only type that is handled by this endpoint"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "digest",
-                      "description": "(Required) MD5-HMAC Digest created with [Rainforest Auth](https://github.com/rainforestapp/auth)"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "CLIENT_TOKEN",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "332bb173-2bd8-43b0-940e-a511592430a0",
+              "createdAt": "2026-10-21T19:47:12.000Z",
+              "updatedAt": "2026-10-21T19:47:12.000Z",
+              "uid": "35240-332bb173-2bd8-43b0-940e-a511592430a0"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "dd55ca57-7190-43d8-8896-d461a534ae45",
+          "createdAt": "2026-10-21T19:47:12.000Z",
+          "updatedAt": "2026-10-21T19:47:12.000Z",
+          "uid": "35240-dd55ca57-7190-43d8-8896-d461a534ae45"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.rainforestqa.com/api",
-      "key": "baseUrl"
+      "id": "f45a0221-ca9e-4528-82f1-a3fea05920b7",
+      "createdAt": "2026-10-21T19:47:12.000Z",
+      "updatedAt": "2026-10-21T19:47:12.000Z",
+      "uid": "35240-f45a0221-ca9e-4528-82f1-a3fea05920b7"
     }
   ],
   "auth": {
@@ -293,25 +291,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "CLIENT_TOKEN"
+        "value": "CLIENT_TOKEN",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "61a25f23-4663-4628-9922-9d19584d4e79",
-    "name": "Rainforest callback API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Nearly all interactions done in Rainforest can be done via the API. Find your API Token (for the CLIENT_TOKEN header field) on the integration settings page (https://app.rainforestqa.com/settings/integrations).",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.rainforestqa.com/api"
     }
-  }
+  ]
 }
